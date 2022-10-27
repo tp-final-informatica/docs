@@ -1,0 +1,119 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex">
+    <meta charset="UTF-8">
+    <title>El algoritmo empleado</title>
+<link rel="stylesheet" href="./css/fonts.css">
+<link rel="stylesheet" href="./css/colors.css">
+<link rel="stylesheet" href="./css/layout.css">
+<link rel="stylesheet" href="./css/crossover-style.css">
+</head>
+<body>
+<div class="header"><h1>Trabajo final de Ingeniería en Informática</h1></div>
+<div class="content">
+    <h2>Algoritmo empleado</h2>
+    <p>El algoritmo genético consta de las siguientes partes</p>
+    <ol>
+        <li><a href="#chromosome">Definición de cromosoma</a></li>
+        <li><a href="#first-gen">Armado de población inicial</a></li>
+        <li><a href="#fitness">Definición de función de fitness</a></li>
+        <li><a href="#parents">Selección de padres</a></li>
+        <li><a href="#crossover">Crossover</a></li>
+        <li><a href="#mutation">Mutación</a></li>
+        <li><a href="#survivors">Selección de soluciones sobrevivientes</a></li>
+        <li><a href="#end-criteria">Criterio de finalización</a></li>
+    </ol>
+
+    <p>La definición de cada uno de estos pasos nos provee distintos resultados finales para resolver el problema.</p>
+
+    <hr/>
+    
+<h3 id="chromosome">Definición de cromosoma</h3>
+<p>La definición del cromosoma a utilizar en el algoritmo genético no es trivial. Ella condiciona los pasos siguientes del algoritmo genético, en tanto los crossovers y mutaciones deben operar sobre este cromosoma.</p>
+<p>Nuestra elección fue plantear de forma natural cada camino como una secuencia de visitas numeradas, desde inicio al fin. Entonces, para un viajante que sale del punto 0 y vuelve al punto 0, visitando los puntos 1,2,3 el cromosoma planteado es:</p>
+
+<p class="center">{ [0, 1, 2, 3, 0] }</p>
+
+<p>Extendiendo el ejemplo anterior, para dos viajantes, que parten del punto 0, pero regresan uno al punto 0 y el otro al punto 1, y recorren los puntos 2, 3, 4 y 5, 6, 7 respectivamente, el cromosoma planteado es</p>
+<p class="center">{ [0, 1, 2, 3, 0], [0, 4, 5, 6, 1] }</p>
+
+<p>Esta representación de las rutas tiene la menor redundancia de soluciones<a href="#footnote01">(*1)</a> en comparación a otros métodos de armado de cromosomas, es decir, un cromosoma no puede interpretarse como más de una secuencia de rutas.</p>
+
+<p id="footnote01">(*1) Basado en el paper <em>Genetic Algorithm for solving multiple traveling salesmen problem using a new crossover and population generation</em>.</p>
+
+<div class="align-left"><a href="#top">Volver al índice</a></div><hr/>
+<h3 id="first-gen">Armado de población inicial</h3>    <p>Se distribuyen las visitas en N rutas (por N viajantes) de forma <b>aleatoria</b> y se asignan a cada solución. Esto garantiza un pool genético grande, pero no soluciones buenas. Las soluciones suelen amarse intentando mantener balanceada la cantidad de visitas por ruta.</p>
+<div class="align-left"><a href="#top">Volver al índice</a></div><hr/>
+<h3 id="fitness">Definición de función de fitness</h3>
+    <p>La función de fitness es la guía mediante la cual el algoritmo itera, aprende, y llega a una solución con características deseadas.</p>
+    <p>Nuestro enfoque inicial fue condicionar dicha función para premiar o penalizar las distintas soluciones, en tanto fueran mejores o ps. Posteriormente, complejizamos nuestro enfoque, permitiendo soluciones teóricamente incorrectas, bajo una penalización mayor. Esto significa que permitimos soluciones en las que algunas visitas se repitieron, y otras no existieron. Esto permitió que estas soluciones propagaran su material genético, y contribuyeran también al resultado final.</p>
+    <p>La solución final elegida siempre es una solución completa, que cumple con la teoría del problema del viajante (visita todos los puntos una única vez).
+    <p>Dado que nuestro problema incluye no solo la búsqueda de la secuencia de rutas de menor distancia total, sino también la posibilidad proponer solucione las que algunas viajantes tienen prioridad, desarrollamos distintas funciones de fitness, para cubrir cada caso.</p>
+
+    <h4>Caso 1: todos los viajantes participan obligatoriamente, las rutas son balanceadas, no tenemos viajantes con prioridad, nuestra función de fitness incluye ambas en su cálculo.</h4>
+    <p>Por el momento es un número, dado por la siguiente fórmula:</p>
+    <p class="center">fitness = 100 / ((costo de la ruta) * (1 + (costo de los viajantes)/2) )</p>
+    <p>Al estar los costos dividiendo, el fitness crece cuanto mejor es la solución. Multiplicamos por 100 para que el número no sea tan chico. Esto no es necesario.</p>
+    <p>Posible mejora: agregar balanceo de la ruta, con cota de cantidad de visitas (una solución balanceada puede ser mejor que una que asigna todas las visitas a un solo viajante, por ejemplo).</p>
+
+<div class="align-left"><a href="#top">Volver al índice</a></div><hr/>
+<h3 id="parents">Selección de padres</h3>    <h4>Aleatoria</h4>
+    <p>Se seleccionan dos padres de la generación anterior de forma aleatoria. No se pone ningún criterio extra para elegir un padre bueno o malo. De esta manera, se permite que todas las soluciones que sobrevivieron la generación anterior tengan probabilidad de procrear.</p>
+    <p>La idea detrás de esto, es que no podemos saber de antemano qué combinaciones van a dar los mejores hijos, entonces se permiten todas.</p>
+    <h4>Por fitness para uno de los padres</h4>
+    <p>Con una probabilidad baja permitimos una selección de padres en la que nos aseguramos que al menos uno de los padres tenga buen fitness. Tomamos uno de los padres del mejor 10% de las soluciones, y el otro de forma aleatoria. Esto lo hicimos a modo de prueba para evaluar la incidencia en el resultado final.</p>
+
+
+<div class="align-left"><a href="#top">Volver al índice</a></div><hr/>
+<h3 id="crossover">Crossover</h3>
+    <p>El crossover es un punto fundamental del algoritmo genético. La elección del mismo afecta el desarrollo y los resultados de la ejecución.</p>
+    <p>Para nuestro problema, un problema de optimización de rutas, implementamos cuatro crossovers distintos. Los crossovers elegidos cumplen con distintas condiciones:</p>
+    <ul>
+        <li>MixByShared propaga la <b>pertenencia</b> de una visita a una ruta dada</li>
+        <li>Cycle Crossover propaga la <b>ubicación relativa</b> de las visitas en cada ruta</li>
+        <li>Partially mapped Crossover propaga un <b>segmento</b> de la ruta original, y completa el resto con ubicaciones relativas</li>
+        <li>Enhanced Edge Recombination propaga las <b>conexiones</b> entre visitas</li>
+    </ul>
+
+    <h4>MixByShared (MBS)</h4>
+    <p>Desarrollamos este algoritmo para la prueba de comparación de lenguajes. Nos pareció interesante dejarlo para el proyecto final, por tener un enfoque distinto a los demás algoritmos que encontramos en los papers.</p>
+    <p>Dadas dos soluciones padres, P0 y P1, analizamos las visitas de cada ruta y marcamos aquellas que corresponden siempre a la misma ruta, y aquellas que en ambos padres pertenecen a rutas distintas, por ejemplo:</p>
+
+    <div class="crossover">
+    <label>Soluciones padres</label>
+    <div class="flex mt3 mb3 gap3">  <h2>P0</h2>    <div class=""><div class="flex"><div class="circle medium-turquoise">A0</div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola">1</div><i class="icono-arrow1-left"></i><div class="circle dark">2</div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola">3</div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola">4</div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise">A1</div></div>    <div class="underline-light">      viajante A    </div>  </div>  <div class=""><div class="flex"><div class="circle medium-turquoise">B0</div><i class="icono-arrow1-left"></i><div class="circle light-coral">5</div><i class="icono-arrow1-left"></i><div class="circle light-coral">6</div><i class="icono-arrow1-left"></i><div class="circle light-coral">7</div><i class="icono-arrow1-left"></i><div class="circle light-coral">8</div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise">B1</div></div>    <div class="underline-light">      viajante B    </div>  </div></div>   <div class="flex mt3 mb3 gap3">  <h2>P1</h2>    <div class=""><div class="flex"><div class="circle medium-turquoise">A0</div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola">1</div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola">3</div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola">4</div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise">A1</div></div>    <div class="underline-light">      viajante A    </div>  </div>  <div class=""><div class="flex"><div class="circle medium-turquoise">B0</div><i class="icono-arrow1-left"></i><div class="circle light-coral">5</div><i class="icono-arrow1-left"></i><div class="circle light-coral">6</div><i class="icono-arrow1-left"></i><div class="circle dark">2</div><i class="icono-arrow1-left"></i><div class="circle light-coral">7</div><i class="icono-arrow1-left"></i><div class="circle light-coral">8</div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise">B1</div></div>    <div class="underline-light">      viajante B    </div>  </div></div>
+        <label>Distribución de visitas en los hijos</label>
+    <div class="flex mt3 mb3 gap3">
+        <div>
+            <div class="flex"><div class="circle yellow-crayola">1</div><div class="circle dark">2</div><div class="circle yellow-crayola">3</div><div class="circle yellow-crayola">4</div></div>      <div class="underline-light">viajante A</div>
+        </div>
+        <div>
+            <div class="flex"><div class="circle dark">2</div><div class="circle light-coral">5</div><div class="circle light-coral">6</div><div class="circle light-coral">7</div><div class="circle light-coral">8</div></div>      <div class="underline-light">viajante B</div>
+        </div>
+    </div>
+
+    <label>Posibles soluciones hijas</label>
+    <div class="flex mt3 mb3 gap3">  <h2>H0</h2>    <div class=""><div class="flex"><div class="circle medium-turquoise">A0</div><i class="icono-arrow1-left"></i><div class="circle dark">2</div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola">1</div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola">4</div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola">3</div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise">A1</div></div>    <div class="underline-light">      viajante A    </div>  </div>  <div class=""><div class="flex"><div class="circle medium-turquoise">B0</div><i class="icono-arrow1-left"></i><div class="circle light-coral">5</div><i class="icono-arrow1-left"></i><div class="circle light-coral">7</div><i class="icono-arrow1-left"></i><div class="circle light-coral">6</div><i class="icono-arrow1-left"></i><div class="circle light-coral">8</div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise">B1</div></div>    <div class="underline-light">      viajante B    </div>  </div></div>   <div class="flex mt3 mb3 gap3">  <h2>H1</h2>    <div class=""><div class="flex"><div class="circle medium-turquoise">A0</div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola">1</div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola">3</div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola">4</div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise">A1</div></div>    <div class="underline-light">      viajante A    </div>  </div>  <div class=""><div class="flex"><div class="circle medium-turquoise">B0</div><i class="icono-arrow1-left"></i><div class="circle light-coral">8</div><i class="icono-arrow1-left"></i><div class="circle light-coral">5</div><i class="icono-arrow1-left"></i><div class="circle dark">2</div><i class="icono-arrow1-left"></i><div class="circle light-coral">6</div><i class="icono-arrow1-left"></i><div class="circle light-coral">7</div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise">B1</div></div>    <div class="underline-light">      viajante B    </div>  </div></div>   <div class="flex mt3 mb3 gap3">  <h2>H2</h2>    <div class=""><div class="flex"><div class="circle medium-turquoise">A0</div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola">1</div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola">4</div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola">3</div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise">A1</div></div>    <div class="underline-light">      viajante A    </div>  </div>  <div class=""><div class="flex"><div class="circle medium-turquoise">B0</div><i class="icono-arrow1-left"></i><div class="circle dark">2</div><i class="icono-arrow1-left"></i><div class="circle light-coral">5</div><i class="icono-arrow1-left"></i><div class="circle light-coral">8</div><i class="icono-arrow1-left"></i><div class="circle light-coral">6</div><i class="icono-arrow1-left"></i><div class="circle light-coral">7</div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise">B1</div></div>    <div class="underline-light">      viajante B    </div>  </div></div>   <div class="flex mt3 mb3 gap3">  <h2>H3</h2>    <div class=""><div class="flex"><div class="circle medium-turquoise">A0</div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola">4</div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola">1</div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola">3</div><i class="icono-arrow1-left"></i><div class="circle dark">2</div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise">A1</div></div>    <div class="underline-light">      viajante A    </div>  </div>  <div class=""><div class="flex"><div class="circle medium-turquoise">B0</div><i class="icono-arrow1-left"></i><div class="circle light-coral">7</div><i class="icono-arrow1-left"></i><div class="circle light-coral">5</div><i class="icono-arrow1-left"></i><div class="circle light-coral">6</div><i class="icono-arrow1-left"></i><div class="circle light-coral">8</div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise">B1</div></div>    <div class="underline-light">      viajante B    </div>  </div></div>
+    </div>
+
+<div class="align-left"><a href="#top">Volver al índice</a></div><hr/>
+<h3 id="mutation">Mutación</h3>
+
+<div class="align-left"><a href="#top">Volver al índice</a></div><hr/>
+<h3 id="survivors">Selección de soluciones sobrevivientes</h3>
+
+<div class="align-left"><a href="#top">Volver al índice</a></div><hr/>
+<h3 id="end-criteria">Criterio de finalización</h3>
+
+<div class="align-left"><a href="#top">Volver al índice</a></div><hr/>
+
+
+</div>
+
+<div class="footer"><div><p class="center">Gracias!</p><p class="center">Ana, Nere y Mau</p></div></div>
+</body>
+</html>
