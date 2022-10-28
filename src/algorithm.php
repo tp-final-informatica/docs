@@ -1,6 +1,6 @@
 <?php
 
-include_once "./src/sections/libraries.php";
+include_once "./src/utils/libraries.php";
 
 
 function back_to_top() {
