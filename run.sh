@@ -13,8 +13,8 @@ xdg-open http://localhost:9099/docs  2> /dev/null
 
 nodemon --watch $(pwd)/src -e php --signal SIGTERM --exec "docker exec mitp /var/www/html/compile.sh DEV"
 
-echo "Compilando para Github!"
+echo -e "\n\033[0;31m=> Compilando para Github!!!\033[0m\n"
 
 docker exec mitp /var/www/html/compile.sh
 
-echo "Ahora se puede commitear."
+echo -e "\033[0;32mAhora se puede commitear!\033[0m\n"
