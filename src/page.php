@@ -6,6 +6,11 @@ include_once "./src/sections/libraries.php";
 
 <?php printHeader(); ?>
 <div class="content">
+
+
+
+    <?php breadcrumb("/docs", "Breadcrumb"); ?>
+
     Colores:
     <!-- Coolors Palette Widget -->
     <script src="https://coolors.co/palette-widget/widget.js"></script>

@@ -17,7 +17,7 @@ $id = "crossover";
         <li>Enhanced Edge Recombination propaga las <b>conexiones</b> entre visitas</li>
     </ul>
 
-    <h4>MixByShared (MBS)</h4>
+    <h3>MixByShared (MBS)</h3>
     <?php $mbs = new Mbs(); ?>
     <p>Desarrollamos este algoritmo para la prueba de comparación de lenguajes. Nos pareció interesante dejarlo para el proyecto final, por tener un enfoque distinto a los demás algoritmos que encontramos en los papers.</p>
     <p>Dadas dos soluciones padres, P0 y P1, analizamos las visitas de cada ruta y marcamos aquellas que corresponden siempre a la misma ruta, y aquellas que en ambos padres pertenecen a rutas distintas, por ejemplo:</p>
@@ -46,7 +46,7 @@ $id = "crossover";
     <p>El resultado del algoritmo son soluciones en las que siempre, todas las visitas de todas las rutas de las soluciones hijas pertenecen a la misma ruta de alguno de los dos padres.</p>
     <p><b>MBS mantiene entonces la asignación de las visitas a las rutas originales, pero no el orden de los mismos, o su posición inicial.</b></p>
 
-    <h4>Cycle Crossover (CX)</h4>
+    <h3>Cycle Crossover (CX)</h3>
     <?php $cx = new Cx(); ?>
     <p>Este algoritmo fue propuesto por IM Oliver en el paper <em>A Study of permutation crossover Operators on the Traveling Salesman Problem</em>. El algoritmo original está planteado para el problema del viajante (con una única ruta), y su finalidad es encontrar ciclos (partes intercambiables) entre secuencias de visitas. De no encontrar ciclos, no es posible generar soluciones nuevas. Esto sucederá en general para secuencias de visitas cortas.</p>
     <p>Para aplicar este algoritmo a nuestro problema fue necesario implementar adaptaciones, puesto que no se cumplen las mismas condiciones:</p>

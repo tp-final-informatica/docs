@@ -1,6 +1,6 @@
 <?php
 
-function printHeader(){
+function printHeader($title = "Trabajo Profesional de Ingeniería en Informática"){
 
     print('<div class="header">');
     if(localdevonly()) {
@@ -9,7 +9,7 @@ function printHeader(){
             <div class="ribbon ribbon-top-left"><span>DEV!</span></div>
         </div>');
     }
-    print('<h1>Trabajo Profesional de Ingeniería en Informática</h1>');
+    print('<h1>' . $title. '</h1>');
     print('</div>');
 }
 

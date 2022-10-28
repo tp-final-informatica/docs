@@ -2,7 +2,7 @@
 include_once "./src/sections/libraries.php";
 ?>
 
-<?php HTML_head("Page"); ?>
+<?php HTML_head("Índice"); ?>
 
 <?php printHeader(); ?>
 <div class="content">
@@ -12,6 +12,7 @@ include_once "./src/sections/libraries.php";
     <ol>
         <li><a href="/docs/index.html">Inicio</a></li>
         <li><a href="/docs/algorithm.html">El algoritmo empleado</a></li>
+        <li><a href="/docs/core-languages.html">Comparación de lenguajes para el desarrollo del algoritmo</a></li>
         <li><a href="/docs/literature.html">Bibliografía consultada</a></li>
 
     </ol>

@@ -8,7 +8,7 @@ function back_to_top() {
 }
 
 function print_section_heading($section_title, $section_id){
-    printf('<h3 id="%s">%s</h3>', $section_id, $section_title);
+    printf('<h2 id="%s">%s</h2>', $section_id, $section_title);
 }
 
 function print_section_footer() {
@@ -18,12 +18,12 @@ function print_section_footer() {
 ?>
 
 <?php HTML_head("El algoritmo empleado"); ?>
-<?php printHeader(); ?>
+<?php printHeader("El algoritmo genético empleado"); ?>
 
 
 
 <div class="content">
-    <h2>El algoritmo genético empleado</h2>
+    <?php breadcrumb(); ?>
     <p>El algoritmo genético consta de las siguientes partes</p>
     <ol>
         <li><a href="#chromosome">Definición de cromosoma</a></li>

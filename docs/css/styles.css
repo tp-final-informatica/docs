@@ -48,7 +48,24 @@ button:hover {
 .mt3 { margin-top: 3em; }
 .mb3 { margin-bottom: 3em; }
 
-/*https://codepen.io/saeedalipoor/pen/NPyeog*/
+table th {
+    text-align: start;
+    padding: 1em ;
+}
+
+table td {
+    text-align: start;
+    padding: 1em;
+    border: 2px solid var(--cadet-blue);
+}
+
+table {
+    margin-bottom: 2em;
+}
+
+
+
+    /*https://codepen.io/saeedalipoor/pen/NPyeog*/
 
 [class*="icono"] {
     position: relative;

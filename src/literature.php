@@ -4,10 +4,10 @@ include_once "./src/sections/libraries.php";
 
 <?php HTML_head("Bibliografía"); ?>
 
-<?php printHeader(); ?>
+<?php printHeader("Bibliografía"); ?>
 <div class="content">
 
-    <h2>Bibliografía</h2>
+    <?php breadcrumb(); ?>
 
     <ol>
         <li>Genetic algorithm for Solving Multiple Traveling Salesmen Problem using a New Crossover and Population Generation, Dharm Raj Singh, Manoj Kumar Singh, Tarkeswar Singh, Rajkishore Prasad, ISSN 2007-9737, doi: 10.13053/CyS-22-2-2956.</li>
