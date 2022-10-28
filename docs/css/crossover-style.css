@@ -1,6 +1,7 @@
 .crossover p, .crossover h2 {
     font-size: 1.75em;
     font-family: monospace;
+    margin: unset;
 }
 
 body .crossover {
