@@ -31,7 +31,9 @@ html {
     padding: 2em;
     justify-content: center;
     display: flex;
-    color: var(--cadet-blue);
+    /*color: var(--cadet-blue);*/
+    color: var(--black-coffee);
+    font-weight: lighter;
     background-color: var(--mint-cream);
 
 }
