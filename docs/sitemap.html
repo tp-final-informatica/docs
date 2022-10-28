@@ -24,11 +24,19 @@
     <h2>Índice</h2>
 
     <ol>
+        <li><a href="/docs/index.html">Inicio</a></li>
         <li><a href="/docs/algorithm.html">El algoritmo empleado</a></li>
         <li><a href="/docs/literature.html">Bibliografía consultada</a></li>
-        <li><a href="/docs/page.html">(ocultar) Herramientas para la página de docs.</a></li>
+
     </ol>
 
+    <php if localdevonly(): ?>
+        <h2>Índice DEV (local)</h2>
+
+        <ol>
+        <li><a href="/docs/page.html">Herramientas para la página de docs.</a></li>
+        </ol>
+    </php>
 </div>
 <button onclick="topFunction()" id="btn-scroll-top" title="Volver al inicio de la página">Subir</button><div class="footer"><div><p class="center">Volver al <a href="/docs/sitemap.html">índice</a></p></div></div>
 <script type="text/javascript" src="http://livejs.com/live.js"></script>

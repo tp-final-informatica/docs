@@ -24,7 +24,7 @@ function HTML_head($title) {
 }
 
 function HTML_foot() {
-    if($_ENV["LOCALDEV"]??false) {
+    if(localdevonly()) {
         print('<script type="text/javascript" src="http://livejs.com/live.js"></script>');
     }
     print("
