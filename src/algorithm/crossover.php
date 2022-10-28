@@ -3,6 +3,7 @@ include_once "./src/algorithm/crossover/Crossover.php";
 include_once "./src/algorithm/crossover/Mbs.php";
 include_once "./src/algorithm/crossover/Cx.php";
 include_once "./src/algorithm/crossover/Pmx.php";
+include_once "./src/algorithm/crossover/Eer.php";
 $title = "Crossover";
 $id = "crossover";
 ?>
@@ -81,7 +82,7 @@ $id = "crossover";
 
 
     <h3>Partially mapped crossover (PMX)</h3>
-<?php $pmx = new Pmx(); ?>
+    <?php $pmx = new Pmx(); ?>
 
     <p>Este algoritmo fue propuesto por D. Goldberg y R. Lingle en el paper <em>Alleles, loci, and the Traveling Salesman Problem.</em></p>
     <p>Este algoritmo mantiene una subsección de la ruta original de uno de los padres, y acomoda el resto de las visitas
@@ -143,5 +144,43 @@ $id = "crossover";
         pero sí puede contribuir a generar mejores soluciones mezclándose con otras soluciones de la generación.</p>
 
     <h3>Enhanced edge recombination (EER)</h3>
-    <p todo>Completar</p>
+    <?php $eer = new Eer(); ?>
+
+    <p>En distintos papers encontramos el algoritmo Edge recombination, que mantiene la información de adyacencia entre
+        las visitas, pero descarta el orden de los elementos.
+        Enhanced edge recombination es una variante de Edge recombination, en la que se retiene también el orden de los elementos al
+        preservar sub secuencias comunes a ambos padres. <span data-toggletip>Del paper "A comparison of Genetic Sequencing Operators" (ver sección Bibliografía).</span>
+    </p>
+    <p>El algoritmo no puede aplicarse directamente en nuestro caso dado que el mismo considera una única ruta por solución en
+        la que todos los elementos de ambos padres están representados. En nuestro caso, y nuevamente por tener las visitas
+        distribuidas en distintas rutas, no podemos asegurar que las sub rutas compartan siempre todos sus elementos.</p>
+    <p>Para poder ejecutar este algoritmo, procedimos a adaptar nuestro problema concatenando las visitas de las distintas
+        rutas en una única secuencia de visitas. Luego aplicamos el algoritmo según la bibliografía, y volvimos a separar
+        las rutas respetando la cantidad de visitas de alguno de los padres elegido al azar.</p>
+    <p>A continuación presentamos un ejemplo:</p>
+
+    <div class="crossover">
+        <?php $eer->eer_parents(); ?>
+    </div>
+    <p>Generamos rutas temporales, en las que quitamos los bordes y concatenamos las visitas de la siguiente forma:</p>
+    <div class="crossover">
+        <?php $eer->eer_joined(); ?>
+    </div>
+
+    <p>Una vez obtenida la ruta concatenada procedemos a generar el mapa de adyacencias, marcando con un signo menos aquellas adyacencias que estén en ambas rutas:</p>
+    <div class="crossover">
+        <?php $eer->eer_map(); ?>
+    </div>
+
+    <p>Se elije un punto de inicio, en general el inicio de alguna de las dos rutas, y luego se van seleccionando las adyacencias según el mapa: las negativas tienen primera prioridad, y luego, aquellas cuyas adyacencias tengan menos enlaces disponibles.</p>
+    <p>Por ejemplo, de partir del "3", la primera prioridad sería el "4" porque tiene un signo menos (está en ambas rutas), luego el "1" porque tiene 3 adyacencias, y por último el "2" porque tiene 4 adyacencias.</p>
+    <p>Cada vez que se selecciona una visita se actualiza el mapa quitándola de todas sus adyacencias.</p>
+    <p>Si no hay adyacencia para continuar, pero quedan elementos en el mapa, se elige uno al azar y se vuelve a comenzar.</p>
+
+    <p>Empezando desde el "1" y manteniendo la distribución del padre 1, las siguientes son posibles soluciones finales:</p>
+
+    <div class="crossover">
+        <?php $eer->eer_children(); ?>
+    </div>
+
 <?php print_section_footer(); ?>
