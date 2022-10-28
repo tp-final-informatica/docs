@@ -67,7 +67,7 @@ $id = "crossover";
         <?php $cx->cx_cycles(); ?>
     </div>
 
-    <p>Estos ciclos son intercambiables manteniendo la integridad de las rutas. Las soluciones finales se forman a partir de un padre, y al menos un intercambio en las rutas según los ciclos encontrados, por ejemplo:</p>
+    <p>Estos ciclos representan visitas que pueden ser intercambiables manteniendo la integridad de las rutas. Las soluciones finales se forman a partir de un padre, y al menos un intercambio en las rutas según los ciclos encontrados, por ejemplo:</p>
     <div class="crossover">
         <?php $cx->cx_children(); ?>
     </div>

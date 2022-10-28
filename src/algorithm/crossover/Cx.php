@@ -17,19 +17,19 @@ class Cx extends Crossover {
     private $cycleB1 = [5,7,8];
     private $cycleB2 = [6];
 
-    private function _printCycle ($pa1, $pb1, $pa2, $pb2, $cycle, $color1, $color2) {
+    private function _printCycle ($pa1, $pb1, $pa2, $pb2, $cycle1, $cycle2, $color1, $color2) {
         // @todo esto sería mejor aplicar todos los ciclos en un mismo grafico
         print('<div class="flex wrap gap3 mb2">');
         print('  <div>');
 
-        $this->printRoute($pa1, $cycle, WHITE, WHITE, $color1);
-        $this->printRoute($pa2, $cycle, WHITE, WHITE, $color1);
+        $this->printRoute($pa1, $cycle1, WHITE, WHITE, $color1);
+        $this->printRoute($pa2, $cycle1, WHITE, WHITE, $color1);
         print('  <div class="underline-light">viajante A</div>');
 
         print('  </div>');
         print('  <div>');
-        $this->printRoute($pb1, $cycle, WHITE, WHITE, $color2);
-        $this->printRoute($pb2, $cycle, WHITE, WHITE, $color2);
+        $this->printRoute($pb1, $cycle2, WHITE, WHITE, $color2);
+        $this->printRoute($pb2, $cycle2, WHITE, WHITE, $color2);
         print('  <div class="underline-light">viajante B</div>');
 
         print('  </div>');
@@ -58,8 +58,7 @@ class Cx extends Crossover {
 
     public function cx_cycles() {
         print("<div class=\"mt3 mb3\">");
-        $this->_printCycle($this->pa1, $this->pb1, $this->pa2, $this->pb2, $this->cycleA1, YELLOW, CORAL);
-        $this->_printCycle($this->pa1, $this->pb1, $this->pa2, $this->pb2, $this->cycleB1, YELLOW, CORAL);
+        $this->_printCycle($this->pa1, $this->pb1, $this->pa2, $this->pb2, $this->cycleA1, $this->cycleB1, YELLOW, CORAL);
         print("</div>");
     }
 
