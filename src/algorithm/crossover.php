@@ -1,11 +1,11 @@
 <?php
-include_once "./src/algorithm/crossover/Crossover.php";
-include_once "./src/algorithm/crossover/Mbs.php";
-include_once "./src/algorithm/crossover/Cx.php";
-include_once "./src/algorithm/crossover/Pmx.php";
-include_once "./src/algorithm/crossover/Eer.php";
+include_once "./src/algorithm/solutions/Solution.php";
+include_once "./src/algorithm/solutions/Mbs.php";
+include_once "./src/algorithm/solutions/Cx.php";
+include_once "./src/algorithm/solutions/Pmx.php";
+include_once "./src/algorithm/solutions/Eer.php";
 $title = "Crossover";
-$id = "crossover";
+$id = "solutions";
 ?>
 
 <?php print_section_heading($title, $id); ?>

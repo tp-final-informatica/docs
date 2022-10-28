@@ -1,6 +1,6 @@
 <?php
 
-class Mbs extends Crossover {
+class Mbs extends Solution {
     private $pa1 = ["A0", 1, 2, 3, 4, "A1"];
     private $pb1 = ["B0", 5, 6, 7, 8, "B1"];
     private $pa2 = ["A0", 1, 3, 4, "A1"];

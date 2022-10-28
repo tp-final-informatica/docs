@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./css/colors.css">
     <link rel="stylesheet" href="./css/layout.css">
     <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="./css/crossover-style.css">
+    <link rel="stylesheet" href="./css/solutions-style.css">
 
     <link rel="stylesheet" href="./css/tooltip.css">
     <link rel="stylesheet" href="./css/scroll-top.css">
@@ -78,7 +78,7 @@
 
 
 <hr/>
-<h2 id="crossover">Crossover</h2>
+<h2 id="solutions">Crossover</h2>
     <p>El crossover es un punto fundamental del algoritmo genético. La elección del mismo afecta el desarrollo y los resultados de la ejecución.</p>
     <p>Para nuestro problema, un problema de optimización de rutas, implementamos cuatro crossovers distintos. Los crossovers elegidos cumplen con distintas condiciones:</p>
     <ul>
@@ -235,6 +235,43 @@
 
 <hr/>
 <h2 id="mutation">Mutación</h2>
+    <p>
+        Dentro del algoritmo genético, la mutación evita que las soluciones obtenidas se concentren todas en un mismo óptimo
+        local. Las mutaciones insertan diversidad, incorporando estructuras genéticas nuevas a la población.
+    </p>
+
+    <p>Las siguientes mutaciones se aplican de forma equiprobable, sólo una a cada solución, si el rate de mutación se cumple.</p>
+    <p todo>En realidad estoy pensando en dirigir las mutaciones según los mejores resultados. graficar</p>
+
+    <h3>TWORS/Displacement mutation (DM)</h3>
+        <p>Se trata de intercambiar la posición de dos visitas en una misma ruta elegidas de forma aleatoria.</p>
+
+    <div class="mutation">
+        <div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>4</p></div></div><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>4</p></div></div>    </div>
+
+    <h3>RSM - Reverse sequence mutation</h3>
+    <p>En este caso, se trata de seleccionar una sub secuencia dentro de una ruta en un cromosoma, e invertir el orden de la misma.</p>
+    <div class="mutation">
+        <div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div></div><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div></div>    </div>
+    <h3>PSM - Partially shuffled mutation</h3>
+    <p>Similar al caso anterior, se selecciona una sub secuencia dentro de una ruta en un cromosoma, y se ordenan los elementos
+        de forma aleatoria.</p>
+    <div class="mutation">
+        <div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div></div><div class="flex"><div class="circle "><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle "><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle "><p>5</p></div></div>    </div>
+
+    <h3>Desplazamiento de visita a ruta alternativa: Jump mutation (JM)</h3>
+    <p>Elegimos aleatoriamente dos rutas, una será donante y la otra receptora.</p>
+    <p>Luego, elegimos aleatoriamente una visita dentro de la ruta donante y la llevamos a una posición aleatoria en la ruta receptora.</p>
+    <div class="mutation">
+        <div class="flex wrap gap3 mb2">  <div><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>3</p></div></div>  <div class="underline-light">viajante A</div>  </div>  <div><div class="flex"><div class="circle light"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>7</p></div></div>  <div class="underline-light">viajante B</div>  </div></div><div class="flex wrap gap3 mb2">  <div><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>3</p></div></div>  <div class="underline-light">viajante A</div>  </div>  <div><div class="flex"><div class="circle light"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>7</p></div></div>  <div class="underline-light">viajante B</div>  </div></div>    </div>
+
+    <h3>DM entre rutas (JDM)</h3>
+    <p todo>Completar</p>
+
+    <h3>RSM entre rutas (JRSM)</h3>
+    <p todo>Completar</p>
+
+    <h3>PSM entre rutas (JPSM)</h3>
 <p todo>Completar</p>
 
 <hr/>

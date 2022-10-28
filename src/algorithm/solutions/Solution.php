@@ -6,7 +6,7 @@ const CORAL = "light-coral";
 const BLACK = "dark";
 const WHITE = "light";
 
-class Crossover {
+class Solution {
     public function printRoute(array $array, $skipped, $color, $edges = TURQUOISE, $special = BLACK) {
         print('<div class="flex">');
         for ($i = 0; $i < count($array); $i++) {
