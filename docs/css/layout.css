@@ -23,6 +23,7 @@ html {
     /*padding: 6em;*/
     max-width: 800px;
     margin: auto;
+    width: -webkit-fill-available;
 }
 
 .footer {

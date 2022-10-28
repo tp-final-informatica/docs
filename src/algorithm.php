@@ -1,8 +1,7 @@
 <?php
 
-include_once "./src/html.php";
-include_once "./src/header.php";
-include_once "./src/footer.php";
+include_once "./src/sections/libraries.php";
+
 
 function back_to_top() {
     print("<div class=\"align-left\"><a href=\"#top\">Volver al índice</a></div>");
