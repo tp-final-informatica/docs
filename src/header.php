@@ -2,7 +2,7 @@
 
 function printHeader(){
     print('<div class="header">');
-    print('<h1>Trabajo final de Ingeniería en Informática</h1>');
+    print('<h1>Trabajo Profesional de Ingeniería en Informática</h1>');
     print('</div>');
 }
 
