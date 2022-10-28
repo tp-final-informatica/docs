@@ -20,6 +20,8 @@ function print_section_footer() {
 <?php HTML_head("El algoritmo empleado"); ?>
 <?php printHeader(); ?>
 
+
+
 <div class="content">
     <h2>El algoritmo genético empleado</h2>
     <p>El algoritmo genético consta de las siguientes partes</p>

@@ -24,6 +24,9 @@ function HTML_head($title) {
 }
 
 function HTML_foot() {
+    if($_ENV["LOCALDEV"]??false) {
+        print('<script type="text/javascript" src="http://livejs.com/live.js"></script>');
+    }
     print("
     <script src=\"./js/tooltip.js\"></script>
     <script src=\"./js/scroll-top.js\"></script>

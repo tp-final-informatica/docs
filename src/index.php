@@ -8,7 +8,7 @@ include_once "./src/sections/libraries.php";
 
 <?php printHeader(); ?>
     <div class="content">
-Completar
+    Completar
     </div>
 <?php footer(); ?>
 
