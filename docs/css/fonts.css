@@ -15,7 +15,7 @@ h4, h5, h6 {
     padding-top: 1.25em;
 }
 
-p, li, a {
+p, li, a, button {
     font-family: 'Hind', sans-serif;
     margin-top: 0;
     font-size: 18px;

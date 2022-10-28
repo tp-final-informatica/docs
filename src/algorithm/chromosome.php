@@ -13,8 +13,11 @@ $id = "chromosome";
 <p>Extendiendo el ejemplo anterior, para dos viajantes, que parten del punto 0, pero regresan uno al punto 0 y el otro al punto 1, y recorren los puntos 2, 3, 4 y 5, 6, 7 respectivamente, el cromosoma planteado es</p>
 <p class="center">{ [0, 1, 2, 3, 0], [0, 4, 5, 6, 1] }</p>
 
-<p>Esta representación de las rutas tiene la menor redundancia de soluciones<a href="#footnote01">(*1)</a> en comparación a otros métodos de armado de cromosomas, es decir, un cromosoma no puede interpretarse como más de una secuencia de rutas.</p>
+<p>
+    Esta representación de las rutas tiene la menor redundancia de soluciones en comparación a otros métodos de armado de cromosomas, es decir, un cromosoma no puede interpretarse como más de una secuencia de rutas.
+    <span data-toggletip>Basado en el paper "Genetic Algorithm for solving multiple traveling salesmen problem using a new crossover and population generation" (ver sección Bibliografía).</span>
+</p>
 
-<p id="footnote01">(*1) Basado en el paper <em>Genetic Algorithm for solving multiple traveling salesmen problem using a new crossover and population generation</em>.</p>
+
 
 <?php print_section_footer(); ?>

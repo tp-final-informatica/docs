@@ -13,7 +13,7 @@ function print_section_heading($section_title, $section_id){
 }
 
 function print_section_footer() {
-    back_to_top();
+    //back_to_top();
     print ("<hr/>");
 }
 ?>
