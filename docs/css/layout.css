@@ -15,7 +15,7 @@ html {
     justify-content: center;
     display: flex;
     color: var(--black-coffee);
-    background-color: var(--mint-cream);
+    /*background-color: var(--mint-cream);*/
 
 }
 

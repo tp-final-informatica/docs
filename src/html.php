@@ -4,7 +4,7 @@ function HTML_head($title) {
     print ("
 <!DOCTYPE html>
 
-<html lang=\"en\">
+<html lang=\"es\">
 <head>
     <meta name=\"robots\" content=\"noindex\">
     <meta charset=\"UTF-8\">

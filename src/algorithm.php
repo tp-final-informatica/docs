@@ -22,7 +22,7 @@ function print_section_footer() {
 <?php printHeader(); ?>
 
 <div class="content">
-    <h2>Algoritmo empleado</h2>
+    <h2>El algoritmo genético empleado</h2>
     <p>El algoritmo genético consta de las siguientes partes</p>
     <ol>
         <li><a href="#chromosome">Definición de cromosoma</a></li>
@@ -35,7 +35,7 @@ function print_section_footer() {
         <li><a href="#end-criteria">Criterio de finalización</a></li>
     </ol>
 
-    <p>La definición de cada uno de estos pasos nos provee distintos resultados finales para resolver el problema.</p>
+    <p>La definición de cada uno de estos pasos afecta el resultado final del algoritmo. A continuación detallamos nuestras decisiones en cada paso.</p>
 
     <hr/>
     <?php

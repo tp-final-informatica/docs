@@ -43,6 +43,10 @@ body .crossover {
     place-items: center;
 }
 
+.flex.wrap {
+    flex-wrap: wrap;
+}
+
 .crossover .flex.space {
     justify-content: space-between;
 }
