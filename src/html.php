@@ -12,6 +12,7 @@ function HTML_head($title) {
     <link rel=\"stylesheet\" href=\"./css/fonts.css\">
     <link rel=\"stylesheet\" href=\"./css/colors.css\">
     <link rel=\"stylesheet\" href=\"./css/layout.css\">
+    <link rel=\"stylesheet\" href=\"./css/styles.css\">
     <link rel=\"stylesheet\" href=\"./css/crossover-style.css\">
 
     <link rel=\"stylesheet\" href=\"./css/tooltip.css\">

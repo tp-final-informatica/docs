@@ -19,12 +19,6 @@ html {
 
 }
 
-.header h1 {
-    text-decoration: underline;
-    text-decoration-color: var(--rosso-corsa);
-    /* en rojo? */
-}
-
 .content {
     /*padding: 6em;*/
     max-width: 800px;
@@ -39,9 +33,4 @@ html {
     color: var(--cadet-blue);
     background-color: var(--mint-cream);
 
-}
-
-.align-left {
-    display: flex;
-    justify-content: flex-end;
 }

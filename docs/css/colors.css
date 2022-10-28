@@ -7,23 +7,6 @@
     --cadet-blue: #70abafff;
 }
 
-button {
-    background: var(--rosso-corsa);
-    color: #fff;
-    border: 0;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 10px; /* Rounded corners */
-    /*font-size: 18px; !* Increase font size *!*/
-    cursor: pointer; /* Add a mouse pointer on hover */
-
-
-}
-
-button:hover {
-    background-color: var(--black-coffee);
-}
-
 /*!* CSS HEX *!*/
 /*--rosso-corsa: #cc1f00ff;*/
 /*--black-coffee: #32292fff;*/
