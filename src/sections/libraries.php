@@ -5,5 +5,12 @@ include_once "./src/sections/header.php";
 include_once "./src/sections/footer.php";
 
 function localdevonly() {
-    return $_ENV["LOCALDEV"]??false;
+    global $argv;
+
+    if ($argv[1]??false) {
+       if ($argv[1] == "DEV") {
+           return true;
+       }
+    }
+    return false;
 }

@@ -16,13 +16,12 @@ include_once "./src/sections/libraries.php";
 
     </ol>
 
-    <php if localdevonly(): ?>
+    <?php if(localdevonly()): ?>
         <h2>Índice DEV (local)</h2>
-
         <ol>
-        <li><a href="/docs/page.html">Herramientas para la página de docs.</a></li>
+            <li><a href="/docs/page.html">Herramientas para la página de docs.</a></li>
         </ol>
-    </php>
+    <?php endif; ?>
 </div>
 <?php footer(); ?>
 

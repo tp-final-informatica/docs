@@ -7,5 +7,5 @@ do
   arrIN=(${IN//./ })
   arrIN2=(${arrIN[0]//\// })
   pageName=${arrIN2[1]}
-  php $eachfile > docs/$pageName.html
+  php $eachfile "$1" > docs/$pageName.html
 done
