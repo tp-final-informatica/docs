@@ -69,7 +69,7 @@ class Crossover {
                         $colors1[] = $baseColor[$r];
                     }
                 }
-                printSpecificRoute($subroute1, $colors1, $switched);
+                $this->printSpecificRoute($subroute1, $colors1, $switched);
                 print('<i class="icono-arrow1-left"></i>');
 
                 $subroute2 = array_slice($routes[$r], $subroutes[$r][0], $subroutes[$r][1]-$subroutes[$r][0]);
@@ -78,7 +78,7 @@ class Crossover {
                     $colors2[] = $baseColor[$r];
                 }
                 print('<div class="subroute-dark">');
-                printSpecificRoute($subroute2, $colors2, $switched, WHITE);
+                $this->printSpecificRoute($subroute2, $colors2, $switched, WHITE);
 
                 print('</div>');
                 print('<i class="icono-arrow1-left"></i>');

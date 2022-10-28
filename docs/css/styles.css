@@ -63,7 +63,10 @@ table {
     margin-bottom: 2em;
 }
 
-
+[todo] {
+    background-color: var(--rosso-corsa);
+    color: white;
+}
 
     /*https://codepen.io/saeedalipoor/pen/NPyeog*/
 

@@ -16,5 +16,13 @@ function breadcrumb($path = "/docs", $title = "Inicio") {
 }
 
 function nextRead($path, $title) {
-    print("<div class=\"mt3 mb3\"><a href=\"$path\">$title ></a></div>");
+    print("<div class=\"mt3 mb3\"><a href=\"$path\">Seguir leyendo: $title ></a></div>");
+}
+
+function print_figure($path, $alt, $caption) {
+    print('<figure class="mw-inherit" style="margin: 0;" role="group">
+        <img class="mw-inherit" src="' . $path . '"
+             alt="'. $alt .'">
+        <figcaption>' . $caption .'</figcaption>
+    </figure>');
 }

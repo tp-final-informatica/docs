@@ -2,6 +2,7 @@
 include_once "./src/algorithm/crossover/Crossover.php";
 include_once "./src/algorithm/crossover/Mbs.php";
 include_once "./src/algorithm/crossover/Cx.php";
+include_once "./src/algorithm/crossover/Pmx.php";
 $title = "Crossover";
 $id = "crossover";
 ?>
@@ -67,13 +68,80 @@ $id = "crossover";
         <?php $cx->cx_cycles(); ?>
     </div>
 
-    <p>Estos ciclos representan visitas que pueden ser intercambiables manteniendo la integridad de las rutas. Las soluciones finales se forman a partir de un padre, y al menos un intercambio en las rutas según los ciclos encontrados, por ejemplo:</p>
+    <p>Estos ciclos representan visitas que pueden ser intercambiables manteniendo la integridad de las rutas. Las
+        soluciones finales se forman a partir de un padre, y al menos un intercambio en las rutas según los ciclos encontrados, por ejemplo:</p>
     <div class="crossover">
         <?php $cx->cx_children(); ?>
     </div>
 
-    <p>Cycle crossover es un algoritmo que <b>mantiene las posiciones originales de las visitas de los padres en las soluciones hijas</b> (sea de uno, u otro padre).</p>
-    <p>Al modificarlo para aplicarlo a nuestro problema, mantenemos el orden relativo, pero no las posiciones originales necesariamente, puesto que las visitas no compartidas mantienen su posición original dentro de la ruta.</p>
+    <p>Cycle crossover es un algoritmo que <b>mantiene las posiciones originales de las visitas de los padres en las
+            soluciones hijas</b> (sea de uno, u otro padre).</p>
+    <p>Al modificarlo para aplicarlo a nuestro problema, mantenemos el orden relativo, pero no las posiciones originales
+        necesariamente, puesto que las visitas no compartidas mantienen su posición original dentro de la ruta.</p>
 
 
+    <h3>Partially mapped crossover (PMX)</h3>
+<?php $pmx = new Pmx(); ?>
+
+    <p>Este algoritmo fue propuesto por D. Goldberg y R. Lingle en el paper <em>Alleles, loci, and the Traveling Salesman Problem.</em></p>
+    <p>Este algoritmo mantiene una subsección de la ruta original de uno de los padres, y acomoda el resto de las visitas
+        según el orden relativo dentro del otro padre.</p>
+    <p>Nuevamente, <b>este algoritmo no se puede aplicar exactamente en nuestro caso</b>, puesto que las dos rutas a cruzar
+        no tienen necesariamente los mismos elementos. Una opción es tomar subrutas con los puntos compartidos, como aplicamos
+        en Cycle Crossover. Otra opción es aplicar el algoritmo con las rutas como están, lo que resultará en soluciones incompletas.
+        Decidimos ir por este camino para darle variedad a las soluciones obtenidas.</p>
+    <p>Los pasos son los siguientes:</p>
+
+    <ol>
+        <li>Seleccionamos dos soluciones como padres, y seleccionamos una parte de cada ruta para intercambiar.</li>
+        <li>Esas partes que seleccionamos se heredan directamente a las soluciones hijas.</li>
+        <li>Mapeamos los reemplazos de las visitas dentro de las partes seleccionadas.</li>
+        <li>Se completa cada solución hija con el resto de las visitas del padre alterno. Si la visita a heredar está en
+            el mapa, se reemplaza por el valor indicado, sino se hereda directamente.</li>
+    </ol>
+
+    <p>A continuación presentamos un ejemplo. Partimos de las siguientes soluciones, y elegimos las partes a heredar enteras.
+        Para la ruta del viajante A elegimos los índices 2 a 3, y para el viajante B los índices 1 al 3.</p>
+
+    <div class="crossover">
+        <?php $pmx->pmx_parents(); ?>
+    </div>
+
+    <p>Generamos el mapa de reemplazo. En este caso es el siguiente:</p>
+
+    <div class="crossover">
+        <?php $pmx->pmx_map(); ?>
+    </div>
+
+    <p>Procedemos a heredar las sub rutas marcadas en negro de forma cruzada: vamos a combinar las sub rutas de un padre con el resto de visitas del otro padre.</p>
+
+    <div class="crossover">
+        <?php $pmx->pmx_join_subrouteA(); ?>
+    </div>
+    <p>El proceso es el siguiente para la ruta A0:</p>
+    <ol>
+        <li>Intentamos completar la primer visita de A0. Según el resto de P1, debemos utilizar la visita 1, pero esta se encuentra en el mapa, y debe ser reemplazada por la visita 2. </li>
+        <li>Completamos las posiciones 2 y 3 de la ruta A0 según la selección en de P0.</li>
+        <li>Intentamos completar la posición 4 según el resto de P1. La visita a utilizar es la 4, que no está en el mapa, por lo que puede ser utilizada.</li>
+    </ol>
+    <p>Luego, el proceso es el siguiente para la ruta B0:</p>
+    <ol>
+        <li>Heredamos las visitas 7, 6 y 2 de la ruta B0 de P0.</li>
+        <li>Intentamos completar la posición 4 según el resto de P1. La visita a utilizar es la 8, que no está en el mapa, por lo que puede ser utilizada.</li>
+    </ol>
+
+    <p>De la misma forma, generamos otra solución hija intercambiando las visitas de forma contraria.</p>
+    <div class="crossover">
+        <?php $pmx->pmx_join_subrouteB(); ?>
+    </div>
+
+    <p>Como puede verse en las soluciones hijas, ambas repiten la visita "2". La primera solución no tiene la visita "1",
+        y la segunda no tiene la visita "5".</p>
+    <p>Esto es algo que originalmente intentamos evitar, pero luego al investigar un poco más, concluímos que era una buena
+        idea que sucediera: de esta forma el algoritmo puede explorar las rutas de forma menos restrictiva. La función de
+        fitness penaliza este tipo de soluciones incompletas, por lo que nunca puede ser elegida como la mejor solución,
+        pero sí puede contribuir a generar mejores soluciones mezclándose con otras soluciones de la generación.</p>
+
+    <h3>Enhanced edge recombination (EER)</h3>
+    <p todo>Completar</p>
 <?php print_section_footer(); ?>
