@@ -48,10 +48,10 @@ class Eer extends Solution
         ];
         print('<div class="crossover">');
 
-        print('<div class="flex gap3" style="flex-wrap: wrap; column-gap: 13em;">');
+        print('<div class="flex gap3" style="flex-wrap: wrap; column-gap: 2em;justify-content: space-between;align-items: baseline;">');
         foreach ($map as $key => $data) {
-            print('<div class="flex gap1 mb2">');
-            print('<div class="circle dark"><p>'.$key.'</p></div>');
+            print('<div class="flex mb2" style="align-items: baseline;">');
+            print('<div class="circle"><p>'.$key.'</p></div>');
             print('<i class="icono-arrow1-left"></i>');
             print('<div>');
             foreach ($data as $value) {
