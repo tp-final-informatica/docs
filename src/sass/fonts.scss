@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400&family=Lustria&family=Raleway:wght@500&display=swap');
+
+h1 {
+  font-family: 'Raleway', sans-serif;
+}
+
+.header h1 {
+  text-decoration: underline;
+  text-decoration-color: var(--rosso-corsa);
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: 'Lustria', serif;
+}
+
+h2, h3 {
+  padding-top: 2em;
+}
+h4, h5, h6 {
+  padding-top: 1.25em;
+}
+
+p, li, a, button {
+  font-family: 'Hind', sans-serif;
+  margin-top: 0;
+  font-size: 18px;
+}
+
+a {
+  color: var(--rosso-corsa);
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: var(--rosso-corsa);
+  text-decoration: underline;
+  text-decoration-color: var(--rosso-corsa);
+}
+
+h2.center,
+h3.center,
+h4.center,
+h5.center,
+h6.center,
+p.center,
+li.center,
+a.center {
+  text-align: center;
+}

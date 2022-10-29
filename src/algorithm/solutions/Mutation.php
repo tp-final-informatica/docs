@@ -4,6 +4,8 @@ class Mutation extends Solution
 {
 
     public function dm() {
+        print('  <div class="mutation">');
+
         $this->printRoute(
             [0, 1, 2, 3, 4],
             [1, 3],
@@ -19,9 +21,13 @@ class Mutation extends Solution
             WHITE,
             YELLOW
         );
+        print('</div>');
+
     }
 
     public function rsm() {
+        print('  <div class="mutation">');
+
         $this->printRoute(
             [0, 1, 2, 3, 4, 5],
             [1, 2, 3],
@@ -37,9 +43,13 @@ class Mutation extends Solution
             WHITE,
             YELLOW
         );
+        print('</div>');
+
     }
 
     public function psm() {
+        print('  <div class="mutation">');
+
         $this->printRoute(
             [0, 1, 2, 3, 4, 5],
             [1, 2, 3],
@@ -55,9 +65,13 @@ class Mutation extends Solution
             "",
             YELLOW
         );
+        print('</div>');
+
     }
 
     public function jm() {
+        print('  <div class="mutation">');
+
         print('<div class="flex wrap gap3 mb2">');
         print('  <div>');
         $this->printRoute([0,1,2,3], [1], WHITE, WHITE, YELLOW);
@@ -79,6 +93,8 @@ class Mutation extends Solution
         print('  <div class="underline-light">viajante B</div>');
         print('  </div>');
         print('</div>');
+        print('</div>');
+
     }
 
 }

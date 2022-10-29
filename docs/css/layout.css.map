@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "layout.css",
+	"sources": [
+		"../../src/sass/layout.scss"
+	],
+	"sourcesContent": [
+		"\nbody  {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    height: 100%;\n}\nhtml {\n    height: 100%;\n\n}\n\n.header {\n    padding: 2em;\n    justify-content: center;\n    display: flex;\n    color: var(--black-coffee);\n    /*background-color: var(--mint-cream);*/\n\n}\n\n.content {\n    /*padding: 6em;*/\n    max-width: 800px;\n    margin: auto;\n    width: -webkit-fill-available;\n}\n\n.footer {\n    margin-top: 4em;\n    padding: 2em;\n    justify-content: center;\n    display: flex;\n    /*color: var(--cadet-blue);*/\n    color: var(--black-coffee);\n    font-weight: lighter;\n    background-color: var(--mint-cream);\n\n}\n"
+	],
+	"names": [],
+	"mappings": "AACA,AAAA,IAAI,CAAE;EACF,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,eAAe,EAAE,aAAa;EAC9B,MAAM,EAAE,IAAI,GACf;;AACD,AAAA,IAAI,CAAC;EACD,MAAM,EAAE,IAAI,GAEf;;AAED,AAAA,OAAO,CAAC;EACJ,OAAO,EAAE,GAAG;EACZ,eAAe,EAAE,MAAM;EACvB,OAAO,EAAE,IAAI;EACb,KAAK,EAAE,mBAAmB;EAC1B,wCAAwC,EAE3C;;AAED,AAAA,QAAQ,CAAC;EACL,iBAAiB;EACjB,SAAS,EAAE,KAAK;EAChB,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,sBAAsB,GAChC;;AAED,AAAA,OAAO,CAAC;EACJ,UAAU,EAAE,GAAG;EACf,OAAO,EAAE,GAAG;EACZ,eAAe,EAAE,MAAM;EACvB,OAAO,EAAE,IAAI;EACb,6BAA6B;EAC7B,KAAK,EAAE,mBAAmB;EAC1B,WAAW,EAAE,OAAO;EACpB,gBAAgB,EAAE,iBAAiB,GAEtC"
+}

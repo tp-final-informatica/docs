@@ -47,27 +47,41 @@ class Cx extends Solution {
     private $hb3 = ["B0", 5, 6, 2, 7, 8, "B1"];
 
     public function cx_parents() {
+        print('<div class="crossover">');
+
         $this->printSolution("P0", $this->pa1, $this->pb1, $this->switched);
         $this->printSolution("P1", $this->pa2, $this->pb2, $this->switched);
+        print("</div>");
+
     }
 
     public function cx_parents_processed() {
+        print('<div class="crossover">');
+
         $this->printSolution("P0", $this->_pa1, $this->_pb1, $this->switched);
         $this->printSolution("P1", $this->_pa2, $this->_pb2, $this->switched);
+        print("</div>");
+
     }
 
     public function cx_cycles() {
+        print('<div class="crossover">');
+
         print("<div class=\"mt3 mb3\">");
         $this->_printCycle($this->pa1, $this->pb1, $this->pa2, $this->pb2, $this->cycleA1, $this->cycleB1, YELLOW, CORAL);
-        print("</div>");
+        print("</div>");        print("</div>");
+
     }
 
     public function cx_children() {
+        print('<div class="crossover">');
+
         print("<div>");
         $this->printSolution("H0", $this->ha0, $this->hb0, $this->switched);
         $this->printSolution("H1", $this->ha1, $this->hb1, $this->switched);
         $this->printSolution("H2", $this->ha2, $this->hb2, $this->switched);
         $this->printSolution("H3", $this->ha3, $this->hb3, $this->switched);
+        print("</div>");
         print("</div>");
     }
 

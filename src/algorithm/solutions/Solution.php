@@ -48,7 +48,7 @@ class Solution {
 
     public function printSolution($index, $routeA, $routeB, $switched, $subrouteA = [], $subrouteB = []) {
         print('<div class="flex wrap mt3 mb3 space">');
-        print('  <h2>'.$index.'</h2>');
+        print('  <p>'.$index.'</p>');
         print('  <div class="flex wrap gap3">');
 
         $routes = [$routeA, $routeB];

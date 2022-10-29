@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "scroll-top.css",
+	"sources": [
+		"../../src/sass/scroll-top.scss"
+	],
+	"sourcesContent": [
+		"#btn-scroll-top {\n    display: none; /* Hidden by default */\n    position: fixed; /* Fixed/sticky position */\n    bottom: 20px; /* Place the button at the bottom of the page */\n    right: 30px; /* Place the button 30px from the right */\n    z-index: 99; /* Make sure it does not overlap */\n    /*outline: none; /* Remove outline */\n}\n\n"
+	],
+	"names": [],
+	"mappings": "AAAA,AAAA,eAAe,CAAC;EACZ,OAAO,EAAE,IAAI;EAAE,uBAAuB;EACtC,QAAQ,EAAE,KAAK;EAAE,2BAA2B;EAC5C,MAAM,EAAE,IAAI;EAAE,gDAAgD;EAC9D,KAAK,EAAE,IAAI;EAAE,0CAA0C;EACvD,OAAO,EAAE,EAAE;EAAE,mCAAmC;EAChD,qCAAqC,EACxC"
+}

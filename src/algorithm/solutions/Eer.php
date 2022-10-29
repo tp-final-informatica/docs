@@ -17,13 +17,21 @@ class Eer extends Solution
 
 
     public function eer_parents() {
+        print('<div class="crossover">');
+
         $this->printSolution("P0", $this->pa1, $this->pb1, $this->switched);
         $this->printSolution("P1", $this->pa2, $this->pb2, $this->switched);
+        print('</div>');
+
     }
 
     public function eer_joined() {
+        print('<div class="crossover">');
+
         $this->printSpecificRoute($this->_p1, $this->_c1, $this->switched);
         $this->printSpecificRoute($this->_p2, $this->_c2, $this->switched);
+        print('</div>');
+
 
     }
 
@@ -38,6 +46,8 @@ class Eer extends Solution
             7 => [1,-6,8],
             8 => [2,5,7],
         ];
+        print('<div class="crossover">');
+
         print('<div class="flex gap3" style="flex-wrap: wrap; column-gap: 13em;">');
         foreach ($map as $key => $data) {
             print('<div class="flex gap1 mb2">');
@@ -52,6 +62,8 @@ class Eer extends Solution
         }
 
         print('</div>');
+        print('</div>');
+
     }
 
     public function eer_children() {
@@ -61,10 +73,13 @@ class Eer extends Solution
         $hb1 = ["B0", 8, 7, 6, 2, "B1"];
         $ha2 = ["A0", 1, 7, 6, 5, "A1"];
         $hb2 = ["B0", 4, 3, 2, 8, "B1"];
+        print('<div class="crossover">');
 
         $this->printSolution("H0", $ha0, $hb0, $this->switched);
         $this->printSolution("H1", $ha1, $hb1, $this->switched);
         $this->printSolution("H2", $ha2, $hb2, $this->switched);
+        print('</div>');
+
     }
 
 }

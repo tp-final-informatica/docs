@@ -20,28 +20,20 @@ $id = "mutation";
     <?php $mutation = new Mutation(); ?>
     <p>Se trata de intercambiar la posición de dos visitas en una misma ruta elegidas de forma aleatoria.</p>
 
-    <div class="mutation">
-        <?php $mutation->dm(); ?>
-    </div>
+    <?php $mutation->dm(); ?>
 
     <h3>RSM - Reverse sequence mutation</h3>
     <p>En este caso, se trata de seleccionar una sub secuencia dentro de una ruta en un cromosoma, e invertir el orden de la misma.</p>
-    <div class="mutation">
-        <?php $mutation->rsm(); ?>
-    </div>
+    <?php $mutation->rsm(); ?>
     <h3>PSM - Partially shuffled mutation</h3>
     <p>Similar al caso anterior, se selecciona una sub secuencia dentro de una ruta en un cromosoma, y se ordenan los elementos
         de forma aleatoria.</p>
-    <div class="mutation">
-        <?php $mutation->psm(); ?>
-    </div>
+    <?php $mutation->psm(); ?>
 
     <h3>Desplazamiento de visita a ruta alternativa: Jump mutation (JM)</h3>
     <p>Elegimos aleatoriamente dos rutas, una será donante y la otra receptora.</p>
     <p>Luego, elegimos aleatoriamente una visita dentro de la ruta donante y la llevamos a una posición aleatoria en la ruta receptora.</p>
-    <div class="mutation">
-        <?php $mutation->jm(); ?>
-    </div>
+    <?php $mutation->jm(); ?>
 
     <h3>DM entre rutas (JDM)</h3>
     <p todo>Completar</p>

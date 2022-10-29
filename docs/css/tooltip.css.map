@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "tooltip.css",
+	"sources": [
+		"../../src/sass/tooltip.scss"
+	],
+	"sourcesContent": [
+		".toggletip-container {\n    position: relative;\n    display: inline-block;\n}\n\n/* the bubble element, added inside the toggletip live region */\n\n.toggletip-bubble {\n    display: inline-block;\n    position: absolute;\n    left: 50%;\n    top: 100%;\n    width: 20em;\n    padding: 0.75rem 1.5rem;\n    background: #000;\n    color: #fff;\n}\n\n\n.toggletip-container button {\n    width: 1.2em;\n    height: 1.2em;\n    border-radius: 50%;\n    font-family: serif;\n    padding: 0;\n}"
+	],
+	"names": [],
+	"mappings": "AAAA,AAAA,oBAAoB,CAAC;EACjB,QAAQ,EAAE,QAAQ;EAClB,OAAO,EAAE,YAAY,GACxB;;AAED,gEAAgE;AAEhE,AAAA,iBAAiB,CAAC;EACd,OAAO,EAAE,YAAY;EACrB,QAAQ,EAAE,QAAQ;EAClB,IAAI,EAAE,GAAG;EACT,GAAG,EAAE,IAAI;EACT,KAAK,EAAE,IAAI;EACX,OAAO,EAAE,cAAc;EACvB,UAAU,EAAE,IAAI;EAChB,KAAK,EAAE,IAAI,GACd;;AAGD,AAAA,oBAAoB,CAAC,MAAM,CAAC;EACxB,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;EACb,aAAa,EAAE,GAAG;EAClB,WAAW,EAAE,KAAK;EAClB,OAAO,EAAE,CAAC,GACb"
+}

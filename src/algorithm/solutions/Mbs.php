@@ -31,11 +31,15 @@ class Mbs extends Solution {
     }
 
     public function mbs_parents() {
+        print('<div class="crossover">');
         $this->printSolution("P0", $this->pa1, $this->pb1, $this->switched);
         $this->printSolution("P1", $this->pa2, $this->pb2, $this->switched);
+        print('</div>');
+
     }
 
     public function mbs_grouped() {
+        print('<div class="crossover">');
         print("<div class=\"flex mt3 mb3 gap3\">");
         print("<div>");
         $this->_printMBSChildStopList($this->route11, $this->switched, YELLOW);
@@ -46,13 +50,18 @@ class Mbs extends Solution {
         print("<div class=\"underline-light\">viajante B</div>");
         print("</div>");
         print("</div>");
+        print('</div>');
+
     }
 
     public function mbs_children() {
+        print('<div class="crossover">');
         $this->printSolution("H0", $this->ha0, $this->hb0, $this->switched);
         $this->printSolution("H1", $this->ha1, $this->hb1, $this->switched);
         $this->printSolution("H2", $this->ha2, $this->hb2, $this->switched);
         $this->printSolution("H3", $this->ha3, $this->hb3, $this->switched);
+        print('</div>');
+
     }
 }
 

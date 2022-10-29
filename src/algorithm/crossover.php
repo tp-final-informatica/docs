@@ -5,7 +5,7 @@ include_once "./src/algorithm/solutions/Cx.php";
 include_once "./src/algorithm/solutions/Pmx.php";
 include_once "./src/algorithm/solutions/Eer.php";
 $title = "Crossover";
-$id = "solutions";
+$id = "crossover";
 ?>
 
 <?php print_section_heading($title, $id); ?>
@@ -24,15 +24,12 @@ $id = "solutions";
     <p>Desarrollamos este algoritmo para la prueba de comparación de lenguajes. Nos pareció interesante dejarlo para el proyecto final, por tener un enfoque distinto a los demás algoritmos que encontramos en los papers.</p>
     <p>Dadas dos soluciones padres, P0 y P1, analizamos las visitas de cada ruta y marcamos aquellas que corresponden siempre a la misma ruta, y aquellas que en ambos padres pertenecen a rutas distintas, por ejemplo:</p>
 
-    <div class="crossover">
-        <?php $mbs->mbs_parents(); ?>
-    </div>
+
+    <?php $mbs->mbs_parents(); ?>
 
     <p>Agrupamos dichas visitas para poder armar las soluciones hijas:</p>
 
-    <div class="crossover">
-        <?php $mbs->mbs_grouped(); ?>
-    </div>
+    <?php $mbs->mbs_grouped(); ?>
 
     <p>Para el viajante 1, los puntos en amarillo están repetidos en ambas soluciones padres,</p>
     <p>Para el viajante 2, los puntos en rojo están repetidos en ambas soluciones padres,</p>
@@ -41,9 +38,7 @@ $id = "solutions";
     <p>Finalmente se modifica el orden de las rutas aleatoriamente también.</p>
     <p>Los siguientes son posibles resultados del algoritmo MBS, dadas las soluciones iniciales presentadas.</p>
 
-    <div class="crossover">
-        <?php $mbs->mbs_children(); ?>
-    </div>
+    <?php $mbs->mbs_children(); ?>
 
     <p>El resultado del algoritmo son soluciones en las que siempre, todas las visitas de todas las rutas de las soluciones hijas pertenecen a la misma ruta de alguno de los dos padres.</p>
     <p><b>MBS mantiene entonces la asignación de las visitas a las rutas originales, pero no el orden de los mismos, o su posición inicial.</b></p>
@@ -55,25 +50,17 @@ $id = "solutions";
     <p>En el algoritmo de Cycle Crossover original se cruzan dos rutas de igual tamaño, con iguales puntos de visita en diferente orden. En nuestro caso, las rutas <b>no necesariamente cumplen esas condiciones</b>: una visita puede estar en la ruta de uno de los padres, y no estarlo en la ruta equivalente del otro padre.</p>
     <p>A continuación presentamos los pasos del algoritmo CX adaptado a nuestro problema. Sean las siguientes nuestras soluciones iniciales:</p>
 
-    <div class="crossover">
-        <?php $cx->cx_parents(); ?>
-    </div>
+    <?php $cx->cx_parents(); ?>
 
     <p>Obtendremos de las mismas unas soluciones temporales, en las que sólo  tengamos los puntos que se repiten entre ambas rutas:</p>
-    <div class="crossover">
-        <?php $cx->cx_parents_processed(); ?>
-    </div>
+    <?php $cx->cx_parents_processed(); ?>
     <p>Luego se aplica CX a cada una de las rutas. Los ciclos obtenidos para este ejemplo son los siguientes:</p>
 
-    <div class="crossover">
-        <?php $cx->cx_cycles(); ?>
-    </div>
+    <?php $cx->cx_cycles(); ?>
 
     <p>Estos ciclos representan visitas que pueden ser intercambiables manteniendo la integridad de las rutas. Las
         soluciones finales se forman a partir de un padre, y al menos un intercambio en las rutas según los ciclos encontrados, por ejemplo:</p>
-    <div class="crossover">
-        <?php $cx->cx_children(); ?>
-    </div>
+    <?php $cx->cx_children(); ?>
 
     <p>Cycle crossover es un algoritmo que <b>mantiene las posiciones originales de las visitas de los padres en las
             soluciones hijas</b> (sea de uno, u otro padre).</p>
@@ -104,21 +91,15 @@ $id = "solutions";
     <p>A continuación presentamos un ejemplo. Partimos de las siguientes soluciones, y elegimos las partes a heredar enteras.
         Para la ruta del viajante A elegimos los índices 2 a 3, y para el viajante B los índices 1 al 3.</p>
 
-    <div class="crossover">
-        <?php $pmx->pmx_parents(); ?>
-    </div>
+    <?php $pmx->pmx_parents(); ?>
 
     <p>Generamos el mapa de reemplazo. En este caso es el siguiente:</p>
 
-    <div class="crossover">
-        <?php $pmx->pmx_map(); ?>
-    </div>
+    <?php $pmx->pmx_map(); ?>
 
     <p>Procedemos a heredar las sub rutas marcadas en negro de forma cruzada: vamos a combinar las sub rutas de un padre con el resto de visitas del otro padre.</p>
 
-    <div class="crossover">
-        <?php $pmx->pmx_join_subrouteA(); ?>
-    </div>
+    <?php $pmx->pmx_join_subrouteA(); ?>
     <p>El proceso es el siguiente para la ruta A0:</p>
     <ol>
         <li>Intentamos completar la primer visita de A0. Según el resto de P1, debemos utilizar la visita 1, pero esta se encuentra en el mapa, y debe ser reemplazada por la visita 2. </li>
@@ -132,9 +113,7 @@ $id = "solutions";
     </ol>
 
     <p>De la misma forma, generamos otra solución hija intercambiando las visitas de forma contraria.</p>
-    <div class="crossover">
-        <?php $pmx->pmx_join_subrouteB(); ?>
-    </div>
+    <?php $pmx->pmx_join_subrouteB(); ?>
 
     <p>Como puede verse en las soluciones hijas, ambas repiten la visita "2". La primera solución no tiene la visita "1",
         y la segunda no tiene la visita "5".</p>
@@ -159,18 +138,12 @@ $id = "solutions";
         las rutas respetando la cantidad de visitas de alguno de los padres elegido al azar.</p>
     <p>A continuación presentamos un ejemplo:</p>
 
-    <div class="crossover">
-        <?php $eer->eer_parents(); ?>
-    </div>
+    <?php $eer->eer_parents(); ?>
     <p>Generamos rutas temporales, en las que quitamos los bordes y concatenamos las visitas de la siguiente forma:</p>
-    <div class="crossover">
-        <?php $eer->eer_joined(); ?>
-    </div>
+    <?php $eer->eer_joined(); ?>
 
     <p>Una vez obtenida la ruta concatenada procedemos a generar el mapa de adyacencias, marcando con un signo menos aquellas adyacencias que estén en ambas rutas:</p>
-    <div class="crossover">
-        <?php $eer->eer_map(); ?>
-    </div>
+    <?php $eer->eer_map(); ?>
 
     <p>Se elije un punto de inicio, en general el inicio de alguna de las dos rutas, y luego se van seleccionando las adyacencias según el mapa: las negativas tienen primera prioridad, y luego, aquellas cuyas adyacencias tengan menos enlaces disponibles.</p>
     <p>Por ejemplo, de partir del "3", la primera prioridad sería el "4" porque tiene un signo menos (está en ambas rutas), luego el "1" porque tiene 3 adyacencias, y por último el "2" porque tiene 4 adyacencias.</p>
@@ -179,8 +152,6 @@ $id = "solutions";
 
     <p>Empezando desde el "1" y manteniendo la distribución del padre 1, las siguientes son posibles soluciones finales:</p>
 
-    <div class="crossover">
-        <?php $eer->eer_children(); ?>
-    </div>
+    <?php $eer->eer_children(); ?>
 
 <?php print_section_footer(); ?>

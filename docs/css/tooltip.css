@@ -1,26 +1,23 @@
 .toggletip-container {
-    position: relative;
-    display: inline-block;
-}
+  position: relative;
+  display: inline-block; }
 
 /* the bubble element, added inside the toggletip live region */
-
 .toggletip-bubble {
-    display: inline-block;
-    position: absolute;
-    left: 50%;
-    top: 100%;
-    width: 20em;
-    padding: 0.75rem 1.5rem;
-    background: #000;
-    color: #fff;
-}
-
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 20em;
+  padding: 0.75rem 1.5rem;
+  background: #000;
+  color: #fff; }
 
 .toggletip-container button {
-    width: 1.2em;
-    height: 1.2em;
-    border-radius: 50%;
-    font-family: serif;
-    padding: 0;
-}
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 50%;
+  font-family: serif;
+  padding: 0; }
+
+/*# sourceMappingURL=tooltip.css.map */

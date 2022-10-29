@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "fonts.css",
+	"sources": [
+		"../../src/sass/fonts.scss"
+	],
+	"sourcesContent": [
+		"@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400&family=Lustria&family=Raleway:wght@500&display=swap');\n\nh1 {\n  font-family: 'Raleway', sans-serif;\n}\n\n.header h1 {\n  text-decoration: underline;\n  text-decoration-color: var(--rosso-corsa);\n}\n\nh2, h3, h4, h5, h6 {\n  font-family: 'Lustria', serif;\n}\n\nh2, h3 {\n  padding-top: 2em;\n}\nh4, h5, h6 {\n  padding-top: 1.25em;\n}\n\np, li, a, button {\n  font-family: 'Hind', sans-serif;\n  margin-top: 0;\n  font-size: 18px;\n}\n\na {\n  color: var(--rosso-corsa);\n  text-decoration: none;\n}\n\na:hover, a:focus {\n  color: var(--rosso-corsa);\n  text-decoration: underline;\n  text-decoration-color: var(--rosso-corsa);\n}\n\nh2.center,\nh3.center,\nh4.center,\nh5.center,\nh6.center,\np.center,\nli.center,\na.center {\n  text-align: center;\n}"
+	],
+	"names": [],
+	"mappings": "AAAA,OAAO,CAAC,qHAAI;AAEZ,AAAA,EAAE,CAAC;EACD,WAAW,EAAE,qBAAqB,GACnC;;AAED,AAAA,OAAO,CAAC,EAAE,CAAC;EACT,eAAe,EAAE,SAAS;EAC1B,qBAAqB,EAAE,kBAAkB,GAC1C;;AAED,AAAA,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,CAAC;EACjB,WAAW,EAAE,gBAAgB,GAC9B;;AAED,AAAA,EAAE,EAAE,EAAE,CAAC;EACL,WAAW,EAAE,GAAG,GACjB;;AACD,AAAA,EAAE,EAAE,EAAE,EAAE,EAAE,CAAC;EACT,WAAW,EAAE,MAAM,GACpB;;AAED,AAAA,CAAC,EAAE,EAAE,EAAE,CAAC,EAAE,MAAM,CAAC;EACf,WAAW,EAAE,kBAAkB;EAC/B,UAAU,EAAE,CAAC;EACb,SAAS,EAAE,IAAI,GAChB;;AAED,AAAA,CAAC,CAAC;EACA,KAAK,EAAE,kBAAkB;EACzB,eAAe,EAAE,IAAI,GACtB;;AAED,AAAA,CAAC,AAAA,MAAM,EAAE,CAAC,AAAA,MAAM,CAAC;EACf,KAAK,EAAE,kBAAkB;EACzB,eAAe,EAAE,SAAS;EAC1B,qBAAqB,EAAE,kBAAkB,GAC1C;;AAED,AAAA,EAAE,AAAA,OAAO;AACT,EAAE,AAAA,OAAO;AACT,EAAE,AAAA,OAAO;AACT,EAAE,AAAA,OAAO;AACT,EAAE,AAAA,OAAO;AACT,CAAC,AAAA,OAAO;AACR,EAAE,AAAA,OAAO;AACT,CAAC,AAAA,OAAO,CAAC;EACP,UAAU,EAAE,MAAM,GACnB"
+}
