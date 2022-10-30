@@ -38,7 +38,7 @@ include_once "./src/utils/libraries.php";
         <li>listado no numerado</li>
     </ul>
 
-    <p>Lorem impsum dolor sit amet. Ver tooltip en boton redondo con la letra i: <span data-toggletip>Esto es un tooltip</span></p>
+    <p>Lorem impsum dolor sit amet: <span class="mono">texto en monospace</span>. Ver tooltip en boton redondo con la letra i: <span data-toggletip>Esto es un tooltip</span></p>
     <div><a>link</a></div>
     <div><button>Botón default</button></div>
 
