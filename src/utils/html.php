@@ -9,6 +9,7 @@ function HTML_head($title) {
     <meta name=\"robots\" content=\"noindex\">
     <meta charset=\"UTF-8\">
     <title>${title}</title>
+    <link rel=\"shortcut icon\" href=\"/docs/images/favicon.png\" type=\"image/png\">
     <link rel=\"stylesheet\" href=\"/docs/css/fonts.css\">
     <link rel=\"stylesheet\" href=\"/docs/css/colors.css\">
     <link rel=\"stylesheet\" href=\"/docs/css/layout.css\">

@@ -13,6 +13,8 @@ html {
   display: flex;
   color: var(--black-coffee);
   /*background-color: var(--mint-cream);*/ }
+  .header h1 {
+    text-align: center; }
 
 .content {
   /*padding: 6em;*/

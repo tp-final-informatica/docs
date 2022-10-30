@@ -11,7 +11,7 @@ function localdevonly() {
     return false;
 }
 
-function breadcrumb($path = "/docs", $title = "Inicio") {
+function breadcrumb($path = "/docs/sitemap.html", $title = "Índice") {
     print("<div class=\"mb3\"><a href=\"$path\">< $title</a></div>");
 }
 

@@ -9,7 +9,7 @@ function printHeader($title = "Trabajo Profesional de Ingeniería en Informátic
             <div class="ribbon ribbon-top-left"><span>DEV!</span></div>
         </div>');
     }
-    print('<h1>' . $title. '</h1>');
+    print('<h1 class="mw-content">' . $title. '</h1>');
     print('</div>');
 }
 

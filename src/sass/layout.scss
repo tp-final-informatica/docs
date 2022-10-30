@@ -16,7 +16,9 @@ html {
     display: flex;
     color: var(--black-coffee);
     /*background-color: var(--mint-cream);*/
-
+    h1 {
+        text-align: center;
+    }
 }
 
 .content {

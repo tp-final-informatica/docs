@@ -5,6 +5,6 @@ function footer() {
     print ('<div class="footer"><div>');
 //    print ('<p class="center">Gracias!</p>');
 //    print ('<p class="center">Ana, Nere y Mau</p>');
-    print ('<p class="center">Volver al <a href="/docs/sitemap.html">índice</a></p>');
+    print ('<p class="center"><a href="/docs/sitemap.html">Índice</a></p>');
     print ('</div></div>');
 }

@@ -40,6 +40,9 @@ button {
 .mb3 {
   margin-bottom: 3em; }
 
+.mw-content {
+  max-width: 800px; }
+
 .mw-inherit {
   max-width: inherit; }
 
