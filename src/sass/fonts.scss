@@ -20,7 +20,7 @@ h4, h5, h6 {
   padding-top: 1.25em;
 }
 
-p, li, a, button {
+p, li, a, button, label {
   font-family: 'Hind', sans-serif;
   margin-top: 0;
   font-size: 18px;
@@ -46,4 +46,8 @@ p.center,
 li.center,
 a.center {
   text-align: center;
+}
+
+.mono {
+  font-family: monospace, serif;
 }

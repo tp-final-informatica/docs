@@ -7,6 +7,7 @@ include_once "./src/utils/libraries.php";
 <?php HTML_head("Diseño e implementación de un sistema de cálculo y control de trayectorias"); ?>
 
 <?php printHeader("Diseño e implementación de un sistema de cálculo y control de trayectorias"); ?>
+<main id="main-content">
     <div class="content" style="text-align: center;">
         <img src="/docs/images/logofiuba.png" alt="Facultad de Ingeniería de la Universidad de Buenos Aires"/>
         <h2>Trabajo profesional de ingeniería en Informática</h2>
@@ -27,13 +28,12 @@ include_once "./src/utils/libraries.php";
 
         </div>
 
-
         <h3>Directora del Trabajo Profesional</h3>
         <p>Lic. Silvia Adriana Ramos</p>
 
-    <p>Buenos Aires, Diciembre 2022</p>
-
+    <p>Buenos Aires, diciembre 2022</p>
     </div>
+</main>
 <?php footer(); ?>
 
 <?php HTML_foot(); ?>

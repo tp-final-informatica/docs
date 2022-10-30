@@ -45,8 +45,12 @@ class Solution {
     }
 
 
-
-    public function printSolution($index, $routeA, $routeB, $switched, $subrouteA = [], $subrouteB = []) {
+    // Index es el nombre que le ponemos a la solucion.
+    // $routeA y $routeB son los arrays que representan las rutas
+    // $switched es un array con los stops que se intercambian entre rutas
+    // $subrouteA y $subrouteB son las subrutas que deberían marcarse en negro (para PMX)
+    // $baseColor es el color que usamos para overridear los stops si no queremos que sean Yellow y Coral
+    public function printSolution($index, $routeA, $routeB, $switched, $subrouteA = [], $subrouteB = [], $baseColor = NULL) {
         print('<div class="flex wrap mt3 mb3 space">');
         print('  <p>'.$index.'</p>');
         print('  <div class="flex wrap gap3">');
@@ -54,7 +58,11 @@ class Solution {
         $routes = [$routeA, $routeB];
         $names = ["viajante A", "viajante B"];
         $subroutes = [$subrouteA, $subrouteB];
-        $baseColor = [YELLOW, CORAL];
+        if ($baseColor == NULL ){
+            $baseColor = [YELLOW, CORAL];
+        } else {
+            $baseColor = [$baseColor, $baseColor];
+        }
 
         for ($r=0; $r<count($routes); $r++) {
             print(' <div>');
@@ -96,7 +104,7 @@ class Solution {
                 print('  </div>');
 
             } else {
-                $this->printRoute($routes[$r], $switched, YELLOW);
+                $this->printRoute($routes[$r], $switched, $baseColor[0]);
             }
             print('    <div class="underline-light">');
             print($names[$r]);

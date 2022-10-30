@@ -5,6 +5,7 @@ include_once "./src/utils/libraries.php";
 <?php HTML_head("Comparación de lenguajes"); ?>
 
 <?php printHeader("Comparación de lenguajes"); ?>
+<main id="main-content">
 <div class="content">
 
 
@@ -106,7 +107,7 @@ include_once "./src/utils/libraries.php";
     <table>
         <thead>
         <tr>
-            <th></th>
+            <th>Lenguaje</th>
             <th>R</th>
             <th>GO</th>
             <th>C++</th>
@@ -115,14 +116,14 @@ include_once "./src/utils/libraries.php";
         </thead>
         <tbody>
         <tr>
-            <th>Runtime de test más complejo<br>(escenario 4)</th>
+            <th>Runtime del test</br>más complejo<br>(escenario 4)</th>
             <td>real 4m38,603s<br>user 0m3,378s<br>sys 0m8,669s</td>
             <td>real 0m12,765s<br>user 0m0,125s<br>sys 0m0,179s</td>
             <td>real 0m32,518s<br>user 0m18,730s<br>sys 0m9,845s</td>
             <td>real 0m34,567s<br>user 0m1,068s<br>sys 0m2,156s</td>
         </tr>
         <tr>
-            <th></th>
+            <th>Valor redondeado</th>
             <td>~ 4 minutos</td>
             <td>~ 10 segundos</td>
             <td>~ 30 segundos</td>
@@ -145,6 +146,7 @@ include_once "./src/utils/libraries.php";
 
 
 </div>
+</main>
 <?php footer(); ?>
 
 <?php HTML_foot(); ?>

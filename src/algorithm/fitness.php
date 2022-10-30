@@ -10,7 +10,7 @@ $id = "fitness";
     <p>La solución final elegida siempre es una solución completa, que cumple con la teoría del problema del viajante (visita todos los puntos una única vez).
     <p>Dado que nuestro problema incluye no solo la búsqueda de la secuencia de rutas de menor distancia total, sino también la posibilidad proponer solucione las que algunas viajantes tienen prioridad, desarrollamos distintas funciones de fitness, para cubrir cada caso.</p>
 
-    <h4>Caso 1: todos los viajantes participan obligatoriamente, las rutas son balanceadas, no tenemos viajantes con prioridad, nuestra función de fitness incluye ambas en su cálculo.</h4>
+    <h3>Caso 1: todos los viajantes participan obligatoriamente, las rutas son balanceadas, no tenemos viajantes con prioridad, nuestra función de fitness incluye ambas en su cálculo.</h3>
     <p>Por el momento es un número, dado por la siguiente fórmula:</p>
     <p class="center">fitness = 100 / ((costo de la ruta) * (1 + (costo de los viajantes)/2) )</p>
     <p>Al estar los costos dividiendo, el fitness crece cuanto mejor es la solución. Multiplicamos por 100 para que el número no sea tan chico. Esto no es necesario.</p>

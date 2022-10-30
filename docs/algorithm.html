@@ -19,34 +19,39 @@
     
 </head>
 <body>
-<div class="header"><h1 class="mw-content">El algoritmo genético empleado</h1></div>
+<header class="header"><h1 class="mw-content">El algoritmo genético empleado</h1></header><nav><a  id="skip-nav" href="#main-content" class="skip-link">Saltear navegacion</a><div data-menu-component>  <input type="checkbox" role="button" aria-haspopup="true" id="toggle" class="vh">  <label for="toggle" data-opens-menu>    &#x2630; Índice    <span class="vh expanded-text">expandido</span>    <span class="vh collapsed-text">colapsado</span>  </label>  <div role="menu" data-menu-origin="left">    <ul><li><a role="menuitem" href="/docs/index.html">Carátula</a></li><li>El core</li><li>La interfaz administrativa</li><li>Las aplicaciones mobile</li><li>El backend integrador</li><li>Información complementaria</li><li><a role="menuitem" href="/docs/literature.html">Bibliografía consultada</a></li>    </ul>  </div></div></nav>
 
+<main id="main-content">
+    <div class="content">
+        <div class="mb3"><a href="/docs/sitemap.html">< Índice</a></div>        <p>El algoritmo genético consta de las siguientes partes</p>
+        <ol>
+            <li><a href="#chromosome">Definición de cromosoma</a></li>
+            <li><a href="#first-gen">Armado de población inicial</a></li>
+            <li><a href="#fitness">Definición de función de fitness</a></li>
+            <li><a href="#parents">Selección de padres</a></li>
+            <li><a href="#crossover">Crossover</a></li>
+            <li><a href="#mutation">Mutación</a></li>
+            <li><a href="#survivors">Selección de soluciones sobrevivientes</a></li>
+            <li><a href="#end-criteria">Criterio de finalización</a></li>
+        </ol>
 
-<div class="content">
-    <div class="mb3"><a href="/docs/sitemap.html">< Índice</a></div>    <p>El algoritmo genético consta de las siguientes partes</p>
-    <ol>
-        <li><a href="#chromosome">Definición de cromosoma</a></li>
-        <li><a href="#first-gen">Armado de población inicial</a></li>
-        <li><a href="#fitness">Definición de función de fitness</a></li>
-        <li><a href="#parents">Selección de padres</a></li>
-        <li><a href="#crossover">Crossover</a></li>
-        <li><a href="#mutation">Mutación</a></li>
-        <li><a href="#survivors">Selección de soluciones sobrevivientes</a></li>
-        <li><a href="#end-criteria">Criterio de finalización</a></li>
-    </ol>
+        <p>La definición de cada uno de estos pasos afecta el resultado final del algoritmo. A continuación detallamos nuestras decisiones en cada paso.</p>
 
-    <p>La definición de cada uno de estos pasos afecta el resultado final del algoritmo. A continuación detallamos nuestras decisiones en cada paso.</p>
-
-    <hr/>
-    
+        <hr/>
+        
 <h2 id="chromosome">Definición de cromosoma</h2>
 <p>La definición del cromosoma a utilizar en el algoritmo genético no es trivial. Ella condiciona los pasos siguientes del algoritmo genético, en tanto los crossovers y mutaciones deben operar sobre este cromosoma.</p>
-<p>Nuestra elección fue plantear de forma natural cada camino como una secuencia de visitas numeradas, desde inicio al fin. Entonces, para un viajante que sale del punto 0 y vuelve al punto 0, visitando los puntos 1,2,3 el cromosoma planteado es:</p>
+    <p>Nuestra elección fue plantear de forma natural cada camino como una secuencia de visitas numeradas, desde inicio al fin. Entonces, para un viajante que sale del punto 0 y vuelve al punto 0, visitando los puntos <span class="mono">[1,2,3]</span> el cromosoma planteado es:</p>
 
-<p class="center">{ [0, 1, 2, 3, 0] }</p>
+<div class="solution">
+    <div class="flex"><div class="circle medium-turquoise"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise"><p>0</p></div></div></div>
 
-<p>Extendiendo el ejemplo anterior, para dos viajantes, que parten del punto 0, pero regresan uno al punto 0 y el otro al punto 1, y recorren los puntos 2, 3, 4 y 5, 6, 7 respectivamente, el cromosoma planteado es</p>
-<p class="center">{ [0, 1, 2, 3, 0], [0, 4, 5, 6, 1] }</p>
+
+<p>Extendiendo el ejemplo anterior, para dos viajantes, que parten del punto 0, pero regresan uno al punto 0 y el otro al punto 1, y recorren los puntos <span class="mono">[2,3]</span> y <span class="mono">[4,5]</span> respectivamente, el cromosoma planteado es:</p>
+
+    <div class="solution flex wrap gap3">
+        <div class="flex wrap mt3 mb3 space">  <p></p>  <div class="flex wrap gap3"> <div><div class="flex"><div class="circle medium-turquoise"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise"><p>0</p></div></div>    <div class="underline-light">viajante A    </div> </div> <div><div class="flex"><div class="circle medium-turquoise"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise"><p>1</p></div></div>    <div class="underline-light">viajante B    </div> </div>  </div></div> 
+    </div>
 
 <p>
     Esta representación de las rutas tiene la menor redundancia de soluciones en comparación a otros métodos de armado de cromosomas, es decir, un cromosoma no puede interpretarse como más de una secuencia de rutas.
@@ -56,7 +61,8 @@
 
 
 <hr/>
-<h2 id="first-gen">Armado de población inicial</h2>    <p>Se distribuyen las visitas en N rutas (por N viajantes) de forma <b>aleatoria</b> y se asignan a cada solución. Esto garantiza un pool genético grande, pero no soluciones buenas. Las soluciones suelen amarse intentando mantener balanceada la cantidad de visitas por ruta.</p>
+<h2 id="first-gen">Armado de población inicial</h2>    <p>Dada <span class="mono">N</span> la cantidad de viajantes, se distribuyen las visitas en <span class="mono">N</span> rutas de forma <b>aleatoria</b> y se asignan a cada solución. Esto garantiza un pool genético grande, pero no soluciones buenas.</p>
+    <p>El único criterio para la formación de las soluciones es mantener balanceada la cantidad de visitas por ruta.</p>
 <hr/>
 <h2 id="fitness">Definición de función de fitness</h2>
     <p>La función de fitness es la guía mediante la cual el algoritmo itera, aprende, y llega a una solución con características deseadas.</p>
@@ -64,7 +70,7 @@
     <p>La solución final elegida siempre es una solución completa, que cumple con la teoría del problema del viajante (visita todos los puntos una única vez).
     <p>Dado que nuestro problema incluye no solo la búsqueda de la secuencia de rutas de menor distancia total, sino también la posibilidad proponer solucione las que algunas viajantes tienen prioridad, desarrollamos distintas funciones de fitness, para cubrir cada caso.</p>
 
-    <h4>Caso 1: todos los viajantes participan obligatoriamente, las rutas son balanceadas, no tenemos viajantes con prioridad, nuestra función de fitness incluye ambas en su cálculo.</h4>
+    <h3>Caso 1: todos los viajantes participan obligatoriamente, las rutas son balanceadas, no tenemos viajantes con prioridad, nuestra función de fitness incluye ambas en su cálculo.</h3>
     <p>Por el momento es un número, dado por la siguiente fórmula:</p>
     <p class="center">fitness = 100 / ((costo de la ruta) * (1 + (costo de los viajantes)/2) )</p>
     <p>Al estar los costos dividiendo, el fitness crece cuanto mejor es la solución. Multiplicamos por 100 para que el número no sea tan chico. Esto no es necesario.</p>
@@ -280,11 +286,9 @@ de la siguiente generación. La elección de qué función usar se hace de maner
 <h2 id="end-criteria">Criterio de finalización</h2>
 
 <hr/>
-
-
-</div>
-
-<button onclick="topFunction()" id="btn-scroll-top" title="Volver al inicio de la página">Subir</button><div class="footer"><div><p class="center"><a href="/docs/sitemap.html">Índice</a></p></div></div>
+    </div>
+</main>
+<footer class="footer"><div><button onclick="topFunction()" id="btn-scroll-top" title="Volver al inicio de la página">Subir</button><p class="center"><a href="/docs/sitemap.html">Índice</a></p></div></footer>
     <script src="./js/tooltip.js"></script>
     <script src="./js/scroll-top.js"></script>
 </body>

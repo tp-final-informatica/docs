@@ -5,6 +5,8 @@ include_once "./src/utils/libraries.php";
 <?php HTML_head("Page"); ?>
 
 <?php printHeader(); ?>
+
+<main id="main-content">
 <div class="content">
 
 
@@ -41,6 +43,8 @@ include_once "./src/utils/libraries.php";
     <div><button>Botón default</button></div>
 
 </div>
+</main>
+
 <?php footer(); ?>
 
 <?php HTML_foot(); ?>

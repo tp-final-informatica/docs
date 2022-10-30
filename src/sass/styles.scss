@@ -154,7 +154,8 @@ https://www.nxworld.net/pure-css-corner-ribbon.html
     display: block;
     width: 225px;
     padding: 15px 0;
-    background-color: #3498db;
+    //background-color: #3498db;
+    background-color: #185D8C;
     box-shadow: 0 5px 10px rgba(0,0,0,.1);
     color: #fff;
     font: 700 18px/1 'Lato', sans-serif;
@@ -253,5 +254,125 @@ https://www.nxworld.net/pure-css-corner-ribbon.html
       bottom: 30px;
       transform: rotate(-225deg);
     }
+  }
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  width:1px;
+  height: 1px;
+  //top: auto;
+
+  &:focus {
+    //color: $background-color;
+    display: inline-block;
+    height: auto;
+    width: auto;
+    position: static;
+    margin: auto;
+  }
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  .vh {
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding:0 !important;
+    border:0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+  }
+
+  [data-menu-component] {
+    position: relative;
+    display: inline-block;
+  }
+
+  label {
+    display: inline-block;
+  }
+
+  [role="menu"] ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  label[data-opens-menu] {
+    color: var(--black-coffee) !important;
+    text-decoration: none !important;
+    margin: 1em;
+  }
+
+  [data-opens-menu], [role="menu"] li {
+    line-height: 1;
+    text-align: left;
+    border: 0;
+    color: darkgrey;
+    padding: 0.33rem 0.5rem;
+    text-decoration: none;
+    &:hover, &:focus, &:focus-within, &:focus-visible {
+      margin-bottom: -2px;
+      border-bottom: 2px solid var(--rosso-corsa);
+      //margin-left: -2px;
+      //border-left: 2px solid var(--rosso-corsa);
+    }
+    a {
+      color: var(--black-coffee);
+      text-decoration: none;
+    }
+  }
+
+
+  [type="checkbox"]:focus + [data-opens-menu], [role="menu"] a:focus {
+    outline: none;
+    //background: darkBlue;
+    border-bottom: 2px solid var(--rosso-corsa);
+    margin-bottom: -2px;
+  }
+
+  :checked + label .expanded-text {
+    display: inline;
+  }
+
+  :checked + label .collapsed-text {
+    display: none;
+  }
+
+  [type="checkbox"]:not(:checked) + label .expanded-text {
+    display: none;
+  }
+
+  [type="checkbox"]:not(:checked) + label .collapsed-text {
+    display: inline;
+  }
+
+  [role="menu"] {
+    position: absolute;
+    right: 0;
+    display: none;
+    //text-align: right;
+  }
+
+  :checked ~ [role="menu"] {
+    display: block;
+  }
+
+  [data-menu-origin="right"] {
+    left: auto;
+    right: 0;
+  }
+
+  [role="menu"] a {
+    display: block;
+    min-width: 100%;
+    margin-top: 0.125rem;
+    white-space: nowrap;
   }
 }
