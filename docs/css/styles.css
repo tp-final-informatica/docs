@@ -234,7 +234,8 @@ nav {
   nav label[data-opens-menu] {
     color: var(--black-coffee) !important;
     text-decoration: none !important;
-    margin: 1em; }
+    margin: 1em;
+    background-color: white; }
   nav [data-opens-menu], nav [role="menu"] li {
     line-height: 1;
     text-align: left;
@@ -248,10 +249,12 @@ nav {
     nav [data-opens-menu] a, nav [role="menu"] li a {
       color: var(--black-coffee);
       text-decoration: none; }
-  nav [type="checkbox"]:focus + [data-opens-menu], nav [role="menu"] a:focus {
+  nav [type="checkbox"]:focus + [data-opens-menu] {
     outline: none;
     border-bottom: 2px solid var(--rosso-corsa);
     margin-bottom: -2px; }
+  nav [role="menu"] a:focus {
+    outline: none; }
   nav :checked + label .expanded-text {
     display: inline; }
   nav :checked + label .collapsed-text {
@@ -262,6 +265,7 @@ nav {
     display: inline; }
   nav [role="menu"] {
     position: absolute;
+    background-color: white;
     right: 0;
     display: none; }
   nav :checked ~ [role="menu"] {
@@ -273,6 +277,7 @@ nav {
     display: block;
     min-width: 100%;
     margin-top: 0.125rem;
-    white-space: nowrap; }
+    white-space: nowrap;
+    background-color: white; }
 
 /*# sourceMappingURL=styles.css.map */

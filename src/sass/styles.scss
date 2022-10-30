@@ -308,6 +308,8 @@ nav {
     color: var(--black-coffee) !important;
     text-decoration: none !important;
     margin: 1em;
+    background-color: white;
+
   }
 
   [data-opens-menu], [role="menu"] li {
@@ -328,13 +330,18 @@ nav {
       text-decoration: none;
     }
   }
-
-
-  [type="checkbox"]:focus + [data-opens-menu], [role="menu"] a:focus {
+  [type="checkbox"]:focus + [data-opens-menu] {
     outline: none;
-    //background: darkBlue;
+    //background: white;
     border-bottom: 2px solid var(--rosso-corsa);
     margin-bottom: -2px;
+  }
+
+  [role="menu"] a:focus {
+    outline: none;
+    //background: white;
+    //border-bottom: 2px solid var(--rosso-corsa);
+    //margin-bottom: -2px;
   }
 
   :checked + label .expanded-text {
@@ -355,6 +362,8 @@ nav {
 
   [role="menu"] {
     position: absolute;
+    background-color: white;
+
     right: 0;
     display: none;
     //text-align: right;
@@ -374,5 +383,7 @@ nav {
     min-width: 100%;
     margin-top: 0.125rem;
     white-space: nowrap;
+    background-color: white;
+
   }
 }
