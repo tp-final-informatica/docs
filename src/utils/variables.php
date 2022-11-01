@@ -5,7 +5,7 @@ $sitemap = [
         'url'=>"/docs/index.html",
     ],
     "El core" => [
-        'url'=> '',
+        'url'=> '/docs/core.html',
         'subitems' => [
             "Comparación de lenguajes para el desarrollo del algoritmo" => "/docs/core-languages.html",
             "El algoritmo empleado" => "/docs/algorithm.html",

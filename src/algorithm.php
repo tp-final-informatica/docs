@@ -23,7 +23,8 @@ function print_section_footer() {
 
 <main id="main-content">
     <div class="content">
-        <?php breadcrumb(); ?>
+        <?php breadcrumb([['path' => "/docs", 'title'=>"Inicio"],['path' => "/docs/sitemap.html", 'title'=>"Índice"], ['path' => "/docs/core.html", 'title'=>"El core"]]); ?>
+
         <p>El algoritmo genético consta de las siguientes partes</p>
         <ol>
             <li><a href="#chromosome">Definición de cromosoma</a></li>

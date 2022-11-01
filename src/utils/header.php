@@ -40,24 +40,3 @@ function printMenu($menu) {
     print('</nav>');
 }
 
-function printSitemap() {
-    global $sitemap;
-
-    print('<ol>');
-    foreach ($sitemap as $title => $item) {
-        if (array_key_exists('subitems', $item)) {
-            printf("<li>%s<ol>", $title);
-            foreach ($item['subitems'] as $subtitle => $subitem) {
-                printf("<li><a href=\"%s\">%s</a></li>", $subitem, $subtitle);
-            }
-            print('</ol></li>');
-        } else {
-            if (array_key_exists('url', $item) && $item['url'] != '') {
-                printf("<li><a href=\"%s\">%s</a></li>", $item['url'], $title);
-            } else {
-                printf("<li>%s</li>", $title);
-            }
-        }
-    }
-    print('</ol>');
-}

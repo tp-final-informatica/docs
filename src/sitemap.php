@@ -10,6 +10,8 @@ include_once "./src/utils/libraries.php";
 <main id="main-content">
 <div class="content">
 
+    <?php breadcrumb([['path' => "/docs", 'title'=>"Inicio"]]); ?>
+
     <h2>Índice</h2>
 
     <?php printSitemap(); ?>

@@ -11,8 +11,16 @@ function localdevonly() {
     return false;
 }
 
-function breadcrumb($path = "/docs/sitemap.html", $title = "Índice") {
-    print("<div class=\"mb3\"><a href=\"$path\">< $title</a></div>");
+// recibe una array de elementos tipo ['title'=>$title, 'path'=>$path]
+function breadcrumb(array $links = []) {
+    if (empty($links)) {
+        $links = [['path' => "/docs/sitemap.html", 'title' => "Índice"]];
+    }
+    print("<div class=\"mb3\">");
+    foreach ($links as $link) {
+        print("<a href=\"".$link['path']."\">< ".$link['title']."</a> ");
+    }
+    print("</div>");
 }
 
 function nextRead($path, $title) {
@@ -25,4 +33,32 @@ function print_figure($path, $alt, $caption) {
              alt="'. $alt .'">
         <figcaption>' . $caption .'</figcaption>
     </figure>');
+}
+
+
+function printSitemap() {
+    global $sitemap;
+
+    print('<ol>');
+    foreach ($sitemap as $title => $item) {
+        if (array_key_exists('subitems', $item)) {
+            if (array_key_exists('url', $item) && $item['url'] != '') {
+                printf("<li><a href=\"%s\">%s</a><ol>", $item['url'], $title);
+            } else {
+                printf("<li>%s<ol>", $title);
+            }
+//            printf("<li>%s<ol>", $title);
+            foreach ($item['subitems'] as $subtitle => $subitem) {
+                printf("<li><a href=\"%s\">%s</a></li>", $subitem, $subtitle);
+            }
+            print('</ol></li>');
+        } else {
+            if (array_key_exists('url', $item) && $item['url'] != '') {
+                printf("<li><a href=\"%s\">%s</a></li>", $item['url'], $title);
+            } else {
+                printf("<li>%s</li>", $title);
+            }
+        }
+    }
+    print('</ol>');
 }

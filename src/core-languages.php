@@ -9,7 +9,11 @@ include_once "./src/utils/libraries.php";
 <div class="content">
 
 
-    <?php breadcrumb(); ?>
+    <?php breadcrumb([
+//        ['path' => "/docs", 'title'=>"Inicio"],
+//        ['path' => "/docs/sitemap.html", 'title'=>"Índice"],
+        ['path' => "/docs/core.html", 'title'=>"El core"]]); ?>
+
 
     <p>Para la implementación de la metaheurística del viajante consideramos los siguientes lenguajes de programación:</p>
     <ul>

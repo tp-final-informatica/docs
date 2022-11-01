@@ -11,12 +11,16 @@ include_once "./src/utils/libraries.php";
 
 
 
-    <?php breadcrumb("/docs", "Breadcrumb"); ?>
+    <?php breadcrumb([
+        ['path' => "/docs", 'title'=>"Breadcrumb1"],
+        ['path' => "/docs", 'title'=>"Breadcrumb"]]); ?>
 
     Colores:
     <!-- Coolors Palette Widget -->
     <script src="https://coolors.co/palette-widget/widget.js"></script>
-    <script data-id="07113298128526133">new CoolorsPaletteWidget("07113298128526133", ["cc1f00","32292f","99e1d9","f0f7f4","70abaf"]); </script>
+<!--    <script data-id="07113298128526133">new CoolorsPaletteWidget("07113298128526133", ["cc1f00","32292f","99e1d9","f0f7f4","70abaf"]); </script>-->
+    <script data-id="08487608647128557">new CoolorsPaletteWidget("08487608647128557", ["cc1f00","32292f","d88c9a","f0f7f4","70abaf"]); </script>
+
 
     <h1>Heading 1</h1>
     <h2>Heading 2</h2>
