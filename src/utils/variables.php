@@ -5,7 +5,7 @@ $sitemap = [
         'url'=>"/docs/index.html",
     ],
     "El sistema" => [
-        'url'=>"/docs/macro.html",
+//        'url'=>"/docs/macro.html",
     ],
     "El core" => [
         'url'=> '/docs/core.html',
@@ -15,16 +15,16 @@ $sitemap = [
         ],
     ],
     "La interfaz administrativa" => [
-        'url'=>'/docs/web-interface.html',
+//        'url'=>'/docs/web-interface.html',
     ],
     "Las aplicaciones mobile" => [
-        'url'=>'/docs/mobile.html',
+//        'url'=>'/docs/mobile.html',
     ],
     "El backend integrador" => [
-        'url'=>'/docs/backend.html',
+//        'url'=>'/docs/backend.html',
     ],
     "Información complementaria" => [
-        'url'=>'/docs/more.html',
+//        'url'=>'/docs/more.html',
     ],
     "Bibliografía consultada" => [
         'url'=>"/docs/literature.html",
