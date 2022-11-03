@@ -13,7 +13,7 @@ function print_section_heading($section_title, $section_id){
 
 function print_section_footer() {
     //back_to_top();
-    print ("<hr/>");
+    print ("<hr class=\"section-end\"/>");
 }
 ?>
 
@@ -23,7 +23,7 @@ function print_section_footer() {
 
 <main id="main-content">
     <div class="content">
-        <?php breadcrumb([['path' => "/docs", 'title'=>"Inicio"],['path' => "/docs/sitemap.html", 'title'=>"Índice"], ['path' => "/docs/core.html", 'title'=>"El core"]]); ?>
+        <?php breadcrumb([['path' => "/docs/core.html", 'title'=>"El core"]]); ?>
 
         <p>El algoritmo genético consta de las siguientes partes</p>
         <ol>
@@ -39,7 +39,7 @@ function print_section_footer() {
 
         <p>La definición de cada uno de estos pasos afecta el resultado final del algoritmo. A continuación detallamos nuestras decisiones en cada paso.</p>
 
-        <hr/>
+        <?php print_section_footer(); ?>
         <?php
         include_once "./src/algorithm/chromosome.php";
         include_once "./src/algorithm/first_gen.php";
@@ -50,6 +50,8 @@ function print_section_footer() {
         include_once "./src/algorithm/survivors.php";
         include_once "./src/algorithm/end_criteria.php";
         ?>
+
+        <?php nextRead("/docs/core/specs.html", "Especificaciones técnicas"); ?>
 
     </div>
 </main>

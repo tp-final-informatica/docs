@@ -43,6 +43,15 @@ include_once "./src/utils/libraries.php";
     </ul>
 
     <p>Lorem impsum dolor sit amet: <span class="mono">texto en monospace</span>. Ver tooltip en boton redondo con la letra i: <span data-toggletip>Esto es un tooltip</span></p>
+    <p>Para escribir el nombre de la empresa (intentemos evitarlo) usar esto: <span class="company">la empresa</span></p>
+
+    <section class="lessons"  aria-label="Lecciones aprendidas">
+        <p><span class="lightbulb"></span>Nuestro enfoque inicial fue condicionar nuestras soluciones
+            para permitir únicamente aquellas que cumplieran con las restricciones del problema del viajante: todos los
+            puntos deben ser visitados una única vez. Luego entendimos que permitir esta falla en nuestras rutas podía
+            brindarle variedad a nuestro algoritmo, por lo que posteriormente reescribimos el código e incluimos esta
+            validación dentro de nuestra función de fitness bajo una gran penalidad.</p>
+    </section>
     <div><a>link</a></div>
     <div><button>Botón default</button></div>
 

@@ -10,5 +10,6 @@ $id = "parents";
     <h3>Por fitness para uno de los padres</h3>
     <p>Con una probabilidad baja permitimos una selección de padres en la que nos aseguramos que al menos uno de los padres tenga buen fitness. Tomamos uno de los padres del mejor 10% de las soluciones, y el otro de forma aleatoria. Esto lo hicimos a modo de prueba para evaluar la incidencia en el resultado final.</p>
 
+<p todo> armar graficos comparativos</p>
 
 <?php print_section_footer(); ?>

@@ -45,7 +45,7 @@ $id = "chromosome";
     </div>
 
 <p>
-    Esta representación de las rutas tiene la menor redundancia de soluciones en comparación a otros métodos de armado de cromosomas, es decir, un cromosoma no puede interpretarse como más de una secuencia de rutas.
+    Esta representación de las rutas tiene la menor redundancia de soluciones en comparación a otros métodos de armado de cromosomas, es decir, un cromosoma no puede interpretarse como más que una única secuencia de rutas.
     <span data-toggletip>Basado en el paper "Genetic Algorithm for solving multiple traveling salesmen problem using a new crossover and population generation" (ver sección Bibliografía).</span>
 </p>
 

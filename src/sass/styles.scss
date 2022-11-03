@@ -1,3 +1,4 @@
+
 button {
   background: var(--rosso-corsa);
   color: #fff;
@@ -13,6 +14,32 @@ button {
   }
 }
 
+span.company{
+  z-index: -1;
+  display: inline-block;
+  //display: inline;
+  text-indent: -9999px;
+  width: 7em;
+  //height: 1em;
+  background: url("/docs/css/company1.svg");
+  background-size: 7em 2.5em;
+  position: relative;
+  vertical-align: center;
+  bottom: 0.55em;
+}
+span.company-logo{
+  display: block;
+  //display: inline;
+  text-indent: -9999px;
+  width: 7em;
+  //height: 1em;
+  background: url("/docs/css/company.svg");
+  background-size: 7em 2.5em;
+  position: relative;
+  vertical-align: center;
+  bottom: 0.55em;
+}
+
 .flex {
   display: flex;
   place-items: center;
@@ -24,6 +51,9 @@ button {
   }
   &.space {
     justify-content: space-between;
+  }
+  &.center {
+    justify-content: center;
   }
 }
 
@@ -49,6 +79,14 @@ button {
 }
 
 table {
+  display: block;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  margin: 0 auto;
+  overflow-x: auto;
+  //white-space: nowrap;
+
+
   margin-bottom: 2em;
 
   th {
@@ -65,6 +103,47 @@ table {
 [todo] {
   background-color: var(--rosso-corsa);
   color: white;
+}
+
+hr.section-end {
+  padding-top: 3em;
+  border: none;
+  border-bottom: 1px solid gray;
+}
+
+div.math {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.lessons {
+  border: 2px solid var(--shimmering-blush);
+  margin: 2em 0;
+  padding: 2em;
+  &:before {
+    content: "Lecciones aprendidas";
+    color:var(--shimmering-blush);
+    background-color: white;
+    text-transform: uppercase;
+    position: relative;
+    top: -2.75em;
+    padding: 1em;
+  }
+  .lightbulb {
+    transform: rotate(-20deg);
+    width: 3em;
+    height: 3em;
+
+    background-size: 2.5em 2.5em;
+    content: "";
+    display: inline-block;
+    background-color: var(--shimmering-blush);
+    -webkit-mask: url("/docs/css/lightbulb.svg") no-repeat center;
+    mask: url("/docs/css/lightbulb.svg") no-repeat center;
+
+    float: left;
+    margin: 0 1em 0.5em 0;
+  }
 }
 
 /*https://codepen.io/saeedalipoor/pen/NPyeog*/
@@ -304,44 +383,24 @@ nav {
     padding: 0;
   }
 
-  label[data-opens-menu] {
-    color: var(--black-coffee) !important;
-    text-decoration: none !important;
-    margin: 1em;
-    background-color: white;
-
-  }
 
   [data-opens-menu], [role="menu"] li {
     line-height: 1;
     text-align: left;
     border: 0;
-    color: darkgrey;
+    //color: darkgrey;
     padding: 0.33rem 0.5rem;
     text-decoration: none;
-    &:hover, &:focus, &:focus-within, &:focus-visible {
-      margin-bottom: -2px;
-      border-bottom: 2px solid var(--rosso-corsa);
-      //margin-left: -2px;
-      //border-left: 2px solid var(--rosso-corsa);
-    }
-    a {
-      color: var(--black-coffee);
-      text-decoration: none;
-    }
+
   }
   [type="checkbox"]:focus + [data-opens-menu] {
     outline: none;
-    //background: white;
-    border-bottom: 2px solid var(--rosso-corsa);
-    margin-bottom: -2px;
+
   }
 
   [role="menu"] a:focus {
     outline: none;
-    //background: white;
-    //border-bottom: 2px solid var(--rosso-corsa);
-    //margin-bottom: -2px;
+
   }
 
   :checked + label .expanded-text {
@@ -385,5 +444,37 @@ nav {
     white-space: nowrap;
     background-color: white;
 
+  }
+
+}
+
+nav {
+  label[data-opens-menu] {
+    color: var(--black-coffee) !important;
+    text-decoration: none !important;
+    margin: 1em;
+    background-color: white;
+    border-bottom: 2px solid white;
+    &:hover, &:focus {
+      color: var(--black-coffee);
+      text-decoration: none;
+      border-bottom: 2px solid var(--rosso-corsa);
+    }
+  }
+
+  li {
+    color: dimgrey;
+    a {
+      color: var(--black-coffee);
+      text-decoration: none;
+      background-color: white;
+      border-bottom: 2px solid white;
+
+      &:hover, &:focus, &:focus-within, &:focus-visible {
+        color: var(--black-coffee);
+        text-decoration: none;
+        border-bottom: 2px solid var(--rosso-corsa);
+      }
+    }
   }
 }

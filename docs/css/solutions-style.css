@@ -1,64 +1,80 @@
-.crossover, .mutation, .solution {
+.mutation {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em; }
+
+.crossover, .solution {
   margin-top: 5em;
   margin-bottom: 5em; }
-  .crossover p, .mutation p, .solution p {
-    font-size: 1.25em;
-    font-family: monospace;
-    margin: unset; }
-  .crossover .dark, .mutation .dark, .solution .dark {
-    background-color: #292f36;
-    color: #F7FFF7;
-    /*mint cream*/ }
-  .crossover .light, .mutation .light, .solution .light {
-    background-color: #F7FFF7;
-    color: #292f36;
-    /*gunmetal*/ }
-  .crossover .medium-turquoise, .mutation .medium-turquoise, .solution .medium-turquoise {
-    background-color: #4ecdc4;
-    color: #292f36;
-    /*gunmetal*/ }
-  .crossover .light-coral, .mutation .light-coral, .solution .light-coral {
-    background-color: #ec9192;
-    color: #292f36;
-    /*gunmetal*/ }
-  .crossover .yellow-crayola, .mutation .yellow-crayola, .solution .yellow-crayola {
-    background-color: #ffe66d;
-    color: #292f36;
-    /*gunmetal*/ }
-  .crossover [class*="subroute"], .mutation [class*="subroute"], .solution [class*="subroute"] {
-    outline: 1px solid #292f36; }
-  .crossover [class*="underline"], .mutation [class*="underline"], .solution [class*="underline"] {
-    display: flex;
-    font-size: 1.2em;
-    justify-content: center;
-    padding: 0.25em;
-    margin-top: 0.5em;
-    border-top: 1px solid #292f36; }
-  .crossover .mutation [class*="subroute"], .mutation .mutation [class*="subroute"], .solution .mutation [class*="subroute"] {
-    outline: 1px solid #292f36; }
-  .crossover .subroute-dark,
-  .crossover .underline-dark, .mutation .subroute-dark,
-  .mutation .underline-dark, .solution .subroute-dark,
-  .solution .underline-dark {
-    background-color: #292f36;
-    color: #F7FFF7;
-    /*mint cream*/ }
-  .crossover .subroute-light,
-  .crossover .underline-light, .mutation .subroute-light,
-  .mutation .underline-light, .solution .subroute-light,
-  .solution .underline-light {
-    /*background-color: #F7FFF7;*/
-    color: #292f36;
-    /*gunmetal*/
-    padding: 0.25em; }
-  .crossover .circle, .mutation .circle, .solution .circle {
-    border-radius: 100%;
-    margin: 0.25em;
-    width: 3em;
-    height: 3em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid #292f36; }
+
+.mutation p, .crossover p, .solution p {
+  font-size: 1.25em;
+  font-family: monospace;
+  margin: unset; }
+
+.mutation .dark, .crossover .dark, .solution .dark {
+  background-color: #292f36;
+  color: #F7FFF7;
+  /*mint cream*/ }
+
+.mutation .light, .crossover .light, .solution .light {
+  background-color: #F7FFF7;
+  color: #292f36;
+  /*gunmetal*/ }
+
+.mutation .medium-turquoise, .crossover .medium-turquoise, .solution .medium-turquoise {
+  background-color: #4ecdc4;
+  color: #292f36;
+  /*gunmetal*/ }
+
+.mutation .light-coral, .crossover .light-coral, .solution .light-coral {
+  background-color: #ec9192;
+  color: #292f36;
+  /*gunmetal*/ }
+
+.mutation .yellow-crayola, .crossover .yellow-crayola, .solution .yellow-crayola {
+  background-color: #ffe66d;
+  color: #292f36;
+  /*gunmetal*/ }
+
+.mutation [class*="subroute"], .crossover [class*="subroute"], .solution [class*="subroute"] {
+  outline: 1px solid #292f36; }
+
+.mutation [class*="underline"], .crossover [class*="underline"], .solution [class*="underline"] {
+  display: flex;
+  font-size: 1.2em;
+  justify-content: center;
+  padding: 0.25em;
+  margin-top: 0.5em;
+  border-top: 1px solid #292f36; }
+
+.mutation .mutation [class*="subroute"], .crossover .mutation [class*="subroute"], .solution .mutation [class*="subroute"] {
+  outline: 1px solid #292f36; }
+
+.mutation .subroute-dark,
+.mutation .underline-dark, .crossover .subroute-dark,
+.crossover .underline-dark, .solution .subroute-dark,
+.solution .underline-dark {
+  background-color: #292f36;
+  color: #F7FFF7;
+  /*mint cream*/ }
+
+.mutation .subroute-light,
+.mutation .underline-light, .crossover .subroute-light,
+.crossover .underline-light, .solution .subroute-light,
+.solution .underline-light {
+  /*background-color: #F7FFF7;*/
+  color: #292f36;
+  /*gunmetal*/
+  padding: 0.25em; }
+
+.mutation .circle, .crossover .circle, .solution .circle {
+  border-radius: 100%;
+  margin: 0.25em;
+  width: 3em;
+  height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #292f36; }
 
 /*# sourceMappingURL=solutions-style.css.map */

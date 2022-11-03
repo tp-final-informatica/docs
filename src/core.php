@@ -14,30 +14,21 @@ include_once "./src/utils/libraries.php";
         ['path' => "/docs/sitemap.html", 'title'=>"Índice"]]); ?>
 
     <p>Llamamos <em>core</em> al servicio que desarrollamos para calcular las rutas de los médicos. Se trata de un ejecutable
-    que interactúa con los demás servicios a través de una API Rest.</p>
-    <p>Al recibir los datos para calcular las mejores rutas del backend, el core dispara varias ejecuciones en paralelo para
-    encontrar posibles rutas para los médicos laborales.</p>
+    que interactúa con los demás servicios a través de una API Rest: el Backend envía las posiciones de los viajantes y las de todos
+    los puntos a visitar, y las distancias entre todos los puntos al servicio del core, y este utiliza esos datos para
+    devolver luego el orden en que deben recorrerse los puntos. </p>
+    <p>Al recibir los datos para calcular las mejores rutas del backend, el core dispara varias ejecuciones con características
+        distintas en paralelo para encontrar posibles rutas para los médicos laborales. Esas soluciones serán devueltas al
+    Backend para continuar con el ciclo del programa.</p>
 
     <h2>A continuación</h2>
-<!--    <h3>Heading 3</h3>-->
-<!--    <h4>Heading 4</h4>-->
-<!--    <h5>Heading 5</h5>-->
-<!--    <h6>Heading 6</h6>-->
-<!---->
-<!--    <p>párrafo</p>-->
-
 
     <ul>
-        <li><a href="/docs/core-languages.html">Selección del lenguaje para el desarrollo del core</a></li>
-        <li><a href="/docs/algorithm.php">El algoritmo genético</a></li>
-        <li>Especificaciones técnicas</li>
+        <li><a href="/docs/core/languages.html">Selección del lenguaje para el desarrollo del core</a></li>
+        <li><a href="/docs/core/algorithm.html">El algoritmo genético</a></li>
+        <li><a href="/docs/core/specs.html">Especificaciones técnicas</a></li>
     </ul>
 
-<!--    <p>Lorem impsum dolor sit amet: <span class="mono">texto en monospace</span>. Ver tooltip en boton redondo con la letra i: <span data-toggletip>Esto es un tooltip</span></p>-->
-<!--    <div><a>link</a></div>-->
-<!--    <div><button>Botón default</button></div>-->
-
-<!--    --><?php //nextRead("/docs/core-languages.html", "Comparación de lenguajes para el desarrollo del algoritmo") ?>
 
 </div>
 </main>

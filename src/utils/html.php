@@ -29,8 +29,8 @@ function HTML_foot() {
         print('<script type="text/javascript" src="http://livejs.com/live.js"></script>');
     }
     print("
-    <script src=\"./js/tooltip.js\"></script>
-    <script src=\"./js/scroll-top.js\"></script>
+    <script src=\"/docs/js/tooltip.js\"></script>
+    <script src=\"/docs/js/scroll-top.js\"></script>
 </body>
 </html>");
 }

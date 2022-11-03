@@ -4,24 +4,27 @@ $sitemap = [
     "Carátula" => [
         'url'=>"/docs/index.html",
     ],
+    "El sistema" => [
+        'url'=>"/docs/macro.html",
+    ],
     "El core" => [
         'url'=> '/docs/core.html',
         'subitems' => [
-            "Comparación de lenguajes para el desarrollo del algoritmo" => "/docs/core-languages.html",
-            "El algoritmo empleado" => "/docs/algorithm.html",
+            "Comparación de lenguajes para el desarrollo del algoritmo" => "/docs/core/languages.html",
+            "El algoritmo empleado" => "/docs/core/algorithm.html",
         ],
     ],
     "La interfaz administrativa" => [
-        'url'=>'',
+        'url'=>'/docs/web-interface.html',
     ],
     "Las aplicaciones mobile" => [
-        'url'=>'',
+        'url'=>'/docs/mobile.html',
     ],
     "El backend integrador" => [
-        'url'=>'',
+        'url'=>'/docs/backend.html',
     ],
     "Información complementaria" => [
-        'url'=>'',
+        'url'=>'/docs/more.html',
     ],
     "Bibliografía consultada" => [
         'url'=>"/docs/literature.html",

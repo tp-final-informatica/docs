@@ -1,30 +1,19 @@
+<?php
+include_once "./src/utils/libraries.php";
+?>
 
+<?php HTML_head("Comparación de lenguajes"); ?>
 
-<!DOCTYPE html>
-
-<html lang="es">
-<head>
-    <meta name="robots" content="noindex">
-    <meta charset="UTF-8">
-    <title>Comparación de lenguajes</title>
-    <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/png">
-    <link rel="stylesheet" href="/docs/css/fonts.css">
-    <link rel="stylesheet" href="/docs/css/colors.css">
-    <link rel="stylesheet" href="/docs/css/layout.css">
-    <link rel="stylesheet" href="/docs/css/styles.css">
-    <link rel="stylesheet" href="/docs/css/solutions-style.css">
-
-    <link rel="stylesheet" href="/docs/css/tooltip.css">
-    <link rel="stylesheet" href="/docs/css/scroll-top.css">
-    
-</head>
-<body>
-
-<header class="header"><h1 class="mw-content">Comparación de lenguajes</h1></header><nav><a  id="skip-nav" href="#main-content" class="skip-link">Saltear navegacion</a><div data-menu-component>  <input type="checkbox" role="button" aria-haspopup="true" id="toggle" class="vh">  <label for="toggle" data-opens-menu>    &#x2630; Índice    <span class="vh expanded-text">expandido</span>    <span class="vh collapsed-text">colapsado</span>  </label>  <div role="menu" data-menu-origin="left">    <ul><li><a role="menuitem" href="/docs/index.html">Carátula</a></li><li><a role="menuitem" href="/docs/core.html">El core</a></li><li>La interfaz administrativa</li><li>Las aplicaciones mobile</li><li>El backend integrador</li><li>Información complementaria</li><li><a role="menuitem" href="/docs/literature.html">Bibliografía consultada</a></li>    </ul>  </div></div></nav><main id="main-content">
+<?php printHeader("Comparación de lenguajes"); ?>
+<main id="main-content">
 <div class="content">
 
 
-    <div class="mb3"><a href="/docs/core.html">< El core</a> </div>
+    <?php breadcrumb([
+//        ['path' => "/docs", 'title'=>"Inicio"],
+//        ['path' => "/docs/sitemap.html", 'title'=>"Índice"],
+        ['path' => "/docs/core.html", 'title'=>"El core"]]); ?>
+
 
     <p>Para la implementación de la metaheurística del viajante consideramos los siguientes lenguajes de programación:</p>
     <ul>
@@ -155,16 +144,13 @@
         <li>C++ llevó un total de 4 días de desarrollo.</li>
         <li>Por último, R llevó 4 días por iteraciones, y 4 más refactorizando el código para utilizar la familia de funciones apply.</li>
     </ul>
-
+---
     <p>En el repositorio puede consultarse código de cada una de las pruebas.</p>
     <p>En base a las pruebas realizadas, a las características del lenguaje, y a la complejidad de implementación en cada caso, tomamos la decisión de utilizar <b>Golang</b> para implementar nuestro algoritmo.</p>
 
-
+    <?php nextRead("/docs/core/algorithm.html", "El algoritmo genético"); ?>
 </div>
 </main>
-<footer class="footer"><div><button onclick="topFunction()" id="btn-scroll-top" title="Volver al inicio de la página">Subir</button><p class="center"><a href="/docs/sitemap.html">Índice</a></p></div></footer>
+<?php footer(); ?>
 
-    <script src="./js/tooltip.js"></script>
-    <script src="./js/scroll-top.js"></script>
-</body>
-</html>
+<?php HTML_foot(); ?>

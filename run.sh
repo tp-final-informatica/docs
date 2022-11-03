@@ -19,7 +19,8 @@ echo "ingresar a http://localhost:9099/docs"
 xdg-open http://localhost:9099/docs  2> /dev/null
 
 #nodemon --watch $(pwd)/src -e php --signal SIGTERM --exec "docker exec mitp /var/www/html/compile.sh DEV; docker exec sass sh /var/www/html/compile_sass.sh"
-nodemon --watch $(pwd)/src -e php,scss --signal SIGTERM --exec "docker exec mitp /var/www/html/compile.sh DEV; docker exec sass sh /var/www/html/compile_sass.sh"
+#nodemon --watch $(pwd)/src  -e php,scss --signal SIGTERM --exec "docker exec mitp /var/www/html/compile.sh DEV; docker exec sass sh /var/www/html/compile_sass.sh"
+nodemon --signal SIGTERM --exec "docker exec mitp /var/www/html/compile.sh DEV; docker exec sass sh /var/www/html/compile_sass.sh"
 
 echo -e "\n\033[0;31m=> Compilando para Github!!!\033[0m\n"
 

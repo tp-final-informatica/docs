@@ -1,7 +1,13 @@
-.crossover, .mutation, .solution {
+.mutation, {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+.crossover, .solution {
     margin-top: 5em;
     margin-bottom: 5em;
-     p {
+}
+.mutation, .crossover, .solution {
+    p {
         font-size: 1.25em;
         font-family: monospace;
         margin: unset;

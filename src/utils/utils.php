@@ -62,3 +62,23 @@ function printSitemap() {
     }
     print('</ol>');
 }
+
+function printCompany(){
+    print('<span class="company">la empresa</span>');
+}
+
+function printCompanyLogo() {
+    print('<span class="company-logo">la empresa</span>');
+}
+
+function linkBibliografía() {
+    print('<p>Para más información ver la <a href="/docs/literature.html">Bibliografía</a>.</p>');
+}
+
+// asumimos que $message empieza con un <p>
+function sectionLessons($message) {
+    print('<section class="lessons" aria-label="Lecciones aprendidas">');
+    $newstr = substr_replace($message, '<span class="lightbulb"></span>', 3, 0);
+    print($newstr);
+    print('</section>');
+}

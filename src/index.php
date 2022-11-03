@@ -31,9 +31,10 @@ include_once "./src/utils/libraries.php";
         <h3>Directora del Trabajo Profesional</h3>
         <p>Lic. Silvia Adriana Ramos</p>
 
-    <p>Buenos Aires, diciembre 2022</p>
+        <p>Buenos Aires, diciembre 2022</p>
     </div>
 </main>
 <?php footer(); ?>
 
 <?php HTML_foot(); ?>
+
