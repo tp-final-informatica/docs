@@ -10,7 +10,7 @@ de la siguiente generación. La elección de qué función usar se hace de maner
 <h3>Distribución exponencial negativa</h3>
 
 <?php print_figure(
-        "./images/p_exponential.png",
+        "/docs/images/p_exponential.png",
         "Distribución de probabilidad según una exponencial negativa.",
         '
         <p>Se selecciona obligatoriamente un porcentaje de las mejores soluciones.
@@ -26,7 +26,7 @@ de la siguiente generación. La elección de qué función usar se hace de maner
 <h3>Distribución escalonada</h3>
 
 <?php print_figure(
-        "./images/p_square.png",
+        "/docs/images/p_square.png",
         "Distribución de probabilidad escalonada.",
         '
         <p>Al igual que en el caso anterior, las mejores soluciones tienen garantizada su supervivencia hacia la siguiente
