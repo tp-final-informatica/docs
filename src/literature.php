@@ -17,6 +17,7 @@ include_once "./src/utils/libraries.php";
             <li>Genetic Algorithms for the Traveling Salesman Problem: A Review of Representations and Operations, P. Larrañaga, C.M.H. Kuijpers, R.H. Murga, I. Inza, S. Dizdrevic.</li>
             <li>Crossover Operators in Genetic Algorithms: A review, A.J. Umbakar, P.D. Sheth, ISSN: 2229-6956, doi: 10.21917/ijsc.2015.0150.</li>
             <li>A Comparative Study of Adaptive Crossover Operators for Genetic Algorithms to Resolve the TSP, Abdoun Orman, Abouchabaka Jafaar</li>
+            <li>Influence of the Population Size on the Genetic Algorithm Performance in Case of Cultivation Process Modelling, O. Roeva, S. Fidanova, M. Paprzycki</li>
 
         </ol>
 

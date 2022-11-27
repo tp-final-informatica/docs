@@ -144,8 +144,8 @@ include_once "./src/utils/libraries.php";
         <li>C++ llevó un total de 4 días de desarrollo.</li>
         <li>Por último, R llevó 4 días por iteraciones, y 4 más refactorizando el código para utilizar la familia de funciones apply.</li>
     </ul>
----
-    <p>En el repositorio puede consultarse código de cada una de las pruebas.</p>
+
+    <p>El código de las pruebas realizadas está disponible para consulta en el repositorio de GitHub.</p>
     <p>En base a las pruebas realizadas, a las características del lenguaje, y a la complejidad de implementación en cada caso, tomamos la decisión de utilizar <b>Golang</b> para implementar nuestro algoritmo.</p>
 
     <?php nextRead("/docs/core/algorithm.html", "El algoritmo genético"); ?>

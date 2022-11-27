@@ -21,9 +21,10 @@ $id = "crossover";
 
     <h3>MixByShared (MBS)</h3>
     <?php $mbs = new Mbs(); ?>
-    <p>Desarrollamos este algoritmo para la prueba de comparación de lenguajes. Nos pareció interesante dejarlo para el proyecto final, por tener un enfoque distinto a los demás algoritmos que encontramos en los papers.</p>
-    <p>Dadas dos soluciones padres, P0 y P1, analizamos las visitas de cada ruta y marcamos aquellas que corresponden siempre a la misma ruta, y aquellas que en ambos padres pertenecen a rutas distintas, por ejemplo:</p>
-
+    <p>Desarrollamos este algoritmo para la prueba de comparación de lenguajes. Nos pareció interesante dejarlo para el
+        proyecto final, por tener un enfoque distinto a los demás algoritmos que encontramos en los papers.</p>
+    <p>Dadas dos soluciones padres, P0 y P1, analizamos las visitas de cada ruta y marcamos aquellas que corresponden
+        siempre a la misma ruta, y aquellas que en ambos padres pertenecen a rutas distintas, por ejemplo:</p>
 
     <?php $mbs->mbs_parents(); ?>
 
@@ -33,9 +34,22 @@ $id = "crossover";
 
     <p>Para el viajante 1, los puntos en amarillo están repetidos en ambas soluciones padres,</p>
     <p>Para el viajante 2, los puntos en rojo están repetidos en ambas soluciones padres,</p>
-    <p>Los puntos en negro no pertenecen a alguno de los viajantes en particular, sino que, dadas las soluciones padres, pueden pertenecer a cualquiera de las rutas de los viajantes.</p>
-    <p>Nuestro algoritmo hereda los puntos compartidos por los padres a las soluciones hijas, y distribuye los puntos no compartidos entre las soluciones hijas de manera aleatoria.</p>
-    <p>Finalmente se modifica el orden de las rutas aleatoriamente también.</p>
+    <p>Los puntos en negro no pertenecen a alguno de los viajantes en particular, sino que, dadas las soluciones padres,
+        pueden pertenecer a cualquiera de las rutas de los viajantes.</p>
+    <p>Nuestro algoritmo hereda los puntos compartidos por los padres a las soluciones hijas, y distribuye los puntos
+        no compartidos entre las soluciones hijas de manera aleatoria.</p>
+    <p>Finalmente se modifica el orden de las rutas <s>aleatoriamente también</s><span todo>mediante el siguiente algoritmo:</span></p>
+    <ul todo>
+        <li>
+            se elige una visita de la ruta de forma aleatoria,
+        </li>
+        <li>
+            de las visitas restantes dentro de la misma ruta, se selecciona para continuar la secuencia aquella que se encuentre a menor distancia de
+            la visita elegida anteriormente
+        </li>
+        <li>se repite hasta elegir todas las visitas.</li>
+    </ul>
+
     <p>Los siguientes son posibles resultados del algoritmo MBS, dadas las soluciones iniciales presentadas.</p>
 
     <?php $mbs->mbs_children(); ?>

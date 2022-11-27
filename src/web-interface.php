@@ -14,7 +14,7 @@ include_once "./src/utils/libraries.php";
             <h2>Ups! todavía no hay contenido acá</h2>
 <!--            <p>párrafo</p>-->
             <div class="flex center">
-                <img src="/docs/images/cafe.gif" alt="mientras esperas hacete un cafecito">
+                <img src="/docs/images/cafe.gif" alt="mientras esperas hacete un cafecito" style="max-width: 360px;">
             </div>
         </div>
     </main>

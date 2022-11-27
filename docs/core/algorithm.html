@@ -27,6 +27,7 @@
         <p>El algoritmo genético consta de las siguientes partes</p>
         <ol>
             <li><a href="#chromosome">Definición de cromosoma</a></li>
+            <li><a href="#population">Tamaño de la población y cantidad de generaciones <span todo>Nuevo!</span></a></li>
             <li><a href="#first-gen">Armado de población inicial</a></li>
             <li><a href="#fitness">Definición de función de fitness</a></li>
             <li><a href="#parents">Selección de padres</a></li>
@@ -61,6 +62,36 @@
 
 
 <hr class="section-end"/>
+<h2 id="population">Tamaño de la población y cantidad de generaciones</h2>    <p>Para el desarrollo del algoritmo se utilizó un set de datos y se ajustaron los parámetros de ejecución acorde a
+        estos. Para una cantidad cercana a 20 visitas y dos viajantes, el desarrollo se hizo con una población de 200
+        soluciones y cerca de 600 loops (parámetros que fueron variando a lo largo del desarrollo). Cuando el algoritmo
+        estuvo completo y cambiamos el set de datos, notamos que estos números ya no eran útiles para resolver el
+        problema.
+        </p><p>El ejemplo más claro es el de un viajante con 5 visitas:
+        la cantidad total de soluciones posibles (el espacio de soluciones disponible) en este caso es
+        <span class="mono" aria-label="5 factorial igual a 120" title="5 factorial igual a 120">5!=120</span>,
+        que nunca llega a completar nuestro valor esperado de 200 soluciones por generación.</p>
+    <p>Al reducir el tamaño de la población notamos también que la cantidad fija de 600 de
+        generaciones era desproporcionadamente grande. En efecto, pruebas empíricas demostraron que un total
+        de 30 generaciones es suficiente para un viajante y hasta 10 visitas.</p>
+    <p>Este descubrimiento nos llevó a pensar que lo mismo podía suceder en el caso contrario, con más viajantes y visitas
+        que en nuestro caso de desarrollo. Decidimos encontrar de forma empírica los valores más adecuados para estos
+        parámetros (teniendo en cuenta limitaciones de performance), puesto que no hay una regla definida respecto a
+        estos en nuestro problema
+        <span data-toggletip>Inspirado en el paper "Influence of the Population Size on the Genetic Algorithm
+            Performance in Case of Cultivation Process Modelling" (ver sección Bibliografía).</span>.
+    </p>
+    <section class="lessons"  aria-label="Lecciones aprendidas">
+        <p>
+            <span class="lightbulb"></span>
+            Los parámetros de ejecución dependen de la cantidad de elementos en las soluciones. No existe un <em>número
+            mágico</em> para nuestro problema. El hecho de que nuestro problema esté poco estudiado y en consecuencia
+            haya poca bibliografía específica implica que el descubrimiento de los mejores valores debe hacerse de forma
+            <b>empírica</b> a través de distintas simulaciones.
+        </p>
+    </section>
+    <p todo > en desarrollo - no terminamos de encontrar los parámetros aun </p>
+<hr class="section-end"/>
 <h2 id="first-gen">Armado de población inicial</h2>    <p>Dada <span class="mono">N</span> la cantidad de viajantes, se distribuyen las visitas en <span class="mono">N</span> rutas de forma <b>aleatoria</b> y se asignan a cada solución. Esto garantiza un pool genético grande, pero no soluciones buenas.</p>
     <p>El único criterio para la formación de las soluciones es mantener balanceada la cantidad de visitas por ruta.</p>
 <hr class="section-end"/><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -83,7 +114,7 @@
                         <mi>C</mi>
                     </mrow>
                     <mrow>
-                        <mi>costo</mi><mo>*</mo><mo>(</mo><mn>1</mn><mo>+</mo><mi>costo por viajantes</mi><mo>+</mo><mi>costo por validez</mi><mo>+</mo><mi>costo por desbalanceo</mi><mo>)</mo>
+                        <mi>costo</mi><mo>/</mo><mn>100</mn><mo>+</mo><mi>costo por viajantes</mi><mo>+</mo><mi>costo por validez</mi><mo>+</mo><mi>costo por desbalanceo</mi>
                     </mrow>
                 </mfrac>
             </mrow>
@@ -175,9 +206,10 @@
     </ul>
 
     <h3>MixByShared (MBS)</h3>
-        <p>Desarrollamos este algoritmo para la prueba de comparación de lenguajes. Nos pareció interesante dejarlo para el proyecto final, por tener un enfoque distinto a los demás algoritmos que encontramos en los papers.</p>
-    <p>Dadas dos soluciones padres, P0 y P1, analizamos las visitas de cada ruta y marcamos aquellas que corresponden siempre a la misma ruta, y aquellas que en ambos padres pertenecen a rutas distintas, por ejemplo:</p>
-
+        <p>Desarrollamos este algoritmo para la prueba de comparación de lenguajes. Nos pareció interesante dejarlo para el
+        proyecto final, por tener un enfoque distinto a los demás algoritmos que encontramos en los papers.</p>
+    <p>Dadas dos soluciones padres, P0 y P1, analizamos las visitas de cada ruta y marcamos aquellas que corresponden
+        siempre a la misma ruta, y aquellas que en ambos padres pertenecen a rutas distintas, por ejemplo:</p>
 
     <div class="crossover"><div class="flex wrap mt3 mb3 space">  <p>P0</p>  <div class="flex wrap gap3"> <div><div class="flex"><div class="circle medium-turquoise"><p>A0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle dark"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise"><p>A1</p></div></div>    <div class="underline-light">viajante A    </div> </div> <div><div class="flex"><div class="circle medium-turquoise"><p>B0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>5</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>7</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>8</p></div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise"><p>B1</p></div></div>    <div class="underline-light">viajante B    </div> </div>  </div></div> <div class="flex wrap mt3 mb3 space">  <p>P1</p>  <div class="flex wrap gap3"> <div><div class="flex"><div class="circle medium-turquoise"><p>A0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise"><p>A1</p></div></div>    <div class="underline-light">viajante A    </div> </div> <div><div class="flex"><div class="circle medium-turquoise"><p>B0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>5</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle dark"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>7</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>8</p></div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise"><p>B1</p></div></div>    <div class="underline-light">viajante B    </div> </div>  </div></div> </div>
     <p>Agrupamos dichas visitas para poder armar las soluciones hijas:</p>
@@ -185,9 +217,22 @@
     <div class="crossover"><div class="flex mt3 mb3 gap3"><div><div class="flex"><div class="circle yellow-crayola">1</div><div class="circle dark">2</div><div class="circle yellow-crayola">3</div><div class="circle yellow-crayola">4</div></div><div class="underline-light">viajante A</div></div><div><div class="flex"><div class="circle dark">2</div><div class="circle light-coral">5</div><div class="circle light-coral">6</div><div class="circle light-coral">7</div><div class="circle light-coral">8</div></div><div class="underline-light">viajante B</div></div></div></div>
     <p>Para el viajante 1, los puntos en amarillo están repetidos en ambas soluciones padres,</p>
     <p>Para el viajante 2, los puntos en rojo están repetidos en ambas soluciones padres,</p>
-    <p>Los puntos en negro no pertenecen a alguno de los viajantes en particular, sino que, dadas las soluciones padres, pueden pertenecer a cualquiera de las rutas de los viajantes.</p>
-    <p>Nuestro algoritmo hereda los puntos compartidos por los padres a las soluciones hijas, y distribuye los puntos no compartidos entre las soluciones hijas de manera aleatoria.</p>
-    <p>Finalmente se modifica el orden de las rutas aleatoriamente también.</p>
+    <p>Los puntos en negro no pertenecen a alguno de los viajantes en particular, sino que, dadas las soluciones padres,
+        pueden pertenecer a cualquiera de las rutas de los viajantes.</p>
+    <p>Nuestro algoritmo hereda los puntos compartidos por los padres a las soluciones hijas, y distribuye los puntos
+        no compartidos entre las soluciones hijas de manera aleatoria.</p>
+    <p>Finalmente se modifica el orden de las rutas <s>aleatoriamente también</s><span todo>mediante el siguiente algoritmo:</span></p>
+    <ul todo>
+        <li>
+            se elige una visita de la ruta de forma aleatoria,
+        </li>
+        <li>
+            de las visitas restantes dentro de la misma ruta, se selecciona para continuar la secuencia aquella que se encuentre a menor distancia de
+            la visita elegida anteriormente
+        </li>
+        <li>se repite hasta elegir todas las visitas.</li>
+    </ul>
+
     <p>Los siguientes son posibles resultados del algoritmo MBS, dadas las soluciones iniciales presentadas.</p>
 
     <div class="crossover"><div class="flex wrap mt3 mb3 space">  <p>H0</p>  <div class="flex wrap gap3"> <div><div class="flex"><div class="circle medium-turquoise"><p>A0</p></div><i class="icono-arrow1-left"></i><div class="circle dark"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise"><p>A1</p></div></div>    <div class="underline-light">viajante A    </div> </div> <div><div class="flex"><div class="circle medium-turquoise"><p>B0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>5</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>7</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>8</p></div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise"><p>B1</p></div></div>    <div class="underline-light">viajante B    </div> </div>  </div></div> <div class="flex wrap mt3 mb3 space">  <p>H1</p>  <div class="flex wrap gap3"> <div><div class="flex"><div class="circle medium-turquoise"><p>A0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise"><p>A1</p></div></div>    <div class="underline-light">viajante A    </div> </div> <div><div class="flex"><div class="circle medium-turquoise"><p>B0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>8</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>5</p></div><i class="icono-arrow1-left"></i><div class="circle dark"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>7</p></div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise"><p>B1</p></div></div>    <div class="underline-light">viajante B    </div> </div>  </div></div> <div class="flex wrap mt3 mb3 space">  <p>H2</p>  <div class="flex wrap gap3"> <div><div class="flex"><div class="circle medium-turquoise"><p>A0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise"><p>A1</p></div></div>    <div class="underline-light">viajante A    </div> </div> <div><div class="flex"><div class="circle medium-turquoise"><p>B0</p></div><i class="icono-arrow1-left"></i><div class="circle dark"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>5</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>8</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>7</p></div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise"><p>B1</p></div></div>    <div class="underline-light">viajante B    </div> </div>  </div></div> <div class="flex wrap mt3 mb3 space">  <p>H3</p>  <div class="flex wrap gap3"> <div><div class="flex"><div class="circle medium-turquoise"><p>A0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle dark"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise"><p>A1</p></div></div>    <div class="underline-light">viajante A    </div> </div> <div><div class="flex"><div class="circle medium-turquoise"><p>B0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>7</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>5</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>8</p></div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise"><p>B1</p></div></div>    <div class="underline-light">viajante B    </div> </div>  </div></div> </div>
@@ -306,17 +351,22 @@
         <li>Jump displacement mutation (<abbr title="Jump Displacement Mutation">JDM</abbr>)</li>
         <li>Jump reverse sequence mutation (<abbr title="Jump Reverse Sequence Mutation">JSM</abbr>)</li>
         <li>Jump partially shuffled mutation (<abbr title="Jump Partially Shuffled Mutation">JPSM</abbr>)</li>
+        <li>Empty route mutation (<abbr title="Empty Route Mutation">ERM</abbr>) <span todo>Nuevo!</span></li>
     </ol>
 
     <p>Las primeras tres mutaciones mencionadas fueron obtenidas de la bibliografía <span data-toggletip>En especial,
         de estos papers: "Analyzing the Performance of Mutation Operators to Solve the Traveling Salesman Problem",
         y "Genetic Algorithms for the Traveling Salesman Problem: A Review of Representations and Operations".</span>
         y son muy conocidas dentro del tema, por lo que su explicación no será detallada en profundidad este informe.
-        Las últimas cuatro mutaciones son adaptaciones que realizamos de las mutaciones anteriores, considerando nuestro
-        problema de múltiples viajeros con distintas rutas.</p>
+    </p>
+    <p>Las siguientes cuatro mutaciones son adaptaciones que realizamos de las mutaciones anteriores, considerando nuestro
+        problema de múltiples viajeros con distintas rutas.
+    </p>
+    <p todo>La última mutación (<abbr title="Empty Route Mutation">ERM</abbr>) fue agregada para ayudar al algoritmo en las ejecuciones no balanceadas.</p>
 
 
-    <p>Las aplicamos de forma equiprobable, sólo una a cada solución, si el rate de mutación se cumple.</p>
+    <p todo>Las mutaciones se aplican a cada solución, si el rate de mutación se cumple. Esto implica que por cada solución a mutar
+        podemos obtener hasta 8 variantes, que luego serán seleccionadas o descartadas según el <a href="#survivors">criterio de supervivencia</a>.</p>
 <!--    <p todo>En realidad estoy pensando en dirigir las mutaciones según los mejores resultados. graficar</p>-->
 
     <h3>TWORS/Displacement mutation (DM)</h3>
@@ -377,6 +427,20 @@
       <div class="mutation"><div class="flex wrap gap3 mb2">  <div><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div></div>  <div class="underline-light">viajante A</div>  </div>  <div><div class="flex"><div class="circle light"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>7</p></div></div>  <div class="underline-light">viajante B</div>  </div></div></div>    <p>Cambiamos el orden de los elementos de forma aleatoria, por ejemplo: <span mono>3,2,4</span>, e insertamos
     esta secuencia en un punto aleatorio dentro de otra ruta de la misma solución:</p>
       <div class="mutation"><div class="flex wrap gap3 mb2">  <div><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div></div>  <div class="underline-light">viajante A</div>  </div>  <div><div class="flex"><div class="circle light"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>7</p></div></div>  <div class="underline-light">viajante B</div>  </div></div></div>
+    <h3>Empty route mutation (ERM) <span todo>Nuevo!</span></h3>
+    <p>Esta mutación fue agregada para ayudar al algoritmo en las ejecuciones no balanceadas. Esto es porque las mutaciones
+        y crossovers disponibles hasta el momento de desarrollarla no favorecían este tipo de ejecuciones, es decir, era poco probable que
+        devolvieran rutas vacías.</p>
+    <p>Se elige una ruta dentro de la solución, y se vacía completamente. Los elementos que se quitaron de esa ruta se reparten
+    equitativamente entre las rutas restantes. Por ejemplo, para una solución de 4 rutas:</p>
+      <div class="mutation"><div class=" mb2">  <div class="flex column mb2" style="align-items: flex-start">    <div><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>4</p></div></div>      <div class="underline-light" style="width: 100%">viajante A</div>    </div>  </div>  <div class="flex column mb2" style="align-items: flex-start">  <div><div class="flex"><div class="circle light"><p>5</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>7</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>8</p></div></div>  <div class="underline-light" style="width: 100%">viajante B</div>  </div>  </div>  <div class="flex column mb2" style="align-items: flex-start">  <div><div class="flex"><div class="circle light"><p>9</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>10</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>11</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>12</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>13</p></div></div>  <div class="underline-light" style="width: 100%">viajante C</div>  </div>  </div>  <div class="flex column mb2" style="align-items: flex-start">  <div><div class="flex"><div class="circle light"><p>14</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>15</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>16</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>17</p></div></div>  <div class="underline-light" style="width: 100%">viajante D</div>  </div></div></div></div>    <p>Si vaciamos por ejemplo la tercera ruta, la nueva solución podría verse de esta forma:</p>
+      <div class="mutation"><div class=" mb2">  <div class="flex column mb2" style="align-items: flex-start">    <div><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>10</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>4</p></div></div>      <div class="underline-light" style="width: 100%">viajante A</div>    </div>  </div>  <div class="flex column mb2" style="align-items: flex-start">  <div><div class="flex"><div class="circle light"><p>5</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>11</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>7</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>8</p></div></div>  <div class="underline-light" style="width: 100%">viajante B</div>  </div>  </div>  <div class="flex column mb2" style="align-items: flex-start">  <div><div class="flex"><div class="circle light"><p>9</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>13</p></div></div>  <div class="underline-light" style="width: 100%">viajante C</div>  </div>  </div>  <div class="flex column mb2" style="align-items: flex-start">  <div><div class="flex"><div class="circle light"><p>14</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>15</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>16</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>12</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>17</p></div></div>  <div class="underline-light" style="width: 100%">viajante D</div>  </div></div></div></div>    <p>Este tipo de mutación aporta valor para aquellas soluciones de múltiples rutas. En casos donde las soluciones tengan pocas
+    rutas, es posible que las soluciones nuevas propuestas sean de menor valor por generar rutas muy largas. Por ejemplo, ver las rutas presentadas a continuación:</p>
+
+      <div class="mutation"><div class="flex wrap gap3 mb2">  <div><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div></div>  <div class="underline-light">viajante A</div>  </div>  <div><div class="flex"><div class="circle light"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>7</p></div></div>  <div class="underline-light">viajante B</div>  </div></div></div>    <p>Luego de la mutación, las rutas podrían ser de esta manera:</p>
+      <div class="mutation"><div class="flex wrap gap3 mb2">  <div><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div></div>  <div class="underline-light">viajante A</div>  </div>  <div><div class="flex"><div class="circle light"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>7</p></div></div>  <div class="underline-light">viajante B</div>  </div>  </div></div>    <p>En este caso, por ser dos rutas, una ruta queda con todas las visitas. Esto puede ser contraproducente si supera el
+        maximo de visitas razonables por médico en una jornada laboral. Si eso sucede, la solución será penalizada.</p>
+
 <hr class="section-end"/>
 <h2 id="survivors">Selección de soluciones sobrevivientes</h2>
 <p>Las siguientes son las funciones de probabilidad que utilizamos para seleccionar las soluciones que sobreviven y forman parte
@@ -393,9 +457,26 @@ de la siguiente generación. La elección de qué función usar se hace de maner
         a un valor pequeño pero distinto de cero.</p>
         <p>Elegimos una distribución exponencial y no lineal porque nos permitió variar la velocidad de la caída de la curva,
         de forma de asegurar una diferencia en la posibilidad de elegir una mejor solución respecto de una solución menos buena.</p>
-        <p>Dado que la curva tiende a aplanarse en una probabilidad muy baja, pero distinta de cero, nos aseguramos de que todas las soluciones
+        <p>Dado que la curva tiende a aplanarse en una probabilidad muy baja, pero distinta de cero, nos aseguramos de que 
+        todas las soluciones
         tengan posibilidad de ser elegidas.</p>
         </figcaption>
+    </figure>
+<figure class="mw-inherit" style="margin: 0;" role="group">
+        <img class="mw-inherit" src="/docs/images/survivors_exponential.png"
+             alt="Soluciones sobrevivientes que entraron en la nueva generación dada una probabilidad exponencial">
+        <figcaption>
+        <p>El gráfico anterior muestra el resultado de una ejecución en la que se aplicó la distribución de probabilidad
+        exponencial para la selección de 200 soluciones sobrevivientes de un pool inicial de 1234
+    soluciones disponibles.</p>
+    <p>
+    Podemos apreciar que los puntos de la curva están más juntos para valores más pequeños de <span mono>Y</span>, y 
+    se espacían de a poco conforme <span mono>Y</span> va creciendo. Esto es el resultado de aplicar una distribución 
+    de probabilidad con una pendiente negativa variable.
+     Sabiendo que las soluciones están ordenadas por fitness, esto indica también que las mejores soluciones fueron 
+    elegidas con mayor probabilidad, pero que las peores soluciones tuvieron su oportunidad de sobrevivir.</p>
+    <p>Por último puede verse que hasta <span mono>X=30</span> la curva tiene una pendiente más baja, casi recta. Esto es porque esas primeras
+    30 soluciones fueron elegidas independientemente de su probabilidad, es decir, tenían su lugar asegurado.</p></figcaption>
     </figure>
 <h3>Distribución escalonada</h3>
 
@@ -409,6 +490,25 @@ de la siguiente generación. La elección de qué función usar se hace de maner
         o malas tienen la misma probabilidad de ser elegidas. El resto de las soluciones, es decir, todas las que no se destacan por ser 
         muy buenas, muy malas, o intermedias tienen probabilidad cero de ser elegidas.</p>
         </figcaption>
+    </figure>
+<figure class="mw-inherit" style="margin: 0;" role="group">
+        <img class="mw-inherit" src="/docs/images/survivors_square.png"
+             alt="Soluciones sobrevivientes que entraron en la nueva generación dada una probabilidad escalonada">
+        <figcaption>
+    <p>El gráfico anterior muestra qué soluciones pasaron a la siguiente generación del pool generado en una iteración 
+    de una ejecución, pero ahora para la distribución de probabilidad escalonada. En este caso, de cerca de 1300
+    soluciones disponibles, nuevamente sólo 200 pasaron a ser parte de la siguiente generación.
+    </p><p>
+    La curva tiende a parecer más una recta, en la que la densidad de puntos es más o menos constante sobre la curva 
+    (exceptuando las primeras 30 soluciones), lo que indica que todas las soluciones 
+    tuvieron la misma probabilidad de ser elegidas. Al igual que en el caso anterior, las primeras 30 soluciones 
+    fueron rescatadas independientemente de su probabilidad (y por esto la pendiente es menos pronunciada en esa parte de la curva).
+    </p><p>
+    Se puede apreciar dos saltos importantes en esta curva, que indican grandes cantidades de soluciones que no fueron 
+    elegidas: aquellas cuya probabilidad fue cero en la distribución escalonada presentada anteriormente.
+    Sabiendo que las soluciones están ordenadas por fitness, todo esto indica que el grupo de mejores, intermedias, y peores soluciones
+    fueron elegidas con igual probabilidad.</p>
+    </figcaption>
     </figure>
 <h3>Comparación de resultados entre ambas distribuciones</h3>
 
@@ -427,7 +527,7 @@ esa solución antes de llegar al límite, se extiende la ejecución unas iteraci
         <div class="mt3 mb3"><a href="/docs/core/specs.html">Seguir leyendo: Especificaciones técnicas ></a></div>
     </div>
 </main>
-<footer class="footer"><div><button onclick="topFunction()" id="btn-scroll-top" title="Volver al inicio de la página">Subir</button><p class="center"><a href="/docs/sitemap.html">Índice</a></p></div></footer>
+<footer class="footer"><div><button onclick="topFunction()" id="btn-scroll-top" title="Volver al inicio de la página">Subir</button><p class="center"><a href="/docs/sitemap.html">Índice</a></p><p class="center"><a href="/docs/changelog.html">Changelog</a></p></div></footer>
     <script src="/docs/js/tooltip.js"></script>
     <script src="/docs/js/scroll-top.js"></script>
 </body>

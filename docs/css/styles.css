@@ -44,6 +44,10 @@ span.company-logo {
     justify-content: space-between; }
   .flex.center {
     justify-content: center; }
+  .flex.row {
+    flex-direction: row; }
+  .flex.column {
+    flex-direction: column; }
 
 .gap1 {
   gap: 1em; }
@@ -87,6 +91,9 @@ table {
 [todo] {
   background-color: var(--rosso-corsa);
   color: white; }
+  [todo] a {
+    color: white !important;
+    text-decoration: underline; }
 
 hr.section-end {
   padding-top: 3em;

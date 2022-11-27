@@ -13,13 +13,11 @@ include_once "./src/utils/libraries.php";
 //        ['path' => "/docs", 'title'=>"Inicio"],
         ['path' => "/docs/sitemap.html", 'title'=>"Índice"]]); ?>
 
-    <p>Llamamos <em>core</em> al servicio que desarrollamos para calcular las rutas de los médicos. Se trata de un ejecutable
-    que interactúa con los demás servicios a través de una API Rest: el Backend envía las posiciones de los viajantes y las de todos
-    los puntos a visitar, y las distancias entre todos los puntos al servicio del core, y este utiliza esos datos para
-    devolver luego el orden en que deben recorrerse los puntos. </p>
-    <p>Al recibir los datos para calcular las mejores rutas del backend, el core dispara varias ejecuciones con características
-        distintas en paralelo para encontrar posibles rutas para los médicos laborales. Esas soluciones serán devueltas al
-    Backend para continuar con el ciclo del programa.</p>
+    <p>Llamamos <em>core</em> al servicio que desarrollamos para calcular las rutas de los médicos. Recibe el listado de
+        puntos (pacientes y médicos) y las distancias entre estos via una API Rest; y devuelve el orden en que cada viajante
+        debe recorrerlos. </p>
+    <p>El core propone tres soluciones distintas en base a distintos criterios que se explicarán más adelante, para ser
+        presentados al administrador web y que este pueda seleccionar la que mejor le parezca según el caso.</p>
 
     <h2>A continuación</h2>
 

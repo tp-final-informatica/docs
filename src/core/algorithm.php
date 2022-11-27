@@ -28,6 +28,7 @@ function print_section_footer() {
         <p>El algoritmo genético consta de las siguientes partes</p>
         <ol>
             <li><a href="#chromosome">Definición de cromosoma</a></li>
+            <li><a href="#population">Tamaño de la población y cantidad de generaciones <span todo>Nuevo!</span></a></li>
             <li><a href="#first-gen">Armado de población inicial</a></li>
             <li><a href="#fitness">Definición de función de fitness</a></li>
             <li><a href="#parents">Selección de padres</a></li>
@@ -42,6 +43,7 @@ function print_section_footer() {
         <?php print_section_footer(); ?>
         <?php
         include_once "./src/algorithm/chromosome.php";
+        include_once "./src/algorithm/population.php";
         include_once "./src/algorithm/first_gen.php";
         include_once "./src/algorithm/fitness.php";
         include_once "./src/algorithm/parents.php";

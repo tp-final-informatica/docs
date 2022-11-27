@@ -23,7 +23,7 @@ $id = "fitness";
                         <mi>C</mi>
                     </mrow>
                     <mrow>
-                        <mi>costo</mi><mo>*</mo><mo>(</mo><mn>1</mn><mo>+</mo><mi>costo por viajantes</mi><mo>+</mo><mi>costo por validez</mi><mo>+</mo><mi>costo por desbalanceo</mi><mo>)</mo>
+                        <mi>costo</mi><mo>/</mo><mn>100</mn><mo>+</mo><mi>costo por viajantes</mi><mo>+</mo><mi>costo por validez</mi><mo>+</mo><mi>costo por desbalanceo</mi>
                     </mrow>
                 </mfrac>
             </mrow>

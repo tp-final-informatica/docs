@@ -26,6 +26,9 @@ function JRSM() {
 function JPSM() {
     print('<abbr title="Jump Partially Shuffled Mutation">JPSM</abbr>');
 }
+function ERM() {
+    print('<abbr title="Empty Route Mutation">ERM</abbr>');
+}
 
 ?>
 
@@ -45,17 +48,22 @@ function JPSM() {
         <li>Jump displacement mutation (<?php JDM(); ?>)</li>
         <li>Jump reverse sequence mutation (<?php JRSM(); ?>)</li>
         <li>Jump partially shuffled mutation (<?php JPSM(); ?>)</li>
+        <li>Empty route mutation (<?php ERM(); ?>) <span todo>Nuevo!</span></li>
     </ol>
 
     <p>Las primeras tres mutaciones mencionadas fueron obtenidas de la bibliografía <span data-toggletip>En especial,
         de estos papers: "Analyzing the Performance of Mutation Operators to Solve the Traveling Salesman Problem",
         y "Genetic Algorithms for the Traveling Salesman Problem: A Review of Representations and Operations".</span>
         y son muy conocidas dentro del tema, por lo que su explicación no será detallada en profundidad este informe.
-        Las últimas cuatro mutaciones son adaptaciones que realizamos de las mutaciones anteriores, considerando nuestro
-        problema de múltiples viajeros con distintas rutas.</p>
+    </p>
+    <p>Las siguientes cuatro mutaciones son adaptaciones que realizamos de las mutaciones anteriores, considerando nuestro
+        problema de múltiples viajeros con distintas rutas.
+    </p>
+    <p todo>La última mutación (<?php ERM(); ?>) fue agregada para ayudar al algoritmo en las ejecuciones no balanceadas.</p>
 
 
-    <p>Las aplicamos de forma equiprobable, sólo una a cada solución, si el rate de mutación se cumple.</p>
+    <p todo>Las mutaciones se aplican a cada solución, si el rate de mutación se cumple. Esto implica que por cada solución a mutar
+        podemos obtener hasta 8 variantes, que luego serán seleccionadas o descartadas según el <a href="#survivors">criterio de supervivencia</a>.</p>
 <!--    <p todo>En realidad estoy pensando en dirigir las mutaciones según los mejores resultados. graficar</p>-->
 
     <h3>TWORS/Displacement mutation (DM)</h3>
@@ -133,5 +141,23 @@ function JPSM() {
     <p>Cambiamos el orden de los elementos de forma aleatoria, por ejemplo: <span mono>3,2,4</span>, e insertamos
     esta secuencia en un punto aleatorio dentro de otra ruta de la misma solución:</p>
     <?php $mutation->jpsmAfter(); ?>
+
+    <h3>Empty route mutation (ERM) <span todo>Nuevo!</span></h3>
+    <p>Esta mutación fue agregada para ayudar al algoritmo en las ejecuciones no balanceadas. Esto es porque las mutaciones
+        y crossovers disponibles hasta el momento de desarrollarla no favorecían este tipo de ejecuciones, es decir, era poco probable que
+        devolvieran rutas vacías.</p>
+    <p>Se elige una ruta dentro de la solución, y se vacía completamente. Los elementos que se quitaron de esa ruta se reparten
+    equitativamente entre las rutas restantes. Por ejemplo, para una solución de 4 rutas:</p>
+    <?php $mutation->ermBefore(4); ?>
+    <p>Si vaciamos por ejemplo la tercera ruta, la nueva solución podría verse de esta forma:</p>
+    <?php $mutation->ermAfter(4); ?>
+    <p>Este tipo de mutación aporta valor para aquellas soluciones de múltiples rutas. En casos donde las soluciones tengan pocas
+    rutas, es posible que las soluciones nuevas propuestas sean de menor valor por generar rutas muy largas. Por ejemplo, ver las rutas presentadas a continuación:</p>
+
+    <?php $mutation->ermBefore(2); ?>
+    <p>Luego de la mutación, las rutas podrían ser de esta manera:</p>
+    <?php $mutation->ermAfter(2); ?>
+    <p>En este caso, por ser dos rutas, una ruta queda con todas las visitas. Esto puede ser contraproducente si supera el
+        maximo de visitas razonables por médico en una jornada laboral. Si eso sucede, la solución será penalizada.</p>
 
 <?php print_section_footer(); ?>
