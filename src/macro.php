@@ -10,7 +10,7 @@ include_once "./src/utils/libraries.php";
 <div class="content">
 
     <?php breadcrumb([['path' => "/docs/sitemap.html", 'title'=>"Índice"]]); ?>
-
+    <p todo>Nuevo!</ptodo>
     <p>Este trabajo pretende facilitar los procesos laborales dentro de <?php printCompany(); ?>, una empresa de visitadores
         médicos a domicilio.
         Para esto desarrollamos un sistema informático que agiliza el cálculo de las rutas de los médicos y las distribución

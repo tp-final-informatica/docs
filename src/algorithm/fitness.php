@@ -11,9 +11,10 @@ $id = "fitness";
     <p>Dado que nuestro programa debía devolver tres propuestas de rutas con criterios distintos, fue necesario proponer
         tres variantes de funciones de fitness distintas para cumplir con este requerimiento.</p>
     <p>Nuestra función de fitness base es la siguiente:</p>
-    <div class="math" aria-label="La función de fitness equivale a una fracción en la que el numerador es una constante C y el denominador
-    es el costo total recorrido multiplicado por la suma de todos los siguientes: el número uno, un parámetro relacionado a la
-    prioridad de los viajantes, un parámetro relacionado a la validez de la solución y un parámetro relacionado
+    <div class="math" aria-label="La función de fitness equivale a una fracción en la que el numerador es una constante C
+    y el denominador
+    es el costo relacionado a la distancia calculada, más un parámetro relacionado a la
+    prioridad de los viajantes, más un parámetro relacionado a la validez de la solución y más un parámetro relacionado
     al balanceo de las visitas entre las rutas.">
         <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
             <mi>fitness</mi> <mo>=</mo>
@@ -23,13 +24,18 @@ $id = "fitness";
                         <mi>C</mi>
                     </mrow>
                     <mrow>
-                        <mi>costo</mi><mo>/</mo><mn>100</mn><mo>+</mo><mi>costo por viajantes</mi><mo>+</mo><mi>costo por validez</mi><mo>+</mo><mi>costo por desbalanceo</mi>
+                        <mi>costo por distancia</mi><mo>+</mo><mi>costo por viajantes</mi><mo>+</mo><mi>costo por validez</mi><mo>+</mo><mi>costo por desbalanceo</mi>
                     </mrow>
                 </mfrac>
             </mrow>
         </math>
     </div>
-    <p>Al estar el costo en el denominador, <em>el fitness crece cuanto mejor es la solución, cuanto más chico es el costo</em>. Multiplicamos por una
+    <p>Al estar el costo por distancia en el denominador, <em>el fitness crece cuanto mejor es la solución, es decir,
+            cuanto menos distancia se recorre</em>.
+        El costo por distancia es en realidad una relación entre el valor real de la distancia de la solución, y el
+        costo de la peor solución en la misma generación. Esto lo hacemos para garantizar un
+        valor menor o igual a 1, independientemente de la cantidad de visitas que tengamos que procesar.
+        Multiplicamos por una
         constante <span mono>C</span> para que el número no sea tan chico, pero esto no es necesario.</p>
     <p>Se ajustan los parámetros de la función según cualquiera de los siguientes tres casos:</p>
     <ol>

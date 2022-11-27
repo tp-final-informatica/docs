@@ -5,7 +5,7 @@ $sitemap = [
         'url'=>"/docs/index.html",
     ],
     "El sistema" => [
-//        'url'=>"/docs/macro.html",
+        'url'=>"/docs/macro.html",
     ],
     "El core" => [
         'url'=> '/docs/core.html',

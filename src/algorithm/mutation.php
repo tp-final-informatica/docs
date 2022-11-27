@@ -146,7 +146,7 @@ function ERM() {
     <p>Esta mutación fue agregada para ayudar al algoritmo en las ejecuciones no balanceadas. Esto es porque las mutaciones
         y crossovers disponibles hasta el momento de desarrollarla no favorecían este tipo de ejecuciones, es decir, era poco probable que
         devolvieran rutas vacías.</p>
-    <p>Se elige una ruta dentro de la solución, y se vacía completamente. Los elementos que se quitaron de esa ruta se reparten
+    <p>Se elige una ruta al azar dentro de la solución, y se vacía completamente. Los elementos que se quitaron de esa ruta se reparten
     equitativamente entre las rutas restantes. Por ejemplo, para una solución de 4 rutas:</p>
     <?php $mutation->ermBefore(4); ?>
     <p>Si vaciamos por ejemplo la tercera ruta, la nueva solución podría verse de esta forma:</p>
