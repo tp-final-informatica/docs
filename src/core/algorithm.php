@@ -32,8 +32,8 @@ function print_section_footer() {
             <li><a href="#first-gen">Armado de población inicial</a></li>
             <li><a href="#fitness">Definición de función de fitness</a></li>
             <li><a href="#parents">Selección de padres</a></li>
-            <li><a href="#crossover">Crossover</a></li>
-            <li><a href="#mutation">Mutación</a></li>
+            <li><a href="#crossover">Crossover <span todo>Nuevo!</span></a></li>
+            <li><a href="#mutation">Mutación <span todo>Nuevo!</span></a></li>
             <li><a href="#survivors">Selección de soluciones sobrevivientes</a></li>
             <li><a href="#end-criteria">Criterio de finalización</a></li>
         </ol>

@@ -14,10 +14,18 @@ include_once "./src/utils/libraries.php";
     <?php breadcrumb([
         ['path' => "/docs", 'title'=>"Inicio"],
     ]); ?>
-
+    <?php $item_classes="mb2"; ?>
 
     <ul>
-        <li class="flex wrap">
+        <li class="<? print $item_classes?>">
+            <div><span mono>29 Nov 2022:</span></div>
+            <div>
+                <ul>
+                    <li>Mutación nueva en El core: <a href="/docs/core/algorithm.html#mutation">Reduce Entropy Mutation</a> </li>
+                </ul>
+            </div>
+        </li>
+        <li class="<? print $item_classes?>">
             <div><span mono>27 Nov 2022:</span></div>
             <div>
                 <ul>
@@ -26,7 +34,7 @@ include_once "./src/utils/libraries.php";
                             y cantidad de generaciones</a> (en desarrollo).</li>
                     <li>Cambios en El core: <a href=/docs/core/algorithm.html#crossover>crossover MBS</a> (criterio de
                         ordenamiento de las visitas).</li>
-                    <li>Mutación nueva en El core: <a href="/docs/core/algorithm.html#mutation">Empty Route</a> </li>
+                    <li>Mutación nueva en El core: <a href="/docs/core/algorithm.html#mutation">Empty Route Mutation</a> </li>
                     <li>Modificación en El core: <a href="/docs/core/algorithm.html#fitness">Definición de función de
                             fitness</a> (cambios en la función y en la descripción de la misma). </li>
                     <li>Modificación en El core: <a href="/docs/core/algorithm.html#survivors">Selección de soluciones sobrevivientes
