@@ -82,3 +82,14 @@ function sectionLessons($message) {
     print($newstr);
     print('</section>');
 }
+
+
+function lightboxImage($thumbnail_src, $image_src, $alt, $max_width = 360) {
+    print('<div class="flex center"><a href="'.$image_src.'"  class="lightbox" title="Expandir imagen">');
+    if ($max_width != 0) {
+        print(' <img src="'.$thumbnail_src.'" alt="'.$alt.'" style="max-width: '.$max_width.'px;">');
+    } else {
+        print(' <img src="'.$thumbnail_src.'" alt="'.$alt.'">');
+    }
+    print('</a></div>');
+}

@@ -18,6 +18,7 @@ function HTML_head($title) {
 
     <link rel=\"stylesheet\" href=\"/docs/css/tooltip.css\">
     <link rel=\"stylesheet\" href=\"/docs/css/scroll-top.css\">
+    <link rel=\"stylesheet\" href=\"/docs/css/tobii.min.css\">
     
 </head>
 <body>
@@ -31,6 +32,10 @@ function HTML_foot() {
     print("
     <script src=\"/docs/js/tooltip.js\"></script>
     <script src=\"/docs/js/scroll-top.js\"></script>
+    <script src=\"/docs/js/tobii.min.js\"></script>
+    <script>
+      const tobii = new Tobii();
+    </script>
 </body>
 </html>");
 }
