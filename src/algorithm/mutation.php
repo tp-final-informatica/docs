@@ -45,15 +45,15 @@ function REM() {
 
     <p>Las siguientes son las distintas mutaciones que aplicamos en la ejecución de nuestro algoritmo genético.</p>
     <ol>
-        <li>TWORS/Displacement mutation (<?php DM(); ?>)</li>
-        <li>Reverse sequence mutation (<?php RSM(); ?>)</li>
-        <li>Partially shuffled mutation (<?php PSM(); ?>)</li>
-        <li>Jump mutation (<?php JM(); ?>)</li>
-        <li>Jump displacement mutation (<?php JDM(); ?>)</li>
-        <li>Jump reverse sequence mutation (<?php JRSM(); ?>)</li>
-        <li>Jump partially shuffled mutation (<?php JPSM(); ?>)</li>
-        <li>Empty route mutation (<?php ERM(); ?>) <span todo>Nuevo!</span></li>
-        <li>Reduce Entropy Mutation (<?php REM(); ?>) <span todo>Nuevo!</span></li>
+        <li><a href="#dm">TWORS/Displacement mutation</a> (<?php DM(); ?>)</li>
+        <li><a href="#rsm">Reverse sequence mutation</a> (<?php RSM(); ?>)</li>
+        <li><a href="#psm">Partially shuffled mutation</a> (<?php PSM(); ?>)</li>
+        <li><a href="#jm">Jump mutation</a> (<?php JM(); ?>)</li>
+        <li><a href="#jdm">Jump displacement mutation</a> (<?php JDM(); ?>)</li>
+        <li><a href="#jrsm">Jump reverse sequence mutation</a> (<?php JRSM(); ?>)</li>
+        <li><a href="#jpsm">Jump partially shuffled mutation</a> (<?php JPSM(); ?>)</li>
+        <li><a href="#erm">Empty route mutation</a> (<?php ERM(); ?>) <span todo>Nuevo!</span></li>
+        <li><a href="#rem">Reduce Entropy Mutation</a> (<?php REM(); ?>) <span todo>Nuevo!</span></li>
     </ol>
 
     <p>Las primeras tres mutaciones mencionadas fueron obtenidas de la bibliografía <span data-toggletip>En especial,

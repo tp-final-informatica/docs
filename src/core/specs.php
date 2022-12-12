@@ -63,6 +63,8 @@ include_once "./src/utils/libraries.php";
                 </li>
             </ul>
 
+            <p todo>poner gráfico de secuencia de interacción</p>
+
             <h2 id="concurrency">Ejecución de rutinas concurrentes</h2>
             <p>
                 El algoritmo genético tiene pasos que pueden ser paralelizables por ser independientes del resto de la ejecución.

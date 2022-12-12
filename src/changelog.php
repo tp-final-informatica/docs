@@ -18,7 +18,7 @@ include_once "./src/utils/libraries.php";
 
     <ul>
         <li class="<? print $item_classes?>">
-            <div><span mono>11? Dic 2022:</span></div>
+            <div><span mono>11 Dic 2022:</span></div>
             <div>
                 <ul>
                     <li><a href="/docs/core/specs.html">Especificaciones técnicas del core</a></li>
