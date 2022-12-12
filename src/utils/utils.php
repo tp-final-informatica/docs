@@ -93,3 +93,7 @@ function lightboxImage($thumbnail_src, $image_src, $alt, $max_width = 360) {
     }
     print('</a></div>');
 }
+
+/*
+  <? lightboxImage("/docs/images/mate.gif", "/docs/images/survivors_square.png", "test"); ?>
+*/

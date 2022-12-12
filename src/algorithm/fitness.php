@@ -24,19 +24,27 @@ $id = "fitness";
                         <mi>C</mi>
                     </mrow>
                     <mrow>
-                        <mi>costo por distancia</mi><mo>+</mo><mi>costo por viajantes</mi><mo>+</mo><mi>costo por validez</mi><mo>+</mo><mi>costo por desbalanceo</mi>
+                        <mi>p1</mi><mo>*</mo><mi>costo(distancia)</mi>
+                        <mo>+</mo><mi>p2</mi><mo>*</mo><mi>costo(viajantes)</mi>
+                        <mo>+</mo><mi>p3</mi><mo>*</mo><mi>costo(validez)</mi>
+                        <mo>+</mo><mi>p4</mi><mo>*</mo><mi>costo(desbalanceo)</mi>
                     </mrow>
                 </mfrac>
             </mrow>
         </math>
     </div>
+    <p>Donde los costos por distancia, viajantes, validez y balanceo se calculan según el tipo de ejecución, y
+    los parámetros <span mono>p1</span>, <span mono>p2</span>, <span mono>p3</span> y <span mono>p4</span> son parámetros
+    predefinidos también por cada tipo de ejecución.</p>
     <p>Al estar el costo por distancia en el denominador, <em>el fitness crece cuanto mejor es la solución, es decir,
             cuanto menos distancia se recorre</em>.
         El costo por distancia es en realidad una relación entre el valor real de la distancia de la solución, y el
         costo de la peor solución en la misma generación. Esto lo hacemos para garantizar un
         valor menor o igual a 1, independientemente de la cantidad de visitas que tengamos que procesar.
-        Multiplicamos por una
-        constante <span mono>C</span> para que el número no sea tan chico, pero esto no es necesario.</p>
+        Multiplicamos por una constante <span mono>C</span> que se define como la suma de los parámetros
+        <span mono>p1</span>, <span mono>p2</span>, <span mono>p3</span> y <span mono>p4</span>, de forma de
+        normalizar los posibles resultados.
+    </p>
     <p>Se ajustan los parámetros de la función según cualquiera de los siguientes tres casos:</p>
     <ol>
         <li>Todos los viajantes participan obligatoriamente, las rutas son balanceadas, no tenemos viajantes con prioridad</li>
@@ -67,8 +75,7 @@ $id = "fitness";
     <h3>Caso 1: todos los viajantes participan obligatoriamente, las rutas son balanceadas, no tenemos viajantes con prioridad</h3>
     <p>Para este caso, el fitness de una solución viene dado por los siguientes parámetros:</p>
     <ul>
-        <li><span class="math-font">C</span>: una constante. Un número grande para poder visualizar los datos. No afecta al resultado final porque se aplica a todas las soluciones</li>
-        <li><span class="math-font">costo</span>: el costo de la solución, en el que se miden todas las distancias recorridas entre los puntos de las rutas</li>
+        <li><span class="math-font">costo por distancia</span>: el costo de la solución, en el que se miden todas las distancias recorridas entre los puntos de las rutas</li>
         <li><span class="math-font">costo por viajantes</span>: en este caso es cero, porque no consideramos viajantes con prioridad todavía</li>
         <li><span class="math-font">costo por validez</span>: este valor es cero si la solución tiene todas las visitas una única vez, y crece en tanto
             las visitas se repitan, o falten, en una solución</li>
@@ -80,24 +87,24 @@ $id = "fitness";
     <h3>Caso 2: los viajantes no participan obligatoriamente, las rutas no necesariamente son balanceadas, no tenemos viajantes con prioridad</h3>
     <p>Para este caso, el fitness de una solución viene dado por los siguientes parámetros:</p>
     <ul>
-        <li><span class="math-font">C</span>: una constante. Un número grande para poder visualizar los datos. No afecta al resultado final porque se aplica a todas las soluciones</li>
-        <li><span class="math-font">costo</span>: el costo de la solución, en el que se miden todas las distancias recorridas entre los puntos de las rutas</li>
+        <li><span class="math-font">costo por distancia</span>: el costo de la solución, en el que se miden todas las distancias recorridas entre los puntos de las rutas</li>
         <li><span class="math-font">costo por viajantes</span>: en este caso es cero, porque no consideramos viajantes con prioridad todavía</li>
         <li><span class="math-font">costo por validez</span>: este valor es cero si la solución tiene todas las visitas una única vez, y crece en tanto
             las visitas se repitan, o falten, en una solución</li>
-        <li><span class="math-font">costo por desbalanceo</span>: no se aplica costo por desbalanceo, por lo que puede ser posible una solución en la que alguna ruta esté vacía.</li>
+        <li><span class="math-font">costo por desbalanceo</span>: se penalizan aquellas soluciones que propongan rutas muy largas
+        y por ello difíciles de realizar por los médicos. El límite de visitas elegido por ruta es 18.</li>
     </ul>
 
     <h3>Caso 3: los viajantes no participan obligatoriamente, las rutas no necesariamente son balanceadas, tenemos viajantes con prioridad</h3>
     <p>Para este caso, el fitness de una solución viene dado por los siguientes parámetros:</p>
     <ul>
-        <li><span class="math-font">C</span>: una constante. Un número grande para poder visualizar los datos. No afecta al resultado final porque se aplica a todas las soluciones</li>
-        <li><span class="math-font">costo</span>: el costo de la solución, en el que se miden todas las distancias recorridas entre los puntos de las rutas</li>
+        <li><span class="math-font">costo por distancia</span>: el costo de la solución, en el que se miden todas las distancias recorridas entre los puntos de las rutas</li>
         <li><span class="math-font">costo por viajantes</span>: un valor que crece conforme se utilizan viajeros externos en
         las rutas para penalizarlo</li>
         <li><span class="math-font">costo por validez</span>: este valor es cero si la solución tiene todas las visitas una única vez, y crece en tanto
             las visitas se repitan, o falten, en una solución</li>
-        <li><span class="math-font">costo por desbalanceo</span>: no se aplica costo por desbalanceo, por lo que puede ser posible una solución en la que alguna ruta esté vacía.</li>
+        <li><span class="math-font">costo por desbalanceo</span>: se penalizan aquellas soluciones que propongan rutas muy largas
+        y por ello difíciles de realizar por los médicos. El límite de visitas elegido por ruta es 18.</li>
     </ul>
 
 <?php print_section_footer(); ?>

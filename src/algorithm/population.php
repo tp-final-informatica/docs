@@ -28,9 +28,8 @@ $id = "population";
             <span class="lightbulb"></span>
             Los parámetros de ejecución dependen de la cantidad de elementos en las soluciones. No existe un <em>número
             mágico</em> para nuestro problema. El hecho de que nuestro problema esté poco estudiado y en consecuencia
-            haya poca bibliografía específica implica que el descubrimiento de los mejores valores debe hacerse de forma
+            haya poca bibliografía específica implica que el descubrimiento de los mejores valores debió hacerse de forma
             <b>empírica</b> a través de distintas simulaciones.
         </p>
     </section>
-    <p todo > en desarrollo - no terminamos de encontrar los parámetros aun </p>
 <?php print_section_footer(); ?>

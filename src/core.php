@@ -24,8 +24,8 @@ include_once "./src/utils/libraries.php";
     <ul>
         <li><a href="/docs/core/languages.html">Selección del lenguaje para el desarrollo del core</a></li>
         <li><a href="/docs/core/algorithm.html">El algoritmo genético</a></li>
-<!--        <li><a href="/docs/core/specs.html">Especificaciones técnicas</a></li>-->
-        <li>Especificaciones técnicas</li>
+        <li><a href="/docs/core/specs.html">Especificaciones técnicas</a></li>
+        <li><a href="/docs/core/data.html">Análisis de datos obtenidos</a></li>
     </ul>
 
 

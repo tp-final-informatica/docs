@@ -42,7 +42,8 @@ include_once "./src/utils/libraries.php";
         <li>listado no numerado</li>
     </ul>
 
-    <p>Lorem impsum dolor sit amet: <span class="mono">texto en monospace</span>. Ver tooltip en boton redondo con la letra i: <span data-toggletip>Esto es un tooltip</span></p>
+    <p>Lorem impsum dolor sit amet: <span class="mono">texto en monospace</span>.
+        Ver tooltip en boton redondo con la letra i: <span data-toggletip>Esto es un tooltip</span></p>
     <p>Para escribir el nombre de la empresa (intentemos evitarlo) usar esto: <span class="company">la empresa</span></p>
 
     <section class="lessons"  aria-label="Lecciones aprendidas">
@@ -52,6 +53,18 @@ include_once "./src/utils/libraries.php";
             brindarle variedad a nuestro algoritmo, por lo que posteriormente reescribimos el código e incluimos esta
             validación dentro de nuestra función de fitness bajo una gran penalidad.</p>
     </section>
+
+    <p>Imagen que se expande:
+        <? lightboxImage("/docs/images/mate.gif", "/docs/images/survivors_square.png", "test"); ?>
+    </p>
+
+    <?php print_figure(
+        "/docs/images/survivors_square.png",
+        "Soluciones sobrevivientes que entraron en la nueva generación dada una probabilidad escalonada",
+        '
+    <p>Esta herramienta es para imagenes que necesitan descripcion extensa como gráficos.</p>
+    '
+    ); ?>
     <div><a>link</a></div>
     <div><button>Botón default</button></div>
 
