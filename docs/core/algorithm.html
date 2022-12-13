@@ -6,6 +6,8 @@
 <head>
     <meta name="robots" content="noindex">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>El algoritmo empleado</title>
     <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/png">
     <link rel="stylesheet" href="/docs/css/fonts.css">
@@ -20,7 +22,9 @@
     
 </head>
 <body>
-<header class="header"><h1 class="mw-content">El algoritmo genético empleado</h1></header><nav><a  id="skip-nav" href="#main-content" class="skip-link">Saltear navegacion</a><div data-menu-component>  <input type="checkbox" role="button" aria-haspopup="true" id="toggle" class="vh">  <label for="toggle" data-opens-menu>    &#x2630; Índice    <span class="vh expanded-text">expandido</span>    <span class="vh collapsed-text">colapsado</span>  </label>  <div role="menu" data-menu-origin="left">    <ul><li><a role="menuitem" href="/docs/index.html">Carátula</a></li><li><a role="menuitem" href="/docs/macro.html">El sistema</a></li><li><a role="menuitem" href="/docs/core.html">El core</a></li><li>La interfaz administrativa</li><li>Las aplicaciones mobile</li><li>El backend integrador</li><li>Información complementaria</li><li><a role="menuitem" href="/docs/literature.html">Bibliografía consultada</a></li>    </ul>  </div></div></nav>
+<header class="header"><div class="">
+            <div class="ribbon ribbon-top-left"><span>DEV!</span></div>
+        </div><h1 class="mw-content">El algoritmo genético empleado</h1></header><nav><a  id="skip-nav" href="#main-content" class="skip-link">Saltear navegacion</a><div data-menu-component>  <input type="checkbox" role="button" aria-haspopup="true" id="toggle" class="vh">  <label for="toggle" data-opens-menu>    &#x2630; Índice    <span class="vh expanded-text">expandido</span>    <span class="vh collapsed-text">colapsado</span>  </label>  <div role="menu" data-menu-origin="left">    <ul><li><a role="menuitem" href="/docs/index.html">Carátula</a></li><li><a role="menuitem" href="/docs/macro.html">El sistema</a></li><li><a role="menuitem" href="/docs/core.html">El core</a></li><li>La interfaz administrativa</li><li>Las aplicaciones mobile</li><li>El backend integrador</li><li>Información complementaria</li><li><a role="menuitem" href="/docs/literature.html">Bibliografía consultada</a></li>    </ul>  </div></div></nav>
 
 <main id="main-content">
     <div class="content">
@@ -82,15 +86,18 @@
         <span data-toggletip>Inspirado en el paper "Influence of the Population Size on the Genetic Algorithm
             Performance in Case of Cultivation Process Modelling" (ver sección Bibliografía).</span>.
     </p>
-    <section class="lessons"  aria-label="Lecciones aprendidas">
-        <p>
-            <span class="lightbulb"></span>
+
+
+    <fieldset class="lessons">
+        <legend>Lecciones aprendidas</legend>
+    <div>
+  <span class="lightbulb"></span>      <p>
             Los parámetros de ejecución dependen de la cantidad de elementos en las soluciones. No existe un <em>número
             mágico</em> para nuestro problema. El hecho de que nuestro problema esté poco estudiado y en consecuencia
             haya poca bibliografía específica implica que el descubrimiento de los mejores valores debió hacerse de forma
             <b>empírica</b> a través de distintas simulaciones.
-        </p>
-    </section>
+        </p></div>
+    </fieldset>
 <hr class="section-end"/>
 <h2 id="first-gen">Armado de población inicial</h2>    <p>Dada <span class="mono">N</span> la cantidad de viajantes, se distribuyen las visitas en <span class="mono">N</span> rutas de forma <b>aleatoria</b> y se asignan a cada solución. Esto garantiza un pool genético grande, pero no soluciones buenas.</p>
     <p>El único criterio para la formación de las soluciones es mantener balanceada la cantidad de visitas por ruta.</p>
@@ -145,8 +152,12 @@
             El algoritmo decide si incluirlos, y cuántas visitas asignarles.</li>
     </ol>
     <br/>
-    <section class="lessons"  aria-label="Lecciones aprendidas">
-        <p><span class="lightbulb"></span>
+
+
+    <fieldset class="lessons">
+        <legend>Lecciones aprendidas</legend>
+    <div>
+  <span class="lightbulb"></span>      <p>
             Nuestro enfoque inicial fue condicionar nuestras soluciones
             para permitir únicamente aquellas que cumplieran con las restricciones del problema del viajante entre ellas:
             <em>todos los puntos deben ser visitados una única vez</em>. Luego entendimos que permitir esta falla en
@@ -160,8 +171,8 @@
         <p>
             Si bien este tipo de soluciones no fueron nunca elegidas como la solución ganadora, esto <b>permitió que estas
                 soluciones propagaran su material genético, y contribuyeran también a un resultado final más rico genéticamente</b>.
-        </p>
-    </section>
+        </p></div>
+    </fieldset>
 
     <h3>Caso 1: todos los viajantes participan obligatoriamente, las rutas son balanceadas, no tenemos viajantes con prioridad</h3>
     <p>Para este caso, el fitness de una solución viene dado por los siguientes parámetros:</p>
@@ -410,16 +421,21 @@
     <p>En el ejemplo a continuación mostramos una solución compuesta de dos rutas, <span mono>A</span> y <span mono>B</span>.</p>
       <div class="mutation"><div class="flex wrap gap3 mb2">  <div><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>3</p></div></div>  <div class="underline-light">viajante A</div>  </div>  <div><div class="flex"><div class="circle light"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>7</p></div></div>  <div class="underline-light">viajante B</div>  </div></div></div>    <p>Seleccionamos la visita <span mono>1</span> para saltar entre las rutas, y la ubicamos entre las visitas
         <span mono>6</span> y <span mono>7</span> de la ruta contraria:</p>
-      <div class="mutation"><div class="flex wrap gap3 mb2">  <div><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>3</p></div></div>  <div class="underline-light">viajante A</div>  </div>  <div><div class="flex"><div class="circle light"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>7</p></div></div>  <div class="underline-light">viajante B</div>  </div></div></div>    <section class="lessons"  aria-label="Lecciones aprendidas">
-        <p><span class="lightbulb"></span>Si bien esta mutación es muy sencilla, resultó ser de vital importancia en el desarrollo de nuestro algoritmo
+      <div class="mutation"><div class="flex wrap gap3 mb2">  <div><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>3</p></div></div>  <div class="underline-light">viajante A</div>  </div>  <div><div class="flex"><div class="circle light"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>7</p></div></div>  <div class="underline-light">viajante B</div>  </div></div></div>
+
+    <fieldset class="lessons">
+        <legend>Lecciones aprendidas</legend>
+    <div><p><span class="lightbulb"></span>
+Si bien esta mutación es muy sencilla, resultó ser de vital importancia en el desarrollo de nuestro algoritmo
             genético, puesto que es la primera mutación que presentamos en la que los cambios no están limitados a una única ruta.
             Esto es porque las mutaciones anteriores fueron desarrolladas pensando en el problema del viajante simple, en el
             que sólo se trata de optimizar una única ruta. En nuestro caso, esta mutación surgió a modo de prueba y
-            nos proporcionó muy buenos resultados, por lo que decidimos luego extender las mutaciones <a href="#dm"><abbr title="Displacement Mutation">DM</abbr></a>,
-            <a href="#rsm"><abbr title="Reverse Sequence Mutation">RSM</abbr></a> y <a href="#psm"><abbr title="Partially Shuffled Mutation">PSM</abbr></a> para variar los cromosomas entre rutas también.</p>
-    </section>
-
-
+            nos proporcionó muy buenos resultados, por lo que decidimos luego extender las mutaciones 
+            <a href="#dm"><abbr title="Displacement Mutation">DM</abbr></a>,
+            <a href="#rsm"><abbr title="Reverse Sequence Mutation">RSM</abbr></a> y 
+            <a href="#psm"><abbr title="Partial Shuffled Mutation">DM</abbr></a> para variar los cromosomas entre rutas también.
+            </p></div>
+    </fieldset>
     <p todo>poner graficos comparativos</p>
 
     <h3 id="jdm">Jump Displacement Mutation (JDM)</h3>
@@ -487,7 +503,7 @@
 de la siguiente generación. La elección de qué función usar se hace de manera aleatoria para cada generación.</p>
 <h3>Distribución exponencial negativa</h3>
 
-<figure class="mw-inherit" style="margin: 0;" role="group">
+<figure class="mw-inherit" style="margin: 0;text-align: center;max-width: 100%" role="group">
         <img class="mw-inherit" src="/docs/images/p_exponential.png"
              alt="Distribución de probabilidad según una exponencial negativa.">
         <figcaption>
@@ -502,7 +518,7 @@ de la siguiente generación. La elección de qué función usar se hace de maner
         tengan posibilidad de ser elegidas.</p>
         </figcaption>
     </figure>
-<figure class="mw-inherit" style="margin: 0;" role="group">
+<figure class="mw-inherit" style="margin: 0;text-align: center;max-width: 100%" role="group">
         <img class="mw-inherit" src="/docs/images/survivors_exponential.png"
              alt="Soluciones sobrevivientes que entraron en la nueva generación dada una probabilidad exponencial">
         <figcaption>
@@ -520,7 +536,7 @@ de la siguiente generación. La elección de qué función usar se hace de maner
     </figure>
 <h3>Distribución escalonada</h3>
 
-<figure class="mw-inherit" style="margin: 0;" role="group">
+<figure class="mw-inherit" style="margin: 0;text-align: center;max-width: 100%" role="group">
         <img class="mw-inherit" src="/docs/images/p_square.png"
              alt="Distribución de probabilidad escalonada.">
         <figcaption>
@@ -531,7 +547,7 @@ de la siguiente generación. La elección de qué función usar se hace de maner
         muy buenas, muy malas, o intermedias tienen probabilidad cero de ser elegidas.</p>
         </figcaption>
     </figure>
-<figure class="mw-inherit" style="margin: 0;" role="group">
+<figure class="mw-inherit" style="margin: 0;text-align: center;max-width: 100%" role="group">
         <img class="mw-inherit" src="/docs/images/survivors_square.png"
              alt="Soluciones sobrevivientes que entraron en la nueva generación dada una probabilidad escalonada">
         <figcaption>
@@ -567,7 +583,7 @@ esa solución antes de llegar al límite, se extiende la ejecución unas iteraci
         <div class="mt3 mb3"><a href="/docs/core/specs.html">Seguir leyendo: Especificaciones técnicas ></a></div>
     </div>
 </main>
-<footer class="footer"><div><button onclick="topFunction()" id="btn-scroll-top" title="Volver al inicio de la página">Subir</button><p class="center"><a href="/docs/sitemap.html">Índice</a></p><p class="center"><a href="/docs/changelog.html">Changelog</a></p></div></footer>
+<footer class="footer"><div><button onclick="topFunction()" id="btn-scroll-top" title="Volver al inicio de la página">Subir</button><p class="center"><a href="/docs/sitemap.html">Índice</a></p><p class="center"><a href="/docs/changelog.html">Changelog</a></p></div></footer><script type="text/javascript" src="http://livejs.com/live.js"></script>
     <script src="/docs/js/tooltip.js"></script>
     <script src="/docs/js/scroll-top.js"></script>
     <script src="/docs/js/tobii.min.js"></script>

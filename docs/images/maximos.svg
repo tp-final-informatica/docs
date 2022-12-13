@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="510" height="380" viewBox="60 30 510 380">
+
+    <title>Minima und Maxima</title>
+    <defs>
+        <marker id="Arrow" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="10" orient="auto">
+            <g transform="translate(7 5) scale(1.4)">
+                <path d="M -8 0 L -8 4 L 6 0 L -8 -4 z"/>
+            </g>
+        </marker>
+
+        <style type="text/css"><![CDATA[
+	.end    { text-anchor:end; }
+	.middle { text-anchor:middle; }
+	.scaling { stroke:none; fill:black; font-family:Bitstream Vera Sans; font-size:18.00; }
+	.curve {  fill:none; stroke:black; stroke-width:3.00; stroke-linecap:butt; stroke-linejoin:round; }
+	.max { fill:#cc1f00; }
+	.min { fill:#cc1f00; }
+	.label { stroke:none; font-family:Bitstream Vera Sans; font-size:26px; text-anchor:end; }
+	.axis  { fill:none; stroke:gray; stroke-width:1; stroke-linecap:butt; stroke-linejoin:miter; }
+	.arrow { fill:none; stroke: black; stroke-width:1.5; stroke-linecap:butt; marker-end:url(#Arrow); }
+	]]></style>
+    </defs>
+
+    <!-- Background -->
+    <rect x="60" y="30" width="100%" height="100%" fill="white" fill-opacity="0.7"/>
+
+    <!-- x-Axis -->
+    <path class="axis" d="M63.9,250.6 L561.3,250.6"/>
+
+    <!-- Labels and Arrows -->
+    <switch style="text-anchor:start"><text x="170" y="90" class="label max" style="text-anchor:start" id="trsvg5-uk" systemLanguage="uk"><tspan id="trsvg1-uk">Глобальний максимум</tspan></text><text class="label max" style="text-anchor:start" id="trsvg5" x="300" y="100"><tspan id="trsvg1">Máximo global</tspan></text></switch>
+    <path class="arrow"/>
+
+
+    <path class="arrow" d="M380,125 L415,150"/>
+
+    <switch style="text-anchor:middle"><text y="140" class="label min" style="text-anchor:middle" id="trsvg7-uk" systemLanguage="uk" x="100"><tspan id="trsvg3-uk">Локальний максимум</tspan></text><text class="label min" style="text-anchor:middle" id="trsvg7" x="150" y="150"><tspan id="trsvg3">Máximo local</tspan></text></switch>
+    <path class="arrow"/>
+    <path class="arrow"/>
+
+
+    <path class="arrow" d="M150,170 L170,215"/>
+    <path class="curve" d="M100,280 S 120,270 200,230 S 250,324 275,324 S 390,180 450,160 512,257 575,230 592,257 620,242" />
+<!--    <path class="curve" d="M100,280 C 200,160 250,324 275,324 S 390,180 450,180 S 512,257 575,257 C 592,257 620,242"/>-->
+
+</svg>

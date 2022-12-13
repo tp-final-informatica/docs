@@ -2,21 +2,96 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%; }
+  min-height: 100%;
+  overflow: scroll; }
   body main {
     flex: 1; }
 
 html {
-  height: 100%; }
+  min-height: 100vh; }
 
 .header {
-  padding: 2em;
-  justify-content: center;
-  display: flex;
-  color: var(--black-coffee);
-  /*background-color: var(--mint-cream);*/ }
+  padding: 4em 2em 4em 2em; }
   .header h1 {
-    text-align: center; }
+    text-align: center;
+    margin: auto; }
+
+nav {
+  position: fixed;
+  top: 0;
+  right: 0; }
+  nav .vh {
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden; }
+  nav [data-menu-component] {
+    position: relative;
+    display: inline-block; }
+  nav label {
+    display: inline-block; }
+  nav label[data-opens-menu] {
+    color: var(--black-coffee) !important;
+    text-decoration: none !important;
+    margin: 1em;
+    background-color: white;
+    border-bottom: 2px solid white; }
+    nav label[data-opens-menu]:hover, nav label[data-opens-menu]:focus {
+      color: var(--black-coffee);
+      text-decoration: none;
+      border-bottom: 2px solid var(--rosso-corsa); }
+  nav [role="menu"] ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+  nav [data-opens-menu], nav [role="menu"] li {
+    line-height: 1;
+    text-align: left;
+    border: 0;
+    padding: 0.33rem 0.5rem;
+    text-decoration: none; }
+  nav [type="checkbox"]:focus + [data-opens-menu] {
+    outline: none; }
+  nav [role="menu"] a:focus {
+    outline: none; }
+  nav :checked + label .expanded-text {
+    display: inline; }
+  nav :checked + label .collapsed-text {
+    display: none; }
+  nav [type="checkbox"]:not(:checked) + label .expanded-text {
+    display: none; }
+  nav [type="checkbox"]:not(:checked) + label .collapsed-text {
+    display: inline; }
+  nav [role="menu"] {
+    position: absolute;
+    background-color: white;
+    right: 0;
+    display: none; }
+  nav :checked ~ [role="menu"] {
+    display: block; }
+  nav [data-menu-origin="right"] {
+    left: auto;
+    right: 0; }
+  nav [role="menu"] a {
+    display: block;
+    min-width: 100%;
+    margin-top: 0.125rem;
+    white-space: nowrap;
+    background-color: white; }
+  nav li {
+    color: dimgrey; }
+    nav li a {
+      color: var(--black-coffee);
+      text-decoration: none;
+      background-color: white;
+      border-bottom: 2px solid white; }
+      nav li a:hover, nav li a:focus, nav li a:focus-within, nav li a:focus-visible {
+        color: var(--black-coffee);
+        text-decoration: none;
+        border-bottom: 2px solid var(--rosso-corsa); }
 
 .content {
   /*padding: 6em;*/

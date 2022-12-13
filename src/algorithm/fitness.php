@@ -54,8 +54,11 @@ $id = "fitness";
             El algoritmo decide si incluirlos, y cuántas visitas asignarles.</li>
     </ol>
     <br/>
-    <section class="lessons"  aria-label="Lecciones aprendidas">
-        <p><span class="lightbulb"></span>
+
+<?
+sectionLightbulb("Lecciones aprendidas",
+    '
+        <p>
             Nuestro enfoque inicial fue condicionar nuestras soluciones
             para permitir únicamente aquellas que cumplieran con las restricciones del problema del viajante entre ellas:
             <em>todos los puntos deben ser visitados una única vez</em>. Luego entendimos que permitir esta falla en
@@ -69,8 +72,9 @@ $id = "fitness";
         <p>
             Si bien este tipo de soluciones no fueron nunca elegidas como la solución ganadora, esto <b>permitió que estas
                 soluciones propagaran su material genético, y contribuyeran también a un resultado final más rico genéticamente</b>.
-        </p>
-    </section>
+        </p>');
+?>
+
 
     <h3>Caso 1: todos los viajantes participan obligatoriamente, las rutas son balanceadas, no tenemos viajantes con prioridad</h3>
     <p>Para este caso, el fitness de una solución viene dado por los siguientes parámetros:</p>

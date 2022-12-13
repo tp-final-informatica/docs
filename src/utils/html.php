@@ -8,6 +8,8 @@ function HTML_head($title) {
 <head>
     <meta name=\"robots\" content=\"noindex\">
     <meta charset=\"UTF-8\">
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+
     <title>${title}</title>
     <link rel=\"shortcut icon\" href=\"/docs/images/favicon.png\" type=\"image/png\">
     <link rel=\"stylesheet\" href=\"/docs/css/fonts.css\">

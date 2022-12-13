@@ -10,6 +10,9 @@ function scrollFunction() {
     } else {
         mybutton.style.display = "none";
     }
+
+    // mybutton.style.display = "block";
+
 }
 
 // When the user clicks on the button, scroll to the top of the document

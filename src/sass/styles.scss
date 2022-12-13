@@ -14,31 +14,11 @@ button {
   }
 }
 
-span.company{
-  z-index: -1;
-  display: inline-block;
-  //display: inline;
-  text-indent: -9999px;
-  width: 7em;
-  //height: 1em;
-  background: url("/docs/css/company1.svg");
-  background-size: 7em 2.5em;
-  position: relative;
-  vertical-align: center;
-  bottom: 0.55em;
+ul.no-decoration li {
+  list-style: none;
 }
-span.company-logo{
-  display: block;
-  //display: inline;
-  text-indent: -9999px;
-  width: 7em;
-  //height: 1em;
-  background: url("/docs/css/company.svg");
-  background-size: 7em 2.5em;
-  position: relative;
-  vertical-align: center;
-  bottom: 0.55em;
-}
+
+
 
 .flex {
   display: flex;
@@ -64,6 +44,10 @@ span.company-logo{
   &.align-start {
     align-items: flex-start;
   }
+  &.flex-1 {
+    flex: 1;
+  }
+
 }
 
 
@@ -137,19 +121,18 @@ hr.section-end {
 div.math {
   margin-top: 2em;
   margin-bottom: 2em;
+  max-width: 100%;
 }
 
 .lessons {
   border: 2px solid var(--shimmering-blush);
   margin: 2em 0;
   padding: 2em;
-  &:before {
-    content: "Lecciones aprendidas";
+  legend {
+    //content: "Lecciones aprendidas";
     color:var(--shimmering-blush);
     background-color: white;
     text-transform: uppercase;
-    position: relative;
-    top: -2.75em;
     padding: 1em;
   }
   .lightbulb {
@@ -376,128 +359,4 @@ https://www.nxworld.net/pure-css-corner-ribbon.html
   }
 }
 
-nav {
-  position: fixed;
-  top: 0;
-  right: 0;
 
-  .vh {
-    position: absolute !important;
-    clip: rect(1px, 1px, 1px, 1px);
-    padding:0 !important;
-    border:0 !important;
-    height: 1px !important;
-    width: 1px !important;
-    overflow: hidden;
-  }
-
-  [data-menu-component] {
-    position: relative;
-    display: inline-block;
-  }
-
-  label {
-    display: inline-block;
-  }
-
-  [role="menu"] ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-
-  [data-opens-menu], [role="menu"] li {
-    line-height: 1;
-    text-align: left;
-    border: 0;
-    //color: darkgrey;
-    padding: 0.33rem 0.5rem;
-    text-decoration: none;
-
-  }
-  [type="checkbox"]:focus + [data-opens-menu] {
-    outline: none;
-
-  }
-
-  [role="menu"] a:focus {
-    outline: none;
-
-  }
-
-  :checked + label .expanded-text {
-    display: inline;
-  }
-
-  :checked + label .collapsed-text {
-    display: none;
-  }
-
-  [type="checkbox"]:not(:checked) + label .expanded-text {
-    display: none;
-  }
-
-  [type="checkbox"]:not(:checked) + label .collapsed-text {
-    display: inline;
-  }
-
-  [role="menu"] {
-    position: absolute;
-    background-color: white;
-
-    right: 0;
-    display: none;
-    //text-align: right;
-  }
-
-  :checked ~ [role="menu"] {
-    display: block;
-  }
-
-  [data-menu-origin="right"] {
-    left: auto;
-    right: 0;
-  }
-
-  [role="menu"] a {
-    display: block;
-    min-width: 100%;
-    margin-top: 0.125rem;
-    white-space: nowrap;
-    background-color: white;
-
-  }
-
-}
-
-nav {
-  label[data-opens-menu] {
-    color: var(--black-coffee) !important;
-    text-decoration: none !important;
-    margin: 1em;
-    background-color: white;
-    border-bottom: 2px solid white;
-    &:hover, &:focus {
-      color: var(--black-coffee);
-      text-decoration: none;
-      border-bottom: 2px solid var(--rosso-corsa);
-    }
-  }
-
-  li {
-    color: dimgrey;
-    a {
-      color: var(--black-coffee);
-      text-decoration: none;
-      background-color: white;
-      border-bottom: 2px solid white;
-
-      &:hover, &:focus, &:focus-within, &:focus-visible {
-        color: var(--black-coffee);
-        text-decoration: none;
-        border-bottom: 2px solid var(--rosso-corsa);
-      }
-    }
-  }
-}

@@ -110,15 +110,20 @@ function REM() {
     <p>Seleccionamos la visita <span mono>1</span> para saltar entre las rutas, y la ubicamos entre las visitas
         <span mono>6</span> y <span mono>7</span> de la ruta contraria:</p>
     <?php $mutation->jmAfter(); ?>
-    <section class="lessons"  aria-label="Lecciones aprendidas">
-        <p><span class="lightbulb"></span>Si bien esta mutación es muy sencilla, resultó ser de vital importancia en el desarrollo de nuestro algoritmo
+
+<?
+sectionLightbulb("Lecciones aprendidas",
+    '<p>
+Si bien esta mutación es muy sencilla, resultó ser de vital importancia en el desarrollo de nuestro algoritmo
             genético, puesto que es la primera mutación que presentamos en la que los cambios no están limitados a una única ruta.
             Esto es porque las mutaciones anteriores fueron desarrolladas pensando en el problema del viajante simple, en el
             que sólo se trata de optimizar una única ruta. En nuestro caso, esta mutación surgió a modo de prueba y
-            nos proporcionó muy buenos resultados, por lo que decidimos luego extender las mutaciones <?php DM(); ?>,
-            <?php RSM(); ?> y <?php PSM(); ?> para variar los cromosomas entre rutas también.</p>
-    </section>
-
+            nos proporcionó muy buenos resultados, por lo que decidimos luego extender las mutaciones 
+            <a href="#dm"><abbr title="Displacement Mutation">DM</abbr></a>,
+            <a href="#rsm"><abbr title="Reverse Sequence Mutation">RSM</abbr></a> y 
+            <a href="#psm"><abbr title="Partial Shuffled Mutation">DM</abbr></a> para variar los cromosomas entre rutas también.
+            </p>');
+?>
 
     <p todo>poner graficos comparativos</p>
 

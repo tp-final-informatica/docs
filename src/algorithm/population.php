@@ -23,13 +23,16 @@ $id = "population";
         <span data-toggletip>Inspirado en el paper "Influence of the Population Size on the Genetic Algorithm
             Performance in Case of Cultivation Process Modelling" (ver sección Bibliografía).</span>.
     </p>
-    <section class="lessons"  aria-label="Lecciones aprendidas">
+
+<?
+sectionLightbulb("Lecciones aprendidas",
+    '
         <p>
-            <span class="lightbulb"></span>
             Los parámetros de ejecución dependen de la cantidad de elementos en las soluciones. No existe un <em>número
             mágico</em> para nuestro problema. El hecho de que nuestro problema esté poco estudiado y en consecuencia
             haya poca bibliografía específica implica que el descubrimiento de los mejores valores debió hacerse de forma
             <b>empírica</b> a través de distintas simulaciones.
-        </p>
-    </section>
+        </p>');
+?>
+
 <?php print_section_footer(); ?>
