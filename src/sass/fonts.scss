@@ -25,6 +25,8 @@
 
 /* Type will scale with modules */
 h1 {
+  font-family: 'Raleway', sans-serif;
+
   font-size: xxx-large;
   @media screen and (max-width: 1024px) {
     font-size: xx-large;
@@ -46,12 +48,12 @@ h4, h5 {
   font-size: large;
 }
 
-//
+
 //.header h1 {
 //  text-decoration: underline;
 //  text-decoration-color: var(--rosso-corsa);
 //}
-//
+
 h2, h3, h4, h5, h6 {
   font-family: 'Lustria', serif;
 }
