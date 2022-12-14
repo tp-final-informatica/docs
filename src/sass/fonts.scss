@@ -25,16 +25,25 @@
 
 /* Type will scale with modules */
 h1 {
-  font-size: xx-large;
+  font-size: xxx-large;
+  @media screen and (max-width: 1024px) {
+    font-size: xx-large;
+  }
 }
 h2 {
-  font-size: x-large;
+  font-size: xx-large;
+  @media screen and (max-width: 1024px) {
+    font-size: x-large;
+  }
 }
 h3 {
-  font-size: large;
+  font-size: x-large;
+  @media screen and (max-width: 1024px) {
+    font-size: large;
+  }
 }
 h4, h5 {
-  font-size: medium;
+  font-size: large;
 }
 
 //
@@ -57,8 +66,18 @@ h4, h5, h6 {
 p, li, a, button, label {
   font-family: 'Hind', sans-serif;
   margin-top: 0;
-  font-size: medium;
+  font-size: large;
+
 }
+
+* {
+  &::selection {
+    background: var(--rosso-corsa) !important;
+    color: white !important;
+  }
+}
+
+
 
 nav  {
   p, li, a, button, label {

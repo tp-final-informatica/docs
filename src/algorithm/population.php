@@ -35,4 +35,12 @@ sectionLightbulb("Lecciones aprendidas",
         </p>');
 ?>
 
+<p>
+    Para más información sobre nuestro proceso de desarrollo en este aspecto, ver la sección
+    <a href="/docs/core/data.html#execution-parameters?return=/docs/core/algorithm.html#population">Análisis de datos obtenidos</a>.
+</p>
+<p>
+    Los datos empíricos obtenidos se pueden consultar en la sección Anexos. <span todo>hacer seccion anexos</span>
+</p>
+
 <?php print_section_footer(); ?>

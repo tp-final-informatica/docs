@@ -19,12 +19,14 @@ class Figure
 
     public function print_figure() {
         print('
-        <figure class="mw-inherit mb3" style="text-align: center;max-width: '. $this->thumbnail_width.'" role="group">
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: '. $this->thumbnail_width.'" role="group">
             <img class="mw-inherit" src="' . $this->thumbnail . '"
                  alt="'. $this->alt .'" width="100%">
                  <hr/>
-            <figcaption><p>' . $this->caption .'</p></figcaption>
+            <figcaption><p><b>Figura:</b> ' . $this->caption .'</p></figcaption>
         </figure>
+        </div>
         ');
     }
 
@@ -43,11 +45,11 @@ class Figure
     }
 
 
-    public function print_lightbox_figure($max_width = 0, $group ="") {
+    public function print_lightbox_figure($group ="") {
         if ($group!="") {
-            print('<div class="flex center"><a href="'.$this->src.'"  class="lightbox" title="Expandir imagen"  data-group='.$group.'>');
+            print('<div class="flex center flex-1"><a href="'.$this->src.'"  class="lightbox" title="Expandir imagen"  data-group='.$group.'>');
         } else {
-            print('<div class="flex center"><a href="'.$this->src.'"  class="lightbox" title="Expandir imagen">');
+            print('<div class="flex center flex-1"><a href="'.$this->src.'"  class="lightbox" title="Expandir imagen">');
         }
         $this->print_figure();
         print('</a></div>');

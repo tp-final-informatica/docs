@@ -6,7 +6,7 @@ include_once "./src/utils/libraries.php";
 
 <?php HTML_head("Diseño e implementación de un sistema de cálculo y control de trayectorias"); ?>
 
-<?php printHeader("Trabajo profesional de ingeniería en Informática"); ?>
+<?php printHeader("Trabajo Profesional de Ingeniería en Informática"); ?>
 <main id="main-content">
     <div class="content" style="text-align: center;">
         <img src="/docs/images/logofiuba.png" alt="Facultad de Ingeniería de la Universidad de Buenos Aires"/>

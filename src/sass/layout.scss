@@ -19,6 +19,9 @@ html {
 //
 .header {
     padding: 4em 2em 4em 2em;
+    @media screen and (max-width: 1024px) {
+        padding:  4em 2em 2em 2em;
+    }
     //justify-content: center;
 //    display: flex;
 //    color: var(--black-coffee);

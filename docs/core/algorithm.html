@@ -47,7 +47,7 @@
 <p>La definición del cromosoma a utilizar en el algoritmo genético no es trivial. Ella condiciona los pasos siguientes del algoritmo genético, en tanto los crossovers y mutaciones deben operar sobre este cromosoma.</p>
     <p>Nuestra elección fue plantear de forma natural cada camino como una secuencia de visitas numeradas, desde inicio al fin. Entonces, para un viajante que sale del punto 0 y vuelve al punto 0, visitando los puntos <span class="mono">[1,2,3]</span> el cromosoma planteado es:</p>
 
-<div class="solution">
+<div class="solution flex">
     <div class="flex"><div class="circle medium-turquoise"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise"><p>0</p></div></div></div>
 
 
@@ -96,6 +96,14 @@
             <b>empírica</b> a través de distintas simulaciones.
         </p></div>
     </fieldset>
+<p>
+    Para más información sobre nuestro proceso de desarrollo en este aspecto, ver la sección
+    <a href="/docs/core/data.html#execution-parameters?return=/docs/core/algorithm.html#population">Análisis de datos obtenidos</a>.
+</p>
+<p>
+    Los datos empíricos obtenidos se pueden consultar en la sección Anexos. <span todo>hacer seccion anexos</span>
+</p>
+
 <hr class="section-end"/>
 <h2 id="first-gen">Armado de población inicial</h2>    <p>Dada <span class="mono">N</span> la cantidad de viajantes, se distribuyen las visitas en <span class="mono">N</span> rutas de forma <b>aleatoria</b> y se asignan a cada solución. Esto garantiza un pool genético grande, pero no soluciones buenas.</p>
     <p>El único criterio para la formación de las soluciones es mantener balanceada la cantidad de visitas por ruta.</p>

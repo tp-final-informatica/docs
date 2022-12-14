@@ -10,7 +10,7 @@ $id = "chromosome";
 <p>La definición del cromosoma a utilizar en el algoritmo genético no es trivial. Ella condiciona los pasos siguientes del algoritmo genético, en tanto los crossovers y mutaciones deben operar sobre este cromosoma.</p>
     <p>Nuestra elección fue plantear de forma natural cada camino como una secuencia de visitas numeradas, desde inicio al fin. Entonces, para un viajante que sale del punto 0 y vuelve al punto 0, visitando los puntos <span class="mono">[1,2,3]</span> el cromosoma planteado es:</p>
 
-<div class="solution">
+<div class="solution flex">
     <?php
     $solution = new Solution();
     $solution->printRoute(
