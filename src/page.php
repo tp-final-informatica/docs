@@ -65,6 +65,37 @@ include_once "./src/utils/libraries.php";
             validación dentro de nuestra función de fitness bajo una gran penalidad.
     </p>"); ?>
 
+    <h2 id="indice">Índice con links</h2>
+
+    <ul>
+        <li><a href="#id-item1">Ítem 1</a></li>
+        <li><a href="#id-item2">Ítem 2</a></li>
+    </ul>
+
+    <h3 id="id-item1">Ítem 1</h3>
+    <p>
+        <b>Para que los anchors funcionen olvidar poner los ids. En este caso, ids en el H2 y los H3.</b>
+    </p>
+    <p>
+        Nuestro enfoque inicial fue condicionar nuestras soluciones
+        para permitir únicamente aquellas que cumplieran con las restricciones del problema del viajante: todos los
+        puntos deben ser visitados una única vez. Luego entendimos que permitir esta falla en nuestras rutas podía
+        brindarle variedad a nuestro algoritmo, por lo que posteriormente reescribimos el código e incluimos esta
+        validación dentro de nuestra función de fitness bajo una gran penalidad.
+    </p>
+    <? back_to_anchor("indice", " al índice"); ?>
+
+    <h3 id="id-item2">Ítem 2</h3>
+    <p>
+        Nuestro enfoque inicial fue condicionar nuestras soluciones
+        para permitir únicamente aquellas que cumplieran con las restricciones del problema del viajante: todos los
+        puntos deben ser visitados una única vez. Luego entendimos que permitir esta falla en nuestras rutas podía
+        brindarle variedad a nuestro algoritmo, por lo que posteriormente reescribimos el código e incluimos esta
+        validación dentro de nuestra función de fitness bajo una gran penalidad.
+    </p>
+    <? back_to_anchor("indice", " al índice"); ?>
+
+
     <h2>Imágenes</h2>
 
     <h3>Imagen (sin caption)</h3>
