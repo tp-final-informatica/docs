@@ -132,15 +132,16 @@ function sectionLightbulb($title, $message) {
 
 
 // de algorithm
-function back_to_top() {
-//    print("<div class=\"align-left\"><a href=\"#top\">Volver al índice</a></div>");
+function back_to_anchor($anchor_id, $back_to_text) {
+    print('<div class="align-left mt3"><a href="#'.$anchor_id.'">Volver '.$back_to_text
+        .' <i class="fa-solid fa-arrow-up"></i></a></div>');
 }
 
 function print_section_heading($section_title, $section_id){
-//    print('<h2 id="'. $section_id . '">'.$section_title.'</h2>');
+    print('<h2 id="'. $section_id . '">'.$section_title.'</h2>');
 }
 
 function print_section_footer() {
     //back_to_top();
-//    print ("<hr class=\"section-end\"/>");
+    print ('<hr class="section-end"/>');
 }

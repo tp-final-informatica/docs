@@ -57,6 +57,8 @@ $id = "crossover";
     <p>El resultado del algoritmo son soluciones en las que siempre, todas las visitas de todas las rutas de las soluciones hijas pertenecen a la misma ruta de alguno de los dos padres.</p>
     <p><b>MBS mantiene entonces la asignación de las visitas a las rutas originales, pero no el orden de los mismos, o su posición inicial.</b></p>
 
+    <?php back_to_anchor($id, "a Crossovers");?>
+
     <h3 id="cx">Cycle Crossover (CX)</h3>
     <?php $cx = new Cx(); ?>
     <p>Este algoritmo fue propuesto por IM Oliver en el paper <em>A Study of permutation crossover Operators on the Traveling Salesman Problem</em>. El algoritmo original está planteado para el problema del viajante (con una única ruta), y su finalidad es encontrar ciclos (partes intercambiables) entre secuencias de visitas. De no encontrar ciclos, no es posible generar soluciones nuevas. Esto sucederá en general para secuencias de visitas cortas.</p>
@@ -80,6 +82,8 @@ $id = "crossover";
             soluciones hijas</b> (sea de uno, u otro padre).</p>
     <p>Al modificarlo para aplicarlo a nuestro problema, mantenemos el orden relativo, pero no las posiciones originales
         necesariamente, puesto que las visitas no compartidas mantienen su posición original dentro de la ruta.</p>
+
+    <?php back_to_anchor($id, "a Crossovers");?>
 
 
     <h3 id="pmx">Partially mapped crossover (PMX)</h3>
@@ -136,6 +140,9 @@ $id = "crossover";
         fitness penaliza este tipo de soluciones incompletas, por lo que nunca puede ser elegida como la mejor solución,
         pero sí puede contribuir a generar mejores soluciones mezclándose con otras soluciones de la generación.</p>
 
+    <?php back_to_anchor($id, "a Crossovers");?>
+
+
     <h3 id="eer">Enhanced edge recombination (EER)</h3>
     <?php $eer = new Eer(); ?>
 
@@ -167,5 +174,8 @@ $id = "crossover";
     <p>Empezando desde el "1" y manteniendo la distribución del padre 1, las siguientes son posibles soluciones finales:</p>
 
     <?php $eer->eer_children(); ?>
+
+    <?php back_to_anchor($id, "a Crossovers");?>
+
 
 <?php print_section_footer(); ?>

@@ -83,6 +83,8 @@ function REM() {
 
     <?php linkBibliografía(); ?>
 
+    <?php back_to_anchor($id, "a Mutaciones");?>
+
     <h3 id="rsm">RSM - Reverse sequence mutation</h3>
     <p>En este caso, se trata de seleccionar una sub secuencia dentro de una ruta en un cromosoma, e invertir el orden de
         la misma. Por ejemplo, dada la secuencia:</p>
@@ -91,6 +93,8 @@ function REM() {
     <?php $mutation->rsmAfter(); ?>
     <?php linkBibliografía(); ?>
 
+    <?php back_to_anchor($id, "a Mutaciones");?>
+
     <h3 id="psm">PSM - Partially shuffled mutation</h3>
     <p>Similar al caso anterior, se selecciona una sub secuencia dentro de una ruta en un cromosoma, pero esta vez
         se ordenan los elementos de forma aleatoria. Por ejemplo:</p>
@@ -98,6 +102,8 @@ function REM() {
     <p>La sub secuencia <span class="mono">1,2,3</span> es elegida para ser desordenada, y el resultado es el siguiente:</p>
     <?php $mutation->psmAfter(); ?>
     <?php linkBibliografía(); ?>
+
+    <?php back_to_anchor($id, "a Mutaciones");?>
 
     <h3 id="jm">Desplazamiento de visita a ruta alternativa: Jump mutation (JM)</h3>
 
@@ -127,6 +133,9 @@ Si bien esta mutación es muy sencilla, resultó ser de vital importancia en el 
 
     <p todo>poner graficos comparativos</p>
 
+    <?php back_to_anchor($id, "a Mutaciones");?>
+
+
     <h3 id="jdm">Jump Displacement Mutation (JDM)</h3>
     <p>Esta mutación es una variante de <?php DM(); ?>, en la que efectuamos el intercambio de visitas entre rutas distintas (si
         tenemos más de una ruta). Por Ejemplo, dada una solución:</p>
@@ -134,6 +143,9 @@ Si bien esta mutación es muy sencilla, resultó ser de vital importancia en el 
         <p>Una posible mutación es invertir las posiciones de las visitas <span mono>1</span> y <span mono>6</span> que se
         encuentran en rutas ditintas:</p>
         <?php $mutation->jdmAfter(); ?>
+
+    <?php back_to_anchor($id, "a Mutaciones");?>
+
 
     <h3 id="jrsm">Jump RSM (JRSM)</h3>
     <p>Para adaptar <?php RSM(); ?> a nuestro problema de múltiples rutas, decidimos aplicar el algoritmo nuevamente en
@@ -144,6 +156,9 @@ Si bien esta mutación es muy sencilla, resultó ser de vital importancia en el 
     <p>El siguiente es un resultado final posible:</p>
     <?php $mutation->jrsmAfter(); ?>
 
+    <?php back_to_anchor($id, "a Mutaciones");?>
+
+
     <h3 id="jpsm">PSM entre rutas (JPSM)</h3>
     <p>Al igual que en el caso anterior, para poder adaptar <?php JPSM(); ?> mejor a nuestro problema, aplicamos parte
     del algoritmo a una ruta, y el resto a otra ruta dentro de la misma solución. Por ejemplo, seleccionamos las
@@ -152,6 +167,8 @@ Si bien esta mutación es muy sencilla, resultó ser de vital importancia en el 
     <p>Cambiamos el orden de los elementos de forma aleatoria, por ejemplo: <span mono>3,2,4</span>, e insertamos
     esta secuencia en un punto aleatorio dentro de otra ruta de la misma solución:</p>
     <?php $mutation->jpsmAfter(); ?>
+
+    <?php back_to_anchor($id, "a Mutaciones");?>
 
     <h3 id="erm">Empty route mutation (ERM) <span todo>Nuevo!</span></h3>
     <p>Esta mutación fue agregada para ayudar al algoritmo en las ejecuciones no balanceadas. Esto es porque las mutaciones
@@ -169,7 +186,10 @@ Si bien esta mutación es muy sencilla, resultó ser de vital importancia en el 
     <p>Luego de la mutación, las rutas podrían ser de esta manera:</p>
     <?php $mutation->ermAfter(2); ?>
     <p>En este caso, por ser dos rutas, una ruta queda con todas las visitas. Esto puede ser contraproducente si supera el
-        maximo de visitas razonables por médico en una jornada laboral. Si eso sucede, la solución será penalizada.</p>
+        máximo de visitas razonables por médico en una jornada laboral. Si eso sucede, la solución será penalizada.</p>
+
+    <?php back_to_anchor($id, "a Mutaciones");?>
+
 
     <h3 id="rem">Reduce Entropy Mutation (REM) <span todo>Nuevo!</span></h3>
     <p>Inspirados en los procesos naturales que llevan grupos de elementos al equilibrio reduciendo la entropía (en términos de
@@ -192,6 +212,8 @@ Si bien esta mutación es muy sencilla, resultó ser de vital importancia en el 
     </ul>
 
     <p></p>
+
+    <?php back_to_anchor($id, "a Mutaciones");?>
 
 
 

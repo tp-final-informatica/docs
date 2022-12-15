@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="/docs/css/tooltip.css">
     <link rel="stylesheet" href="/docs/css/scroll-top.css">
     <link rel="stylesheet" href="/docs/css/tobii.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 <header class="header"><h1 class="mw-content">El algoritmo genético empleado</h1></header><nav><a  id="skip-nav" href="#main-content" class="skip-link">Saltear navegacion</a><div data-menu-component>  <input type="checkbox" role="button" aria-haspopup="true" id="toggle" class="vh">  <label for="toggle" data-opens-menu>    &#x2630; Índice    <span class="vh expanded-text">expandido</span>    <span class="vh collapsed-text">colapsado</span>  </label>  <div role="menu" data-menu-origin="left">    <ul><li><a role="menuitem" href="/docs/index.html">Carátula</a></li><li><a role="menuitem" href="/docs/macro.html">El sistema</a></li><li><a role="menuitem" href="/docs/core.html">El core</a></li><li>La interfaz administrativa</li><li>Las aplicaciones mobile</li><li>El backend integrador</li><li>Información complementaria</li><li><a role="menuitem" href="/docs/literature.html">Bibliografía consultada</a></li>    </ul>  </div></div></nav>
@@ -41,7 +43,7 @@
         <p>La definición de cada uno de estos pasos afecta el resultado final del algoritmo. A continuación detallamos nuestras decisiones en cada paso.</p>
 
         
-
+<h2 id="chromosome">Definición de cromosoma</h2>
 <p>La definición del cromosoma a utilizar en el algoritmo genético no es trivial. Ella condiciona los pasos siguientes del algoritmo genético, en tanto los crossovers y mutaciones deben operar sobre este cromosoma.</p>
     <p>Nuestra elección fue plantear de forma natural cada camino como una secuencia de visitas numeradas, desde inicio al fin. Entonces, para un viajante que sale del punto 0 y vuelve al punto 0, visitando los puntos <span class="mono">[1,2,3]</span> el cromosoma planteado es:</p>
 
@@ -62,8 +64,8 @@
 
 
 
-
-    <p>Para el desarrollo del algoritmo se utilizó un set de datos y se ajustaron los parámetros de ejecución acorde a
+<hr class="section-end"/>
+<h2 id="population">Tamaño de la población y cantidad de generaciones</h2>    <p>Para el desarrollo del algoritmo se utilizó un set de datos y se ajustaron los parámetros de ejecución acorde a
         estos. Para una cantidad cercana a 20 visitas y dos viajantes, el desarrollo se hizo con una población de 200
         soluciones y cerca de 600 loops (parámetros que fueron variando a lo largo del desarrollo). Cuando el algoritmo
         estuvo completo y cambiamos el set de datos, notamos que estos números ya no eran útiles para resolver el
@@ -102,12 +104,12 @@
 <!--    Los datos empíricos obtenidos se pueden consultar en la sección Anexos. <span todo>hacer seccion anexos</span>-->
 <!--</p>-->
 
-
-    <p>Dada <span class="mono">N</span> la cantidad de viajantes, se distribuyen las visitas en <span class="mono">N</span> rutas de forma <b>aleatoria</b> y se asignan a cada solución. Esto garantiza un pool genético grande, pero no soluciones buenas.</p>
+<hr class="section-end"/>
+<h2 id="first-gen">Armado de población inicial</h2>    <p>Dada <span class="mono">N</span> la cantidad de viajantes, se distribuyen las visitas en <span class="mono">N</span> rutas de forma <b>aleatoria</b> y se asignan a cada solución. Esto garantiza un pool genético grande, pero no soluciones buenas.</p>
     <p>El único criterio para la formación de las soluciones es mantener balanceada la cantidad de visitas por ruta.</p>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<hr class="section-end"/><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
+<h2 id="fitness">Definición de función de fitness</h2>
     <p>La función de fitness es la guía mediante la cual el algoritmo itera, aprende, y llega a una solución con las
         características deseadas.</p>
     <p>Dado que nuestro programa debía devolver tres propuestas de rutas con criterios distintos, fue necesario proponer
@@ -213,8 +215,8 @@
         y por ello difíciles de realizar por los médicos. El límite de visitas elegido por ruta es 18.</li>
     </ul>
 
-
-    <h3>Aleatoria</h3>
+<hr class="section-end"/>
+<h2 id="parents">Selección de padres</h2>    <h3>Aleatoria</h3>
     <p>Se seleccionan dos padres de la generación anterior de forma aleatoria. No se pone ningún criterio extra para elegir un padre bueno o malo. De esta manera, se permite que todas las soluciones que sobrevivieron la generación anterior tengan probabilidad de procrear.</p>
     <p>La idea detrás de esto, es que no podemos saber de antemano qué combinaciones van a dar los mejores hijos, entonces se permiten todas.</p>
     <h3>Por fitness para uno de los padres</h3>
@@ -222,8 +224,8 @@
 
 <p todo> armar graficos comparativos</p>
 
-
-
+<hr class="section-end"/>
+<h2 id="crossover">Crossover</h2>
     <p>El crossover es un punto fundamental del algoritmo genético. La elección del mismo afecta el desarrollo y los resultados de la ejecución.</p>
     <p>Para nuestro problema, un problema de optimización de rutas, implementamos cuatro crossovers distintos. Los crossovers elegidos cumplen con distintas condiciones:</p>
     <ul>
@@ -267,6 +269,7 @@
     <p>El resultado del algoritmo son soluciones en las que siempre, todas las visitas de todas las rutas de las soluciones hijas pertenecen a la misma ruta de alguno de los dos padres.</p>
     <p><b>MBS mantiene entonces la asignación de las visitas a las rutas originales, pero no el orden de los mismos, o su posición inicial.</b></p>
 
+    <div class="align-left mt3"><a href="#crossover">Volver a Crossovers <i class="fa-solid fa-arrow-up"></i></a></div>
     <h3 id="cx">Cycle Crossover (CX)</h3>
         <p>Este algoritmo fue propuesto por IM Oliver en el paper <em>A Study of permutation crossover Operators on the Traveling Salesman Problem</em>. El algoritmo original está planteado para el problema del viajante (con una única ruta), y su finalidad es encontrar ciclos (partes intercambiables) entre secuencias de visitas. De no encontrar ciclos, no es posible generar soluciones nuevas. Esto sucederá en general para secuencias de visitas cortas.</p>
     <p>Para aplicar este algoritmo a nuestro problema fue necesario implementar adaptaciones, puesto que no se cumplen las mismas condiciones:</p>
@@ -286,6 +289,7 @@
     <p>Al modificarlo para aplicarlo a nuestro problema, mantenemos el orden relativo, pero no las posiciones originales
         necesariamente, puesto que las visitas no compartidas mantienen su posición original dentro de la ruta.</p>
 
+    <div class="align-left mt3"><a href="#crossover">Volver a Crossovers <i class="fa-solid fa-arrow-up"></i></a></div>
 
     <h3 id="pmx">Partially mapped crossover (PMX)</h3>
     
@@ -336,6 +340,8 @@
         fitness penaliza este tipo de soluciones incompletas, por lo que nunca puede ser elegida como la mejor solución,
         pero sí puede contribuir a generar mejores soluciones mezclándose con otras soluciones de la generación.</p>
 
+    <div class="align-left mt3"><a href="#crossover">Volver a Crossovers <i class="fa-solid fa-arrow-up"></i></a></div>
+
     <h3 id="eer">Enhanced edge recombination (EER)</h3>
     
     <p>En distintos papers encontramos el algoritmo Edge recombination, que mantiene la información de adyacencia entre
@@ -363,8 +369,10 @@
     <p>Empezando desde el "1" y manteniendo la distribución del padre 1, las siguientes son posibles soluciones finales:</p>
 
     <div class="crossover"><div class="flex wrap mt3 mb3 space">  <p>H0</p>  <div class="flex wrap gap3"> <div><div class="flex"><div class="circle medium-turquoise"><p>A0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>5</p></div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise"><p>A1</p></div></div>    <div class="underline-light">viajante A    </div> </div> <div><div class="flex"><div class="circle medium-turquoise"><p>B0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>7</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>8</p></div><i class="icono-arrow1-left"></i><div class="circle dark"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise"><p>B1</p></div></div>    <div class="underline-light">viajante B    </div> </div>  </div></div> <div class="flex wrap mt3 mb3 space">  <p>H1</p>  <div class="flex wrap gap3"> <div><div class="flex"><div class="circle medium-turquoise"><p>A0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>5</p></div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise"><p>A1</p></div></div>    <div class="underline-light">viajante A    </div> </div> <div><div class="flex"><div class="circle medium-turquoise"><p>B0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>8</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>7</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle dark"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise"><p>B1</p></div></div>    <div class="underline-light">viajante B    </div> </div>  </div></div> <div class="flex wrap mt3 mb3 space">  <p>H2</p>  <div class="flex wrap gap3"> <div><div class="flex"><div class="circle medium-turquoise"><p>A0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>7</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>5</p></div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise"><p>A1</p></div></div>    <div class="underline-light">viajante A    </div> </div> <div><div class="flex"><div class="circle medium-turquoise"><p>B0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle dark"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>8</p></div><i class="icono-arrow1-left"></i><div class="circle medium-turquoise"><p>B1</p></div></div>    <div class="underline-light">viajante B    </div> </div>  </div></div> </div>
+    <div class="align-left mt3"><a href="#crossover">Volver a Crossovers <i class="fa-solid fa-arrow-up"></i></a></div>
 
-
+<hr class="section-end"/>
+<h2 id="mutation">Mutación</h2>
     <p>
         Dentro del algoritmo genético, el proceso de mutación evita que las soluciones obtenidas se concentren todas en
         un mismo óptimo local. Las mutaciones insertan diversidad, incorporando estructuras genéticas nuevas a la población.
@@ -406,16 +414,19 @@
       <div class="mutation"><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>4</p></div></div></div>    <p>Secuencia de visitas después de la mutación <a href="#dm"><abbr title="Displacement Mutation">DM</abbr></a>:</p>
       <div class="mutation"><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>4</p></div></div></div>
     <p>Para más información ver la <a href="/docs/literature.html">Bibliografía</a>.</p>
+    <div class="align-left mt3"><a href="#mutation">Volver a Mutaciones <i class="fa-solid fa-arrow-up"></i></a></div>
     <h3 id="rsm">RSM - Reverse sequence mutation</h3>
     <p>En este caso, se trata de seleccionar una sub secuencia dentro de una ruta en un cromosoma, e invertir el orden de
         la misma. Por ejemplo, dada la secuencia:</p>
       <div class="mutation"><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div></div></div>    <p>Una posible mutación es invertir los ítems <span class="mono">1,2,3</span> de manera que la secuencia final sea la siguiente:</p>
       <div class="mutation"><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div></div></div>    <p>Para más información ver la <a href="/docs/literature.html">Bibliografía</a>.</p>
+    <div class="align-left mt3"><a href="#mutation">Volver a Mutaciones <i class="fa-solid fa-arrow-up"></i></a></div>
     <h3 id="psm">PSM - Partially shuffled mutation</h3>
     <p>Similar al caso anterior, se selecciona una sub secuencia dentro de una ruta en un cromosoma, pero esta vez
         se ordenan los elementos de forma aleatoria. Por ejemplo:</p>
       <div class="mutation"><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div></div></div>    <p>La sub secuencia <span class="mono">1,2,3</span> es elegida para ser desordenada, y el resultado es el siguiente:</p>
       <div class="mutation"><div class="flex"><div class="circle "><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle "><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle "><p>5</p></div></div></div>    <p>Para más información ver la <a href="/docs/literature.html">Bibliografía</a>.</p>
+    <div class="align-left mt3"><a href="#mutation">Volver a Mutaciones <i class="fa-solid fa-arrow-up"></i></a></div>
     <h3 id="jm">Desplazamiento de visita a ruta alternativa: Jump mutation (JM)</h3>
 
     <p>Esta mutación se aplica a cromosomas con más de dos rutas. Primero elegimos aleatoriamente dos de ellas, una será
@@ -442,12 +453,16 @@ Si bien esta mutación es muy sencilla, resultó ser de vital importancia en el 
     </fieldset>
     <p todo>poner graficos comparativos</p>
 
+    <div class="align-left mt3"><a href="#mutation">Volver a Mutaciones <i class="fa-solid fa-arrow-up"></i></a></div>
+
     <h3 id="jdm">Jump Displacement Mutation (JDM)</h3>
     <p>Esta mutación es una variante de <a href="#dm"><abbr title="Displacement Mutation">DM</abbr></a>, en la que efectuamos el intercambio de visitas entre rutas distintas (si
         tenemos más de una ruta). Por Ejemplo, dada una solución:</p>
           <div class="mutation"><div class="flex wrap gap3 mb2">  <div><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>3</p></div></div>  <div class="underline-light">viajante A</div>  </div>  <div><div class="flex"><div class="circle light"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>7</p></div></div>  <div class="underline-light">viajante B</div>  </div></div></div>        <p>Una posible mutación es invertir las posiciones de las visitas <span mono>1</span> y <span mono>6</span> que se
         encuentran en rutas ditintas:</p>
           <div class="mutation"><div class="flex wrap gap3 mb2">  <div><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>3</p></div></div>  <div class="underline-light">viajante A</div>  </div>  <div><div class="flex"><div class="circle light"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>7</p></div></div>  <div class="underline-light">viajante B</div>  </div></div></div>
+    <div class="align-left mt3"><a href="#mutation">Volver a Mutaciones <i class="fa-solid fa-arrow-up"></i></a></div>
+
     <h3 id="jrsm">Jump RSM (JRSM)</h3>
     <p>Para adaptar <a href="#rsm"><abbr title="Reverse Sequence Mutation">RSM</abbr></a> a nuestro problema de múltiples rutas, decidimos aplicar el algoritmo nuevamente en
     dos partes: primero seleccionar una sub secuencia dentro de una ruta, quitarla de la ruta original e invertir el orden
@@ -455,6 +470,8 @@ Si bien esta mutación es muy sencilla, resultó ser de vital importancia en el 
     Ver el ejemplo a continuación:</p>
       <div class="mutation"><div class="flex wrap gap3 mb2">  <div><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>3</p></div></div>  <div class="underline-light">viajante A</div>  </div>  <div><div class="flex"><div class="circle light"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>7</p></div></div>  <div class="underline-light">viajante B</div>  </div></div></div>    <p>El siguiente es un resultado final posible:</p>
       <div class="mutation"><div class="flex wrap gap3 mb2">  <div><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>3</p></div></div>  <div class="underline-light">viajante A</div>  </div>  <div><div class="flex"><div class="circle light"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>7</p></div></div>  <div class="underline-light">viajante B</div>  </div></div></div>
+    <div class="align-left mt3"><a href="#mutation">Volver a Mutaciones <i class="fa-solid fa-arrow-up"></i></a></div>
+
     <h3 id="jpsm">PSM entre rutas (JPSM)</h3>
     <p>Al igual que en el caso anterior, para poder adaptar <a href="#jpsm"><abbr title="Jump Partially Shuffled Mutation">JPSM</abbr></a> mejor a nuestro problema, aplicamos parte
     del algoritmo a una ruta, y el resto a otra ruta dentro de la misma solución. Por ejemplo, seleccionamos las
@@ -462,6 +479,7 @@ Si bien esta mutación es muy sencilla, resultó ser de vital importancia en el 
       <div class="mutation"><div class="flex wrap gap3 mb2">  <div><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div></div>  <div class="underline-light">viajante A</div>  </div>  <div><div class="flex"><div class="circle light"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>7</p></div></div>  <div class="underline-light">viajante B</div>  </div></div></div>    <p>Cambiamos el orden de los elementos de forma aleatoria, por ejemplo: <span mono>3,2,4</span>, e insertamos
     esta secuencia en un punto aleatorio dentro de otra ruta de la misma solución:</p>
       <div class="mutation"><div class="flex wrap gap3 mb2">  <div><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div></div>  <div class="underline-light">viajante A</div>  </div>  <div><div class="flex"><div class="circle light"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>7</p></div></div>  <div class="underline-light">viajante B</div>  </div></div></div>
+    <div class="align-left mt3"><a href="#mutation">Volver a Mutaciones <i class="fa-solid fa-arrow-up"></i></a></div>
     <h3 id="erm">Empty route mutation (ERM) <span todo>Nuevo!</span></h3>
     <p>Esta mutación fue agregada para ayudar al algoritmo en las ejecuciones no balanceadas. Esto es porque las mutaciones
         y crossovers disponibles hasta el momento de desarrollarla no favorecían este tipo de ejecuciones, es decir, era poco probable que
@@ -474,7 +492,9 @@ Si bien esta mutación es muy sencilla, resultó ser de vital importancia en el 
 
       <div class="mutation"><div class="flex wrap gap3 mb2">  <div><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div></div>  <div class="underline-light">viajante A</div>  </div>  <div><div class="flex"><div class="circle light"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>7</p></div></div>  <div class="underline-light">viajante B</div>  </div></div></div>    <p>Luego de la mutación, las rutas podrían ser de esta manera:</p>
       <div class="mutation"><div class="flex wrap gap3 mb2">  <div><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div></div>  <div class="underline-light">viajante A</div>  </div>  <div><div class="flex"><div class="circle light"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>7</p></div></div>  <div class="underline-light">viajante B</div>  </div>  </div></div>    <p>En este caso, por ser dos rutas, una ruta queda con todas las visitas. Esto puede ser contraproducente si supera el
-        maximo de visitas razonables por médico en una jornada laboral. Si eso sucede, la solución será penalizada.</p>
+        máximo de visitas razonables por médico en una jornada laboral. Si eso sucede, la solución será penalizada.</p>
+
+    <div class="align-left mt3"><a href="#mutation">Volver a Mutaciones <i class="fa-solid fa-arrow-up"></i></a></div>
 
     <h3 id="rem">Reduce Entropy Mutation (REM) <span todo>Nuevo!</span></h3>
     <p>Inspirados en los procesos naturales que llevan grupos de elementos al equilibrio reduciendo la entropía (en términos de
@@ -498,11 +518,12 @@ Si bien esta mutación es muy sencilla, resultó ser de vital importancia en el 
 
     <p></p>
 
+    <div class="align-left mt3"><a href="#mutation">Volver a Mutaciones <i class="fa-solid fa-arrow-up"></i></a></div>
 
 
 
-
-
+<hr class="section-end"/>
+<h2 id="survivors">Selección de soluciones sobrevivientes</h2>
 <p>Las siguientes son las funciones de probabilidad que utilizamos para seleccionar las soluciones que sobreviven y forman parte
 de la siguiente generación. La elección de qué función usar se hace de manera aleatoria para cada generación.</p>
 <h3>Distribución exponencial negativa</h3>
@@ -618,15 +639,15 @@ de la siguiente generación. La elección de qué función usar se hace de maner
 <p todo>aca pensé en ejecutar el core variando la probabilidad de elegir una u otra. Tendría que hacerlo muchas veces y sacar promedio.</p>
 
 
-
-<p>Es esperado en este tipo de algoritmos definir un límite de tiempo o un límite de iteraciones para considerar
+<hr class="section-end"/>
+<h2 id="end-criteria">Criterio de finalización</h2><p>Es esperado en este tipo de algoritmos definir un límite de tiempo o un límite de iteraciones para considerar
 finalizada la ejecución. En nuestro caso, decidimos considerar un límite de iteraciones por ejecución, con la salvedad de
 que el algoritmo esté en una buena <em>racha</em> y todavía encuentre buenas soluciones aún acercándose al límite de los loops:</p>
 <p>Nuestro algoritmo evalúa una cantidad de iteraciones antes de terminar cuál es la mejor solución encontrada, y si supera
 esa solución antes de llegar al límite, se extiende la ejecución unas iteraciones más.</p>
 
 
-
+<hr class="section-end"/>
         <div class="mt3 mb3"><a href="/docs/core/specs.html">Seguir leyendo: Especificaciones técnicas ></a></div>
 
     </div>
