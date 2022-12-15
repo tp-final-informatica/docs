@@ -65,6 +65,11 @@ include_once "./src/utils/libraries.php";
             validación dentro de nuestra función de fitness bajo una gran penalidad.
     </p>"); ?>
 
+    <h2>Íconos</h2>
+    <p>Incluímos la librería de <a href="https://fontawesome.com/search" target="_blank">FontAwesome</a>. Se usa asi:</p>
+    <i class="fa-solid fa-arrow-up"></i>
+
+
     <?
     // esta estructura es asi
     $title = [
