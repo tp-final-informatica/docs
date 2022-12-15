@@ -11,6 +11,7 @@ include_once "./src/utils/libraries.php";
 
            <?php breadcrumb([['path' => "/docs/core.html", 'title'=>"El core"]]); ?>
 
+
             <p>Consideramos que los siguientes merecen una mención dentro de las funcionalidades implementadas
                 en el core, por integrar conocimientos de áreas distintas de la carrera</p>
             <ul>
@@ -195,8 +196,11 @@ include_once "./src/utils/libraries.php";
 
 
 
-            <?php nextRead("/docs/core/data.html", "Análisis de datos obtenidos"); ?>
-
+<!--            --><?php //nextRead("/docs/core/data.html", "Análisis de datos obtenidos"); ?>
+            <?php prevAndNext(
+                ['path' => "/docs/core/algorithm.html", 'title'=>"El algoritmo genético"],
+                ['path' => "/docs/core/data.html", 'title'=>"Análisis de datos"]
+            ); ?>
         </div>
     </main>
 

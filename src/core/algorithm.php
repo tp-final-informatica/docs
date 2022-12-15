@@ -40,7 +40,11 @@ include_once "./src/utils/libraries.php";
         include_once "./src/algorithm/more.php";
         ?>
 
-        <?php nextRead("/docs/core/specs.html", "Especificaciones técnicas"); ?>
+<!--        --><?php //nextRead("/docs/core/specs.html", "Especificaciones técnicas"); ?>
+        <?php prevAndNext(
+            ['path' => "/docs/core/languages.html", 'title'=>"Selección del lenguaje"],
+            ['path' => "/docs/core/specs.html", 'title'=>"Especificaciones técnicas"]
+        ); ?>
 
 
     </div>

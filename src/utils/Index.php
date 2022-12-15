@@ -4,37 +4,51 @@ class Index
 {
 
     private $title;
+    private $tag;
     private $subtitles;
 
-    public function __construct($title, $subtitles)
+    public function __construct($title, $subtitles, $title_tag = 2)
     {
         $this->title = $title;
+        $this->tag = $title_tag;
         $this->subtitles = $subtitles;
     }
 
     public function section_heading() {
-        print('<h2 id="'
+        print('<h'
+            . $this->tag
+            . ' id="'
             . $this->title['id']
             . '">'
             .$this->title['value']
-            .'</h2>');
+            .'</h'
+            . $this->tag
+            . '>');
 
     }
 
     public function section_subheading($index) {
-        print('<h3 id="'. $this->subtitles[$index]['id']
+        print('<h'
+            . ($this->tag + 1)
+            . '  id="'. $this->subtitles[$index]['id']
             . '">'
             .$this->subtitles[$index]['value']
-            .'</h3>');
+            .'</h'
+            . ($this->tag + 1)
+            . '>');
     }
 
     public function section_subheading_by_id($id) {
         foreach ($this->subtitles as $subtitle) {
             if ($subtitle['id'] == $id) {
-                print('<h3 id="'. $subtitle['id']
+                print('<h'
+                    . ($this->tag + 1)
+                    . ' id="'. $subtitle['id']
                     . '">'
                     .$subtitle['value']
-                    .'</h3>');
+                    .'</h'
+                    . ($this->tag + 1)
+                    . '>');
             }
         }
 

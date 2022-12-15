@@ -10,10 +10,7 @@ include_once "./src/utils/libraries.php";
 
 
     <?php breadcrumb([
-//        ['path' => "/docs", 'title'=>"Inicio"],
-//        ['path' => "/docs/sitemap.html", 'title'=>"Índice"],
         ['path' => "/docs/core.html", 'title'=>"El core"]]); ?>
-
 
     <p>Para la implementación de la metaheurística del viajante consideramos los siguientes lenguajes de programación:</p>
     <ul>
@@ -148,7 +145,11 @@ include_once "./src/utils/libraries.php";
     <p>El código de las pruebas realizadas está disponible para consulta en el repositorio de GitHub.</p>
     <p>En base a las pruebas realizadas, a las características del lenguaje, y a la complejidad de implementación en cada caso, tomamos la decisión de utilizar <b>Golang</b> para implementar nuestro algoritmo.</p>
 
-    <?php nextRead("/docs/core/algorithm.html", "El algoritmo genético"); ?>
+<!--    --><?php //nextRead("/docs/core/algorithm.html", "El algoritmo genético"); ?>
+    <?php prevAndNext(
+        ['path' => "/docs/core.html", 'title'=>"El core"],
+        ['path' => "/docs/core/algorithm.html", 'title'=>"El algoritmo genético"]
+    ); ?>
 </div>
 </main>
 <?php footer(); ?>

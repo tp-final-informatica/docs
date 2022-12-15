@@ -23,8 +23,20 @@ function breadcrumb(array $links = []) {
     print("</div>");
 }
 
+function prevAndNext(array $prev_link, array $next_link) {
+    print("<div class=\"mt8 flex space\">");
+    if ($prev_link != []) {
+        print("<a href=\"".$prev_link['path']."\"><i class=\"fa-solid fa-arrow-left\"></i> Volver a ".$prev_link['title']."</a> ");
+    }
+    if ($next_link != []) {
+        print("<a href=\"".$next_link['path']."\">Seguir leyendo: ".$next_link['title']." <i class=\"fa-solid fa-arrow-right\"></i></a> ");
+    }
+
+    print("</div>");
+}
+
 function nextRead($path, $title) {
-    print("<div class=\"mt3 mb3\"><a href=\"$path\">Seguir leyendo: $title ></a></div>");
+    print("<div class=\"mt8\"><a href=\"$path\">Seguir leyendo: $title ></a></div>");
 }
 
 

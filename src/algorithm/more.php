@@ -9,7 +9,7 @@ $id = "more";
         del algoritmo.
     </p>
 
-    <h3>Shake mutation</h3>
+    <h3>Shake mutation <span todo>Nuevo!</span></h3>
     <p>
         Notamos que el algoritmo en general converge hacia una solución, y luego
         tarda muchas iteraciones en encontrar soluciones mejores. Por esta razón planteamos
@@ -28,16 +28,22 @@ $id = "more";
     <p>
         Finalmente decidimos retirar esta modificación del algoritmo.
     </p>
-    <h3>Sort + immigration</h3>
+    <h3>Sort + immigration <span todo>Nuevo!</span></h3>
     <p>
         Nuevamente, intentando atacar el estancamiento del algoritmo agregamos otra modificación en
         la que esta vez, a intervalos regulares duplicamos el pool genético justo antes del proceso
-        de selección y ordenamos todas esas soluciones duplicadas por menor distancia entre los puntos
+        de selección y ordenamos todas las rutas de esas soluciones duplicadas por menor distancia entre los puntos
         de las rutas, de la misma forma que lo hacemos en el <a href="/docs/core/algorithm.html#mbs">
         crossover MBS</a>.
+        Para asegurar que no estemos restringiendo el pool genético agregamos también un número fijo de
+        soluciones aleatorias nuevas.
     </p>
-<p></p>
+    <p>
+        Las primeras pruebas con esta modificación no dieron buenos resultados, pero notamos que para números
+        grandes de visitas, a intervalos grandes de iteraciones, ayuda a la convergencia del algoritmo.
+    </p>
 
 
 
-<?php print_section_footer(); ?>
+<!---->
+<?php //print_section_footer(); ?>

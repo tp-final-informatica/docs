@@ -7,7 +7,9 @@ include_once "./src/utils/libraries.php";
 
     <main id="main-content">
         <div class="content">
+
             <?php breadcrumb([['path' => "/docs/core.html", 'title'=>"El core"]]); ?>
+
 
             <ul>
                 <li>
@@ -179,7 +181,11 @@ include_once "./src/utils/libraries.php";
             </p>
             <p todo >Caso de médico lejos!</p>
 
-
+            <?php prevAndNext(
+                ['path' => "/docs/core/specs.html", 'title'=>"Especificaciones técnicas"],
+                []
+//                ['path' => "/docs/core/specs.html", 'title'=>"El core"]
+            ); ?>
 
         </div>
     </main>

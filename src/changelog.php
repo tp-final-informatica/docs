@@ -18,6 +18,17 @@ include_once "./src/utils/libraries.php";
 
     <ul>
         <li class="<? print $item_classes?>">
+            <div><span mono>15 Dic 2022:</span></div>
+            <div>
+                <ul>
+                    <li><a href="/docs/core/data.html">Análisis de datos del core</a></li>
+                    <li>Modificación en El core: <a href="/docs/core/algorithm.html#more">Modificaciones
+                        al algoritmo</a> (sección nueva). </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="<? print $item_classes?>">
             <div><span mono>11 Dic 2022:</span></div>
             <div>
                 <ul>
