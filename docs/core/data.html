@@ -65,15 +65,16 @@
                 iteraciones para poder llegar al máximo global.
             </p>
             <p>
-                En este tipo de situaciones es posible ajustar los parámetros de ejecución del algoritmo, como el tamaño
-                de la población o la cantidad mínima de iteraciones, pero esto lleva una penalización en términos de tiempo
-                de ejecución.
+                En este tipo de situaciones es posible ajustar los parámetros de ejecución del algoritmo, como
+                incrementar el tamaño de la población o la cantidad mínima de iteraciones, pero esto lleva una
+                penalización en términos de tiempo de ejecución.
             </p>
             <p>
                 A continuación presentamos un ejemplo de esta situación obtenido de uno de nuestros sets de pruebas.
-                Se trata de una ejecución con tres viajantes y cuatro grupos bien definidos de soluciones.
-                Es un ejemplo en el que la solución balanceada será más cara que la desbalanceada, por la naturaleza
-                de los datos.
+                Se trata de una ejecución con tres viajantes y cuatro grupos bien distinguidos de soluciones que deben
+                dividirse equitativamente entre estos.
+<!--                Es un ejemplo en el que la solución balanceada será más cara que la desbalanceada, por la naturaleza-->
+<!--                de los datos.-->
             </p>
             <p>
                 La primera imagen muestra una representación en dos dimensiones de la secuencia de visitas que se
@@ -164,7 +165,8 @@
                 La función que utilizamos para calcular el fitness tiene una misma base para todos los tipos
                 de ejecuciones (ver sección <a href="/docs/core/algorithm.html#fitness">Fitness</a>): las
                 variables en cuestión se suman en el denominador de la fracción.
-                La diferencia se hace con los valores de esas variables, y los parámetros que las multiplican.
+                La diferencia para cada tipo de ejecución se hace con los valores de esas variables, y los
+                parámetros que las multiplican.
             </p>
             <p>
                 Los valores de esas variables vienen definidos por funciones específicas dependiendo del tipo de problema,
@@ -173,7 +175,13 @@
             </p>
             <p>
                 La elección de los parámetros que multiplican esos valores en la función de fitness es definitiva en
-                relación con el resultado deseado.
+                relación con el resultado deseado. Por ejemplo, si todos los parámetros son 1, todas las penalizaciones
+                tendrán equivalente peso.
+                Si un único parámetro equivale a 1, y todos los demás equivalen a 0, sólo el primero tendrá peso en
+                el resultado final. Si dos parámetros equivalen a 10 y los otros dos a 5, entonces el peso se
+                distribuirá 33%, 33%, 16%, 16%, etc.
+            </p>
+            <p>
                 Teniendo en cuenta que la función de fitness elegida penaliza soluciones indeseadas, pero no las prohíbe,
                 la cuidadosa selección de estos parámetros puede lograr que el algoritmo llegue o no al resultado deseado.
             </p>
