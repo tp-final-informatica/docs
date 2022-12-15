@@ -8,7 +8,7 @@ Para desarrollar correr el script
 bash run.sh
 ```
 
-El script utiliza Docker, y levanta dos contenedores: `mitp` y `sass` y deja corriendo un nodemon que los ejecuta cuando identifica cambios en la carpeta src, en los archivos de extension `scss` y `php`.
+El script utiliza Docker, y levanta dos contenedores: `mtsp_php` y `mtsp_sass` y deja corriendo un nodemon que los ejecuta cuando identifica cambios en la carpeta src, en los archivos de extension `scss` y `php`.
 
 Los archivos `PHP` y `scss` se editan en el directorio `src` y son compilados por el script `run.sh` en el directorio `docs`.
 Los archivos `JS` o los recursos como imágenes deben editarse en el directorio `docs`.
@@ -21,6 +21,6 @@ Una vez hecho el commit, si se desea seguir trabajando, volver a ejecutar el scr
 Al finalizar de trabajar, si no se va a continuar más, eliminar los contenedores utilizados corriendo esto en la terminal de Linux:
 
 ```bash
-docker stop mitp sass
-docker rm mitp sass
+docker stop mtsp_php mtsp_sass
+docker rm mtsp_php mtsp_sass
 ```
