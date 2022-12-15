@@ -179,7 +179,7 @@ include_once "./src/utils/Figure.php";
                 Teniendo en cuenta que la función de fitness elegida penaliza soluciones indeseadas, pero no las prohíbe,
                 la cuidadosa selección de estos parámetros puede lograr que el algoritmo llegue o no al resultado deseado.
             </p>
-            <p todo >Caso de médico lejos</p>
+            <p todo >Caso de médico lejos!</p>
 
 
 
