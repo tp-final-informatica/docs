@@ -11,7 +11,7 @@ include_once "./src/utils/libraries.php";
 
            <?php breadcrumb([['path' => "/docs/sitemap.html", 'title'=>"Índice"]]); ?>
 
-            <h2>Ups! todavía no hay contenido acá</h2>
+            <h2>Ups! todavía no hay contenido acá ahora si llego nereeee</h2>
 <!--            <p>párrafo</p>-->
             <div class="flex center">
                 <img src="/docs/images/cafe.gif" alt="mientras esperas hacete un cafecito" style="max-width: 360px;">
