@@ -9,19 +9,29 @@ include_once "./src/utils/libraries.php";
 <main id="main-content">
 <div class="content">
 
+    <h2>Asistencia a la navegación</h2>
 
-
+    <p>Breadcrumbs:</p>
     <?php breadcrumb([
         ['path' => "/docs", 'title'=>"Breadcrumb1"],
         ['path' => "/docs", 'title'=>"Breadcrumb"]]); ?>
 
-    Colores:
+    <p>Bloque de "Segui leyendo":</p>
+    <?php nextRead("/docs/core.html", "El core"); ?>
+
+    <p>Bloque de volver o seguir leyendo:</p>
+    <?php prevAndNext(
+        ['path' => "/docs/core/languages.html", 'title'=>"Selección del lenguaje"],
+        ['path' => "/docs/core/specs.html", 'title'=>"Especificaciones técnicas"]
+    ); ?>
+
+    <h2>Colores</h2>
     <!-- Coolors Palette Widget -->
     <script src="https://coolors.co/palette-widget/widget.js"></script>
 <!--    <script data-id="07113298128526133">new CoolorsPaletteWidget("07113298128526133", ["cc1f00","32292f","99e1d9","f0f7f4","70abaf"]); </script>-->
     <script data-id="08487608647128557">new CoolorsPaletteWidget("08487608647128557", ["cc1f00","32292f","d88c9a","f0f7f4","70abaf"]); </script>
 
-
+    <h2>Estilos básicos de HTML</h2>
     <h1>Heading 1</h1>
     <h2>Heading 2</h2>
     <h3>Heading 3</h3>

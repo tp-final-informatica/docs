@@ -287,4 +287,10 @@ https://www.nxworld.net/pure-css-corner-ribbon.html
     position: static;
     margin: auto; }
 
+a.lightbox {
+  color: black; }
+  a.lightbox:hover, a.lightbox:focus {
+    text-decoration: underline;
+    text-decoration-color: black; }
+
 /*# sourceMappingURL=styles.css.map */

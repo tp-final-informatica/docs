@@ -18,7 +18,7 @@ function breadcrumb(array $links = []) {
     }
     print("<div class=\"mb3\">");
     foreach ($links as $link) {
-        print("<a href=\"".$link['path']."\">< ".$link['title']."</a> ");
+        print("<a href=\"".$link['path']."\"><i class=\"fa-solid fa-caret-left\"></i> ".$link['title']."</a> ");
     }
     print("</div>");
 }
@@ -36,7 +36,7 @@ function prevAndNext(array $prev_link, array $next_link) {
 }
 
 function nextRead($path, $title) {
-    print("<div class=\"mt8\"><a href=\"$path\">Seguir leyendo: $title ></a></div>");
+    print("<div class=\"mt8\"><a href=\"$path\">Seguir leyendo: $title <i class=\"fa-solid fa-arrow-right\"></i></a></div>");
 }
 
 

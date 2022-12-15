@@ -367,4 +367,12 @@ https://www.nxworld.net/pure-css-corner-ribbon.html
   }
 }
 
+a.lightbox {
+  color: black;
+
+  &:hover, &:focus{
+    text-decoration: underline;
+    text-decoration-color: black;
+  }
+}
 
