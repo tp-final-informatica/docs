@@ -18,6 +18,7 @@ class Figure
 
 
     public function print_figure() {
+//        return;
         print('
         <div class="flex center">
         <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: '. $this->thumbnail_width.'" role="group">
@@ -30,17 +31,24 @@ class Figure
         ');
     }
 
+    public function print_img() {
+        print('<div class="flex center mb2">');
+        if ( $this->thumbnail_width != "") {
+            print(' <img src="'.$this->thumbnail.'" alt="'.$this->alt.'" style="max-width: ' .$this->thumbnail_width.';">');
+        } else {
+            print(' <img src="'.$this->thumbnail.'" alt="'.$this->alt.'">');
+        }
+        print('</div>');
+
+    }
+
     public function print_lightbox($group ="") {
         if ($group!="") {
             print('<div class="flex center"><a href="'.$this->src.'"  class="lightbox" title="Expandir imagen"  data-group='.$group.'>');
         } else {
             print('<div class="flex center"><a href="'.$this->src.'"  class="lightbox" title="Expandir imagen">');
         }
-        if ( $this->thumbnail_width != 0) {
-            print(' <img src="'.$this->thumbnail.'" alt="'.$this->alt.'" style="max-width: ' .$this->thumbnail_width.'px;">');
-        } else {
-            print(' <img src="'.$this->thumbnail.'" alt="'.$this->alt.'">');
-        }
+        $this->print_img();
         print('</a></div>');
     }
 
@@ -55,3 +63,4 @@ class Figure
         print('</a></div>');
     }
 }
+

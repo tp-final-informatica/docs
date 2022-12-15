@@ -1,27 +1,13 @@
 <?php
-
 include_once "./src/utils/libraries.php";
-
-
-function back_to_top() {
-    print("<div class=\"align-left\"><a href=\"#top\">Volver al índice</a></div>");
-}
-
-function print_section_heading($section_title, $section_id){
-    printf('<h2 id="%s">%s</h2>', $section_id, $section_title);
-}
-
-function print_section_footer() {
-    //back_to_top();
-    print ("<hr class=\"section-end\"/>");
-}
 ?>
 
 <?php HTML_head("El algoritmo empleado"); ?>
 <?php printHeader("El algoritmo genético empleado"); ?>
 
-
 <main id="main-content">
+
+
     <div class="content">
         <?php breadcrumb([['path' => "/docs/core.html", 'title'=>"El core"]]); ?>
 
@@ -40,7 +26,6 @@ function print_section_footer() {
 
         <p>La definición de cada uno de estos pasos afecta el resultado final del algoritmo. A continuación detallamos nuestras decisiones en cada paso.</p>
 
-        <?php print_section_footer(); ?>
         <?php
         include_once "./src/algorithm/chromosome.php";
         include_once "./src/algorithm/population.php";
@@ -55,7 +40,11 @@ function print_section_footer() {
 
         <?php nextRead("/docs/core/specs.html", "Especificaciones técnicas"); ?>
 
+
     </div>
+
 </main>
+
 <?php footer(); ?>
+
 <?php HTML_foot(); ?>

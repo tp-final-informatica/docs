@@ -42,31 +42,150 @@ include_once "./src/utils/libraries.php";
         <li>listado no numerado</li>
     </ul>
 
-    <p>Lorem impsum dolor sit amet: <span class="mono">texto en monospace</span>.
-        Ver tooltip en boton redondo con la letra i: <span data-toggletip>Esto es un tooltip</span></p>
-    <p>Para escribir el nombre de la empresa (intentemos evitarlo) usar esto: <span class="company">la empresa</span></p>
+    <h2>Estilos básicos</h2>
+    <p>
+        Lorem impsum dolor sit amet: <span class="mono">texto en monospace</span>.
+    </p>
+    <p>
+        Ver tooltip en boton redondo con la letra i: <span data-toggletip>Esto es un tooltip</span>
+    </p>
+    <p>
+        Para escribir el nombre de la empresa (intentemos evitarlo) usar esto: <? printCompany(); ?>
+    </p>
+    <p todo>Para marcar algo en rojo como recordatorio</p>
 
-    <section class="lessons"  aria-label="Lecciones aprendidas">
-        <p><span class="lightbulb"></span>Nuestro enfoque inicial fue condicionar nuestras soluciones
+    <div><a>link</a></div>
+    <div><button>Botón default</button></div>
+
+    <? sectionLightbulb("Título", "<p>
+            Nuestro enfoque inicial fue condicionar nuestras soluciones
             para permitir únicamente aquellas que cumplieran con las restricciones del problema del viajante: todos los
             puntos deben ser visitados una única vez. Luego entendimos que permitir esta falla en nuestras rutas podía
             brindarle variedad a nuestro algoritmo, por lo que posteriormente reescribimos el código e incluimos esta
-            validación dentro de nuestra función de fitness bajo una gran penalidad.</p>
-    </section>
+            validación dentro de nuestra función de fitness bajo una gran penalidad.
+    </p>"); ?>
 
-    <p>Imagen que se expande:
-        <? lightboxImage("/docs/images/mate.gif", "/docs/images/survivors_square.png", "test"); ?>
-    </p>
+    <h2>Imágenes</h2>
 
-    <?php print_figure(
-        "/docs/images/survivors_square.png",
-        "Soluciones sobrevivientes que entraron en la nueva generación dada una probabilidad escalonada",
-        '
-    <p>Esta herramienta es para imagenes que necesitan descripcion extensa como gráficos.</p>
-    '
+    <h3>Imagen (sin caption)</h3>
+
+    <p>Solo la imagen:</p>
+    <? $image1 = new Figure(
+        "/docs/images/dummy/thumbnail7.jpg",
+        "600px",
+    "",// aca no hace falta poner nada si no se va a expandir
+        "Esta informacion se asocia a la imagen, y se muestra bajo la misma en el lightbox.",
+        ""// aca no hace falta poner nada si no va con caption
     ); ?>
-    <div><a>link</a></div>
-    <div><button>Botón default</button></div>
+    <? $image1->print_img() ?>
+
+
+    <p>Imagen con lightbox</p>
+    <? $image2 = new Figure(
+        "/docs/images/dummy/thumbnail8.jpg",
+        "600px",
+        "/docs/images/dummy/image8.jpg",
+        "Esta informacion se asocia a la imagen, y se muestra bajo la misma en el lightbox.",
+        ""// aca no hace falta poner nada si no va con caption
+    ); ?>
+    <? $image2->print_lightbox(); ?>
+
+    <h3>Figure (imagen con caption)</h3>
+
+    <p>Figura que no se expande:</p>
+    <?
+    $figure0 = new Figure(
+        "/docs/images/dummy/thumbnail0.jpg",
+        "600px",
+    "",// aca no hace falta poner nada si no se va a expandir
+        "Esta informacion se asocia a la imagen, y se muestra bajo la misma en el lightbox.",
+        "Arte abstracto de Google"
+
+    );
+    ?>
+    <? $figure0->print_figure(); ?>
+
+
+    <p>Figura para abrir en lightbox:</p>
+    <? $figure1 = new Figure(
+        "/docs/images/dummy/thumbnail1.jpg",
+        "600px",
+        "/docs/images/dummy/image1.jpg",
+        "Esta informacion se asocia a la imagen, y se muestra bajo la misma en el lightbox.",
+        "Arte abstracto de Google"
+
+    ); ?>
+
+    <? $figure1->print_lightbox_figure("no-group"); ?>
+
+    <p>Figuras para abrir en el mismo lightbox:</p>
+
+    <?
+    $figure2 = new Figure(
+        "/docs/images/dummy/thumbnail2.jpg",
+        "600px",
+        "/docs/images/dummy/image2.jpg",
+        "Esta informacion se asocia a la imagen, y se muestra bajo la misma en el lightbox.",
+        "Arte abstracto de Google"
+
+    );
+
+    $figure3 = new Figure(
+        "/docs/images/dummy/thumbnail3.jpg",
+        "600px",
+        "/docs/images/dummy/image3.jpg",
+        "Esta informacion se asocia a la imagen, y se muestra bajo la misma en el lightbox.",
+        "Arte abstracto de Google"
+
+    );
+
+    $figure2->print_lightbox_figure("group1");
+    $figure3->print_lightbox_figure("group1");
+
+    ?>
+
+    <p>Si queremos imprimirlas juntas:</p>
+
+    <?
+    $figure4 = new Figure(
+        "/docs/images/dummy/thumbnail4.jpg",
+        "600px",
+        "/docs/images/dummy/image4.jpg",
+        "Esta informacion se asocia a la imagen, y se muestra bajo la misma en el lightbox.",
+        "Arte abstracto de Google"
+
+    );
+    $figure5 = new Figure(
+        "/docs/images/dummy/thumbnail5.jpg",
+        "600px",
+        "/docs/images/dummy/image5.jpg",
+        "Esta informacion se asocia a la imagen, y se muestra bajo la misma en el lightbox.",
+        "Arte abstracto de Google"
+
+    );
+    $figure6 = new Figure(
+        "/docs/images/dummy/thumbnail6.jpg",
+        "600px",
+        "/docs/images/dummy/image6.jpg",
+        "Esta informacion se asocia a la imagen, y se muestra bajo la misma en el lightbox.",
+        "Arte abstracto de Google"
+
+    );
+    ?>
+
+    <div class="flex wrap">
+        <div class="max-width50-100">
+            <? $figure4->print_lightbox_figure("group2"); ?>
+        </div>
+        <div class="max-width50-100">
+            <? $figure5->print_lightbox_figure("group2"); ?>
+        </div>
+        <div class="max-width50-100">
+            <? $figure6->print_lightbox_figure("group2"); ?>
+        </div>
+    </div>
+
+
 
 </div>
 </main>

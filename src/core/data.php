@@ -1,10 +1,8 @@
 <?php
 include_once "./src/utils/libraries.php";
-include_once "./src/utils/Figure.php";
 ?>
 
 <?php HTML_head("Análisis de datos obtenidos"); ?>
-
 <?php printHeader("Análisis de datos obtenidos"); ?>
 
     <main id="main-content">

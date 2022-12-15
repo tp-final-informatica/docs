@@ -28,13 +28,14 @@ function HTML_foot() {
     if(localdevonly()) {
         print('<script type="text/javascript" src="http://livejs.com/live.js"></script>');
     }
-    print("
-    <script src=\"/docs/js/tooltip.js\"></script>
-    <script src=\"/docs/js/scroll-top.js\"></script>
-    <script src=\"/docs/js/tobii.min.js\"></script>
+    print('
+    <script src="/docs/js/tooltip.js"></script>
+    <script src="/docs/js/scroll-top.js"></script>
+    <script src="/docs/js/tobii.min.js"></script>
     <script>
       const tobii = new Tobii();
     </script>
 </body>
-</html>");
+</html>
+    ');
 }

@@ -54,29 +54,127 @@
         <li>listado no numerado</li>
     </ul>
 
-    <p>Lorem impsum dolor sit amet: <span class="mono">texto en monospace</span>.
-        Ver tooltip en boton redondo con la letra i: <span data-toggletip>Esto es un tooltip</span></p>
-    <p>Para escribir el nombre de la empresa (intentemos evitarlo) usar esto: <span class="company">la empresa</span></p>
+    <h2>Estilos básicos</h2>
+    <p>
+        Lorem impsum dolor sit amet: <span class="mono">texto en monospace</span>.
+    </p>
+    <p>
+        Ver tooltip en boton redondo con la letra i: <span data-toggletip>Esto es un tooltip</span>
+    </p>
+    <p>
+        Para escribir el nombre de la empresa (intentemos evitarlo) usar esto: <span class="company">la empresa</span>    </p>
+    <p todo>Para marcar algo en rojo como recordatorio</p>
 
-    <section class="lessons"  aria-label="Lecciones aprendidas">
-        <p><span class="lightbulb"></span>Nuestro enfoque inicial fue condicionar nuestras soluciones
+    <div><a>link</a></div>
+    <div><button>Botón default</button></div>
+
+    
+    <fieldset class="lessons">
+        <legend>Título</legend>
+    <div><p><span class="lightbulb"></span>
+            Nuestro enfoque inicial fue condicionar nuestras soluciones
             para permitir únicamente aquellas que cumplieran con las restricciones del problema del viajante: todos los
             puntos deben ser visitados una única vez. Luego entendimos que permitir esta falla en nuestras rutas podía
             brindarle variedad a nuestro algoritmo, por lo que posteriormente reescribimos el código e incluimos esta
-            validación dentro de nuestra función de fitness bajo una gran penalidad.</p>
-    </section>
+            validación dentro de nuestra función de fitness bajo una gran penalidad.
+    </p></div>
+    </fieldset>
+    <h2>Imágenes</h2>
 
-    <p>Imagen que se expande:
-        <div class="flex center"><a href="/docs/images/survivors_square.png"  class="lightbox" title="Expandir imagen"> <img src="/docs/images/mate.gif" alt="test" style="max-width: 360px;"></a></div>    </p>
+    <h3>Imagen (sin caption)</h3>
 
-    <figure class="mw-inherit" style="margin: 0;text-align: center;max-width: 100%" role="group">
-        <img class="mw-inherit" src="/docs/images/survivors_square.png"
-             alt="Soluciones sobrevivientes que entraron en la nueva generación dada una probabilidad escalonada">
-        <figcaption>
-    <p>Esta herramienta es para imagenes que necesitan descripcion extensa como gráficos.</p>
-    </figcaption>
-    </figure>    <div><a>link</a></div>
-    <div><button>Botón default</button></div>
+    <p>Solo la imagen:</p>
+        <div class="flex center mb2"> <img src="/docs/images/dummy/thumbnail7.jpg" alt="Esta informacion se asocia a la imagen, y se muestra bajo la misma en el lightbox." style="max-width: 600px;"></div>
+
+    <p>Imagen con lightbox</p>
+        <div class="flex center"><a href="/docs/images/dummy/image8.jpg"  class="lightbox" title="Expandir imagen"><div class="flex center mb2"> <img src="/docs/images/dummy/thumbnail8.jpg" alt="Esta informacion se asocia a la imagen, y se muestra bajo la misma en el lightbox." style="max-width: 600px;"></div></a></div>
+    <h3>Figure (imagen con caption)</h3>
+
+    <p>Figura que no se expande:</p>
+        
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 600px" role="group">
+            <img class="mw-inherit" src="/docs/images/dummy/thumbnail0.jpg"
+                 alt="Esta informacion se asocia a la imagen, y se muestra bajo la misma en el lightbox." width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Arte abstracto de Google</p></figcaption>
+        </figure>
+        </div>
+        
+
+    <p>Figura para abrir en lightbox:</p>
+    
+    <div class="flex center flex-1"><a href="/docs/images/dummy/image1.jpg"  class="lightbox" title="Expandir imagen"  data-group=no-group>
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 600px" role="group">
+            <img class="mw-inherit" src="/docs/images/dummy/thumbnail1.jpg"
+                 alt="Esta informacion se asocia a la imagen, y se muestra bajo la misma en el lightbox." width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Arte abstracto de Google</p></figcaption>
+        </figure>
+        </div>
+        </a></div>
+    <p>Figuras para abrir en el mismo lightbox:</p>
+
+    <div class="flex center flex-1"><a href="/docs/images/dummy/image2.jpg"  class="lightbox" title="Expandir imagen"  data-group=group1>
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 600px" role="group">
+            <img class="mw-inherit" src="/docs/images/dummy/thumbnail2.jpg"
+                 alt="Esta informacion se asocia a la imagen, y se muestra bajo la misma en el lightbox." width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Arte abstracto de Google</p></figcaption>
+        </figure>
+        </div>
+        </a></div><div class="flex center flex-1"><a href="/docs/images/dummy/image3.jpg"  class="lightbox" title="Expandir imagen"  data-group=group1>
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 600px" role="group">
+            <img class="mw-inherit" src="/docs/images/dummy/thumbnail3.jpg"
+                 alt="Esta informacion se asocia a la imagen, y se muestra bajo la misma en el lightbox." width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Arte abstracto de Google</p></figcaption>
+        </figure>
+        </div>
+        </a></div>
+    <p>Si queremos imprimirlas juntas:</p>
+
+    
+    <div class="flex wrap">
+        <div class="max-width50-100">
+            <div class="flex center flex-1"><a href="/docs/images/dummy/image4.jpg"  class="lightbox" title="Expandir imagen"  data-group=group2>
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 600px" role="group">
+            <img class="mw-inherit" src="/docs/images/dummy/thumbnail4.jpg"
+                 alt="Esta informacion se asocia a la imagen, y se muestra bajo la misma en el lightbox." width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Arte abstracto de Google</p></figcaption>
+        </figure>
+        </div>
+        </a></div>        </div>
+        <div class="max-width50-100">
+            <div class="flex center flex-1"><a href="/docs/images/dummy/image5.jpg"  class="lightbox" title="Expandir imagen"  data-group=group2>
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 600px" role="group">
+            <img class="mw-inherit" src="/docs/images/dummy/thumbnail5.jpg"
+                 alt="Esta informacion se asocia a la imagen, y se muestra bajo la misma en el lightbox." width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Arte abstracto de Google</p></figcaption>
+        </figure>
+        </div>
+        </a></div>        </div>
+        <div class="max-width50-100">
+            <div class="flex center flex-1"><a href="/docs/images/dummy/image6.jpg"  class="lightbox" title="Expandir imagen"  data-group=group2>
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 600px" role="group">
+            <img class="mw-inherit" src="/docs/images/dummy/thumbnail6.jpg"
+                 alt="Esta informacion se asocia a la imagen, y se muestra bajo la misma en el lightbox." width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Arte abstracto de Google</p></figcaption>
+        </figure>
+        </div>
+        </a></div>        </div>
+    </div>
+
+
 
 </div>
 </main>
@@ -91,3 +189,4 @@
     </script>
 </body>
 </html>
+    
