@@ -22,6 +22,7 @@ include_once "./src/utils/libraries.php";
             <li><a href="#mutation">Mutación <span todo>Nuevo!</span></a></li>
             <li><a href="#survivors">Selección de soluciones sobrevivientes</a></li>
             <li><a href="#end-criteria">Criterio de finalización</a></li>
+            <li><a href="#more">Modificaciones al algoritmo<span todo>Nuevo!</span></a></li>
         </ol>
 
         <p>La definición de cada uno de estos pasos afecta el resultado final del algoritmo. A continuación detallamos nuestras decisiones en cada paso.</p>
@@ -36,6 +37,7 @@ include_once "./src/utils/libraries.php";
         include_once "./src/algorithm/mutation.php";
         include_once "./src/algorithm/survivors.php";
         include_once "./src/algorithm/end_criteria.php";
+        include_once "./src/algorithm/more.php";
         ?>
 
         <?php nextRead("/docs/core/specs.html", "Especificaciones técnicas"); ?>

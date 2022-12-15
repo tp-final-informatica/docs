@@ -65,14 +65,31 @@ include_once "./src/utils/libraries.php";
             validación dentro de nuestra función de fitness bajo una gran penalidad.
     </p>"); ?>
 
-    <h2 id="indice">Índice con links</h2>
+    <?
+    // esta estructura es asi
+    $title = [
+        'id' => "indice",
+        'value' => "Índice"
+    ];
+    $subtitles = [
+        [
+            'id' => "item-1",
+            'value' => "Ítem 1"
+        ],
+        [
+            'id' => "item-2",
+            'value' => "Ítem 2"
+        ]
+    ];
+    $indice = new Index($title, $subtitles); ?>
 
-    <ul>
-        <li><a href="#id-item1">Ítem 1</a></li>
-        <li><a href="#id-item2">Ítem 2</a></li>
-    </ul>
+    <!--<h2 id="indice">Índice con links</h2>-->
+    <? $indice->section_heading(); ?>
+    <? $indice->print_index(); ?>
 
-    <h3 id="id-item1">Ítem 1</h3>
+    <!--<h3 id="id-item1"></h3>-->
+    <? $indice->section_subheading(0); ?>
+
     <p>
         <b>Para que los anchors funcionen olvidar poner los ids. En este caso, ids en el H2 y los H3.</b>
     </p>
@@ -83,9 +100,12 @@ include_once "./src/utils/libraries.php";
         brindarle variedad a nuestro algoritmo, por lo que posteriormente reescribimos el código e incluimos esta
         validación dentro de nuestra función de fitness bajo una gran penalidad.
     </p>
-    <? back_to_anchor("indice", " al índice"); ?>
+    <? $indice->link_back_to_index(); ?>
+    <? $indice->end_line(); ?>
 
-    <h3 id="id-item2">Ítem 2</h3>
+
+    <!--<h3 id="id-item2">Ítem 2</h3>-->
+    <? $indice->section_subheading(1); ?>
     <p>
         Nuestro enfoque inicial fue condicionar nuestras soluciones
         para permitir únicamente aquellas que cumplieran con las restricciones del problema del viajante: todos los
@@ -93,7 +113,8 @@ include_once "./src/utils/libraries.php";
         brindarle variedad a nuestro algoritmo, por lo que posteriormente reescribimos el código e incluimos esta
         validación dentro de nuestra función de fitness bajo una gran penalidad.
     </p>
-    <? back_to_anchor("indice", " al índice"); ?>
+    <? $indice->link_back_to_index(); ?>
+    <? $indice->end_line(); ?>
 
 
     <h2>Imágenes</h2>

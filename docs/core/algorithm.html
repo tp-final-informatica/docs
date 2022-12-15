@@ -38,6 +38,7 @@
             <li><a href="#mutation">Mutación <span todo>Nuevo!</span></a></li>
             <li><a href="#survivors">Selección de soluciones sobrevivientes</a></li>
             <li><a href="#end-criteria">Criterio de finalización</a></li>
+            <li><a href="#more">Modificaciones al algoritmo<span todo>Nuevo!</span></a></li>
         </ol>
 
         <p>La definición de cada uno de estos pasos afecta el resultado final del algoritmo. A continuación detallamos nuestras decisiones en cada paso.</p>
@@ -645,6 +646,43 @@ finalizada la ejecución. En nuestro caso, decidimos considerar un límite de it
 que el algoritmo esté en una buena <em>racha</em> y todavía encuentre buenas soluciones aún acercándose al límite de los loops:</p>
 <p>Nuestro algoritmo evalúa una cantidad de iteraciones antes de terminar cuál es la mejor solución encontrada, y si supera
 esa solución antes de llegar al límite, se extiende la ejecución unas iteraciones más.</p>
+
+
+<hr class="section-end"/>
+<h2 id="more">Otras modificaciones al algoritmo</h2>    <p>
+        Las siguientes son modificaciones que planteamos durante el desarrollo
+        del algoritmo.
+    </p>
+
+    <h3>Shake mutation</h3>
+    <p>
+        Notamos que el algoritmo en general converge hacia una solución, y luego
+        tarda muchas iteraciones en encontrar soluciones mejores. Por esta razón planteamos
+        esta mejora que implica aumentar el porcentaje de mutaciones luego de una cantidad
+        preseleccionada de iteraciones estancadas.
+    </p>
+    <p>
+        La intención era sacudir al algoritmo (shake) cambiando por una cantidad definida de
+        iteraciones el porcentaje de mutación inicial, normalmente un valor entre 0.01 y 0.05
+        y llevarlo al doble, o al triple, durante una o más iteraciones.
+    </p>
+    <p>
+        El resultado esperado era ver saltos en la curva de mejor solución por generación, pero
+        el resultado obtenido fue que en general, este cambio no aportó mejoras.
+    </p>
+    <p>
+        Finalmente decidimos retirar esta modificación del algoritmo.
+    </p>
+    <h3>Sort + immigration</h3>
+    <p>
+        Nuevamente, intentando atacar el estancamiento del algoritmo agregamos otra modificación en
+        la que esta vez, a intervalos regulares duplicamos el pool genético justo antes del proceso
+        de selección y ordenamos todas esas soluciones duplicadas por menor distancia entre los puntos
+        de las rutas, de la misma forma que lo hacemos en el <a href="/docs/core/algorithm.html#mbs">
+        crossover MBS</a>.
+    </p>
+<p></p>
+
 
 
 <hr class="section-end"/>
