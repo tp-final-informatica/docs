@@ -89,6 +89,9 @@ include_once "./src/utils/libraries.php";
 
     <!--<h3 id="id-item1"></h3>-->
     <? $indice->section_subheading(0); ?>
+    <?// otra opcion:
+    // $indice->section_subheading_by_id("item-1");
+    ?>
 
     <p>
         <b>Para que los anchors funcionen olvidar poner los ids. En este caso, ids en el H2 y los H3.</b>

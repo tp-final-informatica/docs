@@ -36,7 +36,22 @@ function REM() {
 
 ?>
 
-<?php print_section_heading($title, $id); ?>
+<?php
+    $mutation_index = new Index(['id'=>$id, 'value'=>$title], [
+        ['id'=> "dm", 'value' => 'TWORS/Displacement mutation (<abbr title="Displacement Mutation">DM</abbr>)'],
+        ['id'=> "rsm", 'value' => 'Reverse sequence mutation (<abbr title="Reverse Sequence Mutation">RSM</abbr>)'],
+        ['id'=> "psm", 'value' => 'Partially shuffled mutation (<abbr title="Partially Shuffled Mutation">PSM</abbr>)'],
+        ['id'=> "jm", 'value' => 'Jump mutation (<abbr title="Jump Mutation">JM</abbr>)'],
+        ['id'=> "jdm", 'value' => 'Jump displacement mutation (<abbr title="Jump Displacement Mutation">JDM</abbr>)'],
+        ['id'=> "jrsm", 'value' => 'Jump reverse sequence mutation (<abbr title="Jump Reverse Sequence Mutation">JRSM</abbr>)'],
+        ['id'=> "jpsm", 'value' => 'Jump partially shuffled mutation (<abbr title="Jump Partially Shuffled Mutation">JPSM</abbr>)'],
+        ['id'=> "erm", 'value' => 'Empty route mutation <span todo>Nuevo!</span> (<abbr title="Empty Route Mutation">ERM</abbr>)'],
+        ['id'=> "rem", 'value' => 'Reduce Entropy Mutation <span todo>Nuevo!</span> (<abbr title="Reduce Entropy Mutation">REM</abbr>)']
+    ])
+?>
+
+<?php //print_section_heading($title, $id); ?>
+<?php $mutation_index->section_heading(); ?>
 
     <p>
         Dentro del algoritmo genético, el proceso de mutación evita que las soluciones obtenidas se concentren todas en
@@ -44,17 +59,8 @@ function REM() {
     </p>
 
     <p>Las siguientes son las distintas mutaciones que aplicamos en la ejecución de nuestro algoritmo genético.</p>
-    <ol>
-        <li><a href="#dm">TWORS/Displacement mutation</a> (<?php DM(); ?>)</li>
-        <li><a href="#rsm">Reverse sequence mutation</a> (<?php RSM(); ?>)</li>
-        <li><a href="#psm">Partially shuffled mutation</a> (<?php PSM(); ?>)</li>
-        <li><a href="#jm">Jump mutation</a> (<?php JM(); ?>)</li>
-        <li><a href="#jdm">Jump displacement mutation</a> (<?php JDM(); ?>)</li>
-        <li><a href="#jrsm">Jump reverse sequence mutation</a> (<?php JRSM(); ?>)</li>
-        <li><a href="#jpsm">Jump partially shuffled mutation</a> (<?php JPSM(); ?>)</li>
-        <li><a href="#erm">Empty route mutation</a> (<?php ERM(); ?>) <span todo>Nuevo!</span></li>
-        <li><a href="#rem">Reduce Entropy Mutation</a> (<?php REM(); ?>) <span todo>Nuevo!</span></li>
-    </ol>
+
+    <?php $mutation_index->print_index(true); ?>
 
     <p>Las primeras tres mutaciones mencionadas fueron obtenidas de la bibliografía <span data-toggletip>En especial,
         de estos papers: "Analyzing the Performance of Mutation Operators to Solve the Traveling Salesman Problem",
@@ -72,7 +78,8 @@ function REM() {
         podemos obtener hasta 8 variantes, que luego serán seleccionadas o descartadas según el <a href="#survivors">criterio de supervivencia</a>.</p>
 <!--    <p todo>En realidad estoy pensando en dirigir las mutaciones según los mejores resultados. graficar</p>-->
 
-    <h3 id="dm">TWORS/Displacement mutation (DM)</h3>
+    <?php $mutation_index->section_subheading_by_id("dm"); ?>
+<!--    <h3 id="dm">TWORS/Displacement mutation (DM)</h3>-->
     <?php $mutation = new Mutation(); ?>
     <p>Se intercambia la posición de dos visitas en una misma ruta dentro de un cromosoma, elegidas de forma aleatoria.
         Se presenta un ejemplo para clarificar la aplicación de esta mutación:</p>
@@ -83,9 +90,10 @@ function REM() {
 
     <?php linkBibliografía(); ?>
 
-    <?php back_to_anchor($id, "a Mutaciones");?>
+    <?php $mutation_index->link_back_to_index(); ?>
+    <?php $mutation_index->section_subheading_by_id("rsm"); ?>
 
-    <h3 id="rsm">RSM - Reverse sequence mutation</h3>
+<!--    <h3 id="rsm">RSM - Reverse sequence mutation</h3>-->
     <p>En este caso, se trata de seleccionar una sub secuencia dentro de una ruta en un cromosoma, e invertir el orden de
         la misma. Por ejemplo, dada la secuencia:</p>
     <?php $mutation->rsmBefore(); ?>
@@ -93,9 +101,9 @@ function REM() {
     <?php $mutation->rsmAfter(); ?>
     <?php linkBibliografía(); ?>
 
-    <?php back_to_anchor($id, "a Mutaciones");?>
-
-    <h3 id="psm">PSM - Partially shuffled mutation</h3>
+<?php $mutation_index->link_back_to_index(); ?>
+<?php $mutation_index->section_subheading_by_id("psm"); ?>
+<!--    <h3 id="psm">PSM - Partially shuffled mutation</h3>-->
     <p>Similar al caso anterior, se selecciona una sub secuencia dentro de una ruta en un cromosoma, pero esta vez
         se ordenan los elementos de forma aleatoria. Por ejemplo:</p>
     <?php $mutation->psmBefore(); ?>
@@ -103,9 +111,9 @@ function REM() {
     <?php $mutation->psmAfter(); ?>
     <?php linkBibliografía(); ?>
 
-    <?php back_to_anchor($id, "a Mutaciones");?>
-
-    <h3 id="jm">Desplazamiento de visita a ruta alternativa: Jump mutation (JM)</h3>
+<?php $mutation_index->link_back_to_index(); ?>
+<?php $mutation_index->section_subheading_by_id("jm"); ?>
+<!--    <h3 id="jm">Desplazamiento de visita a ruta alternativa: Jump mutation (JM)</h3>-->
 
     <p>Esta mutación se aplica a cromosomas con más de dos rutas. Primero elegimos aleatoriamente dos de ellas, una será
         donante y la otra receptora. Luego, elegimos (también) aleatoriamente una visita dentro de la ruta donante y la
@@ -133,10 +141,10 @@ Si bien esta mutación es muy sencilla, resultó ser de vital importancia en el 
 
     <p todo>poner graficos comparativos</p>
 
-    <?php back_to_anchor($id, "a Mutaciones");?>
 
-
-    <h3 id="jdm">Jump Displacement Mutation (JDM)</h3>
+<?php $mutation_index->link_back_to_index(); ?>
+<?php $mutation_index->section_subheading_by_id("jdm"); ?>
+<!--    <h3 id="jdm">Jump Displacement Mutation (JDM)</h3>-->
     <p>Esta mutación es una variante de <?php DM(); ?>, en la que efectuamos el intercambio de visitas entre rutas distintas (si
         tenemos más de una ruta). Por Ejemplo, dada una solución:</p>
         <?php $mutation->jdmBefore(); ?>
@@ -144,10 +152,10 @@ Si bien esta mutación es muy sencilla, resultó ser de vital importancia en el 
         encuentran en rutas ditintas:</p>
         <?php $mutation->jdmAfter(); ?>
 
-    <?php back_to_anchor($id, "a Mutaciones");?>
 
-
-    <h3 id="jrsm">Jump RSM (JRSM)</h3>
+<?php $mutation_index->link_back_to_index(); ?>
+<?php $mutation_index->section_subheading_by_id("jrsm"); ?>
+<!--    <h3 id="jrsm">Jump RSM (JRSM)</h3>-->
     <p>Para adaptar <?php RSM(); ?> a nuestro problema de múltiples rutas, decidimos aplicar el algoritmo nuevamente en
     dos partes: primero seleccionar una sub secuencia dentro de una ruta, quitarla de la ruta original e invertir el orden
     de sus elementos, para luego incorporar dicha secuencia en un punto aleatorio de otra ruta de la misma solución.
@@ -156,10 +164,10 @@ Si bien esta mutación es muy sencilla, resultó ser de vital importancia en el 
     <p>El siguiente es un resultado final posible:</p>
     <?php $mutation->jrsmAfter(); ?>
 
-    <?php back_to_anchor($id, "a Mutaciones");?>
 
-
-    <h3 id="jpsm">PSM entre rutas (JPSM)</h3>
+<?php $mutation_index->link_back_to_index(); ?>
+<?php $mutation_index->section_subheading_by_id("jpsm"); ?>
+<!--    <h3 id="jpsm">PSM entre rutas (JPSM)</h3>-->
     <p>Al igual que en el caso anterior, para poder adaptar <?php JPSM(); ?> mejor a nuestro problema, aplicamos parte
     del algoritmo a una ruta, y el resto a otra ruta dentro de la misma solución. Por ejemplo, seleccionamos las
     visitas <span mono>2,3,4</span> de la ruta <span mono>A</span>:</p>
@@ -168,9 +176,9 @@ Si bien esta mutación es muy sencilla, resultó ser de vital importancia en el 
     esta secuencia en un punto aleatorio dentro de otra ruta de la misma solución:</p>
     <?php $mutation->jpsmAfter(); ?>
 
-    <?php back_to_anchor($id, "a Mutaciones");?>
-
-    <h3 id="erm">Empty route mutation (ERM) <span todo>Nuevo!</span></h3>
+<?php $mutation_index->link_back_to_index(); ?>
+<?php $mutation_index->section_subheading_by_id("erm"); ?>
+<!--    <h3 id="erm">Empty route mutation (ERM) <span todo>Nuevo!</span></h3>-->
     <p>Esta mutación fue agregada para ayudar al algoritmo en las ejecuciones no balanceadas. Esto es porque las mutaciones
         y crossovers disponibles hasta el momento de desarrollarla no favorecían este tipo de ejecuciones, es decir, era poco probable que
         devolvieran rutas vacías.</p>
@@ -188,10 +196,9 @@ Si bien esta mutación es muy sencilla, resultó ser de vital importancia en el 
     <p>En este caso, por ser dos rutas, una ruta queda con todas las visitas. Esto puede ser contraproducente si supera el
         máximo de visitas razonables por médico en una jornada laboral. Si eso sucede, la solución será penalizada.</p>
 
-    <?php back_to_anchor($id, "a Mutaciones");?>
-
-
-    <h3 id="rem">Reduce Entropy Mutation (REM) <span todo>Nuevo!</span></h3>
+<?php $mutation_index->link_back_to_index(); ?>
+<?php $mutation_index->section_subheading_by_id("rem"); ?>
+<!--    <h3 id="rem">Reduce Entropy Mutation (REM) <span todo>Nuevo!</span></h3>-->
     <p>Inspirados en los procesos naturales que llevan grupos de elementos al equilibrio reduciendo la entropía (en términos de
         <em>grado de desorden</em>) del grupo,
     como por ejemplo un cuerpo celeste que tiende a ser atraído a otro con masa gravitacional mayor, o la forma en que la arena
@@ -213,7 +220,7 @@ Si bien esta mutación es muy sencilla, resultó ser de vital importancia en el 
 
     <p></p>
 
-    <?php back_to_anchor($id, "a Mutaciones");?>
+<?php $mutation_index->link_back_to_index(); ?>
 
 
 

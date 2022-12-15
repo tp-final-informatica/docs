@@ -22,14 +22,31 @@ class Index
     }
 
     public function section_subheading($index) {
-        print('<h2 id="'. $this->subtitles[$index]['id']
+        print('<h3 id="'. $this->subtitles[$index]['id']
             . '">'
             .$this->subtitles[$index]['value']
-            .'</h2>');
+            .'</h3>');
     }
 
-    public function print_index() {
-        print('<ul>');
+    public function section_subheading_by_id($id) {
+        foreach ($this->subtitles as $subtitle) {
+            if ($subtitle['id'] == $id) {
+                print('<h3 id="'. $subtitle['id']
+                    . '">'
+                    .$subtitle['value']
+                    .'</h3>');
+            }
+        }
+
+    }
+
+    public function print_index($ordered = false) {
+        if ($ordered) {
+            print('<ol>');
+        } else {
+            print('<ul>');
+        }
+
 
         foreach ($this->subtitles as $subitem) {
             print('<li><a href="#'
@@ -39,7 +56,12 @@ class Index
                 .'</a></li>');
         }
 
-        print('</ul>');
+        if ($ordered) {
+            print('</ol>');
+
+        } else {
+            print('</ul>');
+        }
 
 
     }

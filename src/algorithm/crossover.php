@@ -8,18 +8,24 @@ $title = "Crossover";
 $id = "crossover";
 ?>
 
-<?php print_section_heading($title, $id); ?>
+<?php
+$crossover_index = new Index(['id'=>$id, 'value'=>$title], [
+        ['id' => 'mbs', 'value' => "MixByShared"],
+        ['id'  => 'cx', 'value' => "Cycle Crossover"],
+        ['id' => 'pmx', 'value' => "Partially mapped Crossover"],
+        ['id'  => 'eer', 'value' => "Enhanced Edge Recombination"],
+        ]);
+?>
+
+<?php $crossover_index->section_heading(); ?>
 
     <p>El crossover es un punto fundamental del algoritmo genético. La elección del mismo afecta el desarrollo y los resultados de la ejecución.</p>
     <p>Para nuestro problema, un problema de optimización de rutas, implementamos cuatro crossovers distintos. Los crossovers elegidos cumplen con distintas condiciones:</p>
-    <ul>
-        <li><a href="#mbs">MixByShared</a> propaga la <b>pertenencia</b> de una visita a una ruta dada</li>
-        <li><a href="#cx">Cycle Crossover</a> propaga la <b>ubicación relativa</b> de las visitas en cada ruta</li>
-        <li><a href="#pmx">Partially mapped Crossover</a> propaga un <b>segmento</b> de la ruta original, y completa el resto con ubicaciones relativas</li>
-        <li><a href="#eer">Enhanced Edge Recombination</a> propaga las <b>conexiones</b> entre visitas</li>
-    </ul>
+    <?php $crossover_index->print_index(true); ?>
 
-    <h3 id="mbs">MixByShared (MBS)</h3>
+
+<!--    <h3 id="mbs">MixByShared (MBS)</h3>-->
+    <?php $crossover_index->section_subheading_by_id("mbs"); ?>
     <?php $mbs = new Mbs(); ?>
     <p>Desarrollamos este algoritmo para la prueba de comparación de lenguajes. Nos pareció interesante dejarlo para el
         proyecto final, por tener un enfoque distinto a los demás algoritmos que encontramos en los papers.</p>
@@ -57,9 +63,10 @@ $id = "crossover";
     <p>El resultado del algoritmo son soluciones en las que siempre, todas las visitas de todas las rutas de las soluciones hijas pertenecen a la misma ruta de alguno de los dos padres.</p>
     <p><b>MBS mantiene entonces la asignación de las visitas a las rutas originales, pero no el orden de los mismos, o su posición inicial.</b></p>
 
-    <?php back_to_anchor($id, "a Crossovers");?>
+<?php $crossover_index->link_back_to_index(); ?>
+<?php $crossover_index->section_subheading_by_id("cx"); ?>
 
-    <h3 id="cx">Cycle Crossover (CX)</h3>
+<!--    <h3 id="cx">Cycle Crossover (CX)</h3>-->
     <?php $cx = new Cx(); ?>
     <p>Este algoritmo fue propuesto por IM Oliver en el paper <em>A Study of permutation crossover Operators on the Traveling Salesman Problem</em>. El algoritmo original está planteado para el problema del viajante (con una única ruta), y su finalidad es encontrar ciclos (partes intercambiables) entre secuencias de visitas. De no encontrar ciclos, no es posible generar soluciones nuevas. Esto sucederá en general para secuencias de visitas cortas.</p>
     <p>Para aplicar este algoritmo a nuestro problema fue necesario implementar adaptaciones, puesto que no se cumplen las mismas condiciones:</p>
@@ -83,10 +90,10 @@ $id = "crossover";
     <p>Al modificarlo para aplicarlo a nuestro problema, mantenemos el orden relativo, pero no las posiciones originales
         necesariamente, puesto que las visitas no compartidas mantienen su posición original dentro de la ruta.</p>
 
-    <?php back_to_anchor($id, "a Crossovers");?>
+<?php $crossover_index->link_back_to_index(); ?>
+<?php $crossover_index->section_subheading_by_id("pmx"); ?>
 
-
-    <h3 id="pmx">Partially mapped crossover (PMX)</h3>
+<!--    <h3 id="pmx">Partially mapped crossover (PMX)</h3>-->
     <?php $pmx = new Pmx(); ?>
 
     <p>Este algoritmo fue propuesto por D. Goldberg y R. Lingle en el paper <em>Alleles, loci, and the Traveling Salesman Problem.</em></p>
@@ -140,14 +147,16 @@ $id = "crossover";
         fitness penaliza este tipo de soluciones incompletas, por lo que nunca puede ser elegida como la mejor solución,
         pero sí puede contribuir a generar mejores soluciones mezclándose con otras soluciones de la generación.</p>
 
-    <?php back_to_anchor($id, "a Crossovers");?>
+    <p>Este crossover distinto a los anteriores, en tanto <b>propaga un segmento de la ruta original, y completa el resto con ubicaciones relativas</b>.</p>
 
+<?php $crossover_index->link_back_to_index(); ?>
+<?php $crossover_index->section_subheading_by_id("eer"); ?>
 
-    <h3 id="eer">Enhanced edge recombination (EER)</h3>
+<!--    <h3 id="eer">Enhanced edge recombination (EER)</h3>-->
     <?php $eer = new Eer(); ?>
 
     <p>En distintos papers encontramos el algoritmo Edge recombination, que mantiene la información de adyacencia entre
-        las visitas, pero descarta el orden de los elementos.
+        las visitas, pero descarta el orden de los elementos, es decir propaga las <b>conexiones</b> entre visitas.
         Enhanced edge recombination es una variante de Edge recombination, en la que se retiene también el orden de los elementos al
         preservar sub secuencias comunes a ambos padres. <span data-toggletip>Del paper "A comparison of Genetic Sequencing Operators" (ver sección Bibliografía).</span>
     </p>
@@ -175,7 +184,8 @@ $id = "crossover";
 
     <?php $eer->eer_children(); ?>
 
-    <?php back_to_anchor($id, "a Crossovers");?>
+<?php $crossover_index->link_back_to_index(); ?>
+
 
 
 <?php print_section_footer(); ?>
