@@ -38,8 +38,16 @@
             <p>
                 A continuación, detallamos las entidades de software que conforman el modelado dentro del backend.
             </p>
-            
-            <h3>Bounded Context</h3>
+                        <div class="flex center flex-1"><a href="/docs/images/documentation/uml.png"  class="lightbox" title="Expandir imagen"  data-group=1>
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 600px" role="group">
+            <img class="mw-inherit" src="/docs/images/documentation/uml.png"
+                 alt="Modelo de entidades" width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Modelo de entidades</p></figcaption>
+        </figure>
+        </div>
+        </a></div>            <h3>Bounded Context</h3>
             <p>
                 Es el patrón central en Domain-Driven Design. La idea principal de este concepto es delimitar a
                 nuestro modelo, en principio grande, en subdominios y contextos estableciendo la relación entre estos.
@@ -53,7 +61,16 @@
                 <span mono>Journeys</span>, pero al pertenecer a distintos contextos, poseen distintos atributos y
                 comportamiento.
             </p>
-            
+                        <div class="flex center flex-1"><a href="/docs/images/documentation/context.png"  class="lightbox" title="Expandir imagen"  data-group=2>
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 600px" role="group">
+            <img class="mw-inherit" src="/docs/images/documentation/context.png"
+                 alt="Diagrama de contextos" width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Diagrama de contextos</p></figcaption>
+        </figure>
+        </div>
+        </a></div>
             <p>
                 Básicamente, cuando planteamos este mapa de contexto partiendo todo el sistema en subdominios,
                 comenzamos a identificar subsistemas que forman un sistema complejo. Dividiendo el sistema utilizando
@@ -78,7 +95,16 @@
                 a través de eventos de dominio, los módulos se enteran de los eventos que les interesa y actúan a partir
                 de este, de manera asíncrona.
             </p>
-            
+                        <div class="flex center flex-1"><a href="/docs/images/documentation/event_bus.png"  class="lightbox" title="Expandir imagen"  data-group=3>
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 600px" role="group">
+            <img class="mw-inherit" src="/docs/images/documentation/event_bus.png"
+                 alt="Diagrama de Event Bus" width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Diagrama de Event Bus</p></figcaption>
+        </figure>
+        </div>
+        </a></div>
             <p>
                 Si bien el Event Bus, está desarrollado en memoria, a futuro puede ser un PubSub de Google, en caso de
                 que cada Bounded Context fuera un microservicio. Así nos aseguramos de que el sistema pueda escalar
@@ -87,6 +113,7 @@
 
             <div class="align-left mt3"><a href="#">Volver a Inicio <i class="fa-solid fa-arrow-up"></i></a></div>
             <h2 id="processes">Vista Procesos</h2>
+
             <p>
                 Trataremos los aspectos dinámicos del sistema, cómo se comportan los procesos y cómo se comunican entre
                 ellos. Aquí tomaremos como eje algunos requisitos no funcionales troncales del sistema, como la
@@ -121,7 +148,17 @@
             <p>
                 A continuación, el diagrama de secuencia que describe el proceso:
             </p>
-            
+                        <div class="flex center flex-1"><a href="/docs/images/documentation/sequence.png"  class="lightbox" title="Expandir imagen"  data-group=3>
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 600px" role="group">
+            <img class="mw-inherit" src="/docs/images/documentation/sequence.png"
+                 alt="Diagrama de secuencia de las interacciones del backend" width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Diagrama de secuencia de las interacciones del backend</p></figcaption>
+        </figure>
+        </div>
+        </a></div>
+
             <h3>Push notification</h3>
             <p>
                 El sistema utiliza push notifications para notificar dos eventos, la creación de la jornada y cuando
@@ -138,13 +175,31 @@
                 Para ello, cuando el médico realiza login en la aplicación, se envía un request al server con el device
                 token, como se muestra en la siguiente imágen:
             </p>
-            
+                        <div class="flex center flex-1"><a href="/docs/images/documentation/firebase.png"  class="lightbox" title="Expandir imagen"  data-group=i1>
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 600px" role="group">
+            <img class="mw-inherit" src="/docs/images/documentation/firebase.png"
+                 alt="Diagrama de generación de token de autenticación" width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Diagrama de generación de token de autenticación</p></figcaption>
+        </figure>
+        </div>
+        </a></div>
             <p>
                 Una vez realizado el vínculo, el trigger de la push es cuando se crea una jornada de viaje y se
                 acepta una de las rutas propuestas, tal como se ve en este diagrama de actividad:
 
             </p>
-            
+                        <div class="flex center flex-1"><a href="/docs/images/documentation/activity.png"  class="lightbox" title="Expandir imagen"  data-group=4>
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 600px" role="group">
+            <img class="mw-inherit" src="/docs/images/documentation/activity.png"
+                 alt="Diagrama de actividad" width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Diagrama de actividad</p></figcaption>
+        </figure>
+        </div>
+        </a></div>
             <div class="align-left mt3"><a href="#">Volver a Inicio <i class="fa-solid fa-arrow-up"></i></a></div>            <h2 id="physic">Vista Física</h2>            <p>
                 En esta vista abordaremos principalmente a la distribución y organización del software en el hardware.
             </p>
@@ -159,22 +214,61 @@
             <p>
                 A continuación, el diagrama de despliegue en producción:
             </p>
-            
+                        <div class="flex center flex-1"><a href="/docs/images/documentation/cloud.png"  class="lightbox" title="Expandir imagen"  data-group=5>
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 600px" role="group">
+            <img class="mw-inherit" src="/docs/images/documentation/cloud.png"
+                 alt="Diagrama de despliegue en Cloud" width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Diagrama de despliegue en Cloud</p></figcaption>
+        </figure>
+        </div>
+        </a></div>
+
             <div class="align-left mt3"><a href="#">Volver a Inicio <i class="fa-solid fa-arrow-up"></i></a></div>            <h2 id="development">Vista Desarrollo</h2>            <p>
                 En este apartado se desea ilustrar el sistema centrado en la organización real de los módulos de
                 software. Por ello recurrimos al diagrama de paquetes.
             </p>
-            
+                        <div class="flex center flex-1"><a href="/docs/images/documentation/packages.png"  class="lightbox" title="Expandir imagen"  data-group=6>
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 600px" role="group">
+            <img class="mw-inherit" src="/docs/images/documentation/packages.png"
+                 alt="Diagrama de paquetes" width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Diagrama de paquetes</p></figcaption>
+        </figure>
+        </div>
+        </a></div>
             <p>
                 A la hora de organizar los módulos en packages, suele haber dos estrategias:
             </p>
             <ul>
                 <li>
                     Agrupado por tipo de artefacto: models / controllers
-                                    </li>
+                                        
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 400px" role="group">
+            <img class="mw-inherit" src="/docs/images/documentation/models.png"
+                 alt="Ejemplo de agrupación por models/controllers" width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Ejemplo de agrupación por models/controllers</p></figcaption>
+        </figure>
+        </div>
+        
+                </li>
                 <li>
                     Agrupando por feature
-                                    </li>
+                                        
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 200px" role="group">
+            <img class="mw-inherit" src="/docs/images/documentation/domain.png"
+                 alt="Ejemplo de agrupación por features" width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Ejemplo de agrupación por features</p></figcaption>
+        </figure>
+        </div>
+        
+                </li>
             </ul>
             <p>
                 Siguiendo la filosofía de domain-driven-design, escogimos esta última.

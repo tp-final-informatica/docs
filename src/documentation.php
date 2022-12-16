@@ -38,8 +38,9 @@ include_once "./src/utils/libraries.php";
             <p>
                 A continuación, detallamos las entidades de software que conforman el modelado dentro del backend.
             </p>
-            <? $diagram1 = new Figure("", "600px", "", "Modelo de entidades", ""); ?>
-
+            <? $diagram1 = new Figure("/docs/images/documentation/uml.png", "600px",
+                "/docs/images/documentation/uml.png", "Modelo de entidades", "Modelo de entidades"); ?>
+            <? $diagram1->print_lightbox_figure("1"); ?>
             <h3>Bounded Context</h3>
             <p>
                 Es el patrón central en Domain-Driven Design. La idea principal de este concepto es delimitar a
@@ -54,7 +55,9 @@ include_once "./src/utils/libraries.php";
                 <span mono>Journeys</span>, pero al pertenecer a distintos contextos, poseen distintos atributos y
                 comportamiento.
             </p>
-            <? $diagram2 = new Figure("", "600px", "", "Diagrama de contextos", ""); ?>
+            <? $diagram2 = new Figure("/docs/images/documentation/context.png", "600px",
+                "/docs/images/documentation/context.png", "Diagrama de contextos", "Diagrama de contextos"); ?>
+            <? $diagram2->print_lightbox_figure("2"); ?>
 
             <p>
                 Básicamente, cuando planteamos este mapa de contexto partiendo todo el sistema en subdominios,
@@ -80,7 +83,9 @@ include_once "./src/utils/libraries.php";
                 a través de eventos de dominio, los módulos se enteran de los eventos que les interesa y actúan a partir
                 de este, de manera asíncrona.
             </p>
-            <? $diagram3 = new Figure("", "600px", "", "Diagrama de Event Bus", ""); ?>
+            <? $diagram3 = new Figure("/docs/images/documentation/event_bus.png", "600px",
+                "/docs/images/documentation/event_bus.png", "Diagrama de Event Bus", "Diagrama de Event Bus"); ?>
+            <? $diagram3->print_lightbox_figure("3"); ?>
 
             <p>
                 Si bien el Event Bus, está desarrollado en memoria, a futuro puede ser un PubSub de Google, en caso de
@@ -91,6 +96,7 @@ include_once "./src/utils/libraries.php";
             <? $index_doc->link_back_to_index(); ?>
 
             <? $index_doc->section_subheading_by_id("processes"); ?>
+
 
             <p>
                 Trataremos los aspectos dinámicos del sistema, cómo se comportan los procesos y cómo se comunican entre
@@ -126,7 +132,11 @@ include_once "./src/utils/libraries.php";
             <p>
                 A continuación, el diagrama de secuencia que describe el proceso:
             </p>
-            <? $diagram3 = new Figure("", "600px", "", "Diagrama de secuencia de las acciones del backend", ""); ?>
+            <? $diagram3_1 = new Figure("/docs/images/documentation/sequence.png", "600px",
+                "/docs/images/documentation/sequence.png", "Diagrama de secuencia de las interacciones del backend",
+                "Diagrama de secuencia de las interacciones del backend"); ?>
+            <? $diagram3_1->print_lightbox_figure("3"); ?>
+
 
             <h3>Push notification</h3>
             <p>
@@ -144,14 +154,20 @@ include_once "./src/utils/libraries.php";
                 Para ello, cuando el médico realiza login en la aplicación, se envía un request al server con el device
                 token, como se muestra en la siguiente imágen:
             </p>
-            <? $image1 = new Figure("", "600px", "", "Diagrama de generación de token de autenticación", ""); ?>
+            <? $image1 = new Figure("/docs/images/documentation/firebase.png", "600px",
+                "/docs/images/documentation/firebase.png",
+                "Diagrama de generación de token de autenticación",
+                "Diagrama de generación de token de autenticación"); ?>
+            <? $image1->print_lightbox_figure("i1"); ?>
 
             <p>
                 Una vez realizado el vínculo, el trigger de la push es cuando se crea una jornada de viaje y se
                 acepta una de las rutas propuestas, tal como se ve en este diagrama de actividad:
 
             </p>
-            <? $diagram4 = new Figure("", "600px", "", "Diagrama de actividad", ""); ?>
+            <? $diagram4 = new Figure("/docs/images/documentation/activity.png", "600px",
+                "/docs/images/documentation/activity.png", "Diagrama de actividad", "Diagrama de actividad"); ?>
+            <? $diagram4->print_lightbox_figure("4"); ?>
 
             <? $index_doc->link_back_to_index(); ?>
             <? $index_doc->section_subheading_by_id("physic"); ?>
@@ -169,7 +185,11 @@ include_once "./src/utils/libraries.php";
             <p>
                 A continuación, el diagrama de despliegue en producción:
             </p>
-            <? $diagram5 = new Figure("", "600px", "", "Diagrama de despliegue en Cloud", ""); ?>
+            <? $diagram5 = new Figure("/docs/images/documentation/cloud.png", "600px",
+                "/docs/images/documentation/cloud.png", "Diagrama de despliegue en Cloud",
+                "Diagrama de despliegue en Cloud"); ?>
+            <? $diagram5->print_lightbox_figure("5"); ?>
+
 
             <? $index_doc->link_back_to_index(); ?>
             <? $index_doc->section_subheading_by_id("development"); ?>
@@ -177,7 +197,9 @@ include_once "./src/utils/libraries.php";
                 En este apartado se desea ilustrar el sistema centrado en la organización real de los módulos de
                 software. Por ello recurrimos al diagrama de paquetes.
             </p>
-            <? $diagram6 = new Figure("", "600px", "", "Diagrama de paquetes", ""); ?>
+            <? $diagram6 = new Figure("/docs/images/documentation/packages.png", "600px",
+                "/docs/images/documentation/packages.png", "Diagrama de paquetes", "Diagrama de paquetes"); ?>
+            <? $diagram6->print_lightbox_figure("6"); ?>
 
             <p>
                 A la hora de organizar los módulos en packages, suele haber dos estrategias:
@@ -185,11 +207,18 @@ include_once "./src/utils/libraries.php";
             <ul>
                 <li>
                     Agrupado por tipo de artefacto: models / controllers
-                    <? $diagram7 = new Figure("", "600px", "", "Ejemplo de agrupación por models/controllers", ""); ?>
+                    <? $diagram7 = new Figure("/docs/images/documentation/models.png", "400px",
+                        "", "Ejemplo de agrupación por models/controllers",
+                        "Ejemplo de agrupación por models/controllers"); ?>
+                    <? $diagram7->print_figure(); ?>
+
                 </li>
                 <li>
                     Agrupando por feature
-                    <? $diagram8 = new Figure("", "600px", "", "Ejemplo de agrupación por features", ""); ?>
+                    <? $diagram8 = new Figure("/docs/images/documentation/domain.png", "200px",
+                        "", "Ejemplo de agrupación por features", "Ejemplo de agrupación por features"); ?>
+                    <? $diagram8->print_figure(); ?>
+
                 </li>
             </ul>
             <p>
