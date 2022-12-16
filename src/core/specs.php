@@ -35,9 +35,9 @@ include_once "./src/utils/libraries.php";
                 de la misma y su progreso:
             </p>
             <ul>
-                <li>Generar solución: Request de tipo POST que envía los datos de las distancias entre todos los puntos
+                <li><b>Generar solución</b>: Request de tipo <span mono>POST</span> que envía los datos de las distancias entre todos los puntos
                 del mapa. Mediante estos datos es posible calcular las rutas utilizando nuestro algoritmo genético.</li>
-                <li>Obtener progreso/resultados: Request de tipo GET que devuelve el progreso del cálculo (un número entre
+                <li><b>Obtener progreso/resultados</b>: Request de tipo <span mono>GET</span> que devuelve el progreso del cálculo (un número entre
                 0 y 1) y al llegar al final del cálculo, las secuencias de los puntos sugeridas para cada ruta
                     (balanceada, priorizada y desbalanceada).</li>
             </ul>
@@ -46,7 +46,7 @@ include_once "./src/utils/libraries.php";
             </p>
             <ul>
                 <li>
-                    Autenticación mediante token de los requests: utilizamos un sistema de PSK (pre-shared-key) sin expiración por
+                    <b>Autenticación mediante token de los requests</b>: utilizamos un sistema de PSK (pre-shared-key) sin expiración por
                     no ser necesaria más complejidad (sólo el backend puede acceder al core).
                     Ambas partes poseen una clave secreta que se encripta mediante un algoritmo conocido entre ambas
                     y se envía en cada request.
@@ -55,7 +55,7 @@ include_once "./src/utils/libraries.php";
                     Esto es una versión muy sencilla de encriptación simétrica.
                 </li>
                 <li>
-                    Uso de códigos de respuesta HTML: utilizamos los siguientes códigos de HTML en las respuestas de los
+                    <b>Uso de códigos de respuesta HTML</b>: utilizamos los siguientes códigos de HTML en las respuestas de los
                     distintos endpoints: 200, 400, 401 y 404 según corresponde
                     <a href="https://www.rfc-editor.org/rfc/rfc9110.html#name-overview-of-status-codes" target="_blank"
                        title="ver documentación en otra ventana">
@@ -64,7 +64,18 @@ include_once "./src/utils/libraries.php";
                 </li>
             </ul>
 
-            <p todo>poner gráfico de secuencia de interacción</p>
+            <p>A continuación presentamos un diagrama simplificado de secuencia que representa la interacción entre el
+            backend y el core.</p>
+
+            <? $diagram_sequence = new Figure(
+                    "/docs/images/sequence_backend_core.svg",
+                "100%",
+                "",
+                "Diagrama de secuencia entre el backend y el core",
+                "Diagrama de secuencia entre el backend y el core"
+            );
+            $diagram_sequence->print_figure();
+            ?>
 
             <h2 id="concurrency">Ejecución de rutinas concurrentes</h2>
             <p>
@@ -105,17 +116,18 @@ include_once "./src/utils/libraries.php";
 
             <h2 id="database">Persistencia de datos</h2>
             <p>
-                La aplicación utiliza una base de datos de tipo clave-valor para almacenar los resultados de las ejecuciones.
+                La aplicación utiliza una base de datos de tipo <b>clave-valor</b> para almacenar los resultados de las ejecuciones.
                 De esta forma el core puede apagarse hasta que el backend solicite los resultados de una ejecución.
             </p>
             <p>
-                La base de datos elegida para esta persistencia fue Redis por su simplicidad (clave-valor) y por ser
-                novedosa para nosotros.
+                La base de datos elegida para esta persistencia fue <a href="https://redis.io/" target="_blank">Redis</a>
+                por su simplicidad (clave-valor) y por ser novedosa para nosotros.
                 Definimos un tiempo de vida de un día (<abbr title="Time to live">TTL</abbr>) para los resultados de las
                 corridas ejecutadas, puesto que no es necesario más que eso según las reglas del negocio.
             </p>
             <p>
-                Por cuestiones de costos, la instancia del core que está instalada en la nube utiliza una base de datos relacional MySql.
+                Por cuestiones de costos, la instancia del core que está instalada en la nube utiliza una <b>base de
+                datos relacional</b> <a href="https://www.mysql.com/" target="_blank">MySql</a>.
                 El uso de una u otra base se define mediante un parámetro de configuración. El core está preparado para ejecutarse
                 de la misma forma en cualquiera de los dos casos.
             </p>
@@ -162,15 +174,15 @@ include_once "./src/utils/libraries.php";
             </p>
             <ul>
                 <li>
-                    Pruebas unitarias: las utilizamos para probar las funcionalidad más básicas, por ejemplo el ordenamiento
+                    <b>Pruebas unitarias</b>: las utilizamos para probar las funcionalidad más básicas, por ejemplo el ordenamiento
                     de un listado, la remoción de una clave de un mapa, etc.
                 </li>
                 <li>
-                    Pruebas de integración: las utilizamos para probar el funcionamiento de las mutaciones y los
+                    <b>Pruebas de integración</b>: las utilizamos para probar el funcionamiento de las mutaciones y los
                     crossovers, por ejemplo.
                 </li>
                 <li>
-                    Pruebas funcionales: las utilizamos en su mayoría para validar la creación de las instancias de ejecución.
+                    <b>Pruebas funcionales</b>: las utilizamos en su mayoría para validar la creación de las instancias de ejecución.
                 </li>
             </ul>
 
@@ -183,8 +195,8 @@ include_once "./src/utils/libraries.php";
             </p>
             <p>
                 Inicialmente mantuvimos la información necesaria en memoria para poder graficar, pero esto era muy
-                poco performante. Entonces introdujimos otra base de datos no relacional, MongoDB, para guardar la
-                información de las ejecuciones y graficarla a demanda.
+                poco performante. Entonces introdujimos otra base de datos no relacional, <a href="https://www.mongodb.com/"
+                target="_blank">MongoDB</a>, para guardar la información de las ejecuciones y graficarla a demanda.
                 La elección de esta base fue también por la novedad de la misma para nosotros y por la suficiencia del
                 esquema para la representación de nuestros datos.
             </p>

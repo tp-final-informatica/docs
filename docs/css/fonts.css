@@ -83,6 +83,10 @@ li.center,
 a.center {
   text-align: center; }
 
+.mono,
+span[mono] {
+  font-family: monospace, serif; }
+
 span.company {
   z-index: -1;
   display: inline-block;
