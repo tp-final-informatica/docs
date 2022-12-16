@@ -33,14 +33,14 @@ include_once "./src/utils/libraries.php";
             <?php $admin_index->section_subheading_by_id("login"); ?>
             <p>Se accede a la página del administrador, ingresando las credenciales con mail y contraseña. </p>
             <div class="flex center">
-                <?php $image2 = new Figure(
+                <?php $image1 = new Figure(
                     "/docs/images/admin/login.png",
                     "600px",
                     "/docs/images/admin/login.png",
                     "Inicio de sesión",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <?php $image2->print_lightbox("login"); ?>
+                <?php $image1->print_lightbox("login"); ?>
             </div>
             <p>Al iniciar el día, se deben cargar los pacientes y en caso que se necesite, los médicos. Una vez
                 cargados, se deberá crear la jornada que incluye la selección de médicos a asignar en el viaje. </p>
