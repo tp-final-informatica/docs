@@ -7,6 +7,9 @@ $sitemap = [
     "El sistema" => [
         'url'=>"/docs/macro.html",
     ],
+    "Manual de uso del Administrador" => [
+        'url'=>'/docs/web-interface.html',
+    ],
     "El core" => [
         'url'=> '/docs/core.html',
         'subitems' => [
@@ -16,9 +19,7 @@ $sitemap = [
             "Análisis de datos obtenidos" => "/docs/core/data.html"
         ],
     ],
-    "La interfaz administrativa" => [
-//        'url'=>'/docs/web-interface.html',
-    ],
+
     "Las aplicaciones mobile" => [
 //        'url'=>'/docs/mobile.html',
     ],

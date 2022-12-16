@@ -18,6 +18,15 @@ include_once "./src/utils/libraries.php";
 
     <ul>
         <li class="<? print $item_classes?>">
+            <div><span mono>16 Dic 2022:</span></div>
+            <div>
+                <ul>
+                    <li><a href="/docs/web-interface.html">Manual de uso del Administrador</a></li>
+
+                </ul>
+            </div>
+        </li>
+        <li class="<? print $item_classes?>">
             <div><span mono>15 Dic 2022:</span></div>
             <div>
                 <ul>

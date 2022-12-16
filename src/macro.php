@@ -35,7 +35,7 @@ include_once "./src/utils/libraries.php";
             validación dentro de nuestra función de fitness bajo una gran penalidad.</p>
     </section>-->
 
-<?php nextRead("/docs/core.html", "El core"); ?>
+<?php nextRead("/docs/web-interface.html", "Manual de uso del Administrador"); ?>
 </div>
 </main>
 
