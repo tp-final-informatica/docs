@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Las aplicaciones mobile</title>
+    <title>App book</title>
     <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/png">
     <link rel="stylesheet" href="/docs/css/fonts.css">
     <link rel="stylesheet" href="/docs/css/colors.css">
@@ -22,16 +22,74 @@
 </head>
 <body>
 
-<header class="header"><h1 class="mw-content">Las aplicaciones mobile</h1></header><nav><a  id="skip-nav" href="#main-content" class="skip-link">Saltear navegacion</a><div data-menu-component>  <input type="checkbox" role="button" aria-haspopup="true" id="toggle" class="vh">  <label for="toggle" data-opens-menu>    &#x2630; Índice    <span class="vh expanded-text">expandido</span>    <span class="vh collapsed-text">colapsado</span>  </label>  <div role="menu" data-menu-origin="left">    <ul><li><a role="menuitem" href="/docs/index.html">Carátula</a></li><li><a role="menuitem" href="/docs/macro.html">El sistema</a></li><li><a role="menuitem" href="/docs/web-interface.html">Manual de uso del Administrador</a></li><li>Manual de uso del médico</li><li><a role="menuitem" href="/docs/core.html">El core</a></li><li><a role="menuitem" href="/docs/documentation.html">Documentación técnica general</a></li><li><a role="menuitem" href="/docs/literature.html">Bibliografía consultada</a></li>    </ul>  </div></div></nav>
+<header class="header"><h1 class="mw-content">Manual de uso de la aplicación</h1></header><nav><a  id="skip-nav" href="#main-content" class="skip-link">Saltear navegacion</a><div data-menu-component>  <input type="checkbox" role="button" aria-haspopup="true" id="toggle" class="vh">  <label for="toggle" data-opens-menu>    &#x2630; Índice    <span class="vh expanded-text">expandido</span>    <span class="vh collapsed-text">colapsado</span>  </label>  <div role="menu" data-menu-origin="left">    <ul><li><a role="menuitem" href="/docs/index.html">Carátula</a></li><li><a role="menuitem" href="/docs/macro.html">El sistema</a></li><li><a role="menuitem" href="/docs/web-interface.html">Manual de uso del Administrador</a></li><li><a role="menuitem" href="/docs/core.html">El core</a></li><li>Las aplicaciones mobile</li><li>El backend integrador</li><li>Información complementaria</li><li><a role="menuitem" href="/docs/literature.html">Bibliografía consultada</a></li>    </ul>  </div></div></nav>
     <main id="main-content">
         <div class="content">
 
-           <div class="mb3"><a href="/docs/sitemap.html"><i class="fa-solid fa-caret-left"></i> Índice</a> </div>
-            <h2>Ups! todavía no hay contenido acá</h2>
-<!--            <p>párrafo</p>-->
+            <div class="mb3"><a href="/docs/sitemap.html"><i class="fa-solid fa-caret-left"></i> Índice</a> </div>
+                        <ol><li><a href="#login">Inicio de sesión</a></li><li><a href="#perfil">Perfil</a></li><li><a href="#trip">Viajes</a></li></ol>
+            <!--            <h2 >Inicio de sesión</h2>-->
+            <h2 id="login">Inicio de sesión</h2>            <p>Se accede a la aplicación, ingresando las credenciales con mail y contraseña. </p>
             <div class="flex center">
-                <img src="/docs/images/cafe.gif" alt="mientras esperas hacete un cafecito" style="max-width: 360px;">
-            </div>
+                                <div class="flex center"><a href="/docs/images/app/login.jpg"  class="lightbox" title="Expandir imagen"  data-group=login><div class="flex center mb2"> <img src="/docs/images/app/login.jpg" alt="Cambiar contraseña" style="max-width: 200px; width:100%;"></div></a></div>            </div>
+
+            <!--            <h2>Perfil</h2>-->
+            <h2 id="perfil">Perfil</h2>
+            <p>En el panel Perfil se podrán visualizar todos los datos cargados del médico. </p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/app/perfil.jpg"  class="lightbox" title="Expandir imagen"  data-group=perfil><div class="flex center mb2"> <img src="/docs/images/app/perfil.jpg" alt="Visualizar perfil" style="max-width: 200px; width:100%;"></div></a></div>            </div>
+
+            <p>En caso que se requiera, se podrá modificar la contraseña</p>
+
+            <div class="flex center">
+                
+                <div class="flex center"><a href="/docs/images/app/changepass.jpg"  class="lightbox" title="Expandir imagen"  data-group=perfil><div class="flex center mb2"> <img src="/docs/images/app/changepass.jpg" alt="Cambiar contraseña" style="max-width: 200px; width:100%;"></div></a></div>            </div>
+
+            <!--            <h2>Viajes</h2>-->
+            <h2 id="trip">Viajes</h2>
+            <p>Una vez abierta la aplicación, si no hay viajes asignados al médico o en caso que haya finalizado todos
+                sus viajes, se mostrará la siguiente pantalla</p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/app/viajeiniciado.jpg"  class="lightbox" title="Expandir imagen"  data-group=doctors1><div class="flex center mb2"> <img src="/docs/images/app/viajeiniciado.jpg" alt="Viaje cancelado" style="max-width: 200px; width:100%;"></div></a></div>            </div>
+
+            <p> Cuando se reciben nuevos viajes, deberá recibir una notificación como la siguiente </p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/app/noti2.jpg"  class="lightbox" title="Expandir imagen"  data-group=doctors2><div class="flex center mb2"> <img src="/docs/images/app/noti2.jpg" alt="Viaje cancelado" style="max-width: 200px; width:100%;"></div></a></div>            </div>
+
+            <p>A medida que se vayan completando los viajes, el médico tendrá el listado en orden y su correspondiente
+                estado.</p>
+
+                        <div class="flex center"><a href="/docs/images/app/viajependiente.jpg"  class="lightbox" title="Expandir imagen"  data-group=doctors2><div class="flex center mb2"> <img src="/docs/images/app/viajependiente.jpg" alt="Edición de nota" style="max-width: 200px; width:100%;"></div></a></div>
+            <p>Para registrar la visita a un paciente, se le indicará si fue visitado o no y se le deberá dejar la
+                nota.</p>
+
+            <p> Se podrán elegir los estados reprogramado, visitado o pendiente. </p>
+
+            <div class="flex center">
+
+                                <div class="flex center"><a href="/docs/images/app/visitadosiono.jpg"  class="lightbox" title="Expandir imagen"  data-group=doctors4><div class="flex center mb2"> <img src="/docs/images/app/visitadosiono.jpg" alt="Edición de nota" style="max-width: 200px; width:100%;"></div></a></div>            </div>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/app/loadingNote.jpg"  class="lightbox" title="Expandir imagen"  data-group=doctors5><div class="flex center mb2"> <img src="/docs/images/app/loadingNote.jpg" alt="Edición de nota" style="max-width: 200px; width:100%;"></div></a></div>            </div>
+
+            <p>Para grabar los registros se deberá presionar en GUARDAR CAMBIOS</p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/app/editnote.jpg"  class="lightbox" title="Expandir imagen"  data-group=visits1><div class="flex center mb2"> <img src="/docs/images/app/editnote.jpg" alt="Edición de nota" style="max-width: 200px; width:100%;"></div></a></div>            </div>
+
+            <p>Una vez finalizado el viaje, se deberá presionar el botón FINALIZAR VIAJE</p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/app/finalizarviajepopup.jpg"  class="lightbox" title="Expandir imagen"  data-group=visits2><div class="flex center mb2"> <img src="/docs/images/app/finalizarviajepopup.jpg" alt="Finalizar viaje" style="max-width: 200px; width:100%;"></div></a></div>            </div>
+
+            <p>En cualquier momento del día, puede suceder que se cancele el viaje por algún motivo de causa mayor y
+                deba volverse a gestionar las visitas pendinetes.</p>
+            <p>Llegará una notificacion como se muestra a continuación</p>
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/app/noti1.jpg"  class="lightbox" title="Expandir imagen"  data-group=visits3><div class="flex center mb2"> <img src="/docs/images/app/noti1.jpg" alt="Viaje cancelado" style="max-width: 200px; width:100%;"></div></a></div>            </div>
         </div>
     </main>
 
