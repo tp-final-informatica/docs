@@ -4,7 +4,7 @@ include_once "./src/utils/libraries.php";
 
 <?php HTML_head("Especificaciones del sistema"); ?>
 
-<?php printHeader("Documentación técnica general"); ?>
+<?php printHeader("Documento de Arquitectura"); ?>
 
     <main id="main-content">
         <div class="content">

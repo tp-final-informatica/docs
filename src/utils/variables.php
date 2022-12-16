@@ -22,7 +22,7 @@ $sitemap = [
             "Análisis de datos obtenidos" => "/docs/core/data.html"
         ],
     ],
-    "Documentación técnica general" => [
+    "Documento de Arquitectura" => [
         'url'=>'/docs/documentation.html',
     ],
 //    "Información complementaria" => [
