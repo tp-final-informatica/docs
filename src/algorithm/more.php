@@ -33,10 +33,10 @@ $id = "more";
         Nuevamente, intentando atacar el estancamiento del algoritmo agregamos otra modificación en
         la que esta vez, a intervalos regulares duplicamos el pool genético justo antes del proceso
         de selección y ordenamos todas las rutas de esas soluciones duplicadas por menor distancia entre los puntos
-        de las rutas, de la misma forma que lo hacemos en el <a href="/docs/core/algorithm.html#mbs">
+        de las rutas (sort), de la misma forma que lo hacemos en el <a href="/docs/core/algorithm.html#mbs">
         crossover MBS</a>.
         Para asegurar que no estemos restringiendo el pool genético agregamos también un número fijo de
-        soluciones aleatorias nuevas.
+        soluciones aleatorias nuevas (immigration).
     </p>
     <p>
         Las primeras pruebas con esta modificación no dieron buenos resultados, pero notamos que para números

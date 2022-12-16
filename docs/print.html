@@ -6,6 +6,698 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <title>Versión para imprimir</title>
+    <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/docs/css/fonts.css">
+    <link rel="stylesheet" href="/docs/css/colors.css">
+    <link rel="stylesheet" href="/docs/css/layout.css">
+    <link rel="stylesheet" href="/docs/css/styles.css">
+    <link rel="stylesheet" href="/docs/css/solutions-style.css">
+
+    <link rel="stylesheet" href="/docs/css/tooltip.css">
+    <link rel="stylesheet" href="/docs/css/scroll-top.css">
+    <link rel="stylesheet" href="/docs/css/tobii.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<main id="main-content print">
+<div class="content">
+
+
+
+
+    
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="robots" content="noindex">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Diseño e implementación de un sistema de cálculo y control de trayectorias</title>
+    <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/docs/css/fonts.css">
+    <link rel="stylesheet" href="/docs/css/colors.css">
+    <link rel="stylesheet" href="/docs/css/layout.css">
+    <link rel="stylesheet" href="/docs/css/styles.css">
+    <link rel="stylesheet" href="/docs/css/solutions-style.css">
+
+    <link rel="stylesheet" href="/docs/css/tooltip.css">
+    <link rel="stylesheet" href="/docs/css/scroll-top.css">
+    <link rel="stylesheet" href="/docs/css/tobii.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<header class="header"><h1 class="mw-content">Trabajo Profesional de Ingeniería en Informática</h1></header><main id="main-content">
+    <div class="content" style="text-align: center;">
+        <img src="/docs/images/logofiuba.png" alt="Facultad de Ingeniería de la Universidad de Buenos Aires"/>
+        <h2>Diseño e implementación de un sistema de cálculo y control de trayectorias</h2>
+        <h3>Autores</h3>
+        <div style="display: flex;flex-direction: column;align-items: center;">
+                                    <div class="flex gap3">
+                <div><p>Mauro Capolupo</p></div>
+                <div><p>90283</p></div>
+            </div>
+                        <div class="flex gap3">
+                <div><p>Ana Sofía Colautti</p></div>
+                <div><p>89451</p></div>
+            </div>
+                        <div class="flex gap3">
+                <div><p>Nerea Piccone</p></div>
+                <div><p>92559</p></div>
+            </div>
+            
+        </div>
+
+        <h3>Directora del Trabajo Profesional</h3>
+        <p>Lic. Silvia Adriana Ramos</p>
+
+        <p>Buenos Aires, diciembre 2022</p>
+    </div>
+</main>
+<hr class="mt8" /><hr/>
+
+    <script src="/docs/js/tooltip.js"></script>
+    <script src="/docs/js/scroll-top.js"></script>
+    <script src="/docs/js/tobii.min.js"></script>
+    <script>
+      const tobii = new Tobii();
+    </script>
+</body>
+</html>
+    
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="robots" content="noindex">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>El sistema</title>
+    <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/docs/css/fonts.css">
+    <link rel="stylesheet" href="/docs/css/colors.css">
+    <link rel="stylesheet" href="/docs/css/layout.css">
+    <link rel="stylesheet" href="/docs/css/styles.css">
+    <link rel="stylesheet" href="/docs/css/solutions-style.css">
+
+    <link rel="stylesheet" href="/docs/css/tooltip.css">
+    <link rel="stylesheet" href="/docs/css/scroll-top.css">
+    <link rel="stylesheet" href="/docs/css/tobii.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<header class="header"><h1 class="mw-content">El sistema presentado</h1></header>
+<main id="main-content">
+<div class="content">
+
+        <p todo>Nuevo!</p>
+    <p>Este trabajo pretende facilitar los procesos laborales dentro de <span class="company">la empresa</span>, una empresa de visitadores
+        médicos a domicilio.
+        Para esto desarrollamos un sistema informático que agiliza el cálculo de las rutas de los médicos y las distribución
+        de esta información a los teléfonos de los mismos, permitiendo control por parte de un administrador y agilidad
+        en la generación de los reportes para facturación.</p>
+    <p>El software desarrollado consta de los siguientes:</p>
+    <ul>
+        <li>Una interfaz web administrativa para carga de pacientes y médicos, control de jornadas y expedición de reportes</li>
+        <li>Una aplicación mobile para facilitar el recorrido de las rutas y control administrativo de los viajantes</li>
+        <li>Un programa de cálculo y optimización de rutas al que llamaremos <em>core</em></li>
+        <li>Un servidor backend que sirve la información necesaria a la interfaz web y mobile, y comunica todas las partes
+        del sistema.</li>
+    </ul>
+<!--    <p>Lorem impsum dolor sit amet: <span class="mono">texto en monospace</span>. Ver tooltip en boton redondo con la letra i: <span data-toggletip>Esto es un tooltip</span></p>
+    <p>Para escribir el nombre de la empresa (intentemos evitarlo) usar esto: <span class="company">la empresa</span></p>
+
+    <section class="lessons"  aria-label="Lecciones aprendidas">
+        <p><span class="lightbulb"></span>Nuestro enfoque inicial fue condicionar nuestras soluciones
+            para permitir únicamente aquellas que cumplieran con las restricciones del problema del viajante: todos los
+            puntos deben ser visitados una única vez. Luego entendimos que permitir esta falla en nuestras rutas podía
+            brindarle variedad a nuestro algoritmo, por lo que posteriormente reescribimos el código e incluimos esta
+            validación dentro de nuestra función de fitness bajo una gran penalidad.</p>
+    </section>-->
+
+</div>
+</main>
+
+<hr class="mt8" /><hr/>
+
+    <script src="/docs/js/tooltip.js"></script>
+    <script src="/docs/js/scroll-top.js"></script>
+    <script src="/docs/js/tobii.min.js"></script>
+    <script>
+      const tobii = new Tobii();
+    </script>
+</body>
+</html>
+    
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="robots" content="noindex">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Manual de uso</title>
+    <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/docs/css/fonts.css">
+    <link rel="stylesheet" href="/docs/css/colors.css">
+    <link rel="stylesheet" href="/docs/css/layout.css">
+    <link rel="stylesheet" href="/docs/css/styles.css">
+    <link rel="stylesheet" href="/docs/css/solutions-style.css">
+
+    <link rel="stylesheet" href="/docs/css/tooltip.css">
+    <link rel="stylesheet" href="/docs/css/scroll-top.css">
+    <link rel="stylesheet" href="/docs/css/tobii.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<header class="header"><h1 class="mw-content">Manual de uso del Administrador</h1></header>
+    <main id="main-content">
+        <div class="content">
+
+            
+                        <ol><li><a href="#login">Inicio de sesión</a></li><li><a href="#patients">Pacientes</a></li><li><a href="#doctors">Médicos</a></li><li><a href="#visits">Creación de visitas</a></li><li><a href="#reports">Reportes</a></li><li><a href="#notes">Detalle del diagnóstico</a></li><li><a href="#extras">Otras funcionalidades</a></li></ol>
+<!--            <h2 >Inicio de sesión</h2>-->
+            <h2 id="login">Inicio de sesión</h2>            <p>Se accede a la página del administrador, ingresando las credenciales con mail y contraseña. </p>
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/login.png"  class="lightbox" title="Expandir imagen"  data-group=login><div class="flex center mb2"> <img src="/docs/images/admin/login.png" alt="Inicio de sesión" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+            <p>Al iniciar el día, se deben cargar los pacientes y en caso que se necesite, los médicos. Una vez
+                cargados, se deberá crear la jornada que incluye la selección de médicos a asignar en el viaje. </p>
+
+            <p>En caso de fallo en las credenciales, se visualizará un error.</p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/wronglogin.png"  class="lightbox" title="Expandir imagen"  data-group=login><div class="flex center mb2"> <img src="/docs/images/admin/wronglogin.png" alt="Inicio de sesión fallido" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+<!--            <h2>Pacientes</h2>-->
+            <h2 id="patients">Pacientes</h2>
+            <p>En el panel Pacientes se podrán visualizar todos los pacientes que estén pendientes de visitar.</p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/patient1.png"  class="lightbox" title="Expandir imagen"  data-group=patients1><div class="flex center mb2"> <img src="/docs/images/admin/patient1.png" alt="Listado de pacientes" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <p>Los pacientes se podrán dar de alta de dos formas: manual y masiva.</p>
+
+            <h3>Carga manual</h3>
+
+            <p>Para realizar la carga manual se deberá presionar sobre el botón CREAR</p>
+
+            <p>Se dirigirá a un formulario donde se pedirán los datos requeridos por <span class="company">la empresa</span>. </p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/patientcreate.png"  class="lightbox" title="Expandir imagen"  data-group=patients2><div class="flex center mb2"> <img src="/docs/images/admin/patientcreate.png" alt="Crear paciente" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <p> Para cargar la dirección, se deberá usar la ayuda sobre el mapa. Esto permite que las direcciones sean
+                validadas por el administrador.</p>
+            <p> Se deberá indicar la ubicación exacta del paciente y se podrá incluir los detalles del lugar.</p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/patientcreatedirection.png"  class="lightbox" title="Expandir imagen"  data-group=patients2><div class="flex center mb2"> <img src="/docs/images/admin/patientcreatedirection.png" alt="Crear paciente" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <p>Se debe presionar GUARDAR para que los datos quedén grabados.</p>
+
+            <h3>Carga masiva</h3>
+
+            <p>La otra forma de crear pacientes es de forma masiva, esto permitirá acelerar la carga de pacientes
+                y <span class="company">la empresa</span> podrá solicitar a quienes presta servicio, completar el documento como parte
+                del procedimiento. Este documento deberá seguir el formato requerido.</p>
+
+            <p>El formato requerido es el siguiente: </p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/csv.png"  class="lightbox" title="Expandir imagen"  data-group=patients3><div class="flex center mb2"> <img src="/docs/images/admin/csv.png" alt="Formato Excel" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <p>La carga se realizará presionando el botón CARGA MASIVA. Se deberá seleccionar el
+                archivo y con abrirlo ya se verán cargados los pacientes.</p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/patientupload.png"  class="lightbox" title="Expandir imagen"  data-group=patients4><div class="flex center mb2"> <img src="/docs/images/admin/patientupload.png" alt="Captura de pantalla del pop up para cargar el archivo CSV" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+
+            <h3> Edición de paciente</h3>
+
+            <p>En la columna Acciones se desplegarán dos botones. Uno de ellos es el botón Editar.</p>
+
+            <p> Se podrá editar cualquier dato del paciente.</p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/patientedit.png"  class="lightbox" title="Expandir imagen"  data-group=patients5><div class="flex center mb2"> <img src="/docs/images/admin/patientedit.png" alt="Selección de un paciente en el listado para edición" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/patientedit1.png"  class="lightbox" title="Expandir imagen"  data-group=patients5><div class="flex center mb2"> <img src="/docs/images/admin/patientedit1.png" alt="Edición de datos básicos del paciente" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/patientedit3.png"  class="lightbox" title="Expandir imagen"  data-group=patients5><div class="flex center mb2"> <img src="/docs/images/admin/patientedit3.png" alt="Edición de datos de la dirección del paciente" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <h3>Borrado de paciente</h3>
+
+            <p>En caso de error, se podrá eliminar un paciente. Para ello se deberá
+                seleccionar la fila deseada y en la columna Acciones, se podrá presionar Borrar</p>
+
+            <p> Aparecerá un mensaje para deshacer la operación en caso de querer revertir el borrado.</p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/patientdelete1.png"  class="lightbox" title="Expandir imagen"  data-group=patients6><div class="flex center mb2"> <img src="/docs/images/admin/patientdelete1.png" alt="Borrado de un paciente desde el listado" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <h3>Visualización de paciente</h3>
+
+            <p> Al presionar sobre algún paciente, se podrán visualizar los datos cargados del mismo.</p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/patientshow1.png"  class="lightbox" title="Expandir imagen"  data-group=patients7><div class="flex center mb2"> <img src="/docs/images/admin/patientshow1.png" alt="Visualización del paciente" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+<!--            <h2>Médicos</h2>-->
+            <h2 id="doctors">Médicos</h2>
+
+            <h3> Creación de médico</h3>
+
+            <p>A diferencia de los pacientes, el médico sólo podrá cargarse de forma manual.</p>
+
+            <p>La carga solo deberá realizarse una vez.</p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/medicocreate0.png"  class="lightbox" title="Expandir imagen"  data-group=doctors1><div class="flex center mb2"> <img src="/docs/images/admin/medicocreate0.png" alt="Creación médico, carga de los datos básicos" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <p> Todos los datos de los médicos son obligatorios. </p>
+
+            <p>Por requisito de la empresa, se deberá cargar la foto del médico junto a los demás datos requeridos.</p>
+
+            <p> Si el médico no pertenece a la planta de <span class="company">la empresa</span>, deberá marcarse como external.</p>
+
+            <p> Al crearse, el médico se designa como Disponible, luego se podrá cambiar. </p>
+
+            <p> Se deberán indicar dos direcciones. La dirección inicial es la dirección en donde parte el médico. La dirección final es el destino final.</p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/medicocreate1.png"  class="lightbox" title="Expandir imagen"  data-group=doctors2><div class="flex center mb2"> <img src="/docs/images/admin/medicocreate1.png" alt="Carga de la dirección del médico" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/doctorcreate2.png"  class="lightbox" title="Expandir imagen"  data-group=doctors2><div class="flex center mb2"> <img src="/docs/images/admin/doctorcreate2.png" alt="Carga de la dirección del médico" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <p>Se debe presionar GUARDAR para que los datos quedén grabados.</p>
+
+            <h3> Edición de médico</h3>
+
+            <p>Se podrán editar los datos de los médicos.</p>
+
+            <p> En caso que se requiera ante cualquier eventualidad, se podrá pasar a no disponible. Esto evitará que lo tenga en cuenta en el armado de las visitas. </p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/doctoredit3.png"  class="lightbox" title="Expandir imagen"  data-group=doctors3><div class="flex center mb2"> <img src="/docs/images/admin/doctoredit3.png" alt="Edición médico: cambio de tipo de médico, de interno a externo a la empresa" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <!-- Nere aca me parece que le pifeaste a la imagen: -->
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/medicoedit2.png"  class="lightbox" title="Expandir imagen"  data-group=doctors3><div class="flex center mb2"> <img src="/docs/images/admin/medicoedit2.png" alt="Edición médico" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <!-- Nere aca me parece que acá también le pifeaste a la imagen: -->
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/medicoedit3.png"  class="lightbox" title="Expandir imagen"  data-group=doctors3><div class="flex center mb2"> <img src="/docs/images/admin/medicoedit3.png" alt="Edición médico" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <h3> Borrado de médico</h3>
+
+            <p>Al igual que los pacientes, los médicos también pueden borrarse del sistema.</p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/medicodelete1.png"  class="lightbox" title="Expandir imagen"  data-group=doctors4><div class="flex center mb2"> <img src="/docs/images/admin/medicodelete1.png" alt="Borrado de un médico desde el listado" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <h3> Visualización de médico</h3>
+
+            <p>Se podrá visualizar todos los médicos cargados en el sistema. Al seleccionar un médico se visualizarán los datos cargados.</p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/doctorshow.png"  class="lightbox" title="Expandir imagen"  data-group=doctors5><div class="flex center mb2"> <img src="/docs/images/admin/doctorshow.png" alt="Visualización del médico" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+<!--            <h2>Creación de visitas</h2>-->
+            <h2 id="visits">Creación de visitas</h2>
+            <p>Para el inicio de la jornada y, una vez cargados los pacientes y médicos, se habilitará el
+                botón INICIO JORNADA.</p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/inicio.png"  class="lightbox" title="Expandir imagen"  data-group=visits1><div class="flex center mb2"> <img src="/docs/images/admin/inicio.png" alt="Pantalla de inicio" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <p> Se podrán seleccionar todos los pacientes que tengan un estado pendiente o reprogramado (en caso
+                que no se haya podido atender el día anterior por fuerza mayor).</p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/initiate2.png"  class="lightbox" title="Expandir imagen"  data-group=visits2><div class="flex center mb2"> <img src="/docs/images/admin/initiate2.png" alt="Selección de pacientes para una jornada" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <p>Lo mismo se podrá realizar con los médicos.</p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/initiate1.png"  class="lightbox" title="Expandir imagen"  data-group=visits3><div class="flex center mb2"> <img src="/docs/images/admin/initiate1.png" alt="Selección de médicos para una jornada" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <p> Una vez seleccionado los pacientes y los médicos, se podrá continuar para la creación
+                de las visitas.</p>
+
+            <p>Dado que en esta sección se estará realizando el cálculo de los mejores viajes
+                posibles, tardará unos minutos.</p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/loading.png"  class="lightbox" title="Expandir imagen"  data-group=visits4><div class="flex center mb2"> <img src="/docs/images/admin/loading.png" alt="Captura de pantalla de la pantalla de espera" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <p>Se habilitarán tres propuestas: <b>balanceada</b>, <b>priorizada</b> y <b>desbalanceada</b>.</p>
+
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/prop3.png"  class="lightbox" title="Expandir imagen"  data-group=visits5><div class="flex center mb2"> <img src="/docs/images/admin/prop3.png" alt="Captura de pantalla de la propuesta balanceada para una jornada" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/prop2.png"  class="lightbox" title="Expandir imagen"  data-group=visits5><div class="flex center mb2"> <img src="/docs/images/admin/prop2.png" alt="Captura de pantalla de la propuesta priorizada (prioriza médicos de la empresa) para una jornada" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/prop1.png"  class="lightbox" title="Expandir imagen"  data-group=visits5><div class="flex center mb2"> <img src="/docs/images/admin/prop1.png" alt="Captura de pantalla de la propuesta desbalanceada para una jornada" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <p> Una vez aceptada la propuesta, se pasará a la pantalla de monitoreo. Allí se podrán
+                ver los próximos viajes de los médicos y el paciente asignado a cada uno de ellos.</p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/running4.png"  class="lightbox" title="Expandir imagen"  data-group=visits6><div class="flex center mb2"> <img src="/docs/images/admin/running4.png" alt="Pantalla de monitoreo, jornada en curso" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <p>En últimas novedades se verán las próximas visitas a realizarse.</p>
+
+            <p>En viajes restantes se visualizará la cantidad de viajes pendientes del día.</p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/running3.png"  class="lightbox" title="Expandir imagen"  data-group=visits7><div class="flex center mb2"> <img src="/docs/images/admin/running3.png" alt="Pantalla de monitoreo, jornada en curso. En el mapa se marcan como visitados los pacientes y en la barra lateral se informa el estado de cada médico y la cantidad de viajes faltantes para concluir la jornada" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <p>En caso de que algún médico no pueda continuar su ruta, podrá cancelar el viaje
+                indicándole al administrador. El administrador podrá cambiar el estado del médico a no
+                disponible y deberá recalcular la jornada.</p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/runningpopup.png"  class="lightbox" title="Expandir imagen"  data-group=visits8><div class="flex center mb2"> <img src="/docs/images/admin/runningpopup.png" alt="Pop Up de cancelación de jornada" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+<!--            <h2>Reportes</h2>-->
+            <h2 id="reports">Reportes</h2>
+            <p>El administrador, finalizado el mes, debe enviar a cada empresa que solicitó servicios médicos
+                un reporte con los datos de los pacientes y sus correspondientes notas. Para ello, se facilita un
+                reporte con la información requerida por las empresas.</p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/report1.png"  class="lightbox" title="Expandir imagen"  data-group=reports1><div class="flex center mb2"> <img src="/docs/images/admin/report1.png" alt="Reporte" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <p> Entre las funcionalidades básicas se encuentra el uso de filtro rápido que puede
+                realizarse por empresas, estados, o cualquier dato que se pueda visualizar desde el reporte y también
+                el filtro específico.</p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/report2.png"  class="lightbox" title="Expandir imagen"  data-group=reports2><div class="flex center mb2"> <img src="/docs/images/admin/report2.png" alt="Opciones de filtrado en pantalla de Reporte" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+
+
+            <p> Una vez disponible la información, el usuario podrá descargar el reporte en formato Excel
+                / CSV.</p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/report3.png"  class="lightbox" title="Expandir imagen"  data-group=reports3><div class="flex center mb2"> <img src="/docs/images/admin/report3.png" alt="Descarga de Reporte" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+<!--            <h2> Detalle del diagnóstico</h2>-->
+            <h2 id="notes">Detalle del diagnóstico</h2>
+
+            <p>Se ofrece la opción de detalle del diagnóstico al presionar un paciente sobre el reporte.</p>
+            <p>En esta sección se pueden visualizar las notas que dejó el médico para el paciente,
+                incluso si la visita fue reprogramada.</p>
+
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/patientsnote2.png"  class="lightbox" title="Expandir imagen"  data-group=notes1><div class="flex center mb2"> <img src="/docs/images/admin/patientsnote2.png" alt="Notas de la visita al paciente" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <!-- Nere soy yo o esta imagen es igual a la de arriba? -->
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/patientnotes.png"  class="lightbox" title="Expandir imagen"  data-group=notes1><div class="flex center mb2"> <img src="/docs/images/admin/patientnotes.png" alt="Notas de la visita al paciente" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+            <h2 id="extras">Otras funcionalidades</h2>
+            <p>Dependiendo de los gustos del usuario, se permite la opción modo noche y el cambio de
+                vista de reporte a compacta, estándar o cómoda.</p>
+
+            <div class="flex center">
+                                <div class="flex center"><a href="/docs/images/admin/night.png"  class="lightbox" title="Expandir imagen"  data-group=nightmode><div class="flex center mb2"> <img src="/docs/images/admin/night.png" alt="Modo noche y vista compacta en pantalla de Reporte" style="max-width: 600px; width:100%;"></div></a></div>            </div>
+
+        </div>
+    </main>
+
+<hr class="mt8" /><hr/>
+
+    <script src="/docs/js/tooltip.js"></script>
+    <script src="/docs/js/scroll-top.js"></script>
+    <script src="/docs/js/tobii.min.js"></script>
+    <script>
+      const tobii = new Tobii();
+    </script>
+</body>
+</html>
+    
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="robots" content="noindex">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>El core</title>
+    <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/docs/css/fonts.css">
+    <link rel="stylesheet" href="/docs/css/colors.css">
+    <link rel="stylesheet" href="/docs/css/layout.css">
+    <link rel="stylesheet" href="/docs/css/styles.css">
+    <link rel="stylesheet" href="/docs/css/solutions-style.css">
+
+    <link rel="stylesheet" href="/docs/css/tooltip.css">
+    <link rel="stylesheet" href="/docs/css/scroll-top.css">
+    <link rel="stylesheet" href="/docs/css/tobii.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<header class="header"><h1 class="mw-content">El core</h1></header>
+<main id="main-content">
+<div class="content">
+
+    
+    <p>Llamamos <em>core</em> al servicio que desarrollamos para calcular las rutas de los médicos. Recibe el listado de
+        puntos (pacientes y médicos) y las distancias entre estos via una API Rest; y devuelve el orden en que cada viajante
+        debe recorrerlos. </p>
+    <p>El core propone tres soluciones distintas en base a distintos criterios que se explicarán más adelante, para ser
+        presentados al administrador web y que este pueda seleccionar la que mejor le parezca según el caso.</p>
+
+    <h2>A continuación</h2>
+
+    <ul>
+        <li><a href="/docs/core/languages.html">Selección del lenguaje para el desarrollo del core</a></li>
+        <li><a href="/docs/core/algorithm.html">El algoritmo genético</a></li>
+        <li><a href="/docs/core/specs.html">Especificaciones técnicas</a></li>
+        <li><a href="/docs/core/data.html">Análisis de datos obtenidos</a></li>
+    </ul>
+
+
+
+
+</div>
+
+
+</main>
+
+<hr class="mt8" /><hr/>
+
+    <script src="/docs/js/tooltip.js"></script>
+    <script src="/docs/js/scroll-top.js"></script>
+    <script src="/docs/js/tobii.min.js"></script>
+    <script>
+      const tobii = new Tobii();
+    </script>
+</body>
+</html>
+    
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="robots" content="noindex">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Comparación de lenguajes</title>
+    <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/docs/css/fonts.css">
+    <link rel="stylesheet" href="/docs/css/colors.css">
+    <link rel="stylesheet" href="/docs/css/layout.css">
+    <link rel="stylesheet" href="/docs/css/styles.css">
+    <link rel="stylesheet" href="/docs/css/solutions-style.css">
+
+    <link rel="stylesheet" href="/docs/css/tooltip.css">
+    <link rel="stylesheet" href="/docs/css/scroll-top.css">
+    <link rel="stylesheet" href="/docs/css/tobii.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<header class="header"><h1 class="mw-content">Comparación de lenguajes</h1></header><main id="main-content">
+<div class="content">
+
+
+    
+    <p>Para la implementación de la metaheurística del viajante consideramos los siguientes lenguajes de programación:</p>
+    <ul>
+        <li>R</li>
+        <li>Golang</li>
+        <li>C++</li>
+        <li>Python.</li>
+    </ul>
+
+    <p>La elección de estos lenguajes la hicimos pensando las distintas características de los mismos:</p>
+    <ul>
+
+        <li><b>R</b> es un lenguaje pensado para manejo de datos a gran escala, y estudio estadístico de los mismos. Tiene buena performance y es muy utilizado en machine learning.</li>
+        <li><b>Go</b> es un lenguaje muy moderno, creado por Google adoptando las ventajas de C++, Java y Python. Por default es concurrente y provee “threads livianos” (Goroutines). Tiene una vasta documentación, y una sintaxis muy sencilla.</li>
+        <li><b>C++</b> es un lenguaje multipropósito de alto nivel, muy eficiente y rápido. Nosotros desarrollamos nuestro programa utilizando las librerías de std, que permitieron un manejo a muy alto nivel, lo que implica que fue comparable en complejidad a Go o Python.</li>
+        <li><b>Python</b> es otro lenguaje multipropósito, más sencillo que C++ en su sintaxis. Python es muy utilizado en machine learning y en una variedad de áreas del software. Las pruebas previas a este trabajo (para evaluar la viabilidad del proyecto) se hicieron en Python.</li>
+    </ul>
+
+    <h2>Comparación a nivel características del lenguaje</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Característica</th>
+            <th>R</th>
+            <th>Go</th>
+            <th>C++</th>
+            <th>Python</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>Tipo de lenguaje</th>
+            <td>Funcional, procedural y Orientado a objetos (OOP)</td>
+            <td>Procedural</td>
+            <td>Orientado a objetos (OOP)</td>
+            <td>Orientado a objetos (OOP)</td>
+        </tr>
+        <tr>
+            <th>Manejo de memoria</th>
+            <td>Tiene automatic garbage collection</td>
+            <td>automatic garbage collection</td>
+            <td>manejo manual de memoria</td>
+            <td>automatic garbage collector</td>
+        </tr>
+        <tr>
+            <th>Tipado</th>
+            <td>Fuertemente y dinámicamente tipado</td>
+            <td>Fuertemente tipado<br>Tipado estático</td>
+            <td>Fuertemente y dinámicamente tipado.<br>Fuertemente TipadoTipado estático</td>
+            <td>Tipado.<br>Tipado dinámico</td>
+        </tr>
+        <tr>
+            <th>Forma de ejecución</th>
+            <td>Interpretado</td>
+            <td>Compilado</td>
+            <td>Compilado</td>
+            <td>Interpretado</td>
+        </tr>
+        <tr>
+            <th>Concurrencia</th>
+            <td>No de manera nativa.</td>
+            <td>Incorporado a nivel del lenguaje: "Goroutines"</td>
+            <td>Sí.</td>
+            <td>Sí.</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h2>Pruebas ejecutadas</h2>
+
+    <p>Implementamos el mismo pseudocódigo en los cuatro lenguajes. Planteamos cuatro escenarios de pruebas. La idea era poner a prueba cada lenguaje con la misma solución, para poder comparar los tiempos de ejecución. Los escenarios planteados fueron los siguientes, sobre el mismo set de datos:</p>
+    <ol>
+        <li>Generación de 100000 soluciones aleatorias para 3 viajantes.</li>
+        <li>Puesta a prueba del motor de aleatoriedad generando 100000 soluciones aleatorias para 1, 2, 3, 4 y 5 viajantes, y recuento de soluciones repetidas en cada caso.</li>
+        <li>Ordenamiento de 100000 soluciones por distancia total de las soluciones para 3 viajantes.</li>
+        <li>Repetición de las pruebas anteriores y cálculo de una generación posterior mediante un algoritmo propio. Los pasos realizados son los siguientes:
+        <ol>
+            <li>Generación de 100000 soluciones aleatorias,</li>
+            <li>Ordenamiento de las mismas,</li>
+            <li>Generación de soluciones derivadas (hijas), para cada solución anterior + una solución aleatoria a elección (padre y madre),</li>
+            <li>Ordenamiento de las soluciones hijas,</li>
+            <li>Recuento de soluciones repetidas y</li>
+            <li>Selección de la mejor solución.</li>
+        </ol>
+        Las soluciones hijas se conformaron siempre de la misma forma: para cada viajante se seleccionaron los puntos en común de las soluciones padres, y luego con una probabilidad escalonada se seleccionaron el resto de los puntos que pertenecían a alguno de los padres.
+        </li>
+    </ol>
+
+    <h2>Resultados obtenidos</h2>
+    <p>El <b>escenario 1</b> no presentó grandes diferencias entre los distintos lenguajes. Todas las ejecuciones llevaron menos de un segundo. Fue el primer acercamiento a algunos de los lenguajes elegidos. Agregamos que la implementación en R fue realizada dos veces: mediante loops y mediante la familia de funciones apply. La segunda fue mucho más rápida (y la que utilizamos de aquí en adelante).</p>
+    <p>El <b>escenario 2</b> tampoco presentó diferencias entre los lenguajes. Los motores de aleatoriedad de los cuatro lenguajes fueron lo suficientemente capaces de generar 100000 soluciones únicas en todos los casos. Este escenario dejó en evidencia que el uso de funciones aleatorias en C++ necesita más desarrollo que en el resto de los lenguajes, puesto que para obtener un buen tiempo de ejecución es necesario utilizar motores de aleatoriedad fuera de las librerías básicas que trae el lenguaje.</p>
+    <p>El <b>escenario 3</b> sirvió para comparar la complejidad de desarrollo de los distintos lenguajes, pero nuevamente, no presentó grandes diferencias entre los 4 lenguajes evaluados.</p>
+    <p>El <b>escenario 4</b> fue el más complejo por ser una combinación de los anteriores, y es donde se notaron las diferencias en tiempos de ejecución. Este se midió siempre en la misma máquina, corriendo todos los programas sobre imágenes estándar de Docker, mediante el comando time de linux. Los resultados se muestran en la tabla a continuación.</p>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Lenguaje</th>
+            <th>R</th>
+            <th>GO</th>
+            <th>C++</th>
+            <th>Python</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>Runtime del test</br>más complejo<br>(escenario 4)</th>
+            <td>real 4m38,603s<br>user 0m3,378s<br>sys 0m8,669s</td>
+            <td>real 0m12,765s<br>user 0m0,125s<br>sys 0m0,179s</td>
+            <td>real 0m32,518s<br>user 0m18,730s<br>sys 0m9,845s</td>
+            <td>real 0m34,567s<br>user 0m1,068s<br>sys 0m2,156s</td>
+        </tr>
+        <tr>
+            <th>Valor redondeado</th>
+            <td>~ 4 minutos</td>
+            <td>~ 10 segundos</td>
+            <td>~ 30 segundos</td>
+            <td>~ 30 segundos</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p>El lenguaje que produjo la ejecución más rápida fue <b>Go</b>, seguido de <b>Python</b> y <b>C++</b>, por casi tres veces el mismo tiempo.</p>
+    <p>El tiempo de ejecución del programa claramente es muy importante en la decisión del lenguaje a elegir, pero también lo es la complejidad de desarrollo en cada caso. La implementación de las pruebas para cada lenguaje llevó entre 2 y 4 días:</p>
+    <ul>
+        <li>Python llevó 2 días de desarrollo.</li>
+        <li>Go llevó 3 días de desarrollo.</li>
+        <li>C++ llevó un total de 4 días de desarrollo.</li>
+        <li>Por último, R llevó 4 días por iteraciones, y 4 más refactorizando el código para utilizar la familia de funciones apply.</li>
+    </ul>
+
+    <p>El código de las pruebas realizadas está disponible para consulta en el repositorio de GitHub.</p>
+    <p>En base a las pruebas realizadas, a las características del lenguaje, y a la complejidad de implementación en cada caso, tomamos la decisión de utilizar <b>Golang</b> para implementar nuestro algoritmo.</p>
+
+<!--    -->    </div>
+</main>
+<hr class="mt8" /><hr/>
+
+    <script src="/docs/js/tooltip.js"></script>
+    <script src="/docs/js/scroll-top.js"></script>
+    <script src="/docs/js/tobii.min.js"></script>
+    <script>
+      const tobii = new Tobii();
+    </script>
+</body>
+</html>
+    
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="robots" content="noindex">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>El algoritmo empleado</title>
     <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/png">
     <link rel="stylesheet" href="/docs/css/fonts.css">
@@ -21,12 +713,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-<header class="header"><h1 class="mw-content">El algoritmo genético empleado</h1></header><nav><a  id="skip-nav" href="#main-content" class="skip-link">Saltear navegacion</a><div data-menu-component>  <input type="checkbox" role="button" aria-haspopup="true" id="toggle" class="vh">  <label for="toggle" data-opens-menu>    &#x2630; Índice    <span class="vh expanded-text">expandido</span>    <span class="vh collapsed-text">colapsado</span>  </label>  <div role="menu" data-menu-origin="left">    <ul><li><a role="menuitem" href="/docs/index.html">Carátula</a></li><li><a role="menuitem" href="/docs/macro.html">El sistema</a></li><li><a role="menuitem" href="/docs/web-interface.html">Manual de uso del Administrador</a></li><li><a role="menuitem" href="/docs/core.html">El core</a></li><li>Las aplicaciones mobile</li><li>El backend integrador</li><li>Información complementaria</li><li><a role="menuitem" href="/docs/literature.html">Bibliografía consultada</a></li>    </ul>  </div></div></nav>
+<header class="header"><h1 class="mw-content">El algoritmo genético empleado</h1></header>
 <main id="main-content">
 
 
     <div class="content">
-        <div class="mb3"><a href="/docs/core.html"><i class="fa-solid fa-caret-left"></i> El core</a> </div>
+        
         <p>El algoritmo genético consta de las siguientes partes</p>
         <ol>
             <li><a href="#chromosome">Definición de cromosoma</a></li>
@@ -672,14 +1364,680 @@ esa solución antes de llegar al límite, se extiende la ejecución unas iteraci
 
 <!---->
 
-<!--        -->        <div class="mt8 flex space"><a href="/docs/core/languages.html"><i class="fa-solid fa-arrow-left"></i> Volver a Selección del lenguaje</a> <a href="/docs/core/specs.html">Seguir leyendo: Especificaciones técnicas <i class="fa-solid fa-arrow-right"></i></a> </div>
+<!--        -->        
 
     </div>
 
 </main>
 
-<footer class="footer"><div><button onclick="topFunction()" id="btn-scroll-top" title="Volver al inicio de la página">Subir</button><p class="center"><a href="/docs/sitemap.html">Índice</a></p><p class="center"><a href="/docs/changelog.html">Changelog</a></p><p class="center"><a href="/docs/print.html">Versión para imprimir</a></p></div></footer>
+<hr class="mt8" /><hr/>
 
+    <script src="/docs/js/tooltip.js"></script>
+    <script src="/docs/js/scroll-top.js"></script>
+    <script src="/docs/js/tobii.min.js"></script>
+    <script>
+      const tobii = new Tobii();
+    </script>
+</body>
+</html>
+    
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="robots" content="noindex">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Especificaciones técnicas</title>
+    <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/docs/css/fonts.css">
+    <link rel="stylesheet" href="/docs/css/colors.css">
+    <link rel="stylesheet" href="/docs/css/layout.css">
+    <link rel="stylesheet" href="/docs/css/styles.css">
+    <link rel="stylesheet" href="/docs/css/solutions-style.css">
+
+    <link rel="stylesheet" href="/docs/css/tooltip.css">
+    <link rel="stylesheet" href="/docs/css/scroll-top.css">
+    <link rel="stylesheet" href="/docs/css/tobii.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<header class="header"><h1 class="mw-content">Especificaciones técnicas - Prácticas implementadas/Facetas técnicas destacables del desarrollo del core</h1></header>
+    <main id="main-content">
+        <div class="content">
+
+           
+
+            <p>Consideramos que los siguientes merecen una mención dentro de las funcionalidades implementadas
+                en el core, por integrar conocimientos de áreas distintas de la carrera</p>
+            <ul>
+                <li><a href="#api-rest">Uso de API REST</a></li>
+                <li><a href="#concurrency">Ejecución de rutinas concurrentes</a></li>
+                <li><a href="#profiling">Profiling del código</a></li>
+                <li><a href="#database">Persistencia de datos</a></li>
+                <li><a href="#design-patterns">Patrones de diseño</a></li>
+                <li><a href="#robustness">Robustez</a></li>
+                <li><a href="#tests">Tests</a></li>
+                <li><a href="#graphs">Gráficos</a></li>
+            </ul>
+
+            <h2 id="api-rest">API REST</h2>
+            <p>
+                El algoritmo genético debe ejecutarse únicamente a pedido del backend, por lo que definimos una API REST para comunicar
+                ambas partes.
+            </p>
+            <p>
+                La misma consiste de dos requests distintos, uno que inicia la ejecución, y otro que consulta el estado
+                de la misma y su progreso:
+            </p>
+            <ul>
+                <li><b>Generar solución</b>: Request de tipo <span mono>POST</span> que envía los datos de las distancias entre todos los puntos
+                del mapa. Mediante estos datos es posible calcular las rutas utilizando nuestro algoritmo genético.</li>
+                <li><b>Obtener progreso/resultados</b>: Request de tipo <span mono>GET</span> que devuelve el progreso del cálculo (un número entre
+                0 y 1) y al llegar al final del cálculo, las secuencias de los puntos sugeridas para cada ruta
+                    (balanceada, priorizada y desbalanceada).</li>
+            </ul>
+            <p>
+                En el desarrollo de estas APIs hicimos uso de las siguientes buenas prácticas:
+            </p>
+            <ul>
+                <li>
+                    <b>Autenticación mediante token de los requests</b>: utilizamos un sistema de PSK (pre-shared-key) sin expiración por
+                    no ser necesaria más complejidad (sólo el backend puede acceder al core).
+                    Ambas partes poseen una clave secreta que se encripta mediante un algoritmo conocido entre ambas
+                    y se envía en cada request.
+                    Dado que ambas partes saben la clave secreta y cómo encriptarla, cuando el core recibe el token del backend
+                    lo coteja contra su encriptación de la pre-shared-key.
+                    Esto es una versión muy sencilla de encriptación simétrica.
+                </li>
+                <li>
+                    <b>Uso de códigos de respuesta HTML</b>: utilizamos los siguientes códigos de HTML en las respuestas de los
+                    distintos endpoints: 200, 400, 401 y 404 según corresponde
+                    <a href="https://www.rfc-editor.org/rfc/rfc9110.html#name-overview-of-status-codes" target="_blank"
+                       title="ver documentación en otra ventana">
+                        (ver RFC 9110)
+                    </a>.
+                </li>
+            </ul>
+
+            <p>A continuación presentamos un diagrama simplificado de secuencia que representa la interacción entre el
+            backend y el core.</p>
+
+            
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 100%" role="group">
+            <img class="mw-inherit" src="/docs/images/sequence_backend_core.svg"
+                 alt="Diagrama de secuencia entre el backend y el core" width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Diagrama de secuencia entre el backend y el core</p></figcaption>
+        </figure>
+        </div>
+        
+            <h2 id="concurrency">Ejecución de rutinas concurrentes</h2>
+            <p>
+                El algoritmo genético tiene pasos que pueden ser paralelizables por ser independientes del resto de la ejecución.
+                Por esta razón hacemos uso de rutinas concurrentes en la implementación del core, aprovechando esa cualidad y
+                obteniendo así tiempos más cortos de ejecución.
+            </p>
+            <p todo>poner tabla comparativa de tiempos</p>
+            <p>
+                También paralelizamos las distintas ejecuciones del algoritmo, es decir, la búsqueda de las mejores soluciones
+                posibles balanceada, desbalanceada y priorizada para cada set de datos.
+            </p>
+
+            <p>
+                En Go esto es posible mediante <a href="https://gobyexample.com/goroutines" target="_blank"
+                                                  title="ver documentación en otra ventana">goroutines</a>
+                y mecanismos básicos de concurrencia como <a href="https://gobyexample.com/waitgroups" target="_blank"
+                                                             title="ver documentación en otra ventana">bloqueos</a>
+                por espera y <a href="https://gobyexample.com/mutexes" target="_blank"
+                                title="ver documentación en otra ventana">mutexes</a>.
+            </p>
+
+            <h2 id="profiling">Profiling del código</h2>
+            <p>
+                El desarrollo del core tuvo una complicación adicional: la novedad del lenguaje y nuestra falta de conocimiento del mismo.
+                Un ejemplo es que mientras otros lenguajes proveen herramientas para el manejo de grandes listas de elementos, en Go es necesario
+                hacer iteraciones. Otro ejemplo es que el concepto de OOP se implementa de forma no tradicional, en el sentido
+                que no existe el concepto de herencia.
+            </p>
+            <p>
+                Nuestro desconocimiento y este tipo de limitaciones llevaron a que nuestro código tuviera lugar a mejoras y
+                las ejecuciones fueran largas. Esto nos obligó
+                a utilizar herramientas de profiling para optimizar el uso de recursos.
+                Golang tiene un <a href="https://go.dev/blog/pprof" target="_blank">profiler nativo</a> para analizar el uso de memoria, entre otras, que aprendimos a utilizar para
+                este análisis. Mediante esta herramienta modificamos el orden de las instrucciones, la definición de loops (los arrays con
+                tamaño predefinido son menos pesados que los que definen su tamaño dinámicamente, por ejemplo), etc.
+            </p>
+
+            <h2 id="database">Persistencia de datos</h2>
+            <p>
+                La aplicación utiliza una base de datos de tipo <b>clave-valor</b> para almacenar los resultados de las ejecuciones.
+                De esta forma el core puede apagarse hasta que el backend solicite los resultados de una ejecución.
+            </p>
+            <p>
+                La base de datos elegida para esta persistencia fue <a href="https://redis.io/" target="_blank">Redis</a>
+                por su simplicidad (clave-valor) y por ser novedosa para nosotros.
+                Definimos un tiempo de vida de un día (<abbr title="Time to live">TTL</abbr>) para los resultados de las
+                corridas ejecutadas, puesto que no es necesario más que eso según las reglas del negocio.
+            </p>
+            <p>
+                Por cuestiones de costos, la instancia del core que está instalada en la nube utiliza una <b>base de
+                datos relacional</b> <a href="https://www.mysql.com/" target="_blank">MySql</a>.
+                El uso de una u otra base se define mediante un parámetro de configuración. El core está preparado para ejecutarse
+                de la misma forma en cualquiera de los dos casos.
+            </p>
+
+
+            <h2 id="design-patterns">Patrones de diseño utilizados</h2>
+            <p>Hicimos uso de los siguientes patrones de diseño en el desarrollo de la aplicación del Core:</p>
+            <ul>
+                <li>
+                    <b>Singleton</b>: mantuvimos una lista de ejecuciones en memoria para acceder de las distintas las rutinas,
+                    y también un objeto para acceder a las bases de datos, ambos implementadas mediante este patrón.
+                </li>
+                <li>
+                    <b>Hook</b>: Utilizamos este patrón para asegurarnos de que ciertas rutinas se ejecutaran luego de otras, como por ejemplo
+                    finalizar una ejecución y posteriormente guardar sus datos en la base de datos.
+                </li>
+                <li>
+                    <b>Factory</b>: este patrón fue muy útil para la creación de las distintas ejecuciones, funciones de fitness, mutaciones y crossovers.
+                </li>
+            </ul>
+
+
+
+            <h2 id="robustness">Robustez</h2>
+            <p>
+                El core está preparado para poder retomar ejecuciones previas en caso de algún imprevisto, haciendo uso
+                de la base de datos asociada y del listado de ejecuciones en memoria (implementado mediante un Singleton,
+                ítem anterior).
+            </p>
+            <p>
+                La idea de esto es asegurar que las ejecuciones realizadas no se vuelvan a ejecutar salvo que sea demandado
+                así por el usuario. Esto es para reducir el tiempo de ejecución en la nube y con esto, el costo del mismo.
+            </p>
+            <p>
+                De esta forma, si el core fuera a apagarse por alguna situación de fuerza mayor durante una corrida en la
+                que por ejemplo una de las tres ejecuciones ya estuviera completa, al reiniciar y volver a solicitar
+                los resultados de la ejecución, el core únicamente reiniciará las dos ejecuciones restantes.
+            </p>
+
+            <h2 id="tests">Tests</h2>
+            <p>
+                La complejidad del algoritmo nos llevó a ejecutar pruebas distintas sobre el código para asegurar
+            el funcionamiento esperado:
+            </p>
+            <ul>
+                <li>
+                    <b>Pruebas unitarias</b>: las utilizamos para probar las funcionalidad más básicas, por ejemplo el ordenamiento
+                    de un listado, la remoción de una clave de un mapa, etc.
+                </li>
+                <li>
+                    <b>Pruebas de integración</b>: las utilizamos para probar el funcionamiento de las mutaciones y los
+                    crossovers, por ejemplo.
+                </li>
+                <li>
+                    <b>Pruebas funcionales</b>: las utilizamos en su mayoría para validar la creación de las instancias de ejecución.
+                </li>
+            </ul>
+
+<!--            https://programacionymas.com/blog/tipos-de-testing-en-desarrollo-de-software-->
+
+            <h2 id="graphs">Gráficos</h2>
+            <p>
+                Los gráficos presentados en esta sección (El core) fueron generados a partir de la aplicación. Para esto
+                utilizamos una librería open source de gráficos.
+            </p>
+            <p>
+                Inicialmente mantuvimos la información necesaria en memoria para poder graficar, pero esto era muy
+                poco performante. Entonces introdujimos otra base de datos no relacional, <a href="https://www.mongodb.com/"
+                target="_blank">MongoDB</a>, para guardar la información de las ejecuciones y graficarla a demanda.
+                La elección de esta base fue también por la novedad de la misma para nosotros y por la suficiencia del
+                esquema para la representación de nuestros datos.
+            </p>
+            <p>
+                La funcionalidad de los gráficos (persistencia de datos y dibujo de los mismos) puede ser habilitada en una configuración
+                de la aplicación, lo que permite que esté desconectada en la nube, y no consuma recursos o necesite de la base en cuestión.
+            </p>
+
+
+
+
+<!--            -->                    </div>
+    </main>
+
+<hr class="mt8" /><hr/>
+
+    <script src="/docs/js/tooltip.js"></script>
+    <script src="/docs/js/scroll-top.js"></script>
+    <script src="/docs/js/tobii.min.js"></script>
+    <script>
+      const tobii = new Tobii();
+    </script>
+</body>
+</html>
+    
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="robots" content="noindex">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Análisis de datos obtenidos</title>
+    <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/docs/css/fonts.css">
+    <link rel="stylesheet" href="/docs/css/colors.css">
+    <link rel="stylesheet" href="/docs/css/layout.css">
+    <link rel="stylesheet" href="/docs/css/styles.css">
+    <link rel="stylesheet" href="/docs/css/solutions-style.css">
+
+    <link rel="stylesheet" href="/docs/css/tooltip.css">
+    <link rel="stylesheet" href="/docs/css/scroll-top.css">
+    <link rel="stylesheet" href="/docs/css/tobii.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<header class="header"><h1 class="mw-content">Análisis de datos obtenidos</h1></header>
+    <main id="main-content">
+        <div class="content">
+
+            
+
+            <ul>
+                <li>
+                    <a href="#execution-parameters">
+                        Situaciones inesperadas: consecuencias de la naturaleza no determinística del
+                        algoritmo
+                    </a>
+                </li>
+                <li>
+                    <a href="#fitness-parameters">
+                        Definición de parámetros de fitness
+                    </a>
+                </li>
+            </ul>
+
+            <h2 id="execution-parameters">Situaciones inesperadas: consecuencias de la naturaleza no determinística del algoritmo</h2>
+            <p>
+                Como explicamos previamente, el algoritmo genético por definición obtiene la mejor solución posible
+                dentro del camino en que fue descubriendo las mejorías. Esto puede interpretarse como que el algoritmo
+                recorre el espacio de soluciones de la función de fitness, un espacio que tiene valles y
+                picos que no pueden calcularse de manera exacta por la naturaleza compleja del problema.
+            </p>
+            <p>Si pudieramos simplificar el problema, el siguiente gráfico podría representar nuestro dilema:</p>
+            
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 600px" role="group">
+            <img class="mw-inherit" src="/docs/images/maximos.svg"
+                 alt="Función continua con dos picos visibles, uno mayor que el otro. Se indica que el pico menor es 
+                un máximo local, mientras que el pico mayor es un máximo global." width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Gráfico en dos dimensiones de una función continua con varios picos</p></figcaption>
+        </figure>
+        </div>
+                    <p>
+                Si bien hay múltiples estrategias para que esto no suceda, en el ejemplo de la figura, el algoritmo
+                podría quedar atrapado en el máximo local y necesitar de muchas, muchas
+                iteraciones para poder llegar al máximo global.
+            </p>
+            <p>
+                En este tipo de situaciones es posible ajustar los parámetros de ejecución del algoritmo, como
+                <b>incrementar el tamaño de la población o la cantidad mínima de iteraciones</b>, pero esto lleva una
+                <b>penalización en términos de tiempo de ejecución</b>.
+            </p>
+            <p>
+                A continuación presentamos un ejemplo de esta situación obtenido de uno de nuestros sets de pruebas.
+                Se trata de dos ejecuciones realizadas con los mismos parámetros, con tres viajantes y cuatro grupos
+                bien distinguidos de soluciones que deben dividirse equitativamente entre estos.
+<!--                Es un ejemplo en el que la solución balanceada será más cara que la desbalanceada, por la naturaleza-->
+<!--                de los datos.-->
+            </p>
+            <p>
+                La primera imagen muestra una representación en dos dimensiones de la secuencia de visitas obtenida en la
+                primera instancia, que se estima en 140 km, obtenida en 800 iteraciones.
+                La mejor solución obtenida para este caso es de 132 km, por lo que esta solución puede ser
+                considerada muy buena (un 5% de diferencia).
+            </p>
+            <p>
+                La segunda imagen muestra la representación de otra solución obtenida con los mismos parámetros de
+                ejecución en la segunda instancia, pero de 189 km en 1300 iteraciones (un 42% de diferencia).
+            </p>
+            <div class="flex center flex-1"><a href="/docs/images/map_gen799_7afea173fe52eb5c8a21bd058bf227aaTFB.png"  class="lightbox" title="Expandir imagen"  data-group=comparison>
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 600px" role="group">
+            <img class="mw-inherit" src="/docs/images/map_gen799_7afea173fe52eb5c8a21bd058bf227aaTFB.png"
+                 alt="Esta solución balanceada es el resultado de una ejecución que se obtuvo en 800 iteraciones y representa un recorrido total de 140km, resultado muy bueno por estar muy cerca del mejor valor obtenido de 132km." width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Solución balanceada muy buena (1)</p></figcaption>
+        </figure>
+        </div>
+        </a></div><div class="flex center flex-1"><a href="/docs/images/map_gen1299_e13fba4058cae213bc3f924b719589f7TFB.png"  class="lightbox" title="Expandir imagen"  data-group=comparison>
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 600px" role="group">
+            <img class="mw-inherit" src="/docs/images/map_gen1299_e13fba4058cae213bc3f924b719589f7TFB.png"
+                 alt="Esta solución balanceada es el resultado de otra ejecución con los mismos parámetros, que se obtuvo en 1300 iteraciones y representa un recorrido total de 189km, resultado menos deseado, por tener una diferencia de cerca del 42% con la mejor solución obtenida en otras simulaciones." width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Solución balanceada inesperada (2)</p></figcaption>
+        </figure>
+        </div>
+        </a></div>
+            <p>
+                En el primer caso el algoritmo devolvió una muy buena solución, y en el segundo, una no tan deseada.
+            </p>
+
+<!--
+<p>
+
+
+                Esto no representa un problema grave, puesto que para ayudar al usuario a elegir una buena solución
+                presentamos siempre tres opciones distintas de resultados (balanceada, desbalanceada y priorizada),
+                de las cuales las primeras dos están pensadas para
+                ayudar al algoritmo a cubrir dos grupos de soluciones: aquellas que pueden agruparse equitativamente, y
+                aquellas que no.
+                De esta forma, si en alguna de las ejecuciones el algoritmo no llega a buen puerto, el usuario tiene otras
+                opciones para elegir.
+            </p>
+            <p>
+                La siguiente imagen muestra una solución desbalanceada al mismo problema, obtenida en la misma ejecución
+                de la solución anterior (2):
+            </p>
+
+            
+            <p>
+                Ofreciendo ambas soluciones al mismo tiempo, el usuario tiene la posibilidad de quedarse con aquella que
+                mejor se ajuste a su problema, y mejores resultados le provea.
+            </p>
+-->
+
+            
+    <fieldset class="lessons">
+        <legend>Aprendizajes y próximos pasos</legend>
+    <div>
+  <span class="lightbulb"></span>                  <p>
+                    La configuración de los parámetros del algoritmo (<b>tamaño de la población</b> y <b>cantidad de 
+                    iteraciones</b>) se realizó manualmente <span data-toggletip>Nuestro problema está muy poco estudiado
+                    al día de la fecha y no hay bibliografía que facilite esta información.</span>
+                    para distintas combinaciones de viajantes y paradas, buscando siempre la cantidad mínima de 
+                    iteraciones y soluciones por generación que dieran buenos resultados en cada caso.
+                    </p>
+                    <p>
+                    Ocasionalmente, el mismo algoritmo, con iguales parámetros, generó resultados menos deseados.
+                    </p>
+                    <p>
+                    Luego de investigar, extender nuestro algoritmo y modificar sus parámetros, entendimos que, como en 
+                    todos los aspectos de la informática, <b>asegurar una mejor solución puede significar penalizar la
+                    ejecución en términos de tiempos de espera y uso de recursos</b>.
+                    </p>
+                    <p>
+                    Creemos que siempre hay mejoras que pueden hacerse al algoritmo, como por ejemplo definir estos
+                    parámetros de forma adaptativa, que escapan el alcance de este trabajo.
+                    </p>
+                    <p>
+                    Es por esto que proponemos agregar la opción de volver a calcular una ejecución si el resultado 
+                    obtenido no satisface al usuario final como posible mejora para una siguiente etapa de desarrollo 
+                    a discreción del cliente.
+                    </p></div>
+    </fieldset>
+            <h2 id="fitness-parameters">Definición de parámetros de fitness</h2>
+            <p>
+                La función que utilizamos para calcular el fitness tiene una misma base para todos los tipos
+                de ejecuciones (ver sección <a href="/docs/core/algorithm.html#fitness">Fitness</a>): las
+                variables en cuestión se suman en el denominador de la fracción.
+                La diferencia para cada tipo de ejecución se hace con los valores de esas variables, y los
+                parámetros que las multiplican.
+            </p>
+            <p>
+                Los valores de esas variables vienen definidos por funciones específicas dependiendo del tipo de problema,
+                que retornan valores entre 0 y 1, siempre siendo cero el mejor escenario posible. Esto es porque el
+                algoritmo
+                intenta maximizar el resultado de la función de fitness, y estos parámetros modifican el denominador
+                de la función: cuanto más <em>grande</em> el denominador, <em>menor el resultado de la ecuación</em>, y por el contrario,
+                cuanto más <em>chico</em> el denominador, <em>mayor el resultado de la ecuación</em>.
+            </p>
+            <p>
+                La elección de los parámetros que multiplican esos valores en la función de fitness es definitiva en
+                relación con el resultado deseado. Por ejemplo, si todos los parámetros son 1, todas las penalizaciones
+                tendrán equivalente peso.
+                Si un único parámetro equivale a 1, y todos los demás equivalen a 0, sólo el primero tendrá peso en
+                el resultado final. Si tenemos un caso más complejo, donde dos parámetros equivalen a 10 y los otros
+                dos a 5, entonces el peso se distribuirá 33%, 33%, 16%, 16%, etc.
+            </p>
+            <p>
+                Teniendo en cuenta que la función de fitness elegida penaliza soluciones indeseadas, pero no las prohíbe,
+                la cuidadosa selección de estos parámetros puede lograr que el algoritmo llegue o no al resultado deseado.
+            </p>
+            <h3>Caso de estudio: un médico muy lejos</h3>
+            <p>
+                Uno de los casos de prueba que generamos posiciona a todos los pacientes en la zona del AMBA, y utiliza
+                cuatro médicos, tres de ellos en la misma zona, y uno a cerca de 70km del paciente más cercano, en Zárate.
+            </p>
+            <p>
+                La función de fitness influye directamente en el resultado final. Para esto preparamos distintas
+                ejecuciones del mismo caso con leves variantes en la función de fitness del caso balanceado.
+            </p>
+            <p>
+                En la siguiente tabla mostramos la combinación de parámetros utilizados en el cálculo de la solución
+                balanceada. Los parámetros son <span mono>p1</span> asociado al costo, <span mono>p2</span>  asociado al
+                costo por viajante que para una solución balanceada siempre es cero, <span mono>p3</span>
+                asociado a la incompletitud de la solución,
+                y <span mono>p4</span> asociado al costo por balanceo de rutas.
+                En esta comparación nos interesa evaluar la relación entre los parámetros <span mono>p1</span> y
+                <span mono>p4</span>.
+            </p>
+            <table class="table table-bordered table-hover table-condensed">
+                <thead><tr><th title="Field #1">Caso</th>
+                    <th title="Field #2">p1</th>
+                    <th title="Field #3">p2</th>
+                    <th title="Field #4">p3</th>
+                    <th title="Field #5">p4</th>
+                    <th title="Field #6">p1:p4</th>
+                </tr></thead>
+                <tbody><tr>
+                    <td>Caso 1</td>
+                    <td align="right">200</td>
+                    <td>0</td>
+                    <td align="right"> 500</td>
+                    <td align="right">25</td>
+                    <td align="right">8:1</td>
+                </tr>
+                <tr>
+                    <td>Caso 2</td>
+                    <td align="right">200</td>
+                    <td>0</td>
+                    <td align="right"> 500</td>
+                    <td align="right">50</td>
+                    <td align="right">4:1</td>
+                </tr>
+                <tr>
+                    <td>Caso 3</td>
+                    <td align="right">200</td>
+                    <td>0</td>
+                    <td align="right"> 500</td>
+                    <td align="right">100</td>
+                    <td align="right">2:1</td>
+                </tr>
+                <tr>
+                    <td>Caso 4</td>
+                    <td align="right">200</td>
+                    <td>0</td>
+                    <td align="right"> 500</td>
+                    <td align="right">200</td>
+                    <td align="right">1:1</td>
+                </tr>
+                <tr>
+                    <td>Caso 5</td>
+                    <td align="right">200</td>
+                    <td> 0</td>
+                    <td align="right">500</td>
+                    <td align="right">300</td>
+                    <td align="right">2:3</td>
+                </tr>
+                </tbody></table>
+
+            <p>
+                Con esos parámetros de prueba ejecutamos el algoritmo y obtuvimos las siguientes soluciones:
+            </p>
+
+            
+            <div class="flex wrap">
+                                <div class="max-width50-100">
+                    <div class="flex center flex-1"><a href="/docs/images/core_data_study/balanced25.png"  class="lightbox" title="Expandir imagen"  data-group=study>
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 600px" role="group">
+            <img class="mw-inherit" src="/docs/images/core_data_study/balanced25.png"
+                 alt="Representación en plano de las rutas generadas por el algoritmo con una relación p1/p4 de 8:1. El algoritmo descarta al médico que está lejos" width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Caso 1</p></figcaption>
+        </figure>
+        </div>
+        </a></div>                </div>
+                                <div class="max-width50-100">
+                    <div class="flex center flex-1"><a href="/docs/images/core_data_study/balanced50.png"  class="lightbox" title="Expandir imagen"  data-group=study>
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 600px" role="group">
+            <img class="mw-inherit" src="/docs/images/core_data_study/balanced50.png"
+                 alt="Representación en plano de las rutas generadas por el algoritmo con una relación p1/p4 de 4:1. El algoritmo descarta al médico que está lejos" width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Caso 2</p></figcaption>
+        </figure>
+        </div>
+        </a></div>                </div>
+                                <div class="max-width50-100">
+                    <div class="flex center flex-1"><a href="/docs/images/core_data_study/balanced100.png"  class="lightbox" title="Expandir imagen"  data-group=study>
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 600px" role="group">
+            <img class="mw-inherit" src="/docs/images/core_data_study/balanced100.png"
+                 alt="Representación en plano de las rutas generadas por el algoritmo con una relación p1/p4 de 2:1. El algoritmo incluye al médico que está lejos" width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Caso 3</p></figcaption>
+        </figure>
+        </div>
+        </a></div>                </div>
+                                <div class="max-width50-100">
+                    <div class="flex center flex-1"><a href="/docs/images/core_data_study/balanced200.png"  class="lightbox" title="Expandir imagen"  data-group=study>
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 600px" role="group">
+            <img class="mw-inherit" src="/docs/images/core_data_study/balanced200.png"
+                 alt="Representación en plano de las rutas generadas por el algoritmo con una relación p1/p4 de 1:1. El algoritmo incluye al médico que está lejos" width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Caso 4</p></figcaption>
+        </figure>
+        </div>
+        </a></div>                </div>
+                                <div class="max-width50-100">
+                    <div class="flex center flex-1"><a href="/docs/images/core_data_study/balanced300.png"  class="lightbox" title="Expandir imagen"  data-group=study>
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 600px" role="group">
+            <img class="mw-inherit" src="/docs/images/core_data_study/balanced300.png"
+                 alt="Representación en plano de las rutas generadas por el algoritmo con una relación p1/p4 de 2:3. El algoritmo incluye al médico que está lejos" width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Caso 5</p></figcaption>
+        </figure>
+        </div>
+        </a></div>                </div>
+                            </div>
+
+            <p>
+                Como puede verse, en las primeras dos, en las que la relación entre el parámetro <span mono>p1</span> y
+                el parámetro <span mono>p4</span> era de 8:1 o 4:1 el algoritmo optó por dejar afuera al médico que
+                estaba lejos. Esto es porque el costo del kilometraje pesaba al menos 4 veces más que el costo del balanceo.
+                Estas soluciones dieron resultados cercanos a los 140 km.
+            </p>
+            <p>
+                En los tres últimos casos, en los que la relación entre ambos parámetros se acercó más, o invirtió la
+                relación, el algoritmo se vio obligado a incluir al médico que está lejos, obteniendo rutas de cerca de
+                300 km.
+            </p>
+            <p>
+                Nos pareció un caso interesante para mencionar, porque deja expuesta la importancia de la elección de
+                estos parámetros en la función de fitness y en la ejecución del algoritmo.
+            </p>
+
+            
+        </div>
+    </main>
+
+<hr class="mt8" /><hr/>
+
+    <script src="/docs/js/tooltip.js"></script>
+    <script src="/docs/js/scroll-top.js"></script>
+    <script src="/docs/js/tobii.min.js"></script>
+    <script>
+      const tobii = new Tobii();
+    </script>
+</body>
+</html>
+    
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="robots" content="noindex">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Bibliografía</title>
+    <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/docs/css/fonts.css">
+    <link rel="stylesheet" href="/docs/css/colors.css">
+    <link rel="stylesheet" href="/docs/css/layout.css">
+    <link rel="stylesheet" href="/docs/css/styles.css">
+    <link rel="stylesheet" href="/docs/css/solutions-style.css">
+
+    <link rel="stylesheet" href="/docs/css/tooltip.css">
+    <link rel="stylesheet" href="/docs/css/scroll-top.css">
+    <link rel="stylesheet" href="/docs/css/tobii.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<header class="header"><h1 class="mw-content">Bibliografía</h1></header><main id="main-content">
+    <div class="content">
+
+        
+        <ol>
+            <li>Genetic algorithm for Solving Multiple Traveling Salesmen Problem using a New Crossover and Population Generation, Dharm Raj Singh, Manoj Kumar Singh, Tarkeswar Singh, Rajkishore Prasad, ISSN 2007-9737, doi: 10.13053/CyS-22-2-2956.</li>
+            <li>Analyzing the Performance of Mutation Operators to Solve the Traveling Salesman Problem, Otman Abdoun, Jafaar Abouchabaka, ChakirTajani, ISSN: 2222-4254.</li>
+            <li>A Comparison of Genetic Sequencing Operators, T. Starkweather, S. McDaniel, K. Mathias, D. Whitley.</li>
+            <li>Genetic Algorithms for the Traveling Salesman Problem: A Review of Representations and Operations, P. Larrañaga, C.M.H. Kuijpers, R.H. Murga, I. Inza, S. Dizdrevic.</li>
+            <li>Crossover Operators in Genetic Algorithms: A review, A.J. Umbakar, P.D. Sheth, ISSN: 2229-6956, doi: 10.21917/ijsc.2015.0150.</li>
+            <li>A Comparative Study of Adaptive Crossover Operators for Genetic Algorithms to Resolve the TSP, Abdoun Orman, Abouchabaka Jafaar</li>
+            <li>Influence of the Population Size on the Genetic Algorithm Performance in Case of Cultivation Process Modelling, O. Roeva, S. Fidanova, M. Paprzycki</li>
+
+        </ol>
+
+    </div>
+</main>
+<hr class="mt8" /><hr/>
+
+    <script src="/docs/js/tooltip.js"></script>
+    <script src="/docs/js/scroll-top.js"></script>
+    <script src="/docs/js/tobii.min.js"></script>
+    <script>
+      const tobii = new Tobii();
+    </script>
+</body>
+</html>
+    
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</main>
+<hr class="mt8" /><hr/>
     <script src="/docs/js/tooltip.js"></script>
     <script src="/docs/js/scroll-top.js"></script>
     <script src="/docs/js/tobii.min.js"></script>
