@@ -38,7 +38,7 @@ class Index
             . '>');
     }
 
-    public function section_subheading_by_id($id) {
+    public function section_subheading_by_id(string $id) {
         foreach ($this->subtitles as $subtitle) {
             if ($subtitle['id'] == $id) {
                 print('<h'

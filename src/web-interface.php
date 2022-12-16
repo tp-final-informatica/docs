@@ -11,18 +11,35 @@ include_once "./src/utils/libraries.php";
 
             <?php breadcrumb([['path' => "/docs/sitemap.html", 'title' => "Índice"]]); ?>
 
-            <h2>Inicio de sesión</h2>
+            <?php
+            $admin_index = new Index(
+                ['id'=> "main", 'value' => ""], // vuelve al inicio
+                [
+                    [ 'id' => "login", 'value' => "Inicio de sesión"],
+                    [ 'id' => "patients", 'value' => "Pacientes"],
+                    [ 'id' => "doctors", 'value' => "Médicos"],
+                    [ 'id' => "visits", 'value' => "Creación de visitas"],
+                    [ 'id' => "reports", 'value' => "Reportes"],
+                    [ 'id' => "notes", 'value' => "Detalle del diagnóstico"]
+                ],
+                "1" // entonces subtitles son h2
 
+            )
+            ?>
+            <?php $admin_index->print_index(true); ?>
+
+<!--            <h2 >Inicio de sesión</h2>-->
+            <?php $admin_index->section_subheading_by_id("login"); ?>
             <p>Se accede a la página del administrador, ingresando las credenciales con mail y contraseña. </p>
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/login.png",
                     "600px",
                     "/docs/images/admin/login.png",
                     "Inicio de sesión",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
             <p>Al iniciar el día, se deben cargar los pacientes y en caso que se necesite, los médicos. Una vez
                 cargados, se deberá crear la jornada que incluye la selección de médicos a asignar en el viaje. </p>
@@ -30,29 +47,30 @@ include_once "./src/utils/libraries.php";
             <p>En caso de fallo en las credenciales, se visualizará un error.</p>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/wronglogin.png",
                     "600px",
                     "/docs/images/admin/wronglogin.png",
                     "Inicio de sesión fallido",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
-            <h2>Pacientes</h2>
+<!--            <h2>Pacientes</h2>-->
+            <?php $admin_index->section_subheading_by_id("patients"); ?>
 
             <p>En el panel Pacientes se podrán visualizar todos los pacientes que estén pendientes de visitar.</p>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/patient1.png",
                     "600px",
                     "/docs/images/admin/login.png",
                     "Inicio de sesión",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <p>Los pacientes se podrán dar de alta de dos formas: manual y masiva.</p>
@@ -61,17 +79,17 @@ include_once "./src/utils/libraries.php";
 
             <p>Para realizar la carga manual se deberá presionar sobre el botón CREAR</p>
 
-            <p>Se dirigirá a un formulario donde se pedirán los datos requeridos por <? printCompany(); ?>. </p>
+            <p>Se dirigirá a un formulario donde se pedirán los datos requeridos por <?php printCompany(); ?>. </p>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/patientcreate.png",
                     "600px",
                     "/docs/images/admin/patientcreate.png",
                     "Crear paciente",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <p> Para cargar la dirección, se deberá usar la ayuda sobre el mapa. Esto permite que las direcciones sean
@@ -79,14 +97,14 @@ include_once "./src/utils/libraries.php";
             <p> Se deberá indicar la ubicación exacta del paciente y se podrá incluir los detalles del lugar.</p>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/patientcreatedirection.png",
                     "600px",
                     "/docs/images/admin/patientcreatedirection.png",
                     "Crear paciente",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <p>Se debe presionar GUARDAR para que los datos quedén grabados.</p>
@@ -94,34 +112,34 @@ include_once "./src/utils/libraries.php";
             <h3>Carga masiva</h3>
 
             <p>La otra forma de crear pacientes es de forma masiva, esto permitirá acelerar la carga de pacientes
-                y <? printCompany(); ?> podrá solicitar a quienes presta servicio, completar el documento como parte
+                y <?php printCompany(); ?> podrá solicitar a quienes presta servicio, completar el documento como parte
                 del procedimiento. Este documento deberá seguir el formato requerido.</p>
 
             <p>El formato requerido es el siguiente: </p>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/csv.png",
                     "600px",
                     "/docs/images/admin/csv.png",
                     "Formato Excel",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <p>La carga se realizará presionando el botón CARGA MASIVA. Se deberá seleccionar el
                 archivo y con abrirlo ya se verán cargados los pacientes.</p>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/patientupload.png",
                     "600px",
                     "/docs/images/admin/patientupload.png",
                     "Subida",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
 
@@ -132,36 +150,36 @@ include_once "./src/utils/libraries.php";
             <p> Se podrá editar cualquier dato del paciente.</p>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/patientedit.png",
                     "600px",
                     "/docs/images/admin/patientedit.png",
                     "Edición",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/patientedit1.png",
                     "600px",
                     "/docs/images/admin/patientedit1.png",
                     "Edición",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/patientedit3.png",
                     "600px",
                     "/docs/images/admin/patientedit3.png",
                     "Edición",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <h3>Borrado de paciente</h3>
@@ -172,14 +190,14 @@ include_once "./src/utils/libraries.php";
             <p> Aparecerá un mensaje para deshacer la operación en caso de querer revertir el borrado.</p>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/patientdelete1.png",
                     "600px",
                     "/docs/images/admin/patientdelete1.png",
                     "Borrado",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <h3>Visualización de paciente</h3>
@@ -187,17 +205,19 @@ include_once "./src/utils/libraries.php";
             <p> Al presionar sobre algún paciente, se podrán visualizar los datos cargados del mismo.</p>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/patientshow1.png",
                     "600px",
                     "/docs/images/admin/patientshow1.png",
                     "Visualizar",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
-            <h2>Médicos</h2>
+<!--            <h2>Médicos</h2>-->
+            <?php $admin_index->section_subheading_by_id("doctors"); ?>
+
 
             <h3> Creación de médico</h3>
 
@@ -206,46 +226,46 @@ include_once "./src/utils/libraries.php";
             <p>La carga solo deberá realizarse una vez.</p>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/medicocreate0.png",
                     "600px",
                     "/docs/images/admin/medicocreate0.png",
                     "Creación médico",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <p> Todos los datos de los médicos son obligatorios. </p>
 
             <p>Por requisito de la empresa, se deberá cargar la foto del médico junto a los demás datos requeridos.</p>
 
-            <p> Si el médico no pertenece a la planta de <? printCompany(); ?>, deberá marcarse como external.</p>
+            <p> Si el médico no pertenece a la planta de <?php printCompany(); ?>, deberá marcarse como external.</p>
 
             <p> Al crearse, el médico se designa como Disponible, luego se podrá cambiar. </p>
 
             <p> Se deberán indicar dos direcciones. La dirección inicial es la dirección en donde parte el médico. La dirección final es el destino final.</p>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/medicocreate1.png",
                     "600px",
                     "/docs/images/admin/medicocreate1.png",
                     "Creación médico",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/doctorcreate2.png",
                     "600px",
                     "/docs/images/admin/doctorcreate2.png",
                     "Creación médico",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <p>Se debe presionar GUARDAR para que los datos quedén grabados.</p>
@@ -257,36 +277,36 @@ include_once "./src/utils/libraries.php";
             <p> En caso que se requiera ante cualquier eventualidad, se podrá pasar a no disponible. Esto evitará que lo tenga en cuenta en el armado de las visitas. </p>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/doctoredit3.png",
                     "600px",
                     "/docs/images/admin/doctoredit3.png",
                     "Edición médico",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/medicoedit2.png",
                     "600px",
                     "/docs/images/admin/medicoedit2.png",
                     "Edición médico",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/medicoedit3.png",
                     "600px",
                     "/docs/images/admin/medicoedit3.png",
                     "Edición médico",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <h3> Borrado de médico</h3>
@@ -294,14 +314,14 @@ include_once "./src/utils/libraries.php";
             <p>Al igual que los pacientes, los médicos también pueden borrarse.</p>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/medicodelete1.png",
                     "600px",
                     "/docs/images/admin/medicodelete1.png",
                     "Edición médico",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <h3> Visualización de médico</h3>
@@ -309,57 +329,58 @@ include_once "./src/utils/libraries.php";
             <p>Se podrá visualizar todos los médicos cargados en el sistema. Al seleccionar un médico se visualizarán los datos cargados.</p>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/doctorshow.png",
                     "600px",
                     "/docs/images/admin/doctorshow.png",
                     "Edición médico",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
-            <h2>Creación de visitas</h2>
+<!--            <h2>Creación de visitas</h2>-->
+            <?php $admin_index->section_subheading_by_id("visits"); ?>
 
             <p>Para el inicio de la jornada y, una vez cargados los pacientes y médicos, se habilitará el
                 botón INICIO JORNADA.</p>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/inicio.png",
                     "600px",
                     "/docs/images/admin/inicio.png",
                     "Inicio",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <p> Se podrán seleccionar todos los pacientes que tengan un estado pendiente o reprogramado (en caso
                 que no se haya podido atender el día anterior por fuerza mayor).</p>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/initiate2.png",
                     "600px",
                     "/docs/images/admin/initiate2.png",
                     "Inicio",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <p>Lo mismo se podrá realizar con los médicos.</p>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/initiate1.png",
                     "600px",
                     "/docs/images/admin/initiate1.png",
                     "Inicio",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <p> Una vez seleccionado los pacientes y los médicos, se podrá continuar para la creación
@@ -369,64 +390,64 @@ include_once "./src/utils/libraries.php";
                 posibles, tardará unos minutos.</p>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/loading.png",
                     "600px",
                     "/docs/images/admin/loading.png",
                     "Esperando",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <p>Se habilitarán tres propuestas: balanceada, priorizada y desbalanceada.</p>
 
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/prop1.png",
                     "600px",
                     "/docs/images/admin/prop1.png",
                     "Balanceada",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/prop2.png",
                     "600px",
                     "/docs/images/admin/prop2.png",
                     "Priorizada",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/prop3.png",
                     "600px",
                     "/docs/images/admin/prop3.png",
                     "Desbalanceada",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <p> Una vez aceptada la propuesta, se pasará a la pantalla de monitoreo. Allí se podrán
                 ver los próximos viajes de los médicos y el paciente asignado a cada uno de ellos.</p>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/running3.png",
                     "600px",
                     "/docs/images/admin/running3.png",
                     "En curso",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <p>En últimas novedades se verán las próximas visitas a realizarse.</p>
@@ -434,14 +455,14 @@ include_once "./src/utils/libraries.php";
             <p>En viajes restantes se visualizará la cantidad de viajes pendientes del día.</p>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/running4.png",
                     "600px",
                     "/docs/images/admin/running4.png",
                     "En curso",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <p>En caso de que algún médico no pueda continuar su ruta, podrá cancelar el viaje
@@ -449,31 +470,32 @@ include_once "./src/utils/libraries.php";
                 disponible y deberá recalcular la jornada.</p>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/runningpopup.png",
                     "600px",
                     "/docs/images/admin/runningpopup.png",
                     "Pop Up",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
-            <h2>Reportes</h2>
+<!--            <h2>Reportes</h2>-->
+            <?php $admin_index->section_subheading_by_id("reports"); ?>
 
             <p>El administrador, finalizado el mes, debe enviar a cada empresa que solicitó servicios médicos,
                 un reporte con los datos de los pacientes y sus correspondientes notas. Para ello, se facilita un
                 reporte con la información requerida por las empresas.</p>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/report1.png",
                     "600px",
                     "/docs/images/admin/report1.png",
                     "Reporte",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <p> Entre las funcionalidades básicas se encuentra el uso de filtro rápido que puede
@@ -481,14 +503,14 @@ include_once "./src/utils/libraries.php";
                 el filtro específico.</p>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/report2.png",
                     "600px",
                     "/docs/images/admin/report2.png",
                     "Reporte",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
 
@@ -497,31 +519,33 @@ include_once "./src/utils/libraries.php";
                 / CSV.</p>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/report3.png",
                     "600px",
                     "/docs/images/admin/report3.png",
                     "Reporte",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <p>Dependiendo de los gustos del usuario, se permite la opción modo noche y el cambio de
                 vista de reporte a compacta, estándar o cómoda.</p>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/night.png",
                     "600px",
                     "/docs/images/admin/night.png",
                     "Modo noche",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
-            <h2> Detalle del diagnóstico</h2>
+<!--            <h2> Detalle del diagnóstico</h2>-->
+            <?php $admin_index->section_subheading_by_id("notes"); ?>
+
 
             <p>Se ofrece la opción de detalle del diagnóstico al presionar un paciente sobre el reporte.</p>
             <p>En esta sección se pueden visualizar las notas que dejó el médico para el paciente,
@@ -529,25 +553,25 @@ include_once "./src/utils/libraries.php";
 
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/patientsnote2.png",
                     "600px",
                     "/docs/images/admin/patientsnote2.png",
                     "Notas del paciente",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
             <div class="flex center">
-                <? $image2 = new Figure(
+                <?php $image2 = new Figure(
                     "/docs/images/admin/patientnotes.png",
                     "600px",
                     "/docs/images/admin/patientnotes.png",
                     "Notas del paciente",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
-                <? $image2->print_lightbox(); ?>
+                <?php $image2->print_lightbox(); ?>
             </div>
 
 
