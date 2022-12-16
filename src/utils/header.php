@@ -3,7 +3,7 @@
 function printHeader($title = "Trabajo Profesional de Ingeniería en Informática"){
     global $sitemap;
     print('<header class="header">');
-    if(localdevonly()) {
+    if(localdevonly() && !PRINTPAGE) {
         print('<div class="">
             <div class="ribbon ribbon-top-left"><span>DEV!</span></div>
         </div>');
@@ -15,6 +15,9 @@ function printHeader($title = "Trabajo Profesional de Ingeniería en Informátic
 }
 
 function printMenu($menu) {
+    if (PRINTPAGE == true) {
+        return;
+    }
     print('<nav>');
     print('<a  id="skip-nav" href="#main-content" class="skip-link">Saltear navegacion</a>');
     print('<div data-menu-component>');

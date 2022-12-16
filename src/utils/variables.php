@@ -10,6 +10,9 @@ $sitemap = [
     "Manual de uso del Administrador" => [
         'url'=>'/docs/web-interface.html',
     ],
+    "Manual de uso del médico" => [
+//        'url'=>'/docs/mobile.html',
+    ],
     "El core" => [
         'url'=> '/docs/core.html',
         'subitems' => [
@@ -19,16 +22,12 @@ $sitemap = [
             "Análisis de datos obtenidos" => "/docs/core/data.html"
         ],
     ],
-
-    "Las aplicaciones mobile" => [
-//        'url'=>'/docs/mobile.html',
+    "Documentación técnica general" => [
+        'url'=>'/docs/documentation.html',
     ],
-    "El backend integrador" => [
-//        'url'=>'/docs/backend.html',
-    ],
-    "Información complementaria" => [
-//        'url'=>'/docs/more.html',
-    ],
+//    "Información complementaria" => [
+////        'url'=>'/docs/more.html',
+//    ],
     "Bibliografía consultada" => [
         'url'=>"/docs/literature.html",
     ],

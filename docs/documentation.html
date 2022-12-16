@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="robots" content="noindex">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Especificaciones del sistema</title>
+    <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/docs/css/fonts.css">
+    <link rel="stylesheet" href="/docs/css/colors.css">
+    <link rel="stylesheet" href="/docs/css/layout.css">
+    <link rel="stylesheet" href="/docs/css/styles.css">
+    <link rel="stylesheet" href="/docs/css/solutions-style.css">
+
+    <link rel="stylesheet" href="/docs/css/tooltip.css">
+    <link rel="stylesheet" href="/docs/css/scroll-top.css">
+    <link rel="stylesheet" href="/docs/css/tobii.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<header class="header"><h1 class="mw-content">Documentación técnica general</h1></header><nav><a  id="skip-nav" href="#main-content" class="skip-link">Saltear navegacion</a><div data-menu-component>  <input type="checkbox" role="button" aria-haspopup="true" id="toggle" class="vh">  <label for="toggle" data-opens-menu>    &#x2630; Índice    <span class="vh expanded-text">expandido</span>    <span class="vh collapsed-text">colapsado</span>  </label>  <div role="menu" data-menu-origin="left">    <ul><li><a role="menuitem" href="/docs/index.html">Carátula</a></li><li><a role="menuitem" href="/docs/macro.html">El sistema</a></li><li><a role="menuitem" href="/docs/web-interface.html">Manual de uso del Administrador</a></li><li>Manual de uso del médico</li><li><a role="menuitem" href="/docs/core.html">El core</a></li><li><a role="menuitem" href="/docs/documentation.html">Documentación técnica general</a></li><li><a role="menuitem" href="/docs/literature.html">Bibliografía consultada</a></li>    </ul>  </div></div></nav>
+    <main id="main-content">
+        <div class="content">
+
+            <div class="mb3"><a href="/docs/sitemap.html"><i class="fa-solid fa-caret-left"></i> Índice</a> </div>
+                        <ul><li><a href="#scenario">Vista Escenarios</a></li><li><a href="#logic">Vista Lógica</a></li><li><a href="#processes">Vista Procesos</a></li><li><a href="#physic">Vista Física</a></li><li><a href="#development">Vista Desarrollo</a></li></ul>
+            <h2 id="scenario">Vista Escenarios</h2>
+            <div class="align-left mt3"><a href="#">Volver a Inicio <i class="fa-solid fa-arrow-up"></i></a></div>            <h2 id="logic">Vista Lógica</h2>
+            <p>
+                En esta sección abordaremos las abstracciones fundamentales del sistema a partir del dominio del
+                problema. Se utilizaron aspectos de <em>Domain-Driven Design</em> que iremos mencionando más adelante
+                y paradigma de objetos.
+            </p>
+            <p>
+                A continuación, detallamos las entidades de software que conforman el modelado dentro del backend.
+            </p>
+            
+            <h3>Bounded Context</h3>
+            <p>
+                Es el patrón central en Domain-Driven Design. La idea principal de este concepto es delimitar a
+                nuestro modelo, en principio grande, en subdominios y contextos estableciendo la relación entre estos.
+            </p>
+            <p>
+                <em>Por ejemplo, no es lo mismo entender los atributos y la relaciones de una entidad como puede ser
+                    un Pedido o un Cliente, vista desde un enfoque de marketing o vista desde un enfoque financiero.</em>
+            </p>
+            <p>
+                En concreto, la entidad <span mono>Solutions</span> conceptualmente se refiere al mismo concepto que
+                <span mono>Journeys</span>, pero al pertenecer a distintos contextos, poseen distintos atributos y
+                comportamiento.
+            </p>
+            
+            <p>
+                Básicamente, cuando planteamos este mapa de contexto partiendo todo el sistema en subdominios,
+                comenzamos a identificar subsistemas que forman un sistema complejo. Dividiendo el sistema utilizando
+                una estrategia de divide y vencerás, estaremos separando nuestro problema principal en pequeños
+                subproblemas a los que dar solución, problemas que pueden ser resueltos con pequeñas piezas de
+                software (microservicios).
+            </p>
+            <p>
+                Siguiendo este enfoque, el sistema <b>tendrá una gran cohesión</b> entre los elementos que lo componen
+                y lo ideal es que tengan un <b>acoplamiento débil entre el resto de subdominios</b>.
+            </p>
+            <p>
+                Así, el sistema puede escalar de manera fácil, migrando los <em>bounded context</em> a otros microservicios.
+            </p>
+
+            <h3>Event Bus</h3>
+            <p>
+                Siguiendo con lo anterior, para desacoplar los <em>bounded context</em> utilizamos un <b>Event Bus</b>
+                desarrollado en memoria. Así, cada módulo no conoce al otro <span data-toggletip>El módulo Daytrip tiene
+                    dependencias con el resto, porque debe crear un viaje de manera transaccional y por ello accede al
+                    Repository de Doctors y Patients.</span>, es decir no hay interdependencias de artefactos, sino que
+                a través de eventos de dominio, los módulos se enteran de los eventos que les interesa y actúan a partir
+                de este, de manera asíncrona.
+            </p>
+            
+            <p>
+                Si bien el Event Bus, está desarrollado en memoria, a futuro puede ser un PubSub de Google, en caso de
+                que cada Bounded Context fuera un microservicio. Así nos aseguramos de que el sistema pueda escalar
+                de manera trivial a un entorno distríbuido.
+            </p>
+
+            <div class="align-left mt3"><a href="#">Volver a Inicio <i class="fa-solid fa-arrow-up"></i></a></div>
+            <h2 id="processes">Vista Procesos</h2>
+            <p>
+                Trataremos los aspectos dinámicos del sistema, cómo se comportan los procesos y cómo se comunican entre
+                ellos. Aquí tomaremos como eje algunos requisitos no funcionales troncales del sistema, como la
+                disponibilidad y la tolerancia a fallas.
+            </p>
+
+            <h3>Nueva jornada</h3>
+            <p>
+                La creación de la jornada es el proceso más importante y crítico.
+            </p>
+            <p>
+                El backend recibe la petición de creación por parte del frontend y luego de validar que los parámetros
+                recibidos sean correctos, consulta la
+                <a href="https://developers.google.com/maps/documentation/distance-matrix/overview" target="_blank">
+                    API Distance Matrix de Google
+                </a> para calcular las distancias entre todas las locaciones.
+            </p>
+            <p>
+                Una vez que conoce las distancias, calcula las soluciones realizando una petición POST contra la API
+                Core, quién retorna un id de la ejecución para poder consultar posteriormente por el resultado.
+                Esto se debe a que el core puede estar varios minutos calculando una solución.
+                Así de manera asíncrona (dentro de una goroutine) el backend realiza un pooling cada X segundos para
+                ir consultando el estado de la corrida.
+            </p>
+            <p>
+                Mientras tanto, el frontend también realiza un pooling para ir mostrando el progreso de la corrida en
+                la pantalla. Una vez que el backend encuentra la corrida como “ready” guarda en la base de datos las
+                soluciones retornadas por el core.
+                A esta altura, el frontend despliega las opciones para que el admin elija alguna de las propuestas de
+                soluciones.
+            </p>
+            <p>
+                A continuación, el diagrama de secuencia que describe el proceso:
+            </p>
+            
+            <h3>Push notification</h3>
+            <p>
+                El sistema utiliza push notifications para notificar dos eventos, la creación de la jornada y cuando
+                esta última es cancelada. Los destinatarios, en ambas situaciones, son los médicos que están
+                participando en la jornada.
+            </p>
+
+            <p>
+                Utilizamos <a href="https://firebase.google.com/docs/cloud-messaging" target="_blank">
+                    Firebase Cloud Messaging</a> para el envío de las push.
+            </p>
+            <p>
+                Lo primero que debe ocurrir, es asociar el device token del dispositivo móvil a un médico / viajante.
+                Para ello, cuando el médico realiza login en la aplicación, se envía un request al server con el device
+                token, como se muestra en la siguiente imágen:
+            </p>
+            
+            <p>
+                Una vez realizado el vínculo, el trigger de la push es cuando se crea una jornada de viaje y se
+                acepta una de las rutas propuestas, tal como se ve en este diagrama de actividad:
+
+            </p>
+            
+            <div class="align-left mt3"><a href="#">Volver a Inicio <i class="fa-solid fa-arrow-up"></i></a></div>            <h2 id="physic">Vista Física</h2>            <p>
+                En esta vista abordaremos principalmente a la distribución y organización del software en el hardware.
+            </p>
+            <p>
+                En entornos de desarrollo, cada aplicación está dockerizada y utilizamos docker compose para levantar
+                todo el entorno local, tanto los motores de base datos como los servicios necesarios para desarrollar.
+            </p>
+            <p>
+                En producción, decidimos implementar en Google Cloud Platform. Por temas de costos, en producción no
+                usamos Redis, sino reutilizamos la instancia de MySQL.
+            </p>
+            <p>
+                A continuación, el diagrama de despliegue en producción:
+            </p>
+            
+            <div class="align-left mt3"><a href="#">Volver a Inicio <i class="fa-solid fa-arrow-up"></i></a></div>            <h2 id="development">Vista Desarrollo</h2>            <p>
+                En este apartado se desea ilustrar el sistema centrado en la organización real de los módulos de
+                software. Por ello recurrimos al diagrama de paquetes.
+            </p>
+            
+            <p>
+                A la hora de organizar los módulos en packages, suele haber dos estrategias:
+            </p>
+            <ul>
+                <li>
+                    Agrupado por tipo de artefacto: models / controllers
+                                    </li>
+                <li>
+                    Agrupando por feature
+                                    </li>
+            </ul>
+            <p>
+                Siguiendo la filosofía de domain-driven-design, escogimos esta última.
+                De esta forma, si necesitamos extender o modificar algo dentro de los casos de uso de Médicos,
+                tendremos todo dentro del package doctors. Otra ventaja, como venimos mencionando, si estos módulos
+                necesitan escalar a un nuevo microservicio, podrá extraerse fácilmente.
+            </p>
+            <h3>Principios</h3>
+            <ul>
+                <li>Cada módulo tiene su propio Composition Root, lo que implica que cada módulo tiene su propio
+                    container de Inversion-of-Control.</li>
+                <li>Cada módulo está altamente encapsulado. Así es compliance con principios SOLID.</li>
+                <li>Los módulos se comunican entre sí asincrónicamente utilizando el Event Bus.</li>
+                <li>Se utilizan DTOs para desacoplar la representación del modelo de dominio.</li>
+                <li>Se alienta el uso de rich model y no de modelos anémicos.</li>
+
+            </ul>
+            <div class="align-left mt3"><a href="#">Volver a Inicio <i class="fa-solid fa-arrow-up"></i></a></div>
+
+
+
+
+        </div>
+    </main>
+
+<footer class="footer"><div><button onclick="topFunction()" id="btn-scroll-top" title="Volver al inicio de la página">Subir</button><p class="center"><a href="/docs/sitemap.html">Índice</a></p><p class="center"><a href="/docs/changelog.html">Changelog</a></p><p class="center"><a href="/docs/print.html">Versión para imprimir</a></p></div></footer>
+
+    <script src="/docs/js/tooltip.js"></script>
+    <script src="/docs/js/scroll-top.js"></script>
+    <script src="/docs/js/tobii.min.js"></script>
+    <script>
+      const tobii = new Tobii();
+    </script>
+</body>
+</html>
+    

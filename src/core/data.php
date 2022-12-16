@@ -321,7 +321,7 @@ $unbalanced = new Figure(
 
             <p>
                 Como puede verse, en las primeras dos, en las que la relación entre el parámetro <span mono>p1</span> y
-                el parámetro <span mon>p4</span> era de 8:1 o 4:1 el algoritmo optó por dejar afuera al médico que
+                el parámetro <span mono>p4</span> era de 8:1 o 4:1 el algoritmo optó por dejar afuera al médico que
                 estaba lejos. Esto es porque el costo del kilometraje pesaba al menos 4 veces más que el costo del balanceo.
                 Estas soluciones dieron resultados cercanos a los 140 km.
             </p>

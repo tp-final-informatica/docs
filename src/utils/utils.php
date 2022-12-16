@@ -13,6 +13,9 @@ function localdevonly() {
 
 // recibe una array de elementos tipo ['title'=>$title, 'path'=>$path]
 function breadcrumb(array $links = []) {
+    if (PRINTPAGE == true) {
+        return;
+    }
     if (empty($links)) {
         $links = [['path' => "/docs/sitemap.html", 'title' => "Índice"]];
     }
@@ -24,6 +27,10 @@ function breadcrumb(array $links = []) {
 }
 
 function prevAndNext(array $prev_link, array $next_link) {
+    if (PRINTPAGE == true) {
+        return;
+    }
+
     print("<div class=\"mt8 flex space\">");
     if ($prev_link != []) {
         print("<a href=\"".$prev_link['path']."\"><i class=\"fa-solid fa-arrow-left\"></i> Volver a ".$prev_link['title']."</a> ");
@@ -36,6 +43,10 @@ function prevAndNext(array $prev_link, array $next_link) {
 }
 
 function nextRead($path, $title) {
+    if (PRINTPAGE == true) {
+        return;
+    }
+
     print("<div class=\"mt8\"><a href=\"$path\">Seguir leyendo: $title <i class=\"fa-solid fa-arrow-right\"></i></a></div>");
 }
 
@@ -154,6 +165,10 @@ function print_subsection_heading($section_title, $section_id){
 }
 
 function back_to_anchor($anchor_id, $back_to_text) {
+    if (PRINTPAGE == true) {
+        return;
+    }
+
     print('<div class="align-left mt3"><a href="#'.$anchor_id.'">Volver '.$back_to_text
         .' <i class="fa-solid fa-arrow-up"></i></a></div>');
 }

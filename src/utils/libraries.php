@@ -9,3 +9,8 @@ include_once "./src/utils/Figure.php";
 include_once "./src/utils/Index.php";
 
 
+if (!defined('PRINTPAGE')) {
+    define('PRINTPAGE', false);
+}
+
+
