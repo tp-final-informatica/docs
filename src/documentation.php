@@ -2,7 +2,7 @@
 include_once "./src/utils/libraries.php";
 ?>
 
-<?php HTML_head("Especificaciones del sistema"); ?>
+<?php HTML_head("Documento de Arquitectura"); ?>
 
 <?php printHeader("Documento de Arquitectura"); ?>
 
