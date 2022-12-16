@@ -2,7 +2,7 @@
 include_once "./src/utils/libraries.php";
 ?>
 
-<?php HTML_head("Admin book"); ?>
+<?php HTML_head("Manual de uso"); ?>
 
 <?php printHeader("Manual de uso del Administrador"); ?>
 

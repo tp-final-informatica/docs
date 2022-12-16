@@ -34,9 +34,9 @@ class Figure
     public function print_img() {
         print('<div class="flex center mb2">');
         if ( $this->thumbnail_width != "") {
-            print(' <img src="'.$this->thumbnail.'" alt="'.$this->alt.'" style="max-width: ' .$this->thumbnail_width.';">');
+            print(' <img src="'.$this->thumbnail.'" alt="'.$this->alt.'" style="max-width: ' .$this->thumbnail_width.'; width:100%;">');
         } else {
-            print(' <img src="'.$this->thumbnail.'" alt="'.$this->alt.'">');
+            print(' <img src="'.$this->thumbnail.'" alt="'.$this->alt.' style="width:100%;">');
         }
         print('</div>');
 
