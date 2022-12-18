@@ -33,12 +33,14 @@ include_once "./src/utils/libraries.php";
                     "/docs/images/app/login.jpg",
                     "200px",
                     "/docs/images/app/login.jpg",
-                    "Cambiar contraseña",
+                    "Inicio de sesión",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
                 <?php $image1->print_lightbox("login"); ?>
             </div>
 
+
+            <?php $admin_index->link_back_to_index(); ?>
             <!--            <h2>Perfil</h2>-->
             <?php $admin_index->section_subheading_by_id("perfil"); ?>
 
@@ -69,6 +71,7 @@ include_once "./src/utils/libraries.php";
                 <?php $image2->print_lightbox("perfil"); ?>
             </div>
 
+            <?php $admin_index->link_back_to_index(); ?>
             <!--            <h2>Viajes</h2>-->
             <?php $admin_index->section_subheading_by_id("trip"); ?>
 
@@ -80,7 +83,7 @@ include_once "./src/utils/libraries.php";
                     "/docs/images/app/viajeiniciado.jpg",
                     "200px",
                     "/docs/images/app/viajeiniciado.jpg",
-                    "Viaje cancelado",
+                    "Pantalla de inicio",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
                 <?php $image3->print_lightbox("doctors1"); ?>
@@ -93,7 +96,7 @@ include_once "./src/utils/libraries.php";
                     "/docs/images/app/noti2.jpg",
                     "200px",
                     "/docs/images/app/noti2.jpg",
-                    "Viaje cancelado",
+                    "Notificación de inicio de viajes",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
                 <?php $image3->print_lightbox("doctors2"); ?>
@@ -106,10 +109,13 @@ include_once "./src/utils/libraries.php";
                 "/docs/images/app/viajependiente.jpg",
                 "200px",
                 "/docs/images/app/viajependiente.jpg",
-                "Edición de nota",
+                "Listado de pacientes a visitar. Se indica con un a tilde verde los pacientes visitados, con un ícono"
+                ." en amarillo aquellos que debieron reprogramarse, y se visualiza intermitente la próxima parada",
                 ""// aca no hace falta poner nada si no va con caption
             ); ?>
+            <p todo>la version nueva de la app esta mas clara, habria que sacar screenshot de eso.</p>
             <?php $image3->print_lightbox("doctors2"); ?>
+
 
             <p>Para registrar la visita a un paciente, se le indicará si fue visitado o no y se le deberá dejar la
                 nota.</p>
@@ -178,6 +184,8 @@ include_once "./src/utils/libraries.php";
                 ); ?>
                 <?php $image3->print_lightbox("visits3"); ?>
             </div>
+            <?php $admin_index->link_back_to_index(); ?>
+
         </div>
     </main>
 

@@ -10,8 +10,8 @@ $sitemap = [
     "Manual de uso del Administrador" => [
         'url'=>'/docs/web-interface.html',
     ],
-    "Manual de uso del médico" => [
-//        'url'=>'/docs/mobile.html',
+    "Manual de uso del Médico" => [
+        'url'=>'/docs/mobile.html',
     ],
     "El core" => [
         'url'=> '/docs/core.html',

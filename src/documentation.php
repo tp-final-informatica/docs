@@ -26,6 +26,7 @@ include_once "./src/utils/libraries.php";
             <? $index_doc->print_index(); ?>
 
             <? $index_doc->section_subheading_by_id("scenario"); ?>
+            <p todo>Completar</p>
 
             <? $index_doc->link_back_to_index(); ?>
             <? $index_doc->section_subheading_by_id("logic"); ?>
