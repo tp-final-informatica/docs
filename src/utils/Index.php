@@ -81,6 +81,9 @@ class Index
     }
 
     public function link_back_to_index() {
+        if (PRINTPAGE == true) {
+            return;
+        }
         print('<div class="align-left mt3"><a href="#'
             . $this->title['id']
             . '">Volver a '

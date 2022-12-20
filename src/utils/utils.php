@@ -91,13 +91,6 @@ function linkBibliografía() {
     print('<p>Para más información ver la <a href="/docs/literature.html">Bibliografía</a>.</p>');
 }
 
-// asumimos que $message empieza con un <p>
-//function sectionLessons($message) {
-//    print('<section class="lessons" aria-label="Lecciones aprendidas">');
-//    $newstr = substr_replace($message, '<span class="lightbulb"></span>', 3, 0);
-//    print($newstr);
-//    print('</section>');
-//}
 
 function sectionLightbulb($title, $message) {
     print('
@@ -111,47 +104,7 @@ function sectionLightbulb($title, $message) {
 
 }
 
-//function print_figure($path, $alt, $caption) {
-//    print('<figure class="mw-inherit" style="margin: 0;text-align: center;max-width: 100%" role="group">
-//        <img class="mw-inherit" src="' . $path . '"
-//             alt="'. $alt .'">
-//        <figcaption>' . $caption .'</figcaption>
-//    </figure>');
-//}
 
-
-//function lightboxImage($thumbnail_src, $image_src, $alt, $max_width = 360) {
-//    print('<div class="flex center"><a href="'.$image_src.'"  class="lightbox" title="Expandir imagen">');
-//    if ($max_width != 0) {
-//        print(' <img src="'.$thumbnail_src.'" alt="'.$alt.'" style="max-width: '.$max_width.'px;">');
-//    } else {
-//        print(' <img src="'.$thumbnail_src.'" alt="'.$alt.'">');
-//    }
-//    print('</a></div>');
-//}
-
-
-//
-//function lightboxGallery($thumbnail_src, $image_src, $alt,
-//                         $options = [
-//                             "max_width" => "360px",
-//                             "group" => "none"
-//                         ]) {
-//
-//
-//    print('<div class="flex center"><a href="'.$image_src.'"  class="lightbox" title="Expandir imagen"  data-group="'.$options["group"].'">');
-//    if ($options["max_width"] != 0) {
-//        print_figure($thumbnail_src, $alt, $alt);
-////        print(' <img src="'.$thumbnail_src.'" alt="'.$alt.'" style="max-width: '.$options["max_width"].';">');
-//    } else {
-//        print(' <img src="'.$thumbnail_src.'" alt="'.$alt.'">');
-//    }
-//    print('</a></div>');
-//}
-
-/*
-  <? lightboxImage("/docs/images/mate.gif", "/docs/images/survivors_square.png", "test"); ?>
-*/
 
 
 // de algorithm

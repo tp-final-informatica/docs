@@ -16,13 +16,16 @@ include_once "./src/utils/libraries.php";
     <?php
 
     include_once "./src/index.php";
+    include_once "./src/sitemap.php";
     include_once "./src/macro.php";
     include_once "./src/web-interface.php";
+    include_once "./src/mobile.php";
     include_once "./src/core.php";
     include_once "./src/core/languages.php";
     include_once "./src/core/algorithm.php";
     include_once "./src/core/specs.php";
     include_once "./src/core/data.php";
+    include_once "./src/documentation.php";
     include_once "./src/literature.php";
     ?>
 
