@@ -1,0 +1,74 @@
+//title This is a title
+
+participant Backend
+participant Core
+
+participant "Goroutines (múltiples)" as Goroutines
+
+participant Queue
+participant DB
+
+
+Backend->Core: Inicia cálculo de soluciones
+activate Core
+Core-->Backend: Devuelve id del cálculo
+Core->Queue:Guarda datos de cálculo y estado de las ejecuciones
+activate Queue
+Core->DB:Guarda datos de cálculo
+
+activate DB
+
+
+Core->Goroutines:Inicia cálculo (uno por cada tipo de ejecución)
+activate Goroutines
+
+
+loop Hasta ejecutar cantidad de loops
+Goroutines->Goroutines: Obtiene rutas
+Goroutines->Queue:Actualiza progreso (porcentaje)
+end
+
+Goroutines->Goroutines: Obtiene rutas
+Goroutines->Queue: Si es la última, quita ejecución de la queue
+deactivate Queue
+
+Goroutines->DB:Guarda resultado de rutas
+deactivate Goroutines
+
+
+space 2
+
+
+//title This is a title
+
+participant Backend
+participant Core
+
+
+participant Queue
+participant DB
+
+
+Backend->Core: Solicita resultado de cálculo de soluciones
+activate Core
+
+
+Core->Queue:Consulta estado de ejecución
+activate Queue
+Queue->Queue:Está en queue?
+Queue-->Core:Está en queue
+deactivate Queue
+
+Core->DB:Consulta estado de ejecución
+
+activate DB
+
+
+DB->DB:Está en DB?
+DB-->Core: No está en DB
+deactivate DB
+
+
+Core-->Backend: Devuelve error (404 not found)
+deactivate Core
+

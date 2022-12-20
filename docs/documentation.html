@@ -287,9 +287,16 @@
             <ul>
                 <li>Cada módulo tiene su propio Composition Root, lo que implica que cada módulo tiene su propio
                     container de Inversion-of-Control.</li>
-                <li>Cada módulo está altamente encapsulado. Así es compliance con principios SOLID.</li>
+                <li>
+                    Cada módulo está altamente encapsulado. Así es compliance con principios
+                    <abbr title="Single responsibility principle, Open-closed principle, Liskov substitution principle,
+                    Interface segregation principle, y Dependency inversion principle">SOLID</abbr>.
+                </li>
                 <li>Los módulos se comunican entre sí asincrónicamente utilizando el Event Bus.</li>
-                <li>Se utilizan DTOs para desacoplar la representación del modelo de dominio.</li>
+                <li>
+                    Se utilizan <abbr title="Data Transfer Object">DTOs</abbr> para desacoplar la representación del
+                    modelo de dominio.
+                </li>
                 <li>Se alienta el uso de rich model y no de modelos anémicos.</li>
 
             </ul>
