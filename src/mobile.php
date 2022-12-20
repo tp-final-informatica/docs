@@ -2,7 +2,7 @@
 include_once "./src/utils/libraries.php";
 ?>
 
-<?php HTML_head("App book"); ?>
+<?php HTML_head("Manual de uso mobile"); ?>
 
 <?php printHeader("Manual de uso de la aplicación"); ?>
 
@@ -13,13 +13,13 @@ include_once "./src/utils/libraries.php";
 
             <?php
             $admin_index = new Index(
-                ['id' => "main", 'value' => ""], // vuelve al inicio
+                ['id' => "main", 'value' => "Inicio"], // vuelve al inicio
                 [
                     ['id' => "login", 'value' => "Inicio de sesión"],
                     ['id' => "perfil", 'value' => "Perfil"],
                     ['id' => "trip", 'value' => "Viajes"]
                 ],
-                "1" // entonces subtitles son h2
+                "1" // es un menu principal de la página
 
             )
             ?>
@@ -113,15 +113,26 @@ include_once "./src/utils/libraries.php";
                 ." en amarillo aquellos que debieron reprogramarse, y se visualiza intermitente la próxima parada",
                 ""// aca no hace falta poner nada si no va con caption
             ); ?>
-            <p todo>la version nueva de la app esta mas clara, habria que sacar screenshot de eso.</p>
             <?php $image3->print_lightbox("doctors2"); ?>
 
 
             <p>Para registrar la visita a un paciente, se le indicará si fue visitado o no y se le deberá dejar la
                 nota.</p>
 
-            <p> Se podrán elegir los estados reprogramado, visitado o pendiente. </p>
+            <p>Esto significa que cada paciente podrá tener alguno de los estados:</p>
+            <ul>
+                <li>
+                    reprogramado: si no se visitó por causa de fuerza mayor, por ejemplo, calles anegadas o un piquete
+                </li>
+                <li>
+                    visitado: si el médico llegó al domicilio, sea que el paciente abriera la puerta o no
+                </li>
+                <li>
+                    pendiente: si no es ninguna de las anteriores
+                </li>
+            </ul>
 
+            <p todo>la version nueva de la app esta más clara, habria que sacar screenshot de eso.</p>
             <div class="flex center">
 
                 <?php $image3 = new Figure(
@@ -131,6 +142,7 @@ include_once "./src/utils/libraries.php";
                     "Edición de nota",
                     ""// aca no hace falta poner nada si no va con caption
                 ); ?>
+
                 <?php $image3->print_lightbox("doctors4"); ?>
             </div>
 
@@ -172,8 +184,8 @@ include_once "./src/utils/libraries.php";
             </div>
 
             <p>En cualquier momento del día, puede suceder que se cancele el viaje por algún motivo de causa mayor y
-                deba volverse a gestionar las visitas pendinetes.</p>
-            <p>Llegará una notificacion como se muestra a continuación</p>
+                deba volverse a gestionar las visitas pendientes.</p>
+            <p>Llegará una notificación como se muestra a continuación</p>
             <div class="flex center">
                 <?php $image3 = new Figure(
                     "/docs/images/app/noti1.jpg",

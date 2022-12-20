@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>App book</title>
+    <title>Manual de uso mobile</title>
     <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/png">
     <link rel="stylesheet" href="/docs/css/fonts.css">
     <link rel="stylesheet" href="/docs/css/colors.css">
@@ -34,7 +34,7 @@
                                 <div class="flex center"><a href="/docs/images/app/login.jpg"  class="lightbox" title="Expandir imagen"  data-group=login><div class="flex center mb2"> <img src="/docs/images/app/login.jpg" alt="Inicio de sesión" style="max-width: 200px; width:100%;"></div></a></div>            </div>
 
 
-            <div class="align-left mt3"><a href="#main">Volver a  <i class="fa-solid fa-arrow-up"></i></a></div>            <!--            <h2>Perfil</h2>-->
+            <div class="align-left mt3"><a href="#main">Volver a Inicio <i class="fa-solid fa-arrow-up"></i></a></div>            <!--            <h2>Perfil</h2>-->
             <h2 id="perfil">Perfil</h2>
             <p>En el panel Perfil se podrán visualizar todos los datos cargados del médico. </p>
 
@@ -47,7 +47,7 @@
                 
                 <div class="flex center"><a href="/docs/images/app/changepass.jpg"  class="lightbox" title="Expandir imagen"  data-group=perfil><div class="flex center mb2"> <img src="/docs/images/app/changepass.jpg" alt="Cambiar contraseña" style="max-width: 200px; width:100%;"></div></a></div>            </div>
 
-            <div class="align-left mt3"><a href="#main">Volver a  <i class="fa-solid fa-arrow-up"></i></a></div>            <!--            <h2>Viajes</h2>-->
+            <div class="align-left mt3"><a href="#main">Volver a Inicio <i class="fa-solid fa-arrow-up"></i></a></div>            <!--            <h2>Viajes</h2>-->
             <h2 id="trip">Viajes</h2>
             <p>Una vez abierta la aplicación, si no hay viajes asignados al médico o en caso que haya finalizado todos
                 sus viajes, se mostrará la siguiente pantalla</p>
@@ -63,17 +63,29 @@
             <p>A medida que se vayan completando los viajes, el médico tendrá el listado en orden y su correspondiente
                 estado.</p>
 
-                        <p todo>la version nueva de la app esta mas clara, habria que sacar screenshot de eso.</p>
-            <div class="flex center"><a href="/docs/images/app/viajependiente.jpg"  class="lightbox" title="Expandir imagen"  data-group=doctors2><div class="flex center mb2"> <img src="/docs/images/app/viajependiente.jpg" alt="Listado de pacientes a visitar. Se indica con un a tilde verde los pacientes visitados, con un ícono en amarillo aquellos que debieron reprogramarse, y se visualiza intermitente la próxima parada" style="max-width: 200px; width:100%;"></div></a></div>
+                        <div class="flex center"><a href="/docs/images/app/viajependiente.jpg"  class="lightbox" title="Expandir imagen"  data-group=doctors2><div class="flex center mb2"> <img src="/docs/images/app/viajependiente.jpg" alt="Listado de pacientes a visitar. Se indica con un a tilde verde los pacientes visitados, con un ícono en amarillo aquellos que debieron reprogramarse, y se visualiza intermitente la próxima parada" style="max-width: 200px; width:100%;"></div></a></div>
 
             <p>Para registrar la visita a un paciente, se le indicará si fue visitado o no y se le deberá dejar la
                 nota.</p>
 
-            <p> Se podrán elegir los estados reprogramado, visitado o pendiente. </p>
+            <p>Esto significa que cada paciente podrá tener alguno de los estados:</p>
+            <ul>
+                <li>
+                    reprogramado: si no se visitó por causa de fuerza mayor, por ejemplo, calles anegadas o un piquete
+                </li>
+                <li>
+                    visitado: si el médico llegó al domicilio, sea que el paciente abriera la puerta o no
+                </li>
+                <li>
+                    pendiente: si no es ninguna de las anteriores
+                </li>
+            </ul>
 
+            <p todo>la version nueva de la app esta más clara, habria que sacar screenshot de eso.</p>
             <div class="flex center">
 
-                                <div class="flex center"><a href="/docs/images/app/visitadosiono.jpg"  class="lightbox" title="Expandir imagen"  data-group=doctors4><div class="flex center mb2"> <img src="/docs/images/app/visitadosiono.jpg" alt="Edición de nota" style="max-width: 200px; width:100%;"></div></a></div>            </div>
+                
+                <div class="flex center"><a href="/docs/images/app/visitadosiono.jpg"  class="lightbox" title="Expandir imagen"  data-group=doctors4><div class="flex center mb2"> <img src="/docs/images/app/visitadosiono.jpg" alt="Edición de nota" style="max-width: 200px; width:100%;"></div></a></div>            </div>
 
             <div class="flex center">
                                 <div class="flex center"><a href="/docs/images/app/loadingNote.jpg"  class="lightbox" title="Expandir imagen"  data-group=doctors5><div class="flex center mb2"> <img src="/docs/images/app/loadingNote.jpg" alt="Edición de nota" style="max-width: 200px; width:100%;"></div></a></div>            </div>
@@ -89,11 +101,11 @@
                                 <div class="flex center"><a href="/docs/images/app/finalizarviajepopup.jpg"  class="lightbox" title="Expandir imagen"  data-group=visits2><div class="flex center mb2"> <img src="/docs/images/app/finalizarviajepopup.jpg" alt="Finalizar viaje" style="max-width: 200px; width:100%;"></div></a></div>            </div>
 
             <p>En cualquier momento del día, puede suceder que se cancele el viaje por algún motivo de causa mayor y
-                deba volverse a gestionar las visitas pendinetes.</p>
-            <p>Llegará una notificacion como se muestra a continuación</p>
+                deba volverse a gestionar las visitas pendientes.</p>
+            <p>Llegará una notificación como se muestra a continuación</p>
             <div class="flex center">
                                 <div class="flex center"><a href="/docs/images/app/noti1.jpg"  class="lightbox" title="Expandir imagen"  data-group=visits3><div class="flex center mb2"> <img src="/docs/images/app/noti1.jpg" alt="Viaje cancelado" style="max-width: 200px; width:100%;"></div></a></div>            </div>
-            <div class="align-left mt3"><a href="#main">Volver a  <i class="fa-solid fa-arrow-up"></i></a></div>
+            <div class="align-left mt3"><a href="#main">Volver a Inicio <i class="fa-solid fa-arrow-up"></i></a></div>
         </div>
     </main>
 
