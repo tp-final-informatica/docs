@@ -18,8 +18,9 @@ $sitemap = [
         'subitems' => [
             "Comparación de lenguajes para el desarrollo del algoritmo" => "/docs/core/languages.html",
             "El algoritmo empleado" => "/docs/core/algorithm.html",
-            "Especificaciones técnicas" => "/docs/core/specs.html",
-            "Análisis de datos obtenidos" => "/docs/core/data.html"
+            "Análisis de datos obtenidos" => "/docs/core/data.html",
+            "Especificaciones técnicas" => "/docs/core/specs.html"
+
         ],
     ],
     "Documento de Arquitectura" => [

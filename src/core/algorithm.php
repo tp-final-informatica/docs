@@ -43,7 +43,7 @@ include_once "./src/utils/libraries.php";
 <!--        --><?php //nextRead("/docs/core/specs.html", "Especificaciones técnicas"); ?>
         <?php prevAndNext(
             ['path' => "/docs/core/languages.html", 'title'=>"Selección del lenguaje"],
-            ['path' => "/docs/core/specs.html", 'title'=>"Especificaciones técnicas"]
+            ['path' => "/docs/core/data.html", 'title'=>"Análisis de datos"]
         ); ?>
 
 

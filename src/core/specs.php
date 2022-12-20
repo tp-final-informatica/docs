@@ -15,7 +15,7 @@ include_once "./src/utils/libraries.php";
             <p>Consideramos que los siguientes merecen una mención dentro de las funcionalidades implementadas
                 en el core, por integrar conocimientos de áreas distintas de la carrera</p>
             <ul>
-                <li><a href="#api-rest">Uso de API REST</a></li>
+<!--                <li><a href="#api-rest">Uso de API REST</a></li>-->
                 <li><a href="#concurrency">Ejecución de rutinas concurrentes</a></li>
                 <li><a href="#profiling">Profiling del código</a></li>
                 <li><a href="#database">Persistencia de datos</a></li>
@@ -25,57 +25,49 @@ include_once "./src/utils/libraries.php";
                 <li><a href="#graphs">Gráficos</a></li>
             </ul>
 
-            <h2 id="api-rest">API REST</h2>
-            <p>
-                El algoritmo genético debe ejecutarse únicamente a pedido del backend, por lo que definimos una API REST para comunicar
-                ambas partes.
-            </p>
-            <p>
-                La misma consiste de dos requests distintos, uno que inicia la ejecución, y otro que consulta el estado
-                de la misma y su progreso:
-            </p>
-            <ul>
-                <li><b>Generar solución</b>: Request de tipo <span mono>POST</span> que envía los datos de las distancias entre todos los puntos
-                del mapa. Mediante estos datos es posible calcular las rutas utilizando nuestro algoritmo genético.</li>
-                <li><b>Obtener progreso/resultados</b>: Request de tipo <span mono>GET</span> que devuelve el progreso del cálculo (un número entre
-                0 y 1) y al llegar al final del cálculo, las secuencias de los puntos sugeridas para cada ruta
-                    (balanceada, priorizada y desbalanceada).</li>
-            </ul>
-            <p>
-                En el desarrollo de estas APIs hicimos uso de las siguientes buenas prácticas:
-            </p>
-            <ul>
-                <li>
-                    <b>Autenticación mediante token de los requests</b>: utilizamos un sistema de PSK (pre-shared-key) sin expiración por
-                    no ser necesaria más complejidad (sólo el backend puede acceder al core).
-                    Ambas partes poseen una clave secreta que se encripta mediante un algoritmo conocido entre ambas
-                    y se envía en cada request.
-                    Dado que ambas partes saben la clave secreta y cómo encriptarla, cuando el core recibe el token del backend
-                    lo coteja contra su encriptación de la pre-shared-key.
-                    Esto es una versión muy sencilla de encriptación simétrica.
-                </li>
-                <li>
-                    <b>Uso de códigos de respuesta HTML</b>: utilizamos los siguientes códigos de HTML en las respuestas de los
-                    distintos endpoints: 200, 400, 401 y 404 según corresponde
-                    <a href="https://www.rfc-editor.org/rfc/rfc9110.html#name-overview-of-status-codes" target="_blank"
-                       title="ver documentación en otra ventana">
-                        (ver RFC 9110)
-                    </a>.
-                </li>
-            </ul>
+<!--            <h2 id="api-rest">API REST</h2>-->
+<!--            <p>-->
+<!--                El algoritmo genético debe ejecutarse únicamente a pedido del backend, por lo que definimos una API REST para comunicar-->
+<!--                ambas partes.-->
+<!--            </p>-->
+<!--            <p>-->
+<!--                La misma consiste de dos requests distintos, uno que inicia la ejecución, y otro que consulta el estado-->
+<!--                de la misma y su progreso:-->
+<!--            </p>-->
+<!--            <ul>-->
+<!--                <li><b>Generar solución</b>: Request de tipo <span mono>POST</span> que envía los datos de las distancias entre todos los puntos-->
+<!--                del mapa. Mediante estos datos es posible calcular las rutas utilizando nuestro algoritmo genético.</li>-->
+<!--                <li><b>Obtener progreso/resultados</b>: Request de tipo <span mono>GET</span> que devuelve el progreso del cálculo (un número entre-->
+<!--                0 y 1) y al llegar al final del cálculo, las secuencias de los puntos sugeridas para cada ruta-->
+<!--                    (balanceada, priorizada y desbalanceada).</li>-->
+<!--            </ul>-->
+<!--            <p>-->
+<!--                En el desarrollo de estas APIs hicimos uso de las siguientes buenas prácticas:-->
+<!--            </p>-->
+<!--            <ul>-->
+<!--                <li>-->
+<!--                    <b>Autenticación mediante token de los requests</b>: utilizamos un sistema de PSK (pre-shared-key) sin expiración por-->
+<!--                    no ser necesaria más complejidad (sólo el backend puede acceder al core).-->
+<!--                    Ambas partes poseen una clave secreta que se encripta mediante un algoritmo conocido entre ambas-->
+<!--                    y se envía en cada request.-->
+<!--                    Dado que ambas partes saben la clave secreta y cómo encriptarla, cuando el core recibe el token del backend-->
+<!--                    lo coteja contra su encriptación de la pre-shared-key.-->
+<!--                    Esto es una versión muy sencilla de encriptación simétrica.-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <b>Uso de códigos de respuesta HTML</b>: utilizamos los siguientes códigos de HTML en las respuestas de los-->
+<!--                    distintos endpoints: 200, 400, 401 y 404 según corresponde-->
+<!--                    <a href="https://www.rfc-editor.org/rfc/rfc9110.html#name-overview-of-status-codes" target="_blank"-->
+<!--                       title="ver documentación en otra ventana">-->
+<!--                        (ver RFC 9110)-->
+<!--                    </a>.-->
+<!--                </li>-->
+<!--            </ul>-->
+<!---->
+<!--            <p>A continuación presentamos un diagrama simplificado de secuencia que representa la interacción entre el-->
+<!--            backend y el core.</p>-->
 
-            <p>A continuación presentamos un diagrama simplificado de secuencia que representa la interacción entre el
-            backend y el core.</p>
 
-            <? $diagram_sequence = new Figure(
-                    "/docs/images/sequence_backend_core.svg",
-                "100%",
-                "",
-                "Diagrama de secuencia entre el backend y el core",
-                "Diagrama de secuencia entre el backend y el core"
-            );
-            $diagram_sequence->print_figure();
-            ?>
 
             <h2 id="concurrency">Ejecución de rutinas concurrentes</h2>
             <p>
@@ -83,7 +75,7 @@ include_once "./src/utils/libraries.php";
                 Por esta razón hacemos uso de rutinas concurrentes en la implementación del core, aprovechando esa cualidad y
                 obteniendo así tiempos más cortos de ejecución.
             </p>
-            <p todo>poner tabla comparativa de tiempos</p>
+<!--            <p todo>poner tabla comparativa de tiempos</p>-->
             <p>
                 También paralelizamos las distintas ejecuciones del algoritmo, es decir, la búsqueda de las mejores soluciones
                 posibles balanceada, desbalanceada y priorizada para cada set de datos.
@@ -126,7 +118,7 @@ include_once "./src/utils/libraries.php";
                 corridas ejecutadas, puesto que no es necesario más que eso según las reglas del negocio.
             </p>
             <p>
-                Por cuestiones de costos, la instancia del core que está instalada en la nube utiliza una <b>base de
+                <b>Por cuestiones de costos</b>, la instancia del core que está instalada en la nube utiliza una <b>base de
                 datos relacional</b> <a href="https://www.mysql.com/" target="_blank">MySql</a>.
                 El uso de una u otra base se define mediante un parámetro de configuración. El core está preparado para ejecutarse
                 de la misma forma en cualquiera de los dos casos.
@@ -155,17 +147,71 @@ include_once "./src/utils/libraries.php";
             <p>
                 El core está preparado para poder retomar ejecuciones previas en caso de algún imprevisto, haciendo uso
                 de la base de datos asociada y del listado de ejecuciones en memoria (implementado mediante un Singleton,
-                ítem anterior).
+                ítem anterior). Para esto hace uso de una cola en memoria y la base de datos mencionada.
             </p>
             <p>
-                La idea de esto es asegurar que las ejecuciones realizadas no se vuelvan a ejecutar salvo que sea demandado
-                así por el usuario. Esto es para reducir el tiempo de ejecución en la nube y con esto, el costo del mismo.
+                Cuando el core recibe la orden de calcular rutas guarda una copia de los datos y lanza ejecuciones
+                concurrentes para obtener las rutas de cada tipo, como puede verse en el siguiente diagrama:
+            </p>
+            <? $diagram_sequence = new Figure(
+                "/docs/images/core/specs/sequence_backend_core.svg",
+                "100%",
+                "/docs/images/core/specs/sequence_backend_core.svg",
+                "Diagrama de secuencia del cálculo de las rutas",
+                "Diagrama de secuencia del cálculo de las rutas"
+            );
+            $diagram_sequence->print_lightbox_figure("post");
+            ?>
+            <p>
+                A medida que las ejecuciones van terminando, van almacenando sus resultados en la base de datos.
             </p>
             <p>
-                De esta forma, si el core fuera a apagarse por alguna situación de fuerza mayor durante una corrida en la
-                que por ejemplo una de las tres ejecuciones ya estuviera completa, al reiniciar y volver a solicitar
-                los resultados de la ejecución, el core únicamente reiniciará las dos ejecuciones restantes.
+                Esto es útil dentro de la secuencia de ejecución, y además, porque permite asegurar que las ejecuciones
+                realizadas no se vuelvan a ejecutar por error (y asi evitar uso de procesamiento innecesario).
+                Esto es para reducir el tiempo de ejecución en la nube y con esto, el costo del mismo.
             </p>
+            <p>
+                Cuando el backend solicite la información calculada, se puede dar uno de los siguientes casos:
+            </p>
+            <?
+            $diagram_get2 = new Figure(
+                "/docs/images/core/specs/getSolutions_queue.svg",
+                "100%",
+                "/docs/images/core/specs/getSolutions_queue.svg",
+                "Diagrama de secuencia de la devolución de las rutas, en el caso en que todavía están siendo calculadas",
+                "Diagrama de secuencia de la devolución de las rutas, en el caso en que todavía están siendo calculadas"
+            );
+            $diagram_get1 = new Figure(
+                "/docs/images/core/specs/getSolutions_db.svg",
+                "100%",
+                "/docs/images/core/specs/getSolutions_db.svg",
+                "Diagrama de secuencia de la devolución de las rutas, en el caso en que ya fueron calculadas",
+                "Diagrama de secuencia de la devolución de las rutas, en el caso en que ya fueron calculadas"
+            );
+
+            $diagram_get3 = new Figure(
+                "/docs/images/core/specs/getSolutions_404.svg",
+                "100%",
+                "/docs/images/core/specs/getSolutions_404.svg",
+                "Diagrama de secuencia de la devolución de las rutas, en el caso en que se solicitó una ejecución inexistente",
+                "Diagrama de secuencia de la devolución de las rutas, en el caso en que se solicitó una ejecución inexistente"
+            );
+            $diagram_get2->print_lightbox_figure("get");
+            $diagram_get1->print_lightbox_figure("get");
+            //            $diagram_get3->print_lightbox_figure("get");
+            ?>
+            <p>
+                El core devuelve un porcentaje de completitud mientras la ejecución no esté terminada, y en ese caso,
+                las rutas calculadas.
+            </p>
+            <p>
+                Este esquema permite también que en caso de una situación excepcional, si el core fuera a apagarse
+                durante una corrida en la que por ejemplo una de las tres ejecuciones ya estuviera completa,
+                al reiniciar y volver a solicitar
+                los resultados de la ejecución, el core únicamente reiniciará las dos ejecuciones restantes (ahorrando
+                recursos).
+            </p>
+
 
             <h2 id="tests">Tests</h2>
             <p>
@@ -210,8 +256,9 @@ include_once "./src/utils/libraries.php";
 
 <!--            --><?php //nextRead("/docs/core/data.html", "Análisis de datos obtenidos"); ?>
             <?php prevAndNext(
-                ['path' => "/docs/core/algorithm.html", 'title'=>"El algoritmo genético"],
-                ['path' => "/docs/core/data.html", 'title'=>"Análisis de datos"]
+                ['path' => "/docs/core/data.html", 'title'=>"Análisis de datos"],
+                ['path' => "/docs/documentation.html", 'title'=>"Documento de Arquitectura"]
+
             ); ?>
         </div>
     </main>

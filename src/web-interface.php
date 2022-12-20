@@ -13,7 +13,7 @@ include_once "./src/utils/libraries.php";
 
             <?php
             $admin_index = new Index(
-                ['id'=> "main", 'value' => ""], // vuelve al inicio
+                ['id'=> "main-content", 'value' => "Índice"], // vuelve al inicio
                 [
                     [ 'id' => "login", 'value' => "Inicio de sesión"],
                     [ 'id' => "patients", 'value' => "Pacientes"],
@@ -57,6 +57,7 @@ include_once "./src/utils/libraries.php";
                 ); ?>
                 <?php $image2->print_lightbox("login"); ?>
             </div>
+            <? $admin_index->link_back_to_index(); ?>
 
 <!--            <h2>Pacientes</h2>-->
             <?php $admin_index->section_subheading_by_id("patients"); ?>
@@ -215,6 +216,7 @@ include_once "./src/utils/libraries.php";
                 ); ?>
                 <?php $image2->print_lightbox("patients7"); ?>
             </div>
+            <? $admin_index->link_back_to_index(); ?>
 
 <!--            <h2>Médicos</h2>-->
             <?php $admin_index->section_subheading_by_id("doctors"); ?>
@@ -341,6 +343,7 @@ include_once "./src/utils/libraries.php";
                 ); ?>
                 <?php $image2->print_lightbox("doctors5"); ?>
             </div>
+            <? $admin_index->link_back_to_index(); ?>
 
 <!--            <h2>Creación de visitas</h2>-->
             <?php $admin_index->section_subheading_by_id("visits"); ?>
@@ -484,6 +487,7 @@ include_once "./src/utils/libraries.php";
                 ); ?>
                 <?php $image2->print_lightbox("visits8"); ?>
             </div>
+            <? $admin_index->link_back_to_index(); ?>
 
 <!--            <h2>Reportes</h2>-->
             <?php $admin_index->section_subheading_by_id("reports"); ?>
@@ -534,7 +538,9 @@ include_once "./src/utils/libraries.php";
                 <?php $image2->print_lightbox("reports3"); ?>
             </div>
 
-<!--            <h2> Detalle del diagnóstico</h2>-->
+            <? $admin_index->link_back_to_index(); ?>
+
+            <!--            <h2> Detalle del diagnóstico</h2>-->
             <?php $admin_index->section_subheading_by_id("notes"); ?>
 
 
@@ -581,6 +587,12 @@ include_once "./src/utils/libraries.php";
                 ); ?>
                 <?php $image2->print_lightbox("nightmode"); ?>
             </div>
+            <? $admin_index->link_back_to_index(); ?>
+
+            <?php prevAndNext(
+                ['path' => "/docs/macro.html", 'title'=>"El sistema"],
+                ['path' => "/docs/mobile.html", 'title'=>"Manual de uso del Médico"]
+            ); ?>
 
         </div>
     </main>

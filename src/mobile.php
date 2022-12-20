@@ -13,7 +13,7 @@ include_once "./src/utils/libraries.php";
 
             <?php
             $admin_index = new Index(
-                ['id' => "main", 'value' => "Inicio"], // vuelve al inicio
+                ['id' => "main-content", 'value' => "Inicio"], // vuelve al inicio
                 [
                     ['id' => "login", 'value' => "Inicio de sesión"],
                     ['id' => "perfil", 'value' => "Perfil"],
@@ -198,6 +198,11 @@ include_once "./src/utils/libraries.php";
             </div>
             <?php $admin_index->link_back_to_index(); ?>
 
+
+            <?php prevAndNext(
+                ['path' => "/docs/web-interface.html", 'title'=>"Manual de uso del administrador"],
+                ['path' => "/docs/core.html", 'title'=>"El core"]
+            ); ?>
         </div>
     </main>
 

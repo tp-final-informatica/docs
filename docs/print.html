@@ -117,8 +117,7 @@
 <main id="main-content">
 <div class="content">
 
-        <p todo>Nuevo!</p>
-    <p>Este trabajo pretende facilitar los procesos laborales dentro de <span class="company">la empresa</span>, una empresa de visitadores
+        <p>Este trabajo pretende facilitar los procesos laborales dentro de <span class="company">la empresa</span>, una empresa de visitadores
         médicos a domicilio.
         Para esto desarrollamos un sistema informático que agiliza el cálculo de las rutas de los médicos y las distribución
         de esta información a los teléfonos de los mismos, permitiendo control por parte de un administrador y agilidad
@@ -196,7 +195,7 @@
 
             <div class="flex center">
                                 <div class="flex center"><a href="/docs/images/admin/wronglogin.png"  class="lightbox" title="Expandir imagen"  data-group=login><div class="flex center mb2"> <img src="/docs/images/admin/wronglogin.png" alt="Inicio de sesión fallido" style="max-width: 600px; width:100%;"></div></a></div>            </div>
-
+            <div class="align-left mt3"><a href="#main-content">Volver a Índice <i class="fa-solid fa-arrow-up"></i></a></div>
 <!--            <h2>Pacientes</h2>-->
             <h2 id="patients">Pacientes</h2>
             <p>En el panel Pacientes se podrán visualizar todos los pacientes que estén pendientes de visitar.</p>
@@ -273,7 +272,7 @@
 
             <div class="flex center">
                                 <div class="flex center"><a href="/docs/images/admin/patientshow1.png"  class="lightbox" title="Expandir imagen"  data-group=patients7><div class="flex center mb2"> <img src="/docs/images/admin/patientshow1.png" alt="Visualización del paciente" style="max-width: 600px; width:100%;"></div></a></div>            </div>
-
+            <div class="align-left mt3"><a href="#main-content">Volver a Índice <i class="fa-solid fa-arrow-up"></i></a></div>
 <!--            <h2>Médicos</h2>-->
             <h2 id="doctors">Médicos</h2>
 
@@ -334,7 +333,7 @@
 
             <div class="flex center">
                                 <div class="flex center"><a href="/docs/images/admin/doctorshow.png"  class="lightbox" title="Expandir imagen"  data-group=doctors5><div class="flex center mb2"> <img src="/docs/images/admin/doctorshow.png" alt="Visualización del médico" style="max-width: 600px; width:100%;"></div></a></div>            </div>
-
+            <div class="align-left mt3"><a href="#main-content">Volver a Índice <i class="fa-solid fa-arrow-up"></i></a></div>
 <!--            <h2>Creación de visitas</h2>-->
             <h2 id="visits">Creación de visitas</h2>
             <p>Para el inicio de la jornada y, una vez cargados los pacientes y médicos, se habilitará el
@@ -394,7 +393,7 @@
 
             <div class="flex center">
                                 <div class="flex center"><a href="/docs/images/admin/runningpopup.png"  class="lightbox" title="Expandir imagen"  data-group=visits8><div class="flex center mb2"> <img src="/docs/images/admin/runningpopup.png" alt="Pop Up de cancelación de jornada" style="max-width: 600px; width:100%;"></div></a></div>            </div>
-
+            <div class="align-left mt3"><a href="#main-content">Volver a Índice <i class="fa-solid fa-arrow-up"></i></a></div>
 <!--            <h2>Reportes</h2>-->
             <h2 id="reports">Reportes</h2>
             <p>El administrador, finalizado el mes, debe enviar a cada empresa que solicitó servicios médicos
@@ -419,7 +418,8 @@
             <div class="flex center">
                                 <div class="flex center"><a href="/docs/images/admin/report3.png"  class="lightbox" title="Expandir imagen"  data-group=reports3><div class="flex center mb2"> <img src="/docs/images/admin/report3.png" alt="Descarga de Reporte" style="max-width: 600px; width:100%;"></div></a></div>            </div>
 
-<!--            <h2> Detalle del diagnóstico</h2>-->
+            <div class="align-left mt3"><a href="#main-content">Volver a Índice <i class="fa-solid fa-arrow-up"></i></a></div>
+            <!--            <h2> Detalle del diagnóstico</h2>-->
             <h2 id="notes">Detalle del diagnóstico</h2>
 
             <p>Se ofrece la opción de detalle del diagnóstico al presionar un paciente sobre el reporte.</p>
@@ -440,7 +440,8 @@
 
             <div class="flex center">
                                 <div class="flex center"><a href="/docs/images/admin/night.png"  class="lightbox" title="Expandir imagen"  data-group=nightmode><div class="flex center mb2"> <img src="/docs/images/admin/night.png" alt="Modo noche y vista compacta en pantalla de Reporte" style="max-width: 600px; width:100%;"></div></a></div>            </div>
-
+            <div class="align-left mt3"><a href="#main-content">Volver a Índice <i class="fa-solid fa-arrow-up"></i></a></div>
+            
         </div>
     </main>
 
@@ -494,12 +495,11 @@
     <ul>
         <li><a href="/docs/core/languages.html">Selección del lenguaje para el desarrollo del core</a></li>
         <li><a href="/docs/core/algorithm.html">El algoritmo genético</a></li>
-        <li><a href="/docs/core/specs.html">Especificaciones técnicas</a></li>
         <li><a href="/docs/core/data.html">Análisis de datos obtenidos</a></li>
+        <li><a href="/docs/core/specs.html">Especificaciones técnicas</a></li>
     </ul>
 
-
-
+    
 
 </div>
 
@@ -1413,7 +1413,7 @@ esa solución antes de llegar al límite, se extiende la ejecución unas iteraci
             <p>Consideramos que los siguientes merecen una mención dentro de las funcionalidades implementadas
                 en el core, por integrar conocimientos de áreas distintas de la carrera</p>
             <ul>
-                <li><a href="#api-rest">Uso de API REST</a></li>
+<!--                <li><a href="#api-rest">Uso de API REST</a></li>-->
                 <li><a href="#concurrency">Ejecución de rutinas concurrentes</a></li>
                 <li><a href="#profiling">Profiling del código</a></li>
                 <li><a href="#database">Persistencia de datos</a></li>
@@ -1423,65 +1423,57 @@ esa solución antes de llegar al límite, se extiende la ejecución unas iteraci
                 <li><a href="#graphs">Gráficos</a></li>
             </ul>
 
-            <h2 id="api-rest">API REST</h2>
-            <p>
-                El algoritmo genético debe ejecutarse únicamente a pedido del backend, por lo que definimos una API REST para comunicar
-                ambas partes.
-            </p>
-            <p>
-                La misma consiste de dos requests distintos, uno que inicia la ejecución, y otro que consulta el estado
-                de la misma y su progreso:
-            </p>
-            <ul>
-                <li><b>Generar solución</b>: Request de tipo <span mono>POST</span> que envía los datos de las distancias entre todos los puntos
-                del mapa. Mediante estos datos es posible calcular las rutas utilizando nuestro algoritmo genético.</li>
-                <li><b>Obtener progreso/resultados</b>: Request de tipo <span mono>GET</span> que devuelve el progreso del cálculo (un número entre
-                0 y 1) y al llegar al final del cálculo, las secuencias de los puntos sugeridas para cada ruta
-                    (balanceada, priorizada y desbalanceada).</li>
-            </ul>
-            <p>
-                En el desarrollo de estas APIs hicimos uso de las siguientes buenas prácticas:
-            </p>
-            <ul>
-                <li>
-                    <b>Autenticación mediante token de los requests</b>: utilizamos un sistema de PSK (pre-shared-key) sin expiración por
-                    no ser necesaria más complejidad (sólo el backend puede acceder al core).
-                    Ambas partes poseen una clave secreta que se encripta mediante un algoritmo conocido entre ambas
-                    y se envía en cada request.
-                    Dado que ambas partes saben la clave secreta y cómo encriptarla, cuando el core recibe el token del backend
-                    lo coteja contra su encriptación de la pre-shared-key.
-                    Esto es una versión muy sencilla de encriptación simétrica.
-                </li>
-                <li>
-                    <b>Uso de códigos de respuesta HTML</b>: utilizamos los siguientes códigos de HTML en las respuestas de los
-                    distintos endpoints: 200, 400, 401 y 404 según corresponde
-                    <a href="https://www.rfc-editor.org/rfc/rfc9110.html#name-overview-of-status-codes" target="_blank"
-                       title="ver documentación en otra ventana">
-                        (ver RFC 9110)
-                    </a>.
-                </li>
-            </ul>
+<!--            <h2 id="api-rest">API REST</h2>-->
+<!--            <p>-->
+<!--                El algoritmo genético debe ejecutarse únicamente a pedido del backend, por lo que definimos una API REST para comunicar-->
+<!--                ambas partes.-->
+<!--            </p>-->
+<!--            <p>-->
+<!--                La misma consiste de dos requests distintos, uno que inicia la ejecución, y otro que consulta el estado-->
+<!--                de la misma y su progreso:-->
+<!--            </p>-->
+<!--            <ul>-->
+<!--                <li><b>Generar solución</b>: Request de tipo <span mono>POST</span> que envía los datos de las distancias entre todos los puntos-->
+<!--                del mapa. Mediante estos datos es posible calcular las rutas utilizando nuestro algoritmo genético.</li>-->
+<!--                <li><b>Obtener progreso/resultados</b>: Request de tipo <span mono>GET</span> que devuelve el progreso del cálculo (un número entre-->
+<!--                0 y 1) y al llegar al final del cálculo, las secuencias de los puntos sugeridas para cada ruta-->
+<!--                    (balanceada, priorizada y desbalanceada).</li>-->
+<!--            </ul>-->
+<!--            <p>-->
+<!--                En el desarrollo de estas APIs hicimos uso de las siguientes buenas prácticas:-->
+<!--            </p>-->
+<!--            <ul>-->
+<!--                <li>-->
+<!--                    <b>Autenticación mediante token de los requests</b>: utilizamos un sistema de PSK (pre-shared-key) sin expiración por-->
+<!--                    no ser necesaria más complejidad (sólo el backend puede acceder al core).-->
+<!--                    Ambas partes poseen una clave secreta que se encripta mediante un algoritmo conocido entre ambas-->
+<!--                    y se envía en cada request.-->
+<!--                    Dado que ambas partes saben la clave secreta y cómo encriptarla, cuando el core recibe el token del backend-->
+<!--                    lo coteja contra su encriptación de la pre-shared-key.-->
+<!--                    Esto es una versión muy sencilla de encriptación simétrica.-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <b>Uso de códigos de respuesta HTML</b>: utilizamos los siguientes códigos de HTML en las respuestas de los-->
+<!--                    distintos endpoints: 200, 400, 401 y 404 según corresponde-->
+<!--                    <a href="https://www.rfc-editor.org/rfc/rfc9110.html#name-overview-of-status-codes" target="_blank"-->
+<!--                       title="ver documentación en otra ventana">-->
+<!--                        (ver RFC 9110)-->
+<!--                    </a>.-->
+<!--                </li>-->
+<!--            </ul>-->
+<!---->
+<!--            <p>A continuación presentamos un diagrama simplificado de secuencia que representa la interacción entre el-->
+<!--            backend y el core.</p>-->
 
-            <p>A continuación presentamos un diagrama simplificado de secuencia que representa la interacción entre el
-            backend y el core.</p>
 
-            
-        <div class="flex center">
-        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 100%" role="group">
-            <img class="mw-inherit" src="/docs/images/sequence_backend_core.svg"
-                 alt="Diagrama de secuencia entre el backend y el core" width="100%">
-                 <hr/>
-            <figcaption><p><b>Figura:</b> Diagrama de secuencia entre el backend y el core</p></figcaption>
-        </figure>
-        </div>
-        
+
             <h2 id="concurrency">Ejecución de rutinas concurrentes</h2>
             <p>
                 El algoritmo genético tiene pasos que pueden ser paralelizables por ser independientes del resto de la ejecución.
                 Por esta razón hacemos uso de rutinas concurrentes en la implementación del core, aprovechando esa cualidad y
                 obteniendo así tiempos más cortos de ejecución.
             </p>
-            <p todo>poner tabla comparativa de tiempos</p>
+<!--            <p todo>poner tabla comparativa de tiempos</p>-->
             <p>
                 También paralelizamos las distintas ejecuciones del algoritmo, es decir, la búsqueda de las mejores soluciones
                 posibles balanceada, desbalanceada y priorizada para cada set de datos.
@@ -1524,7 +1516,7 @@ esa solución antes de llegar al límite, se extiende la ejecución unas iteraci
                 corridas ejecutadas, puesto que no es necesario más que eso según las reglas del negocio.
             </p>
             <p>
-                Por cuestiones de costos, la instancia del core que está instalada en la nube utiliza una <b>base de
+                <b>Por cuestiones de costos</b>, la instancia del core que está instalada en la nube utiliza una <b>base de
                 datos relacional</b> <a href="https://www.mysql.com/" target="_blank">MySql</a>.
                 El uso de una u otra base se define mediante un parámetro de configuración. El core está preparado para ejecutarse
                 de la misma forma en cualquiera de los dos casos.
@@ -1553,17 +1545,62 @@ esa solución antes de llegar al límite, se extiende la ejecución unas iteraci
             <p>
                 El core está preparado para poder retomar ejecuciones previas en caso de algún imprevisto, haciendo uso
                 de la base de datos asociada y del listado de ejecuciones en memoria (implementado mediante un Singleton,
-                ítem anterior).
+                ítem anterior). Para esto hace uso de una cola en memoria y la base de datos mencionada.
             </p>
             <p>
-                La idea de esto es asegurar que las ejecuciones realizadas no se vuelvan a ejecutar salvo que sea demandado
-                así por el usuario. Esto es para reducir el tiempo de ejecución en la nube y con esto, el costo del mismo.
+                Cuando el core recibe la orden de calcular rutas guarda una copia de los datos y lanza ejecuciones
+                concurrentes para obtener las rutas de cada tipo, como puede verse en el siguiente diagrama:
+            </p>
+            <div class="flex center flex-1"><a href="/docs/images/core/specs/sequence_backend_core.svg"  class="lightbox" title="Expandir imagen"  data-group=post>
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 100%" role="group">
+            <img class="mw-inherit" src="/docs/images/core/specs/sequence_backend_core.svg"
+                 alt="Diagrama de secuencia del cálculo de las rutas" width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Diagrama de secuencia del cálculo de las rutas</p></figcaption>
+        </figure>
+        </div>
+        </a></div>            <p>
+                A medida que las ejecuciones van terminando, van almacenando sus resultados en la base de datos.
             </p>
             <p>
-                De esta forma, si el core fuera a apagarse por alguna situación de fuerza mayor durante una corrida en la
-                que por ejemplo una de las tres ejecuciones ya estuviera completa, al reiniciar y volver a solicitar
-                los resultados de la ejecución, el core únicamente reiniciará las dos ejecuciones restantes.
+                Esto es útil dentro de la secuencia de ejecución, y además, porque permite asegurar que las ejecuciones
+                realizadas no se vuelvan a ejecutar por error (y asi evitar uso de procesamiento innecesario).
+                Esto es para reducir el tiempo de ejecución en la nube y con esto, el costo del mismo.
             </p>
+            <p>
+                Cuando el backend solicite la información calculada, se puede dar uno de los siguientes casos:
+            </p>
+            <div class="flex center flex-1"><a href="/docs/images/core/specs/getSolutions_queue.svg"  class="lightbox" title="Expandir imagen"  data-group=get>
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 100%" role="group">
+            <img class="mw-inherit" src="/docs/images/core/specs/getSolutions_queue.svg"
+                 alt="Diagrama de secuencia de la devolución de las rutas, en el caso en que todavía están siendo calculadas" width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Diagrama de secuencia de la devolución de las rutas, en el caso en que todavía están siendo calculadas</p></figcaption>
+        </figure>
+        </div>
+        </a></div><div class="flex center flex-1"><a href="/docs/images/core/specs/getSolutions_db.svg"  class="lightbox" title="Expandir imagen"  data-group=get>
+        <div class="flex center">
+        <figure class="mw-inherit mt2 mb3" style="text-align: center;max-width: 100%" role="group">
+            <img class="mw-inherit" src="/docs/images/core/specs/getSolutions_db.svg"
+                 alt="Diagrama de secuencia de la devolución de las rutas, en el caso en que ya fueron calculadas" width="100%">
+                 <hr/>
+            <figcaption><p><b>Figura:</b> Diagrama de secuencia de la devolución de las rutas, en el caso en que ya fueron calculadas</p></figcaption>
+        </figure>
+        </div>
+        </a></div>            <p>
+                El core devuelve un porcentaje de completitud mientras la ejecución no esté terminada, y en ese caso,
+                las rutas calculadas.
+            </p>
+            <p>
+                Este esquema permite también que en caso de una situación excepcional, si el core fuera a apagarse
+                durante una corrida en la que por ejemplo una de las tres ejecuciones ya estuviera completa,
+                al reiniciar y volver a solicitar
+                los resultados de la ejecución, el core únicamente reiniciará las dos ejecuciones restantes (ahorrando
+                recursos).
+            </p>
+
 
             <h2 id="tests">Tests</h2>
             <p>

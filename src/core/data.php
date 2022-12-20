@@ -336,8 +336,8 @@ $unbalanced = new Figure(
             </p>
 
             <?php prevAndNext(
-                ['path' => "/docs/core/specs.html", 'title'=>"Especificaciones técnicas"],
-                []
+                ['path' => "/docs/core/algorithm.html", 'title'=>"El algoritmo genético"],
+                ['path' => "/docs/core/specs.html", 'title'=>"Especificaciones técnicas"]
 //                ['path' => "/docs/core/specs.html", 'title'=>"El core"]
             ); ?>
 
