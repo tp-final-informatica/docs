@@ -120,9 +120,61 @@ de la siguiente generación. La elección de qué función usar se hace de maner
 
 
 
-<h3>Comparación de resultados entre ambas distribuciones</h3>
+<h3 id="survivors-comparison">Comparación de resultados entre ambas distribuciones probabilísticas <span todo>Nuevo!</span></h3>
+    <p>
+        Para elegir la relación de ejecución entre una u otra probabilidad de selección realizamos
+        una serie de ejecuciones en un set de datos conocido con distintas combinaciones:
+    </p>
+    <ul>
+        <li>sólo escalonada</li>
+        <li>75% escalonada/25% exponencial</li>
+        <li>50% escalonada/50% exponencial</li>
+        <li>25% escalonada/75% exponencial</li>
+        <li>sólo exponencial</li>
+    </ul>
 
-<p todo>aca pensé en ejecutar el core variando la probabilidad de elegir una u otra. Tendría que hacerlo muchas veces y sacar promedio.</p>
+    <p>
+        Presentamos los datos obtenidos empíricamente en la siguiente tabla:
+    </p>
+
+    <table class="table table-bordered table-hover table-condensed">
+        <thead><tr><th title="Field #1">Relación escalonada/exponencial</th>
+            <th title="Field #2">Distancia a la mejor solución conocida</th>
+            <th title="Field #3">Tiempo de ejecución</th>
+        </tr></thead>
+        <tbody><tr>
+            <td>100% escalonada</td>
+            <td align="right">12.0% mayor que la mejor solución</td>
+            <td align="right">18 segundos</td>
+        </tr>
+        <tr>
+            <td>75/25</td>
+            <td align="right">6.7% mayor que la mejor solución</td>
+            <td align="right">17 segundos</td>
+        </tr>
+        <tr>
+            <td>50/50</td>
+            <td style="background-color: #70ABAF61;">1.4% mayor que la mejor solución</td>
+            <td align="right">22 segundos</td>
+        </tr>
+        <tr>
+            <td style="background-color: #70ABAF61;">25/75</td>
+            <td style="background-color: #70ABAF61;">1.7% mayor que la mejor solución</td>
+            <td style="background-color: #70ABAF61;">18 segundos</td>
+        </tr>
+        <tr>
+            <td>100% exponencial</td>
+            <td align="right">5.8% mayor que la mejor solución</td>
+            <td align="right">20 segundos</td>
+        </tr>
+        </tbody></table>
+
+
+    <p>
+        Como puede verse en la tabla, los mejores resultados se obtuvieron con las relaciones 50/50 y 25/75, entre los
+        que la diferencia es casi imperceptible. Nos quedamos con la relación 25/75 porque las ejecuciones duraron menos
+        tiempo, es decir, la convergencia se dio mucho más rápido.
+    </p>
 
 
 <?php print_section_footer(); ?>

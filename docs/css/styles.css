@@ -87,9 +87,9 @@ table {
   display: block;
   max-width: -moz-fit-content;
   max-width: fit-content;
-  margin: 0 auto;
+  margin: 2em auto;
   overflow-x: auto;
-  margin-bottom: 2em; }
+  line-height: 1.2em; }
   table th {
     text-align: start;
     padding: 1em; }

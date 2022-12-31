@@ -52,7 +52,7 @@ h2, h3 {
 h4, h5, h6 {
   padding-top: 1.25rem; }
 
-p, li, a, button, label {
+p, li, a, button, label, th, td {
   font-family: 'Hind', sans-serif;
   margin-top: 0;
   font-size: large; }

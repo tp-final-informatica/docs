@@ -18,6 +18,20 @@ include_once "./src/utils/libraries.php";
 
     <ul>
         <li class="<? print $item_classes?>">
+            <div><span mono>31 Dic 2022:</span></div>
+            <div>
+                <ul>
+                    <li><a href="/docs/core/algorithm.html#survivors-comparison">Comparación de resultados entre
+                        distintas combinaciones de distribuciones probabilísticas para la selección de soluciones
+                        sobrevivientes</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/docs/core/algorithm.html#parents-comparison">Comparación de resultados entre
+                            distintas combinaciones de selección de padres para generar nuevas soluciones.</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="<? print $item_classes?>">
             <div><span mono>18 Dic 2022:</span></div>
             <div>
                 <ul>
