@@ -1,6 +1,9 @@
 <?php
 
-function HTML_head($title) {
+function HTML_head($title, $print = false) {
+    if (!$print && PRINTPAGE == true) {
+        return;
+    }
     print ('<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,7 +29,10 @@ function HTML_head($title) {
 ');
 }
 
-function HTML_foot() {
+function HTML_foot($print = false) {
+    if (!$print && PRINTPAGE == true) {
+        return;
+    }
     if(localdevonly()) {
         print('<script type="text/javascript" src="http://livejs.com/live.js"></script>');
     }

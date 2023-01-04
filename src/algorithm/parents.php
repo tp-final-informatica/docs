@@ -90,8 +90,13 @@ $id = "parents";
             <th title="Field #3">Tiempo de ejecución</th>
         </tr></thead>
         <tbody>
+<!--        <tr>-->
+<!--            <td style="background-color: #70ABAF61;">15/85</td>-->
+<!--            <td style="background-color: #70ABAF61;">1.4% mayor que la mejor solución</td>-->
+<!--            <td style="background-color: #70ABAF61;" >18 segundos</td>-->
+<!--        </tr>-->
         <tr>
-            <td style="background-color: #70ABAF61;">15/85</td>
+            <td style="background-color: #70ABAF61;">12.5/87.5</td>
             <td style="background-color: #70ABAF61;">1.4% mayor que la mejor solución</td>
             <td style="background-color: #70ABAF61;" >18 segundos</td>
         </tr>

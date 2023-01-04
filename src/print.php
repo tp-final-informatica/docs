@@ -1,3 +1,4 @@
+
 <?php
 define('PRINTPAGE', true);
 
@@ -6,8 +7,8 @@ include_once "./src/utils/libraries.php";
 
 ?>
 
-<?php HTML_head("Versión para imprimir"); ?>
-<main id="main-content print">
+<?php HTML_head("Versión para imprimir", true); ?>
+<main id="main-content" class="print">
 <div class="content">
 
 
@@ -17,7 +18,9 @@ include_once "./src/utils/libraries.php";
 
     include_once "./src/index.php";
     include_once "./src/sitemap.php";
-    include_once "./src/macro.php";
+    include_once "./src/macro.php"; ?>
+    <span class="print-break"></span>
+    <?php
     include_once "./src/web-interface.php";
     include_once "./src/mobile.php";
     include_once "./src/core.php";
@@ -42,5 +45,5 @@ include_once "./src/utils/libraries.php";
 
 </div>
 </main>
-<?php footer(); ?>
+<?php footer(true); ?>
 <?php HTML_foot(); ?>
