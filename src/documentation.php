@@ -26,7 +26,176 @@ include_once "./src/utils/libraries.php";
             <? $index_doc->print_index(); ?>
 
             <? $index_doc->section_subheading_by_id("scenario"); ?>
-            <p todo>Completar</p>
+
+            <p>
+                La Vista de Escenarios o Casos de Uso presenta un subconjunto del Modelo de Casos de Uso.
+                Representan las funcionalidades centrales del sistema, que requieran una gran cobertura
+                arquitectónica o aquellos que impliquen algún punto especialmente delicado de la arquitectura.
+                Estos casos de uso, en conjunto con los requerimientos no funcionales, permiten descubrir y
+                diseñar la arquitectura del sistema.
+            </p>
+
+            <h3>Admin</h3>
+            <?php
+            $thumbnail_width = "500px";
+            $use_case_admin = new Figure("/docs/images/documentation/use_case_admin.png", $thumbnail_width,
+            "", "Casos de uso del admin: crear jornada y cancelar jornada", "");
+            $use_case_admin->print_img();
+            ?>
+
+
+            <table class="table table-bordered table-hover table-condensed">
+                <thead><tr>
+                    <th title="Field #1">Caso de uso:</th>
+                    <th title="Field #2">
+                        Crear jornada
+                    </th>
+                </tr></thead>
+                <tbody>
+                <tr>
+                    <td style="">Actores</td>
+                    <td style="">Admin</td>
+                </tr>
+                <tr>
+                    <td style="">Precondiciones</td>
+                    <td style="">Sesión del admin iniciada; Médicos y Pacientes cargados.</td>
+                </tr>
+                <tr>
+                    <td style="">Postcondiciones</td>
+                    <td style="">
+                        Jornada creada y rutas asignadas a los médicos.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="">Propósito</td>
+                    <td style="">
+                        Generar las rutas de los médicos a partir de los pacientes a visitar en el día.
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+
+            <table class="table table-bordered table-hover table-condensed">
+                <thead><tr>
+                    <th title="Field #1">Caso de uso:</th>
+                    <th title="Field #2">
+                        Cancelar jornada
+                    </th>
+                </tr></thead>
+                <tbody>
+                <tr>
+                    <td style="">Actores</td>
+                    <td style="">Admin</td>
+                </tr>
+                <tr>
+                    <td style="">Precondiciones</td>
+                    <td style="">Viaje iniciado</td>
+                </tr>
+                <tr>
+                    <td style="">Postcondiciones</td>
+                    <td style="">
+                        Viaje cancelado. Los pacientes que no fueron visitados podrán ser asignados en
+                        una nueva jornada.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="">Propósito</td>
+                    <td style="">
+                        <ul>
+                            <li>
+                                Algún médico sufre un imprevisto y debe darse de baja de la jornada. y el admin necesita recalcular la jornada.
+                            </li>
+                            <li>
+                                Por error del administrador.
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+
+
+
+            <h3>Médico/viajante</h3>
+            <?php
+            $use_case_md = new Figure("/docs/images/documentation/use_case_md.png", $thumbnail_width ,
+                "", "Caso de uso del médico: visita de pacientes", "");
+            $use_case_md->print_img();
+            ?>
+
+            <table class="table table-bordered table-hover table-condensed">
+                <thead><tr>
+                    <th title="Field #1">Caso de uso:</th>
+                    <th title="Field #2">
+                        Visita de Pacientes
+                    </th>
+                </tr></thead>
+                <tbody>
+                <tr>
+                    <td style="">Actores</td>
+                    <td style="">Viajante / Médico</td>
+                </tr>
+                <tr>
+                    <td style="">Precondiciones</td>
+                    <td style="">Médico con sesión iniciada; Viaje creado</td>
+                </tr>
+                <tr>
+                    <td style="">Postcondiciones</td>
+                    <td style="">Registro de la visita, con una nota asociada.</td>
+                </tr>
+                <tr>
+                    <td style="">Propósito</td>
+                    <td style="">
+                        El médico, siguiendo el orden sugerido de las rutas, debe ir visitando a
+                        los pacientes que se le asignó. Una vez visitado, debe registrar la visita por
+                        medio de la app, indicando algún comentario. Si por algún motivo de fuerza mayor
+                        no pudo visitarlo, debe indicarlo en la nota.
+                    </td>
+                </tr>
+                </tbody></table>
+
+
+            <h3>Core/Algoritmo <abbr title="Multiple Traveling Salesmen Problem">mTSP</abbr></h3>
+            <?php
+            $use_case_core = new Figure("/docs/images/documentation/use_case_core.png", $thumbnail_width ,
+                "", "Caso de uso del Core: calcular viaje", "");
+            $use_case_core->print_img();
+            ?>
+
+
+            <table class="table table-bordered table-hover table-condensed">
+                <thead><tr>
+                    <th title="Field #1">Caso de uso:</th>
+                    <th title="Field #2">
+                        Calcular Viaje
+                    </th>
+                </tr></thead>
+                <tbody>
+                <tr>
+                    <td style="">Actores</td>
+                    <td style="">App cliente</td>
+                </tr>
+                <tr>
+                    <td style="">Precondiciones</td>
+                    <td style="">Las distancias entre todos los puntos a visitar, los viajantes y sus
+                        posiciones de salida y fin.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="">Postcondiciones</td>
+                    <td style="">
+                        Tres distintas soluciones que optimizan distintos parámetros.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="">Propósito</td>
+                    <td style="">
+                        Es el core del sistema. Calcula soluciones al problema del múltiple viajante. A partir de las soluciones arrojadas por el core, los médicos podrán recibir las rutas para visitar a los pacientes.
+                    </td>
+                </tr>
+                </tbody></table>
 
             <? $index_doc->link_back_to_index(); ?>
             <? $index_doc->section_subheading_by_id("logic"); ?>

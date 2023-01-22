@@ -18,6 +18,14 @@ include_once "./src/utils/libraries.php";
 
     <ul>
         <li class="<? print $item_classes?>">
+            <div><span mono>22 Ene 2023:</span></div>
+            <div>
+                <ul>
+                    <li>Completamos el <a href="/docs/documentation.html">Documento de Aquitectura</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="<? print $item_classes?>">
             <div><span mono>31 Dic 2022:</span></div>
             <div>
                 <ul>

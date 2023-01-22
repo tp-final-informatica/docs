@@ -2018,7 +2018,160 @@ esa solución antes de llegar al límite, se extiende la ejecución unas iteraci
 
             
                         <ul><li><a href="#scenario">Vista Escenarios</a></li><li><a href="#logic">Vista Lógica</a></li><li><a href="#processes">Vista Procesos</a></li><li><a href="#physic">Vista Física</a></li><li><a href="#development">Vista Desarrollo</a></li></ul>
-            <h2 id="scenario">Vista Escenarios</h2>            <p todo>Completar</p>
+            <h2 id="scenario">Vista Escenarios</h2>
+            <p>
+                La Vista de Escenarios o Casos de Uso presenta un subconjunto del Modelo de Casos de Uso.
+                Representan las funcionalidades centrales del sistema, que requieran una gran cobertura
+                arquitectónica o aquellos que impliquen algún punto especialmente delicado de la arquitectura.
+                Estos casos de uso, en conjunto con los requerimientos no funcionales, permiten descubrir y
+                diseñar la arquitectura del sistema.
+            </p>
+
+            <h3>Admin</h3>
+            <div class="flex center mb2"> <img src="/docs/images/documentation/use_case_admin.png" alt="Casos de uso del admin: crear jornada y cancelar jornada" style="max-width: 500px; width:100%;"></div>
+
+            <table class="table table-bordered table-hover table-condensed">
+                <thead><tr>
+                    <th title="Field #1">Caso de uso:</th>
+                    <th title="Field #2">
+                        Crear jornada
+                    </th>
+                </tr></thead>
+                <tbody>
+                <tr>
+                    <td style="">Actores</td>
+                    <td style="">Admin</td>
+                </tr>
+                <tr>
+                    <td style="">Precondiciones</td>
+                    <td style="">Sesión del admin iniciada; Médicos y Pacientes cargados.</td>
+                </tr>
+                <tr>
+                    <td style="">Postcondiciones</td>
+                    <td style="">
+                        Jornada creada y rutas asignadas a los médicos.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="">Propósito</td>
+                    <td style="">
+                        Generar las rutas de los médicos a partir de los pacientes a visitar en el día.
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+
+            <table class="table table-bordered table-hover table-condensed">
+                <thead><tr>
+                    <th title="Field #1">Caso de uso:</th>
+                    <th title="Field #2">
+                        Cancelar jornada
+                    </th>
+                </tr></thead>
+                <tbody>
+                <tr>
+                    <td style="">Actores</td>
+                    <td style="">Admin</td>
+                </tr>
+                <tr>
+                    <td style="">Precondiciones</td>
+                    <td style="">Viaje iniciado</td>
+                </tr>
+                <tr>
+                    <td style="">Postcondiciones</td>
+                    <td style="">
+                        Viaje cancelado. Los pacientes que no fueron visitados podrán ser asignados en
+                        una nueva jornada.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="">Propósito</td>
+                    <td style="">
+                        <ul>
+                            <li>
+                                Algún médico sufre un imprevisto y debe darse de baja de la jornada. y el admin necesita recalcular la jornada.
+                            </li>
+                            <li>
+                                Por error del administrador.
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+
+
+
+            <h3>Médico/viajante</h3>
+            <div class="flex center mb2"> <img src="/docs/images/documentation/use_case_md.png" alt="Caso de uso del médico: visita de pacientes" style="max-width: 500px; width:100%;"></div>
+            <table class="table table-bordered table-hover table-condensed">
+                <thead><tr>
+                    <th title="Field #1">Caso de uso:</th>
+                    <th title="Field #2">
+                        Visita de Pacientes
+                    </th>
+                </tr></thead>
+                <tbody>
+                <tr>
+                    <td style="">Actores</td>
+                    <td style="">Viajante / Médico</td>
+                </tr>
+                <tr>
+                    <td style="">Precondiciones</td>
+                    <td style="">Médico con sesión iniciada; Viaje creado</td>
+                </tr>
+                <tr>
+                    <td style="">Postcondiciones</td>
+                    <td style="">Registro de la visita, con una nota asociada.</td>
+                </tr>
+                <tr>
+                    <td style="">Propósito</td>
+                    <td style="">
+                        El médico, siguiendo el orden sugerido de las rutas, debe ir visitando a
+                        los pacientes que se le asignó. Una vez visitado, debe registrar la visita por
+                        medio de la app, indicando algún comentario. Si por algún motivo de fuerza mayor
+                        no pudo visitarlo, debe indicarlo en la nota.
+                    </td>
+                </tr>
+                </tbody></table>
+
+
+            <h3>Core/Algoritmo <abbr title="Multiple Traveling Salesmen Problem">mTSP</abbr></h3>
+            <div class="flex center mb2"> <img src="/docs/images/documentation/use_case_core.png" alt="Caso de uso del Core: calcular viaje" style="max-width: 500px; width:100%;"></div>
+
+            <table class="table table-bordered table-hover table-condensed">
+                <thead><tr>
+                    <th title="Field #1">Caso de uso:</th>
+                    <th title="Field #2">
+                        Calcular Viaje
+                    </th>
+                </tr></thead>
+                <tbody>
+                <tr>
+                    <td style="">Actores</td>
+                    <td style="">App cliente</td>
+                </tr>
+                <tr>
+                    <td style="">Precondiciones</td>
+                    <td style="">Las distancias entre todos los puntos a visitar, los viajantes y sus
+                        posiciones de salida y fin.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="">Postcondiciones</td>
+                    <td style="">
+                        Tres distintas soluciones que optimizan distintos parámetros.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="">Propósito</td>
+                    <td style="">
+                        Es el core del sistema. Calcula soluciones al problema del múltiple viajante. A partir de las soluciones arrojadas por el core, los médicos podrán recibir las rutas para visitar a los pacientes.
+                    </td>
+                </tr>
+                </tbody></table>
 
                         <h2 id="logic">Vista Lógica</h2>
             <p>
