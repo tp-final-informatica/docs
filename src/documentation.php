@@ -286,14 +286,14 @@ include_once "./src/utils/libraries.php";
                 </a> para calcular las distancias entre todas las locaciones.
             </p>
             <p>
-                Una vez que conoce las distancias, <s>calcula</s><span todo>inicia el cálculo de</span> las soluciones
+                Una vez que conoce las distancias, inicia el cálculo de las soluciones
                 realizando una petición POST contra la API
                 Core, quién retorna un <em>id</em> de la ejecución para poder consultar posteriormente por el resultado.
                 Esto se debe a que el core puede estar varios minutos calculando una solución.
                 Así de manera asíncrona (dentro de una goroutine) el backend realiza un pooling cada X segundos para
                 ir consultando el estado de la corrida.
             </p>
-            <p todo>
+            <p>
                 La comunicación entre el core y el backend se seguriza mediante el uso de una
                 <abbr title="Pre-shared key">PSK</abbr> que se encripta de forma simétrica, es decir, el core
                 y el backend conocen la llave y la forma de encriptarla, y comparan el resultado para autenticarse.

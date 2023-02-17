@@ -10,7 +10,7 @@ $id = "parents";
     <h3>Por fitness para uno de los padres</h3>
     <p>Con una probabilidad baja permitimos una selección de padres en la que nos aseguramos que al menos uno de los padres tenga buen fitness. Tomamos uno de los padres del mejor 10% de las soluciones, y el otro de forma aleatoria. Esto lo hicimos a modo de prueba para evaluar la incidencia en el resultado final.</p>
 
-    <h3 id="parents-comparison">Combinación de ambas selecciones <span todo>Nuevo!</span></h3>
+    <h3 id="parents-comparison">Combinación de ambas selecciones</h3>
 
     <p>
         El método selección de los padres de una nueva solución tiene que ser único para una solución dada.

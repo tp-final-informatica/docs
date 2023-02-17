@@ -132,11 +132,10 @@ include_once "./src/utils/libraries.php";
                 </li>
             </ul>
 
-            <p todo>la version nueva de la app esta más clara, habria que sacar screenshot de eso.</p>
             <div class="flex center">
 
                 <?php $image3 = new Figure(
-                    "/docs/images/app/visitadosiono.jpg",
+                    "/docs/images/app/visitadosiono.jpg", // ESTE!
                     "200px",
                     "/docs/images/app/visitadosiono.jpg",
                     "Edición de nota",

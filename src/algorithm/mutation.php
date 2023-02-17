@@ -45,8 +45,8 @@ function REM() {
         ['id'=> "jdm", 'value' => 'Jump displacement mutation (<abbr title="Jump Displacement Mutation">JDM</abbr>)'],
         ['id'=> "jrsm", 'value' => 'Jump reverse sequence mutation (<abbr title="Jump Reverse Sequence Mutation">JRSM</abbr>)'],
         ['id'=> "jpsm", 'value' => 'Jump partially shuffled mutation (<abbr title="Jump Partially Shuffled Mutation">JPSM</abbr>)'],
-        ['id'=> "erm", 'value' => 'Empty route mutation <span todo>Nuevo!</span> (<abbr title="Empty Route Mutation">ERM</abbr>)'],
-        ['id'=> "rem", 'value' => 'Reduce Entropy Mutation <span todo>Nuevo!</span> (<abbr title="Reduce Entropy Mutation">REM</abbr>)']
+        ['id'=> "erm", 'value' => 'Empty route mutation (<abbr title="Empty Route Mutation">ERM</abbr>)'],
+        ['id'=> "rem", 'value' => 'Reduce Entropy Mutation (<abbr title="Reduce Entropy Mutation">REM</abbr>)']
     ])
 ?>
 
@@ -70,11 +70,11 @@ function REM() {
     <p>Las siguientes cuatro mutaciones son adaptaciones que realizamos de las mutaciones anteriores, considerando nuestro
         problema de múltiples viajeros con distintas rutas.
     </p>
-    <p todo>Las últimas mutaciones (<?php ERM(); ?> y <?php REM(); ?>) fueron agregadas para ayudar al algoritmo en
+    <p>Las últimas mutaciones (<?php ERM(); ?> y <?php REM(); ?>) fueron agregadas para ayudar al algoritmo en
         casos especiales.</p>
 
 
-    <p todo>Las mutaciones se aplican a cada solución, si el rate de mutación se cumple. Esto implica que por cada solución a mutar
+    <p>Las mutaciones se aplican a cada solución, si el rate de mutación se cumple. Esto implica que por cada solución a mutar
         podemos obtener hasta 8 variantes, que luego serán seleccionadas o descartadas según el <a href="#survivors">criterio de supervivencia</a>.</p>
 <!--    <p todo>En realidad estoy pensando en dirigir las mutaciones según los mejores resultados. graficar</p>-->
 
@@ -138,8 +138,6 @@ Si bien esta mutación es muy sencilla, resultó ser de vital importancia en el 
             <a href="#psm"><abbr title="Partial Shuffled Mutation">DM</abbr></a> para variar los cromosomas entre rutas también.
             </p>');
 ?>
-
-    <p todo>poner graficos comparativos</p>
 
 
 <?php $mutation_index->link_back_to_index(); ?>

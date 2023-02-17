@@ -9,7 +9,7 @@ $id = "more";
         del algoritmo.
     </p>
 
-    <h3>Shake mutation <span todo>Nuevo!</span></h3>
+    <h3>Shake mutation</h3>
     <p>
         Notamos que el algoritmo en general converge hacia una solución, y luego
         tarda muchas iteraciones en encontrar soluciones mejores. Por esta razón planteamos
@@ -28,7 +28,7 @@ $id = "more";
     <p>
         Finalmente decidimos retirar esta modificación del algoritmo.
     </p>
-    <h3>Sort + immigration <span todo>Nuevo!</span></h3>
+    <h3>Sort + immigration</h3>
     <p>
         Nuevamente, intentando atacar el estancamiento del algoritmo agregamos otra modificación en
         la que esta vez, a intervalos regulares duplicamos el pool genético justo antes del proceso

@@ -30,15 +30,15 @@
         <p>El algoritmo genético consta de las siguientes partes</p>
         <ol>
             <li><a href="#chromosome">Definición de cromosoma</a></li>
-            <li><a href="#population">Tamaño de la población y cantidad de generaciones <span todo>Nuevo!</span></a></li>
+            <li><a href="#population">Tamaño de la población y cantidad de generaciones</a></li>
             <li><a href="#first-gen">Armado de población inicial</a></li>
             <li><a href="#fitness">Definición de función de fitness</a></li>
             <li><a href="#parents">Selección de padres</a></li>
-            <li><a href="#crossover">Crossover <span todo>Nuevo!</span></a></li>
-            <li><a href="#mutation">Mutación <span todo>Nuevo!</span></a></li>
+            <li><a href="#crossover">Crossover</a></li>
+            <li><a href="#mutation">Mutación</a></li>
             <li><a href="#survivors">Selección de soluciones sobrevivientes</a></li>
             <li><a href="#end-criteria">Criterio de finalización</a></li>
-            <li><a href="#more">Modificaciones al algoritmo<span todo>Nuevo!</span></a></li>
+            <li><a href="#more">Modificaciones al algoritmo</a></li>
         </ol>
 
         <p>La definición de cada uno de estos pasos afecta el resultado final del algoritmo. A continuación detallamos nuestras decisiones en cada paso.</p>
@@ -223,7 +223,7 @@
     <h3>Por fitness para uno de los padres</h3>
     <p>Con una probabilidad baja permitimos una selección de padres en la que nos aseguramos que al menos uno de los padres tenga buen fitness. Tomamos uno de los padres del mejor 10% de las soluciones, y el otro de forma aleatoria. Esto lo hicimos a modo de prueba para evaluar la incidencia en el resultado final.</p>
 
-    <h3 id="parents-comparison">Combinación de ambas selecciones <span todo>Nuevo!</span></h3>
+    <h3 id="parents-comparison">Combinación de ambas selecciones</h3>
 
     <p>
         El método selección de los padres de una nueva solución tiene que ser único para una solución dada.
@@ -338,8 +338,8 @@
         pueden pertenecer a cualquiera de las rutas de los viajantes.</p>
     <p>Nuestro algoritmo hereda los puntos compartidos por los padres a las soluciones hijas, y distribuye los puntos
         no compartidos entre las soluciones hijas de manera aleatoria.</p>
-    <p>Finalmente se modifica el orden de las rutas <s>aleatoriamente también</s><span todo>mediante el siguiente algoritmo:</span></p>
-    <ul todo>
+    <p>Finalmente se modifica el orden de las rutas mediante el siguiente algoritmo:</p>
+    <ul>
         <li>
             se elige una visita de la ruta de forma aleatoria,
         </li>
@@ -469,7 +469,7 @@
 
     <p>Las siguientes son las distintas mutaciones que aplicamos en la ejecución de nuestro algoritmo genético.</p>
 
-    <ol><li><a href="#dm">TWORS/Displacement mutation (<abbr title="Displacement Mutation">DM</abbr>)</a></li><li><a href="#rsm">Reverse sequence mutation (<abbr title="Reverse Sequence Mutation">RSM</abbr>)</a></li><li><a href="#psm">Partially shuffled mutation (<abbr title="Partially Shuffled Mutation">PSM</abbr>)</a></li><li><a href="#jm">Jump mutation (<abbr title="Jump Mutation">JM</abbr>)</a></li><li><a href="#jdm">Jump displacement mutation (<abbr title="Jump Displacement Mutation">JDM</abbr>)</a></li><li><a href="#jrsm">Jump reverse sequence mutation (<abbr title="Jump Reverse Sequence Mutation">JRSM</abbr>)</a></li><li><a href="#jpsm">Jump partially shuffled mutation (<abbr title="Jump Partially Shuffled Mutation">JPSM</abbr>)</a></li><li><a href="#erm">Empty route mutation <span todo>Nuevo!</span> (<abbr title="Empty Route Mutation">ERM</abbr>)</a></li><li><a href="#rem">Reduce Entropy Mutation <span todo>Nuevo!</span> (<abbr title="Reduce Entropy Mutation">REM</abbr>)</a></li></ol>
+    <ol><li><a href="#dm">TWORS/Displacement mutation (<abbr title="Displacement Mutation">DM</abbr>)</a></li><li><a href="#rsm">Reverse sequence mutation (<abbr title="Reverse Sequence Mutation">RSM</abbr>)</a></li><li><a href="#psm">Partially shuffled mutation (<abbr title="Partially Shuffled Mutation">PSM</abbr>)</a></li><li><a href="#jm">Jump mutation (<abbr title="Jump Mutation">JM</abbr>)</a></li><li><a href="#jdm">Jump displacement mutation (<abbr title="Jump Displacement Mutation">JDM</abbr>)</a></li><li><a href="#jrsm">Jump reverse sequence mutation (<abbr title="Jump Reverse Sequence Mutation">JRSM</abbr>)</a></li><li><a href="#jpsm">Jump partially shuffled mutation (<abbr title="Jump Partially Shuffled Mutation">JPSM</abbr>)</a></li><li><a href="#erm">Empty route mutation (<abbr title="Empty Route Mutation">ERM</abbr>)</a></li><li><a href="#rem">Reduce Entropy Mutation (<abbr title="Reduce Entropy Mutation">REM</abbr>)</a></li></ol>
     <p>Las primeras tres mutaciones mencionadas fueron obtenidas de la bibliografía <span data-toggletip>En especial,
         de estos papers: "Analyzing the Performance of Mutation Operators to Solve the Traveling Salesman Problem",
         y "Genetic Algorithms for the Traveling Salesman Problem: A Review of Representations and Operations".</span>
@@ -478,11 +478,11 @@
     <p>Las siguientes cuatro mutaciones son adaptaciones que realizamos de las mutaciones anteriores, considerando nuestro
         problema de múltiples viajeros con distintas rutas.
     </p>
-    <p todo>Las últimas mutaciones (<a href="#erm"><abbr title="Empty Route Mutation">ERM</abbr></a> y <a href="#rem"><abbr title="Reduce Entropy Mutation">REM</abbr></a>) fueron agregadas para ayudar al algoritmo en
+    <p>Las últimas mutaciones (<a href="#erm"><abbr title="Empty Route Mutation">ERM</abbr></a> y <a href="#rem"><abbr title="Reduce Entropy Mutation">REM</abbr></a>) fueron agregadas para ayudar al algoritmo en
         casos especiales.</p>
 
 
-    <p todo>Las mutaciones se aplican a cada solución, si el rate de mutación se cumple. Esto implica que por cada solución a mutar
+    <p>Las mutaciones se aplican a cada solución, si el rate de mutación se cumple. Esto implica que por cada solución a mutar
         podemos obtener hasta 8 variantes, que luego serán seleccionadas o descartadas según el <a href="#survivors">criterio de supervivencia</a>.</p>
 <!--    <p todo>En realidad estoy pensando en dirigir las mutaciones según los mejores resultados. graficar</p>-->
 
@@ -528,8 +528,6 @@ Si bien esta mutación es muy sencilla, resultó ser de vital importancia en el 
             <a href="#psm"><abbr title="Partial Shuffled Mutation">DM</abbr></a> para variar los cromosomas entre rutas también.
             </p></div>
     </fieldset>
-    <p todo>poner graficos comparativos</p>
-
 
 <div class="align-left mt3"><a href="#mutation">Volver a Mutación <i class="fa-solid fa-arrow-up"></i></a></div><h3 id="jdm">Jump displacement mutation (<abbr title="Jump Displacement Mutation">JDM</abbr>)</h3><!--    <h3 id="jdm">Jump Displacement Mutation (JDM)</h3>-->
     <p>Esta mutación es una variante de <a href="#dm"><abbr title="Displacement Mutation">DM</abbr></a>, en la que efectuamos el intercambio de visitas entre rutas distintas (si
@@ -553,7 +551,7 @@ Si bien esta mutación es muy sencilla, resultó ser de vital importancia en el 
       <div class="mutation"><div class="flex wrap gap3 mb2">  <div><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div></div>  <div class="underline-light">viajante A</div>  </div>  <div><div class="flex"><div class="circle light"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>7</p></div></div>  <div class="underline-light">viajante B</div>  </div></div></div>    <p>Cambiamos el orden de los elementos de forma aleatoria, por ejemplo: <span mono>3,2,4</span>, e insertamos
     esta secuencia en un punto aleatorio dentro de otra ruta de la misma solución:</p>
       <div class="mutation"><div class="flex wrap gap3 mb2">  <div><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div></div>  <div class="underline-light">viajante A</div>  </div>  <div><div class="flex"><div class="circle light"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>7</p></div></div>  <div class="underline-light">viajante B</div>  </div></div></div>
-<div class="align-left mt3"><a href="#mutation">Volver a Mutación <i class="fa-solid fa-arrow-up"></i></a></div><h3 id="erm">Empty route mutation <span todo>Nuevo!</span> (<abbr title="Empty Route Mutation">ERM</abbr>)</h3><!--    <h3 id="erm">Empty route mutation (ERM) <span todo>Nuevo!</span></h3>-->
+<div class="align-left mt3"><a href="#mutation">Volver a Mutación <i class="fa-solid fa-arrow-up"></i></a></div><h3 id="erm">Empty route mutation (<abbr title="Empty Route Mutation">ERM</abbr>)</h3><!--    <h3 id="erm">Empty route mutation (ERM) <span todo>Nuevo!</span></h3>-->
     <p>Esta mutación fue agregada para ayudar al algoritmo en las ejecuciones no balanceadas. Esto es porque las mutaciones
         y crossovers disponibles hasta el momento de desarrollarla no favorecían este tipo de ejecuciones, es decir, era poco probable que
         devolvieran rutas vacías.</p>
@@ -567,7 +565,7 @@ Si bien esta mutación es muy sencilla, resultó ser de vital importancia en el 
       <div class="mutation"><div class="flex wrap gap3 mb2">  <div><div class="flex"><div class="circle light"><p>0</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>5</p></div></div>  <div class="underline-light">viajante A</div>  </div>  <div><div class="flex"><div class="circle light"><p>4</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>6</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>1</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>2</p></div><i class="icono-arrow1-left"></i><div class="circle yellow-crayola"><p>3</p></div><i class="icono-arrow1-left"></i><div class="circle light"><p>7</p></div></div>  <div class="underline-light">viajante B</div>  </div>  </div></div>    <p>En este caso, por ser dos rutas, una ruta queda con todas las visitas. Esto puede ser contraproducente si supera el
         máximo de visitas razonables por médico en una jornada laboral. Si eso sucede, la solución será penalizada.</p>
 
-<div class="align-left mt3"><a href="#mutation">Volver a Mutación <i class="fa-solid fa-arrow-up"></i></a></div><h3 id="rem">Reduce Entropy Mutation <span todo>Nuevo!</span> (<abbr title="Reduce Entropy Mutation">REM</abbr>)</h3><!--    <h3 id="rem">Reduce Entropy Mutation (REM) <span todo>Nuevo!</span></h3>-->
+<div class="align-left mt3"><a href="#mutation">Volver a Mutación <i class="fa-solid fa-arrow-up"></i></a></div><h3 id="rem">Reduce Entropy Mutation (<abbr title="Reduce Entropy Mutation">REM</abbr>)</h3><!--    <h3 id="rem">Reduce Entropy Mutation (REM) <span todo>Nuevo!</span></h3>-->
     <p>Inspirados en los procesos naturales que llevan grupos de elementos al equilibrio reduciendo la entropía (en términos de
         <em>grado de desorden</em>) del grupo,
     como por ejemplo un cuerpo celeste que tiende a ser atraído a otro con masa gravitacional mayor, o la forma en que la arena
@@ -705,7 +703,7 @@ de la siguiente generación. La elección de qué función usar se hace de maner
 
 
 
-<h3 id="survivors-comparison">Comparación de resultados entre ambas distribuciones probabilísticas <span todo>Nuevo!</span></h3>
+<h3 id="survivors-comparison">Comparación de resultados entre ambas distribuciones probabilísticas</h3>
     <p>
         Para elegir la relación de ejecución entre una u otra probabilidad de selección realizamos
         una serie de ejecuciones en un set de datos conocido con distintas combinaciones:
@@ -776,7 +774,7 @@ esa solución antes de llegar al límite, se extiende la ejecución unas iteraci
         del algoritmo.
     </p>
 
-    <h3>Shake mutation <span todo>Nuevo!</span></h3>
+    <h3>Shake mutation</h3>
     <p>
         Notamos que el algoritmo en general converge hacia una solución, y luego
         tarda muchas iteraciones en encontrar soluciones mejores. Por esta razón planteamos
@@ -795,7 +793,7 @@ esa solución antes de llegar al límite, se extiende la ejecución unas iteraci
     <p>
         Finalmente decidimos retirar esta modificación del algoritmo.
     </p>
-    <h3>Sort + immigration <span todo>Nuevo!</span></h3>
+    <h3>Sort + immigration</h3>
     <p>
         Nuevamente, intentando atacar el estancamiento del algoritmo agregamos otra modificación en
         la que esta vez, a intervalos regulares duplicamos el pool genético justo antes del proceso

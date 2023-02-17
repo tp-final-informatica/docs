@@ -44,8 +44,8 @@ $crossover_index = new Index(['id'=>$id, 'value'=>$title], [
         pueden pertenecer a cualquiera de las rutas de los viajantes.</p>
     <p>Nuestro algoritmo hereda los puntos compartidos por los padres a las soluciones hijas, y distribuye los puntos
         no compartidos entre las soluciones hijas de manera aleatoria.</p>
-    <p>Finalmente se modifica el orden de las rutas <s>aleatoriamente también</s><span todo>mediante el siguiente algoritmo:</span></p>
-    <ul todo>
+    <p>Finalmente se modifica el orden de las rutas mediante el siguiente algoritmo:</p>
+    <ul>
         <li>
             se elige una visita de la ruta de forma aleatoria,
         </li>

@@ -120,7 +120,7 @@ de la siguiente generación. La elección de qué función usar se hace de maner
 
 
 
-<h3 id="survivors-comparison">Comparación de resultados entre ambas distribuciones probabilísticas <span todo>Nuevo!</span></h3>
+<h3 id="survivors-comparison">Comparación de resultados entre ambas distribuciones probabilísticas</h3>
     <p>
         Para elegir la relación de ejecución entre una u otra probabilidad de selección realizamos
         una serie de ejecuciones en un set de datos conocido con distintas combinaciones:
